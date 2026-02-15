@@ -1,0 +1,4 @@
+{
+    "think": "...", // The reasoning process
+    "go_ahead": true
+}

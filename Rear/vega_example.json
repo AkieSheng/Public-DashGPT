@@ -1,0 +1,273 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "http://localhost:8888/data.csv"
+    },
+    "vconcat": [
+        {
+            "description": "View 1: Bar chart",
+            "mark": "bar",
+            "encoding": {
+                "x": {
+                    "field": "user_gender",
+                    "type": "nominal"
+                },
+                "y": {
+                    "aggregate": "count",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "field": "churn_reason",
+                    "type": "nominal"
+                }
+            },
+            "params": [
+                {
+                    "name": "selected_gender",
+                    "select": {
+                        "type": "point",
+                        "encodings": [
+                            "x"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "hconcat": [
+                {
+                    "description": "View 2: Scatter plot of churn score vs CLTV",
+                    "data": {
+                        "url": "http://localhost:8888/High_Value_At_Risk.csv"
+                    },
+                    "mark": "circle",
+                    "encoding": {
+                        "x": {
+                            "field": "churn_score",
+                            "type": "quantitative"
+                        },
+                        "y": {
+                            "field": "cltv",
+                            "type": "quantitative"
+                        },
+                        "tooltip": [
+                            {
+                                "field": "customer_id",
+                                "type": "nominal"
+                            },
+                            {
+                                "field": "cltv",
+                                "type": "quantitative"
+                            },
+                            {
+                                "field": "churn_score",
+                                "type": "quantitative"
+                            }
+                        ]
+                    },
+                    "transform": [
+                        {
+                            "lookup": "customer_id",
+                            "from": {
+                                "data": {
+                                    "url": "http://localhost:8888/Churn_Customers.csv"
+                                },
+                                "key": "customer_id",
+                                "fields": [
+                                    "churn_reason"
+                                ]
+                            }
+                        },
+                        {
+                            "filter": {
+                                "param": "selected_churn_reason"
+                            }
+                        }
+                    ],
+                    "params": [
+                        {
+                            "name": "scatter_zoom",
+                            "select": "interval",
+                            "bind": "scales"
+                        }
+                    ]
+                },
+                {
+                    "description": "View 3: Heatmap of service usage among churned customers",
+                    "data": {
+                        "url": "http://localhost:8888/Service_Usage_Churned.csv"
+                    },
+                    "mark": "rect",
+                    "encoding": {
+                        "x": {
+                            "field": "internet_service",
+                            "type": "nominal"
+                        },
+                        "y": {
+                            "field": "phone_service",
+                            "type": "nominal"
+                        },
+                        "color": {
+                            "aggregate": "count",
+                            "type": "quantitative"
+                        }
+                    },
+                    "transform": [
+                        {
+                            "lookup": "customer_id",
+                            "from": {
+                                "data": {
+                                    "url": "http://localhost:8888/Churn_Customers.csv"
+                                },
+                                "key": "customer_id",
+                                "fields": [
+                                    "churn_reason"
+                                ]
+                            }
+                        },
+                        {
+                            "filter": {
+                                "param": "selected_churn_reason"
+                            }
+                        }
+                    ],
+                    "params": [
+                        {
+                            "name": "selected_service_usage",
+                            "select": "interval"
+                        }
+                    ]
+                },
+                {
+                    "description": "View 4: Pie chart for payment method proportions",
+                    "data": {
+                        "url": "http://localhost:8888/Contract_Charge_Correlation.csv"
+                    },
+                    "mark": "arc",
+                    "encoding": {
+                        "theta": {
+                            "field": "payment_method",
+                            "type": "quantitative",
+                            "aggregate": "count"
+                        },
+                        "color": {
+                            "field": "payment_method",
+                            "type": "nominal"
+                        }
+                    },
+                    "transform": [
+                        {
+                            "lookup": "customer_id",
+                            "from": {
+                                "data": {
+                                    "url": "http://localhost:8888/Churn_Customers.csv"
+                                },
+                                "key": "customer_id",
+                                "fields": [
+                                    "churn_reason"
+                                ]
+                            }
+                        },
+                        {
+                            "filter": {
+                                "param": "selected_churn_reason"
+                            }
+                        },
+                        {
+                            "lookup": "customer_id",
+                            "from": {
+                                "data": {
+                                    "url": "http://localhost:8888/Service_Usage_Churned.csv"
+                                },
+                                "key": "customer_id",
+                                "fields": [
+                                    "phone_service",
+                                    "internet_service"
+                                ]
+                            }
+                        },
+                        {
+                            "filter": {
+                                "param": "selected_service_usage"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "View 5: Histogram of tenure among churned customers",
+            "data": {
+                "url": "http://localhost:8888/Demographics_Churn.csv"
+            },
+            "mark": "bar",
+            "encoding": {
+                "x": {
+                    "field": "tenure",
+                    "type": "quantitative",
+                    "bin": true
+                },
+                "y": {
+                    "aggregate": "count",
+                    "type": "quantitative"
+                }
+            },
+            "transform": [
+                {
+                    "lookup": "internet_service",
+                    "from": {
+                        "data": {
+                            "url": "http://localhost:8888/Service_Usage_Churned.csv"
+                        },
+                        "key": "internet_service",
+                        "fields": [
+                            "internet_service"
+                        ]
+                    }
+                },
+                {
+                    "filter": {
+                        "param": "selected_service_usage"
+                    }
+                }
+            ],
+            "params": [
+                {
+                    "name": "selected_tenure",
+                    "select": "interval"
+                }
+            ]
+        },
+        {
+            "description": "View 6: Table of detailed churned customer information",
+            "transform": [
+                {
+                    "lookup": "customer_id",
+                    "from": {
+                        "data": {
+                            "url": "http://localhost:8888/Churn_Customers.csv"
+                        },
+                        "key": "customer_id",
+                        "fields": [
+                            "customer_id",
+                            "churn_label",
+                            "churn_reason"
+                        ]
+                    }
+                },
+                {
+                    "filter": {
+                        "param": "selected_tenure"
+                    }
+                }
+            ],
+            "mark": "text",
+            "encoding": {
+                "text": {
+                    "field": "customer_id",
+                    "type": "nominal"
+                }
+            }
+        }
+    ]
+}

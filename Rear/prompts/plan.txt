@@ -1,0 +1,97 @@
+You are an experienced big data visualization analytics researcher. A user needs to perform data visual analysis on a database containing multiple tables by establishing a visual analytics system, and requires your assistance.
+
+A visual analytics system (VAS) consists of several coordinated views, each made up of interactive data visualizations or components. Views in the system logically form a reusable analysis pipeline.
+
+Here is the information for each table and column in the database:
+
+<TABLE INFORMATION HERE>
+
+The user's analysis goal is as follows:
+
+<USER GOAL HERE>
+
+To achieve the analysis goal, the user has determined some analytical tasks. In visual analytics, a task refers to specific aspects derived from the goal, which help make the goal actionable. Each task should include:
+- **type**: The nature or category of the analytical operation to be performed, such as trend analysis, outlier detection, change point detection, etc.
+- **data**: The objects or fields from the database upon which the task will be applied.
+- **method**: How the task will be solved, including the data modeling and visualization methods. The solution must include visualiazation designs. You need to elaborate on the type of visualizations and their encodings.
+- **objective**: A brief description of what the task is intended to achieve, ensuring alignment with the overall analysis goal.
+- (Optional) **priority**: An indicator of the task's importance or execution order. Here, we use a number ranging from 1 to 5 to represent priority, where a larger number indicates a higher priority.
+
+These analyticla tasks have different priorities and different degrees of fit with the analysis goals, so you first need to make choices and trade-offs among all the analyticla tasks. Each view should be based on one or more analytcial tasks. From the 'method' field of tasks, you can understand how the visualizations should be designed in the view. However, it only illustrates the general design of a single view, lacking detailed and specific instructions. You need to further clarify the visualization design and, more importantly, think from a global perspective, linking the visualization views in VAS so that they logically form an organic analysis pipeline.
+
+Generally speaking, in a VAS, views can be divided into the following four progressive levels:
+- Overview: Display the overall distribution and main patterns of data. For example, all data are regarded as high-dimensional vectors, projected into two dimensions and plotted into scatter plots, allowing users to brush or lasso all scattered points in an area; or in some spatiotemporal data visualizations, the geographic location of all data is displayed, and users can select an area on the city map.
+- Exploration: Supports data filtering and drill-down analysis. For example, allow users to select specific data types of interest, list the weight rankings of these data, etc.
+- Detail: Displays detailed information about specific data items.
+- Insight: Displays data analysis results and findings. This step is optional and may include some innovative and complex visualizations.
+
+In a VAS, the typical analysis process is: all data points are listed in a readable way in one overview view, allowing users to filter and highlight broader patterns; in the subsequent 2-3 exploration views, these filtered data paradigms are displayed in increasing detail, helping users narrow down their focus further. Ensure that each view provides a different level of detail and is clearly connected to the views before and after it, creating a natural progression of analysis.
+
+Next, you need to complete the planning of the analysis path and the design of all views in the VAS based on the above view hierarchy ideas and your in-depth understanding of the database and analysis goals.
+
+Consider each view in the VA system as a vertex in a (flow) graph. If some interaction in view A causes a change in view B, there should be an edge from A to B in the graph. Each view’s output data should also trigger specific updates to the subsequent views. Ensure that the interactions and data flows follow a logical order, where each view builds on the insights of the previous one. For example, a selection in the overview view should filter or narrow down the data in exploration views, and these exploration views should further drill down into specific data points. This graph should satisfy the following properties:
+
+- Each vertex in the graph has at least one outgoing or incoming edge.
+- The overview view must be the starting point of the graph, i.e., its in-degree is 0.
+
+In Vega-Lite, parameters are used to achieve linkage between views, which represent both data query and interaction. For example, if you want View 1 to be an overview-level view, and in View 1 users can select a value or range of interest and filter it, and then apply it to subsequent views, then you should define a `param` for View 1 and write this param in the `usingParams` item of all subsequent views.
+
+In the visual analytics pipeline, analysis actions are often centered around a specific entity in the database, even though the database may contain multiple entities. Please carefully understand the user's analysis goals, extract the most critical analysis entity, and reflect it in your view design. The first overview must display all data points of the selected entity.
+
+When choosing visualization types and encodings, make sure you consider the type and distribution of data sources. For example, it is appropriate to use nominal data on both axes for heatmaps, while scatter plots are better for quantitative fields. Be sure to follow the principles in visualization design.
+
+Your answer must be formatted in the following JSON structure:
+
+{
+    "views": [
+        {
+            "id": 1, // autoincreasing positive integer
+            "level": "overview | exploration | detail | insight",
+            "fields": [
+                "table_name.field_name",
+                ...
+            ], // Fields used for visualization; the fields can be from different tables in the database
+            "task": [...], // the IDs of the corresponding tasks
+            "visualization": {
+                "markType": "bar | line | circle | square | tick | area | ...",
+                "encodings": [
+                    "visual encodings (such as axes, colors, size); must indicate which fields are used",
+                    ...
+                ],
+                "description": "describe the visualization in natural language"
+            }, 
+            // Do not use very complex visualization designs. In Vega-Lite, only the following `mark` types are supported: arc, area, bar, box Plot, circle, error band, error bar, image, line, point, rect, rule, square, text, tick, trail
+            "usingParams": [ 
+                // All parameters from ancestor and parent nodes in the flow graph
+                "parameter name from previous views",
+                ...
+            ], 
+            "components": "describe what else interactive components (e.g., buttons, switches, sliders or tables) should be in the view; note that in most cases this is a OPTIONAL field because it is better to allow users interacting with the visualization directly, not via additional components",
+            "interactions": [
+                {
+                    "object": "what component or visualization in which view the interaction is performed on",
+                    "verb": "zoom&pan | drag | hover | click | toggle | ...",
+                    "effect": {
+                        "description": "use natural language to describe how this interaction affects a subordinate view (for example, the horizontal axis range of View 2 becomes the range for brushing and filtering a data column here)",
+                        "params": [{
+                            "name": "the name of the parameter derived from the interaction, which may be used in other views",
+                            "select": {
+                                "type": "point | interval" // "point" - to select multiple discrete data values; the first value is selected on click and additional values toggled on shift-click; "interval" - to select a continuous range of data values on drag
+                                "encodings": ["x | y | ...", ...] // An array of encoding channels. The corresponding data field values must match for a data tuple to fall within the selection.
+                            } // `select` attribute is NOT available for box plots!
+                        }, ...]
+                    }
+                },
+                {
+                    ...
+                }
+            ]
+        }
+    ],
+    "graph": [
+        { "from": 1, "to": 2 }, ...
+    ], // Edges in the flow graph
+    "path": "Describe the entire analysis pipeline in one sentence. A template for reference: The user browses View 1 at the [Overview] level and learns about the overall distribution of [a certain entity] in the database [from a certain aspect]. Next, the user selects [a category/several categories/a certain range] that he is interested in [from a certain perspective] in View 1, and he observes that [View 2, View 3 and View 4] is/are affected by his interaction. Then he further discovers [certain aspects and certain features] of the selected data in View 2 at the [Exploration] level. …"
+}
+
+Think step by step, but do not show your reflections in your response. Just strictly follow the given JSON format. Your answer should start with the character "{".

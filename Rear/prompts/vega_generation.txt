@@ -1,0 +1,333 @@
+You are an experienced big data visualization analytics researcher. A user needs to perform data visual analysis on a database containing multiple tables by establishing a visual analytics system, and requires your assistance.
+
+A visual analytics system (VAS) consists of several coordinated views, each made up of interactive data visualizations or components. Views in the system logically form a reusable analysis pipeline.
+
+Here is the information for each table and column in the database:
+
+<TABLE INFORMATION HERE>
+
+The user's analysis goal is as follows:
+
+<USER GOAL HERE>
+
+To achieve the analysis goal, the user has performed several SQL operations on the database. These operations are all `CREATE VIEW` statements. In other words, the user has generated several intermediate tables (or views). In addition, the user also planned in detail the design of each view in VAS (the "view" here is not the "view" in SQL), including the visualizations and interactive components they contain, the intermediate tables used (as data sources), and the linkages between these views (realized through user interaction).
+
+The intermediate tables are defined as folllows:
+
+<INTERMEDIATE TABLES HERE>
+
+After completing all the planning, the last step is to generate VAS. VAS will be expressed in Vega-Lite language. Please think carefully, understand the database and the user's analysis goals, and map them one by one to the views in VAS according to the view design completed by the user. Please note that if you want to use an intermediate table named `table_name`, please assume that it can be accessed through http://localhost:8888/table_name.csv. That is, when specifying the data source used by the visualization, please be careful and confirm that the fields you use exist in the data table corresponding to the `data` attribute. To implement interactive effects in Vega-Lite views, use the `params` attribute and `transform` attribute similar to the example below. Height and width of each view in the Vega-Lite specification should be fixed at 200.
+
+Consider each view in the VA system as a vertex in a (flow) graph. If some interaction in view A causes a change in view B, there should be an edge from A to B in the graph. This graph should satisfy the following properties:
+
+- Each vertex in the graph has at least one outgoing or incoming edge;
+- The overview view must be the starting point of the graph, i.e. its in-degree is 0.
+
+The flow graph actually guides you which parameters of the previous views should be used in each view. A parameter should be used if and only if its from the parent or ancestor view of the current view. Here is an example to use two parameters from two ancestor views simultaneously:
+
+"transform": [
+    {
+        "lookup": "user_id", // The primary key to lookup in the other_table_1
+        "from": {
+            "data": {"url": "http://localhost:8888/other_table_1.csv"},
+            "key": "user_id", // The primary key in the table used in current view
+            "fields": ["user_gender"] // Fields in other_table_1 used for filtering
+        }
+    },
+    {
+      "filter": {"param": "selected_user_gender"}
+    },
+    {
+        "lookup": "user_id", // The primary key to lookup in the other_table_2
+        "from": {
+            "data": {"url": "http://localhost:8888/other_table_2.csv"},
+            "key": "user_id", // The primary key in the table used in current view
+            "fields": ["user_category", "user_score"] // Fields in other_table_2 used for filtering
+        }
+    },
+    {
+      "filter": {"param": "selected_user_demographics"}
+    }
+]
+
+Be careful not to confuse `lookup`, `from.key` and `from.fields` when using parameters from other views. The former two represents primary key in other view and current view separately, while the latter represents fields from other views (that are to be added in current view).
+
+Here is a typical example of a Vega-Lite specification:
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "columns": 2,
+    "concat": [
+        {
+            "height": 200,
+            "width": 200,
+            "data": {
+                "url": "http://localhost:8888/user_basic_info.csv"
+            },
+            "description": "View 1",
+            "mark": "bar",
+            "encoding": {
+                "x": {
+                    "field": "user_gender",
+                    "type": "nominal",
+                    "title": "User Gender"
+                },
+                "y": {
+                    "aggregate": "count",
+                    "type": "quantitative",
+                    "title": "Count of Records"
+                },
+                "color": {
+                    "field": "user_gender",
+                    "type": "nominal",
+                    "title": "User Gender"
+                },
+                "opacity": {
+                    "value": 0.3,
+                    "condition": {
+                        "param": "selected_gender",
+                        "value": 1
+                    }
+                }
+            },
+            "params": [
+                {
+                    "name": "selected_gender",
+                    "select": {
+                        "type": "point",
+                        "encodings": [
+                            "x"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "height": 200,
+            "width": 200,
+            "description": "View 2",
+            "data": {
+                "url": "http://localhost:8888/user_score.csv"
+            },
+            "mark": "circle",
+            "encoding": {
+                "x": {
+                    "field": "user_score",
+                    "type": "quantitative",
+                    "title": "User Score",
+                    "scale": {
+                        "zero": false,
+                        "nice": true
+                    }
+                },
+                "y": {
+                    "field": "user_activity",
+                    "type": "quantitative",
+                    "title": "User Activity",
+                    "scale": {
+                        "zero": false,
+                        "nice": true
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "user_id",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "user_activity",
+                        "type": "quantitative"
+                    },
+                    {
+                        "field": "user_score",
+                        "type": "quantitative"
+                    }
+                ]
+            },
+            "transform": [
+                {
+                    "lookup": "user_id",
+                    "from": {
+                        "data": {
+                            "url": "http://localhost:8888/user_basic_info.csv"
+                        },
+                        "key": "user_id",
+                        "fields": [
+                            "user_gender"
+                        ]
+                    }
+                },
+                {
+                    "filter": {
+                        "param": "selected_gender"
+                    }
+                },
+                {
+                    "sample": 150 // Required for all scatter plots to avoid displaying too many points simultaneously
+                }
+            ],
+            "params": [
+                {
+                    "name": "scatter_zoom",
+                    "select": {
+                        "type": "interval"
+                    },
+                    "bind": "scales"
+                }
+            ]
+        },
+        {
+            "height": 200,
+            "width": 200,
+            "description": "View 3",
+            "data": {
+                "url": "http://localhost:8888/user_work_category.csv"
+            },
+            "mark": "rect",
+            "encoding": {
+                "x": {
+                    "field": "work_1_category",
+                    "type": "nominal",
+                    "title": "Work 1 Category"
+                },
+                "y": {
+                    "field": "work_2_category",
+                    "type": "nominal",
+                    "title": "Work 2 Cateogory"
+                },
+                "color": {
+                    "aggregate": "count",
+                    "type": "quantitative"
+                    "title": "Count of Records"
+                },
+                "opacity": {
+                    "value": 0.3,
+                    "condition": {
+                        "param": "selected_work_category",
+                        "value": 1
+                    }
+                }
+            },
+            "transform": [
+                {
+                    "lookup": "user_id",
+                    "from": {
+                        "data": {
+                            "url": "http://localhost:8888/user_basic_info.csv"
+                        },
+                        "key": "user_id",
+                        "fields": [
+                            "selected_gender"
+                        ]
+                    }
+                },
+                {
+                    "filter": {
+                        "param": "selected_gender"
+                    }
+                }
+            ],
+            "params": [
+                {
+                    "name": "selected_work_category",
+                    "select": {
+                        "type": "interval"
+                    }
+                }
+            ]
+        },
+        {
+            "height": 200,
+            "width": 200,
+            "description": "View 4",
+            "data": {
+                "url": "http://localhost:8888/user_income.csv"
+            },
+            "mark": "arc",
+            "encoding": {
+                "theta": {
+                    "field": "income_category",
+                    "type": "quantitative",
+                    "aggregate": "count"
+                },
+                "color": {
+                    "field": "income_category",
+                    "type": "nominal",
+                    "title": 'Income Category"
+                }
+            },
+            "transform": [
+                // This view is affected by interactions in both view 1 & 2, in which case you need to 'lookup' additional fields from the data sources in both tables.
+                {
+                    "lookup": "user_id",
+                    "from": {
+                        "data": {
+                            "url": "http://localhost:8888/user_basic_info.csv"
+                        },
+                        "key": "user_id",
+                        "fields": [
+                            "user_gender"
+                        ]
+                    }
+                },
+                {
+                    "filter": {
+                        "param": "selected_gender"
+                    }
+                },
+                {
+                    "lookup": "user_id",
+                    "from": {
+                        "data": {
+                            "url": "http://localhost:8888/user_work_category.csv"
+                        },
+                        "key": "user_id",
+                        "fields": [
+                            "work_1_category",
+                            "work_2_category"
+                        ]
+                    }
+                },
+                {
+                    "filter": {
+                        "param": "selected_work_category"
+                    }
+                }
+            ]
+        },
+        {
+            "description": "View 5: An example of displaying a table; do NOT specify width & height for tables",
+            "data": {
+                "url": "http://localhost:8888/table_data.csv"
+            },
+            "title": "Name Of The Table",
+            "transform": [
+                ...,
+                // If there are previous transformations (e.g. filtering), make sure you put them before the 'window' transformation
+                { "window": [{"op": "row_number", "as": "row_number"}] },
+                // Avoid displaying too many rows simultaneously
+                { "filter": {"field": "row_number", "lte": 10} }
+            ],
+            "hconcat": [
+                {
+                    "title": "column_1",
+                    "mark": "text",
+                    "encoding": {
+                        "text": {"field": "column_1", "type": "nominal"},
+                        "y": {"field": "row_number", "type": "ordinal", "axis": null}
+                    }
+                },
+                {
+                    "title": "column_2",
+                    "mark": "text",
+                    "encoding": {
+                        "text": {"field": "column_2", "type": "nominal"},
+                        "y": {"field": "row_number", "type": "ordinal", "axis": null}
+                    }
+                }, ...
+            ]
+        }
+    ]
+}
+
+Think step by step, but do not show your reflections in your response. Your answer should only include a Vega-Lite specifications that is complete, executable, and generated in strict compliance with the above requirements. Your answer should start with the character "{".

@@ -1,0 +1,52 @@
+{
+    "think": "...", // The reasoning process
+    "go_ahead": true,
+    "views": [
+        {
+            "viewId": 1, // autoincreasing positive integer
+            "level": "overview | exploration | detail | insight",
+            "fields": [
+                "table_name.field_name", // Check carefully to ensure you refer to correct table names and column names
+                ...
+            ], // Fields used for visualization; the fields can be from different tables in the database
+            "visualization": {
+                "markType": "bar | line | circle | square | tick | area | ...",
+                "encodings": [
+                    "visual encodings (such as axes, colors, size); must indicate which fields are used",
+                    ...
+                ],
+                "description": "describe the visualization in natural language"
+            }, 
+            // Do not use very complex visualization designs. In Vega-Lite, only the following `mark` types are supported: arc, area, bar, box plot, circle, error band, error bar, image, line, point, rect, rule, square, text, tick, trail
+            "usingParams": [ 
+                // All parameters from ancestor and parent nodes in the flow graph
+                "parameter name from previous views",
+                ...
+            ], 
+            "components": "describe what else interactive components (e.g., buttons, switches, sliders or tables) should be in the view; note that in most cases this is a OPTIONAL field because it is better to allow users interacting with the visualization directly, not via additional components",
+            "interactions": [
+                {
+                    "object": "what component or visualization in which view the interaction is performed on",
+                    "verb": "zoom&pan | drag | hover | click | toggle | ...",
+                    "effect": {
+                        "description": "use natural language to describe how this interaction affects a subordinate view (for example, the horizontal axis range of View 2 becomes the range for brushing and filtering a data column here). Make sure [verb] on [object], then [effect.description] form a complete sentence",
+                        "params": [{
+                            "name": "the name of the parameter derived from the interaction, which may be used in other views",
+                            "select": {
+                                "type": "point | interval" // "point" - to select multiple discrete data values; the first value is selected on click and additional values toggled on shift-click; "interval" - to select a continuous range of data values on drag
+                                "encodings": ["x | y | ...", ...] // An array of encoding channels. The corresponding data field values must match for a data tuple to fall within the selection.
+                            } // `select` attribute is NOT available for box plots!
+                        }, ...]
+                    }
+                },
+                {
+                    ...
+                }
+            ]
+        }
+    ],
+    "graph": [
+        { "from": viewId_1, "to": viewId_2}, ...
+    ], // Edges in the flow graph
+    "path": "Describe the entire analysis pipeline in one sentence. A template for reference: The user browses View 1 at the [Overview] level and learns about the overall distribution of [a certain entity] in the database [from a certain aspect]. Next, the user selects [a category/several categories/a certain range] that he is interested in [from a certain perspective] in View 1, and he observes that [View 2, View 3 and View 4] is/are affected by his interaction. Then he further discovers [certain aspects and certain features] of the selected data in View 2 at the [Exploration] level. …"
+}

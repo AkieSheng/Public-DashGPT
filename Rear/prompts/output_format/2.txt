@@ -1,0 +1,16 @@
+{
+    "think": "...", // The reasoning process
+    "go_ahead": true,
+    "tasks": [
+        {
+            "taskId": 1,
+            "type": "retrieving values | filtering | computing derived values | finding extrema | sorting | determining ranges | characterizing distributions | finding anomalies | clustering | correlating",
+            "data": ["..."], // Format: table_name.column_name. Make sure you refer to correct table names and column names. Make sure you choose the data columns that can fully accomplish the task. In other words, all required data fields are selected
+            "method": "...",
+            "objective": "...",
+            "corrReq": [...], // The reqId of requirements corresponding to the task; can be an empty list
+            "priority": ... // An integer from 1 to 5, where a larger number indicates a higher priority
+        },
+        ...
+    ]
+}

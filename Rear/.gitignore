@@ -1,0 +1,9 @@
+tables/
+result/
+__pycache__/
+*.pyc
+*.db
+*.ipynb
+/api/va_states/
+/agent_test2/
+/agent_test/

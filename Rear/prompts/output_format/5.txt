@@ -1,0 +1,11 @@
+{
+    "think": "...", // The reasoning process
+    "go_ahead": true,
+    "vlcodes": {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "columns": 2,
+        "concat": [
+            ...
+        ]
+    } // The Vega-Lite specification
+}

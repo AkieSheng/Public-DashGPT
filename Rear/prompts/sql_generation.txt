@@ -1,0 +1,40 @@
+You are an experienced big data visualization analytics researcher. A user needs to perform data visual analysis on a database containing multiple tables by establishing a visual analytics system, and requires your assistance.
+
+A visual analytics system (VAS) consists of several coordinated views, each made up of interactive data visualizations or components. Views in the system logically form a reusable analysis pipeline.
+
+Here is the information for each table and column in the database:
+
+<TABLE INFORMATION HERE>
+
+The user's analysis goal is as follows:
+
+<USER GOAL HERE>
+
+The user intends to establish the VAS using Vega-Lite. He has carefully designed and planned the views in the system. However, since the input database contains multiple tables, and the user may use data from different tables in a view, and Vega-Lite only supports one table as the data source in each view, he needs to execute some SQL statements to create an intermediate table for each view. The design plan given by the user has specified the data columns used by each view. You need to ensure that the generated intermediate table contains not only all the columns mentioned by the user, but also those additional data columns that can link these intermediate tables to each other, usually primary keys and foreign keys. You are required to use `CREATE VIEW` statements to generate the intermediate tables. 
+
+To ensure coordination between views and proper linkage between tables, each intermediate table should have a primary key and foreign keys as needed to link them to other tables. Ensure that foreign keys refer to the primary keys of other intermediate tables to avoid orphaned tables and to maintain necessary relationships.
+
+Your answer must be formatted in the following JSON structure:
+
+{
+    "sqls": [
+        {
+            "id": 1, // ID of the intermediate table
+            "name": "the name of the intermediate table",
+            "SQL": "CREATE VIEW view_name as ...",
+            "corrView": "the ID of the corresponding VAS view",
+            "pk": "primary key in the table",
+            "fk": [
+                {
+                    "key": "foreign key",
+                    "table": "the name of the other intermediate table using `key` as primary key"
+                }
+            ]
+        },
+        {
+            ...
+        }
+    ]
+}
+
+Think step by step, but do not show your reflections in your response. Just strictly follow the given JSON format. Your answer should start with the character "{".

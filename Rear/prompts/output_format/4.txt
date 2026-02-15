@@ -1,0 +1,20 @@
+{
+    "think": "...", // The reasoning process
+    "go_ahead": true,
+    "sqls": [
+        {
+            "intertabId": 1, 
+            "name": "the name of the intermediate table (view_name)",
+            "SQL": "CREATE VIEW view_name AS ...",
+            "corrView": ...,  // the viewID of the corresponding CMVs view
+            "pk": "primary key in the table; typically an ID field",
+            "fk": [
+                {
+                    "key": "foreign key", // typically an ID field
+                    "corrTab": "..." // the intertabId of the tables using using this `key` as primary key
+                }
+            ]
+        },
+        ...
+    ]
+}
