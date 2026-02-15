@@ -1,0 +1,1 @@
+{"stage": "TASK GENERATION", "stageId": 2, "outputs": {"tasks": [{"type": "Demographic Segmentation", "data": ["age_group", "churn_value", "customer_status"], "method": "Stacked bar chart showing churn distribution across age groups. X-axis: age_group, Y-axis: count, Color: churn_label", "objective": "Identify which age segments have highest churn rates", "priority": 1}]}}

@@ -1,0 +1,1 @@
+{"stage": "VEGA-LITE GENERATION", "stageId": 5, "outputs": {"vlcodes": {"V1": {"encoding": {"column": {"axis": {"titleColor": "black"}}}}}}}
