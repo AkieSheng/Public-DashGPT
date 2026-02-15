@@ -1,0 +1,173 @@
+[
+  {
+    "id": 1,
+    "type": "correlating",
+    "data": [
+      "satisfaction_score",
+      "churn_score",
+      "cltv",
+      "customer_status"
+    ],
+    "method": "Scatter plot with churn score on the X-axis, satisfaction score on the Y-axis, CLTV encoded as point size, and risk categories encoded as color. Enable brushing and linking to highlight specific risk categories.",
+    "objective": "Identify relationships among churn score, satisfaction score, and CLTV to understand risk categories visually and explore patterns in churn likelihood.",
+    "corrReq": [
+      "D1",
+      "D5",
+      "V1",
+      "I1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "characterizing distributions",
+    "data": [
+      "churn_score",
+      "gender",
+      "senior_citizen",
+      "under_30",
+      "partner",
+      "dependents"
+    ],
+    "method": "Box plot to display the distribution of churn scores across different demographic groups.",
+    "objective": "Identify how churn score distributions vary across demographic groups and detect any outliers or patterns.",
+    "corrReq": [
+      "D6",
+      "V5",
+      "I3"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 3,
+    "type": "clustering",
+    "data": [
+      "demographics (age, gender, senior_citizen, partner, dependents)",
+      "behavioral metrics (cltv, satisfaction_score, churn_score)"
+    ],
+    "method": "K-means clustering with a parallel coordinates chart to visualize cluster patterns and distinguish customer segments based on attributes.",
+    "objective": "Group customers into similar clusters for understanding churn risk and suggesting personalized retention strategies.",
+    "corrReq": [
+      "D4",
+      "V7",
+      "I7"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 4,
+    "type": "computing derived values",
+    "data": [
+      "satisfaction_score",
+      "churn_score",
+      "cltv"
+    ],
+    "method": "Create a new categorical feature combining churn score, satisfaction score, and CLTV into risk levels ('High', 'Medium', 'Low'). Use color shading in heatmaps to show aggregated trends.",
+    "objective": "Simplify analysis by summarizing churn risk factors into actionable risk-level categories.",
+    "corrReq": [
+      "D5",
+      "V4",
+      "I6"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 5,
+    "type": "determining ranges",
+    "data": [
+      "tenure",
+      "churn_score"
+    ],
+    "method": "Line chart showing average churn score against customer tenure. Enable range selection for zooming into specific tenure intervals.",
+    "objective": "Understand how churn score trends evolve with tenure to identify time-based retention risks.",
+    "corrReq": [
+      "D2",
+      "V6",
+      "I5"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 6,
+    "type": "filtering",
+    "data": [
+      "churn_score",
+      "satisfaction_score",
+      "demographics"
+    ],
+    "method": "Interactive filtering with dropdown menus to dynamically focus on high churn scores and low satisfaction scores while preserving demographic breakdowns.",
+    "objective": "Target customers at highest risk of churning for focused analysis and intervention.",
+    "corrReq": [
+      "D3",
+      "I2",
+      "I7"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 7,
+    "type": "retrieving values",
+    "data": [
+      "customer_id",
+      "satisfaction_score",
+      "churn_score",
+      "churn_label"
+    ],
+    "method": "Drill-down interactions to view individual customer details by clicking on scatter plot points or bars in visualizations.",
+    "objective": "Allow deep analysis of individual customers' metrics for personalized retention strategies.",
+    "corrReq": [
+      "D7",
+      "I4"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 8,
+    "type": "characterizing distributions",
+    "data": [
+      "churn_label",
+      "churn_category"
+    ],
+    "method": "Pie chart showing the proportion of customers within each churn category (e.g., Stayed, Churned, Joined).",
+    "objective": "Provide an easily interpretable overview of customer churn distribution and category shares.",
+    "corrReq": [
+      "D6",
+      "V3"
+    ],
+    "priority": 2
+  },
+  {
+    "id": 9,
+    "type": "aggregating",
+    "data": [
+      "cltv",
+      "churn_score",
+      "demographics (gender, senior_citizen, partner)"
+    ],
+    "method": "Bar charts to compare average CLTV and churn scores across different demographic categories.",
+    "objective": "Identify how customer lifetime value and churn likelihood vary by demographic segments.",
+    "corrReq": [
+      "D6",
+      "V2",
+      "I8"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 10,
+    "type": "finding anomalies",
+    "data": [
+      "cltv",
+      "churn_score",
+      "satisfaction_score"
+    ],
+    "method": "Scatter plot matrix to detect customers with anomalies in churn, satisfaction, and revenue metrics. Highlight outliers using visual cues.",
+    "objective": "Spot customers who exhibit unusual behavior for deeper investigation.",
+    "corrReq": [
+      "D1",
+      "I1",
+      "V1"
+    ],
+    "priority": 3
+  }
+]

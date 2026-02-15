@@ -1,0 +1,1103 @@
+{
+  "created": 1742633444,
+  "dataset": {
+    "description": "The database offers a comprehensive view of an educational institution’s academic ecosystem, covering details about courses, departments, enrollment, faculty, students, and related administrative information.",
+    "tables": [
+      {
+        "columns": [
+          {
+            "column": "StuID",
+            "description": "Unique identifier for students, sequential numerical code showing student enrollment order",
+            "dtype": "INTEGER",
+            "name": "StuID",
+            "stats": {
+              "25%": 1009.25,
+              "50%": 1018.5,
+              "75%": 1026.75,
+              "count": 34.0,
+              "max": 1035.0,
+              "mean": 1018.1470588235294,
+              "min": 1001.0,
+              "samples": [
+                1001,
+                1002,
+                1003,
+                1004,
+                1005
+              ],
+              "std": 10.363491727420529
+            }
+          },
+          {
+            "column": "LName",
+            "description": "Student's last name, with low duplication rate indicating diverse student population",
+            "dtype": "VARCHAR(12)",
+            "name": "LName",
+            "stats": {
+              "count": 34,
+              "freq": 2,
+              "samples": [
+                "Smith",
+                "Lee",
+                "Pang",
+                "Kumar",
+                "Gompers"
+              ],
+              "top": "Smith",
+              "unique": 31
+            }
+          },
+          {
+            "column": "Fname",
+            "description": "Student's first name, showing moderate repetition (e.g., 5 students named Eric)",
+            "dtype": "VARCHAR(12)",
+            "name": "Fname",
+            "stats": {
+              "count": 34,
+              "freq": 5,
+              "samples": [
+                "Eric",
+                "Lisa",
+                "David",
+                "Paul",
+                "Michael"
+              ],
+              "top": "Eric",
+              "unique": 24
+            }
+          },
+          {
+            "column": "Age",
+            "description": "Student age at enrollment, majority clustered 18-20 with exception maturity students (max 27)",
+            "dtype": "INTEGER",
+            "name": "Age",
+            "stats": {
+              "25%": 18.0,
+              "50%": 19.0,
+              "75%": 20.0,
+              "count": 34.0,
+              "max": 27.0,
+              "mean": 19.558823529411764,
+              "min": 16.0,
+              "samples": [
+                18,
+                20,
+                19,
+                17,
+                21
+              ],
+              "std": 2.584231630374799
+            }
+          },
+          {
+            "column": "Sex",
+            "description": "Gender distribution skewed toward males (24M vs 10F)",
+            "dtype": "VARCHAR(1)",
+            "name": "Sex",
+            "stats": {
+              "count": 34,
+              "freq": 24,
+              "samples": [
+                "M",
+                "F"
+              ],
+              "top": "M",
+              "unique": 2
+            }
+          },
+          {
+            "column": "Major",
+            "description": "Department number identifier for student's primary academic program; majority clustered at 500-level departments",
+            "dtype": "INTEGER",
+            "name": "Major",
+            "stats": {
+              "25%": 525.0,
+              "50%": 600.0,
+              "75%": 600.0,
+              "count": 34.0,
+              "max": 600.0,
+              "mean": 527.9411764705883,
+              "min": 50.0,
+              "samples": [
+                600,
+                520,
+                550,
+                540,
+                50
+              ],
+              "std": 149.39837757759085
+            }
+          },
+          {
+            "column": "Advisor",
+            "description": "Faculty ID reference showing substantial variance in advising loads across faculty members",
+            "dtype": "INTEGER",
+            "name": "Advisor",
+            "stats": {
+              "25%": 2192.0,
+              "50%": 7202.5,
+              "75%": 8722.0,
+              "count": 34.0,
+              "max": 9172.0,
+              "mean": 5622.382352941177,
+              "min": 1121.0,
+              "samples": [
+                2192,
+                1121,
+                8772,
+                1148,
+                2311
+              ],
+              "std": 3224.6798855898282
+            }
+          },
+          {
+            "column": "city_code",
+            "description": "Geographic origin code with BAL (Baltimore) as most common student origin",
+            "dtype": "VARCHAR(3)",
+            "name": "city_code",
+            "stats": {
+              "count": 34,
+              "freq": 4,
+              "samples": [
+                "BAL",
+                "PIT",
+                "HKG",
+                "WAS",
+                "PHL"
+              ],
+              "top": "BAL",
+              "unique": 19
+            }
+          }
+        ],
+        "table": "Student"
+      },
+      {
+        "columns": [
+          {
+            "column": "FacID",
+            "description": "Unique faculty identifier with wide numerical range indicating multi-year hiring patterns",
+            "dtype": "INTEGER",
+            "name": "FacID",
+            "stats": {
+              "25%": 3650.25,
+              "50%": 7609.0,
+              "75%": 8886.25,
+              "count": 58.0,
+              "max": 9922.0,
+              "mean": 6473.3448275862065,
+              "min": 1082.0,
+              "samples": [
+                1082,
+                1121,
+                1148,
+                1172,
+                1177
+              ],
+              "std": 3008.5165403807746
+            }
+          },
+          {
+            "column": "Lname",
+            "description": "Faculty last name with full uniqueness showing no family name duplicates",
+            "dtype": "VARCHAR(15)",
+            "name": "Lname",
+            "stats": {
+              "count": 58,
+              "freq": 1,
+              "samples": [
+                "Giuliano",
+                "Goodrich",
+                "Masson",
+                "Runolfsson",
+                "Naiman"
+              ],
+              "top": "Giuliano",
+              "unique": 58
+            }
+          },
+          {
+            "column": "Fname",
+            "description": "First name showing male-dominated faculty (51M/7F) with Michael being most common",
+            "dtype": "VARCHAR(15)",
+            "name": "Fname",
+            "stats": {
+              "count": 58,
+              "freq": 3,
+              "samples": [
+                "Michael",
+                "Robert",
+                "William",
+                "John",
+                "Mark"
+              ],
+              "top": "Michael",
+              "unique": 53
+            }
+          },
+          {
+            "column": "Rank",
+            "description": "Academic hierarchy levels dominated by Professors (27/58), followed by Asst/Assoc Professors",
+            "dtype": "VARCHAR(15)",
+            "name": "Rank",
+            "stats": {
+              "count": 58,
+              "freq": 27,
+              "samples": [
+                "Professor",
+                "AsstProf",
+                "Instructor",
+                "AssocProf"
+              ],
+              "top": "Professor",
+              "unique": 4
+            }
+          },
+          {
+            "column": "Sex",
+            "description": "Gender distribution shows strong male majority (87.9%)",
+            "dtype": "VARCHAR(1)",
+            "name": "Sex",
+            "stats": {
+              "count": 58,
+              "freq": 51,
+              "samples": [
+                "M",
+                "F"
+              ],
+              "top": "M",
+              "unique": 2
+            }
+          },
+          {
+            "column": "Phone",
+            "description": "4-digit office phone extensions with campus numbering patterns",
+            "dtype": "INTEGER",
+            "name": "Phone",
+            "stats": {
+              "25%": 2080.25,
+              "50%": 2880.0,
+              "75%": 4928.5,
+              "count": 58.0,
+              "max": 9373.0,
+              "mean": 3616.9137931034484,
+              "min": 1035.0,
+              "samples": [
+                2424,
+                3593,
+                3402,
+                3121,
+                3571
+              ],
+              "std": 2149.3704446249985
+            }
+          },
+          {
+            "column": "Room",
+            "description": "Office location identifier showing concentrated usage of room 288 (Barton building)",
+            "dtype": "VARCHAR(5)",
+            "name": "Room",
+            "stats": {
+              "count": 58,
+              "freq": 20,
+              "samples": [
+                "288",
+                "119",
+                "316",
+                "224",
+                "219"
+              ],
+              "top": "288",
+              "unique": 18
+            }
+          },
+          {
+            "column": "Building",
+            "description": "Academic building assignments dominated by Barton (34.5%) and Krieger/NEB",
+            "dtype": "VARCHAR(13)",
+            "name": "Building",
+            "stats": {
+              "count": 58,
+              "freq": 20,
+              "samples": [
+                "Barton",
+                "Krieger",
+                "NEB"
+              ],
+              "top": "Barton",
+              "unique": 3
+            }
+          }
+        ],
+        "table": "Faculty"
+      },
+      {
+        "columns": [
+          {
+            "column": "DNO",
+            "description": "Primary department identifier with major 500-level clusters and distinct lower-numbered divisions",
+            "dtype": "INTEGER",
+            "name": "DNO",
+            "stats": {
+              "25%": 75.0,
+              "50%": 160.0,
+              "75%": 477.5,
+              "count": 26.0,
+              "max": 600.0,
+              "mean": 242.69230769230768,
+              "min": 10.0,
+              "samples": [
+                10,
+                20,
+                30,
+                40,
+                50
+              ],
+              "std": 210.02014555385284
+            }
+          },
+          {
+            "column": "Division",
+            "description": "Academic division codes (AS=Arts & Sciences, EN=Engineering) with AS predominance (73%)",
+            "dtype": "VARCHAR(2)",
+            "name": "Division",
+            "stats": {
+              "count": 26,
+              "freq": 19,
+              "samples": [
+                "AS",
+                "EN"
+              ],
+              "top": "AS",
+              "unique": 2
+            }
+          },
+          {
+            "column": "DName",
+            "description": "Full department names showing specialized disciplines (e.g., Cognitive Science)",
+            "dtype": "VARCHAR(25)",
+            "name": "DName",
+            "stats": {
+              "count": 26,
+              "freq": 1,
+              "samples": [
+                "History of Art",
+                "Biology",
+                "Chemistry",
+                "Classics",
+                "Cognitive Science"
+              ],
+              "top": "History of Art",
+              "unique": 26
+            }
+          },
+          {
+            "column": "Room",
+            "description": "Department office locations with low duplication except multiple departments in room 144",
+            "dtype": "VARCHAR(5)",
+            "name": "Room",
+            "stats": {
+              "count": 26,
+              "freq": 2,
+              "samples": [
+                "144",
+                "221",
+                "113",
+                "268",
+                "381"
+              ],
+              "top": "144",
+              "unique": 24
+            }
+          },
+          {
+            "column": "Building",
+            "description": "Physical location buildings with Gilman Hall as main hub (9 departments)",
+            "dtype": "VARCHAR(13)",
+            "name": "Building",
+            "stats": {
+              "count": 26,
+              "freq": 9,
+              "samples": [
+                "Gilman",
+                "Mergenthaler",
+                "NEB",
+                "Krieger",
+                "Latrobe"
+              ],
+              "top": "Gilman",
+              "unique": 12
+            }
+          },
+          {
+            "column": "DPhone",
+            "description": "Standardized 7xxx-xxxx phone numbers with tight numerical clustering around 7,400-7,500 range",
+            "dtype": "INTEGER",
+            "name": "DPhone",
+            "stats": {
+              "25%": 7202.75,
+              "50%": 7414.0,
+              "75%": 7543.0,
+              "count": 26.0,
+              "max": 8680.0,
+              "mean": 7486.076923076923,
+              "min": 7033.0,
+              "samples": [
+                7117,
+                7330,
+                7429,
+                7556,
+                7119
+              ],
+              "std": 440.4182487660495
+            }
+          }
+        ],
+        "table": "Department"
+      },
+      {
+        "columns": [
+          {
+            "column": "FacID",
+            "description": "Faculty member identifier with ~10% appointments showing secondary department affiliations",
+            "dtype": "INTEGER",
+            "name": "FacID",
+            "stats": {
+              "25%": 4331.0,
+              "50%": 7712.0,
+              "75%": 8854.5,
+              "count": 63.0,
+              "max": 9922.0,
+              "mean": 6610.269841269841,
+              "min": 1082.0,
+              "samples": [
+                7271,
+                8741,
+                8721,
+                8989,
+                9379
+              ],
+              "std": 2930.7350184880092
+            }
+          },
+          {
+            "column": "DNO",
+            "description": "Department affiliation number skewed toward 500-level academic units",
+            "dtype": "INTEGER",
+            "name": "DNO",
+            "stats": {
+              "25%": 520.0,
+              "50%": 550.0,
+              "75%": 600.0,
+              "count": 63.0,
+              "max": 600.0,
+              "mean": 484.44444444444446,
+              "min": 50.0,
+              "samples": [
+                520,
+                600,
+                550,
+                50
+              ],
+              "std": 181.75468914195756
+            }
+          },
+          {
+            "column": "Appt_Type",
+            "description": "Appointment classification showing 58 primary vs 5 secondary affiliations",
+            "dtype": "VARCHAR(15)",
+            "name": "Appt_Type",
+            "stats": {
+              "count": 63,
+              "freq": 58,
+              "samples": [
+                "Primary",
+                "Secondary"
+              ],
+              "top": "Primary",
+              "unique": 2
+            }
+          }
+        ],
+        "table": "Member_of"
+      },
+      {
+        "columns": [
+          {
+            "column": "CID",
+            "description": "Department-based course identifiers (format XXX.XXX) with department-prefix coding",
+            "dtype": "VARCHAR(7)",
+            "name": "CID",
+            "stats": {
+              "count": 76,
+              "freq": 1,
+              "samples": [
+                "600.101",
+                "600.103",
+                "600.107",
+                "600.109",
+                "600.113"
+              ],
+              "top": "600.101",
+              "unique": 76
+            }
+          },
+          {
+            "column": "CName",
+            "description": "Full course titles showing technical specialization patterns",
+            "dtype": "VARCHAR(40)",
+            "name": "CName",
+            "stats": {
+              "count": 76,
+              "freq": 2,
+              "samples": [
+                "FORMAL METHODS IN COGNITIVE SCIENCE",
+                "COMBINATORIAL ANALYSIS",
+                "DISTRIBUTED SYSTEMS",
+                "DATABASE SYSTEMS",
+                "COMPUTER LITERACY"
+              ],
+              "top": "FORMAL METHODS IN COGNITIVE SCIENCE",
+              "unique": 72
+            }
+          },
+          {
+            "column": "Credits",
+            "description": "Credit hours majority standardized at 3 credits (81.6% of courses)",
+            "dtype": "INTEGER",
+            "name": "Credits",
+            "stats": {
+              "25%": 3.0,
+              "50%": 3.0,
+              "75%": 3.0,
+              "count": 76.0,
+              "max": 4.0,
+              "mean": 3.039473684210526,
+              "min": 1.0,
+              "samples": [
+                3,
+                4,
+                1,
+                2
+              ],
+              "std": 0.6205543644985874
+            }
+          },
+          {
+            "column": "Instructor",
+            "description": "Faculty ID demonstrating balanced teaching loads across academic ranks",
+            "dtype": "INTEGER",
+            "name": "Instructor",
+            "stats": {
+              "25%": 4432.0,
+              "50%": 7029.5,
+              "75%": 8822.75,
+              "count": 76.0,
+              "max": 9922.0,
+              "mean": 6472.526315789473,
+              "min": 1121.0,
+              "samples": [
+                6112,
+                4432,
+                6191,
+                1121,
+                9823
+              ],
+              "std": 2838.180207920487
+            }
+          },
+          {
+            "column": "Days",
+            "description": "Meeting schedule codes showing MTW/ThF as dominant patterns (48.7% combined)",
+            "dtype": "VARCHAR(5)",
+            "name": "Days",
+            "stats": {
+              "count": 76,
+              "freq": 37,
+              "samples": [
+                "MTW",
+                "ThF",
+                "Th",
+                "M",
+                "MW"
+              ],
+              "top": "MTW",
+              "unique": 11
+            }
+          },
+          {
+            "column": "Hours",
+            "description": "Meeting duration/period indicators with flexible coding (e.g., '3', '9')",
+            "dtype": "VARCHAR(11)",
+            "name": "Hours",
+            "stats": {
+              "count": 76,
+              "freq": 7,
+              "samples": [
+                "3",
+                "1",
+                "9",
+                "2",
+                "11"
+              ],
+              "top": "3",
+              "unique": 29
+            }
+          },
+          {
+            "column": "DNO",
+            "description": "Department offering course, aligned with major student distribution patterns",
+            "dtype": "INTEGER",
+            "name": "DNO",
+            "stats": {
+              "25%": 520.0,
+              "50%": 550.0,
+              "75%": 600.0,
+              "count": 76.0,
+              "max": 600.0,
+              "mean": 493.8157894736842,
+              "min": 50.0,
+              "samples": [
+                600,
+                550,
+                520,
+                50
+              ],
+              "std": 176.7179832785421
+            }
+          }
+        ],
+        "table": "Course"
+      },
+      {
+        "columns": [
+          {
+            "column": "StuID",
+            "description": "Reference to students pursuing secondary academic specialties",
+            "dtype": "INTEGER",
+            "name": "StuID",
+            "stats": {
+              "25%": 1006.25,
+              "50%": 1011.0,
+              "75%": 1015.75,
+              "count": 10.0,
+              "max": 1031.0,
+              "mean": 1013.3,
+              "min": 1004.0,
+              "samples": [
+                1004,
+                1005,
+                1006,
+                1007,
+                1008
+              ],
+              "std": 9.357706271660094
+            }
+          },
+          {
+            "column": "DNO",
+            "description": "Department numbers for minors showing broader distribution than majors",
+            "dtype": "INTEGER",
+            "name": "DNO",
+            "stats": {
+              "25%": 152.5,
+              "50%": 520.0,
+              "75%": 537.5,
+              "count": 10.0,
+              "max": 550.0,
+              "mean": 368.0,
+              "min": 50.0,
+              "samples": [
+                520,
+                550,
+                50,
+                90,
+                140
+              ],
+              "std": 218.67276414262884
+            }
+          }
+        ],
+        "table": "Minor_in"
+      },
+      {
+        "columns": [
+          {
+            "column": "StuID",
+            "description": "Student-course association with enrollment distribution matching student age clusters",
+            "dtype": "INTEGER",
+            "name": "StuID",
+            "stats": {
+              "25%": 1009.0,
+              "50%": 1019.0,
+              "75%": 1026.0,
+              "count": 210.0,
+              "max": 1035.0,
+              "mean": 1018.1190476190476,
+              "min": 1001.0,
+              "samples": [
+                1021,
+                1022,
+                1024,
+                1023,
+                1009
+              ],
+              "std": 9.89369907493054
+            }
+          },
+          {
+            "column": "CID",
+            "description": "Course identifiers showing course 600.303 as most popular (14 enrollments)",
+            "dtype": "VARCHAR(7)",
+            "name": "CID",
+            "stats": {
+              "count": 210,
+              "freq": 14,
+              "samples": [
+                "600.303",
+                "600.315",
+                "550.420",
+                "600.107",
+                "600.463"
+              ],
+              "top": "600.303",
+              "unique": 42
+            }
+          },
+          {
+            "column": "Grade",
+            "description": "Academic performance indicators with bell-curve distribution (B=29.5% frequency)",
+            "dtype": "VARCHAR(2)",
+            "name": "Grade",
+            "stats": {
+              "count": 210,
+              "freq": 62,
+              "samples": [
+                "B",
+                "A",
+                "A-",
+                "B-",
+                "B+"
+              ],
+              "top": "B",
+              "unique": 12
+            }
+          }
+        ],
+        "table": "Enrolled_in"
+      },
+      {
+        "columns": [
+          {
+            "column": "lettergrade",
+            "description": "Standard US grading scale with +/- variations (13 unique values)",
+            "dtype": "VARCHAR(2)",
+            "name": "lettergrade",
+            "stats": {
+              "count": 13,
+              "freq": 1,
+              "samples": [
+                "A+",
+                "A",
+                "A-",
+                "B+",
+                "B"
+              ],
+              "top": "A+",
+              "unique": 13
+            }
+          },
+          {
+            "column": "gradepoint",
+            "description": "Numeric GPA equivalents mapping to letter grades (A+=4.0, etc.)",
+            "dtype": "FLOAT",
+            "name": "gradepoint",
+            "stats": {
+              "25%": 1.3,
+              "50%": 2.3,
+              "75%": 3.3,
+              "count": 13.0,
+              "max": 4.0,
+              "mean": 2.2846153846153845,
+              "min": 0.0,
+              "samples": [
+                4.0,
+                3.7,
+                3.3,
+                3.0,
+                2.7
+              ],
+              "std": 1.3031028060275687
+            }
+          }
+        ],
+        "table": "Gradeconversion"
+      }
+    ]
+  },
+  "desc": "The database offers a comprehensive view of an educational institution’s academic ecosystem, covering details about courses, departments, enrollment, faculty, students, and related administrative information.",
+  "goal": "Analyze the distribution of faculty across departments, understand the staffing characteristics of each department, and examine the relationship between faculty distribution, course offerings, and academic activities.",
+  "id": "college_goal2_1742633444",
+  "name": "Visual Analytics System college_goal2_1742633444",
+  "plan": {
+    "graph": [
+      {
+        "from": 1,
+        "to": 2
+      },
+      {
+        "from": 1,
+        "to": 3
+      },
+      {
+        "from": 1,
+        "to": 4
+      }
+    ],
+    "path": "",
+    "views": [
+      {
+        "fields": [
+          "Member_of.DNO",
+          "Member_of.Appt_Type"
+        ],
+        "id": 1,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Selects department(s) and propagates filter to dependent views",
+              "params": [
+                {
+                  "name": "dept_select",
+                  "select": {
+                    "encodings": [
+                      "x"
+                    ],
+                    "type": "point"
+                  }
+                }
+              ]
+            },
+            "object": "chart",
+            "verb": "click"
+          }
+        ],
+        "level": "overview",
+        "task": [
+          1
+        ],
+        "visualization": {
+          "description": "Grouped bar chart showing primary vs secondary faculty appointments per department. X-axis shows departments (DNO), grouped bars distinguish appointment types by color.",
+          "encodings": [
+            "x: DNO (nominal)",
+            "y: count() (quantitative)",
+            "color: Appt_Type (nominal)"
+          ],
+          "markType": "bar"
+        }
+      },
+      {
+        "components": "Department name labels rotated 45° for readability",
+        "fields": [
+          "Department.DName",
+          "Faculty.Rank"
+        ],
+        "id": 2,
+        "level": "exploration",
+        "task": [
+          2
+        ],
+        "usingParams": [
+          "dept_select"
+        ],
+        "visualization": {
+          "description": "Stacked bar chart showing faculty rank distribution per department. Departments filtered by selection from View 1.",
+          "encodings": [
+            "x: DName (nominal)",
+            "y: count() (quantitative)",
+            "color: Rank (nominal)"
+          ],
+          "markType": "bar"
+        }
+      },
+      {
+        "fields": [
+          "Course.DNO",
+          "Member_of.FacID",
+          "Enrolled_in.StuID"
+        ],
+        "id": 3,
+        "level": "insight",
+        "task": [
+          3
+        ],
+        "usingParams": [
+          "dept_select"
+        ],
+        "visualization": {
+          "description": "Bubble chart comparing faculty count vs courses offered per department. Size represents student enrollments. 500-level clusters highlighted.",
+          "encodings": [
+            "x: count(FacID) (quantitative)",
+            "y: count(CID) (quantitative)",
+            "size: count(StuID) (quantitative)",
+            "color: DNO (nominal)"
+          ],
+          "markType": "circle"
+        }
+      },
+      {
+        "components": "Dropdown to select multiple departments",
+        "fields": [
+          "Faculty.Sex",
+          "Member_of.DNO"
+        ],
+        "id": 4,
+        "level": "detail",
+        "task": [
+          4
+        ],
+        "usingParams": [
+          "dept_select"
+        ],
+        "visualization": {
+          "description": "Pie chart showing gender distribution for departments selected in View 1. Annotations added for >90% male departments.",
+          "encodings": [
+            "theta: count() (quantitative)",
+            "color: Sex (nominal)"
+          ],
+          "markType": "arc"
+        }
+      }
+    ]
+  },
+  "requirements": {
+    "data": [
+      {
+        "id": "D2",
+        "requirement": "Consider adding a new column `DNO` to facilitate data linking across tables."
+      }
+    ]
+  },
+  "sqls": [
+    {
+      "SQL": "CREATE VIEW view_1_data AS SELECT DNO, Appt_Type FROM Member_of;",
+      "corrView": "1",
+      "fk": [],
+      "name": "view_1_data",
+      "pk": "DNO"
+    },
+    {
+      "SQL": "CREATE VIEW view_2_data AS SELECT DNO, Rank FROM Faculty;",
+      "corrView": "2",
+      "fk": [],
+      "name": "view_2_data",
+      "pk": "DNO"
+    },
+    {
+      "SQL": "CREATE VIEW view_3_data AS SELECT Course.DNO, Member_of.FacID, Enrolled_in.StuID FROM Course JOIN Member_of ON Course.Instructor = Member_of.FacID JOIN Enrolled_in ON Course.CID = Enrolled_in.CID;",
+      "corrView": "3",
+      "fk": [
+        {
+          "key": "FacID",
+          "table": "view_1_data"
+        }
+      ],
+      "name": "view_3_data",
+      "pk": "DNO"
+    },
+    {
+      "SQL": "CREATE VIEW view_4_data AS SELECT Faculty.Sex, Member_of.DNO FROM Faculty JOIN Member_of ON Faculty.FacID = Member_of.FacID;",
+      "corrView": "4",
+      "fk": [
+        {
+          "key": "FacID",
+          "table": "view_1_data"
+        }
+      ],
+      "name": "view_4_data",
+      "pk": "DNO"
+    }
+  ],
+  "tasks": [
+    {
+      "corrReq": [
+        "V4"
+      ],
+      "data": [
+        "Member_of.DNO",
+        "Member_of.Appt_Type"
+      ],
+      "id": 1,
+      "method": "Grouped bar chart with DNO on x-axis, grouped by Appt_Type (primary/secondary), and count on y-axis. Color distinguishes appointment types. Implement sort by secondary count to highlight interdisciplinary departments.",
+      "objective": "Reveal departmental staffing structures and cross-department collaboration patterns via primary vs secondary affiliations",
+      "priority": 5,
+      "type": "characterizing distributions"
+    },
+    {
+      "corrReq": [
+        "I3"
+      ],
+      "data": [
+        "Faculty.Rank",
+        "Member_of.DNO",
+        "Department.DName"
+      ],
+      "id": 2,
+      "method": "Stacked bar chart per department (DName on x-axis) showing faculty rank distribution (Professor/AsstProf/etc.). Color encodes ranks. Interaction: Clicking a rank highlights its proportion in department course offerings (via linked V1 visualization).",
+      "objective": "Analyze academic hierarchy distribution across departments and link seniority to teaching/research roles",
+      "priority": 4,
+      "type": "characterizing distributions"
+    },
+    {
+      "corrReq": [],
+      "data": [
+        "Course.DNO",
+        "Member_of.FacID",
+        "Department.DNO"
+      ],
+      "id": 3,
+      "method": "Scatterplot comparing faculty count (x: Count of primary Faculty per DNO) vs courses offered (y: Count of CID per DNO). Size encodes student enrollments. Highlight 500-level department clusters.",
+      "objective": "Identify correlations between faculty staffing levels and academic activity intensity in departments",
+      "priority": 4,
+      "type": "correlating"
+    },
+    {
+      "corrReq": [],
+      "data": [
+        "Faculty.Sex",
+        "Member_of.DNO"
+      ],
+      "id": 4,
+      "method": "Small multiples of pie charts (one per department) showing gender ratio. Annotate departments with >90% male faculty. Tooltip shows exact counts.",
+      "objective": "Assess gender diversity across departments and identify potential imbalance areas",
+      "priority": 3,
+      "type": "characterizing distributions"
+    },
+    {
+      "corrReq": [],
+      "data": [
+        "Course.Instructor",
+        "Faculty.Rank"
+      ],
+      "id": 5,
+      "method": "Histogram showing course count per faculty rank. Box plot overlay displays teaching load distribution. Filter by department via linked views.",
+      "objective": "Evaluate teaching load equity across academic ranks and identify overburdened roles",
+      "priority": 3,
+      "type": "characterizing distributions"
+    },
+    {
+      "corrReq": [],
+      "data": [
+        "Faculty.Room",
+        "Department.Building"
+      ],
+      "id": 6,
+      "method": "Matrix heatmap comparing faculty office buildings (rows) vs department locations (columns). Red highlights mismatched pairs (e.g., faculty in Barton but department in Krieger).",
+      "objective": "Detect atypical faculty-department physical location assignments for space optimization",
+      "priority": 2,
+      "type": "finding anomalies"
+    }
+  ],
+  "vlcodes": {}
+}

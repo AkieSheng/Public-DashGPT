@@ -1,0 +1,32 @@
+[
+  {
+    "created": 1742623983,
+    "id": "telco_goal1_1742623982",
+    "name": "Visual Analytics System telco_goal1_1742623982"
+  },
+  {
+    "created": 1742624715,
+    "id": "telco_goal2_1742624715",
+    "name": "Visual Analytics System telco_goal2_1742624715"
+  },
+  {
+    "created": 1742626091,
+    "id": "telco_goal3_1742626091",
+    "name": "Visual Analytics System telco_goal3_1742626091"
+  },
+  {
+    "created": 1742623982,
+    "id": "va_1742623982",
+    "name": "Visual Analytics System va_1742623982"
+  },
+  {
+    "created": 1742624715,
+    "id": "va_1742624715",
+    "name": "Visual Analytics System va_1742624715"
+  },
+  {
+    "created": 1742626091,
+    "id": "va_1742626091",
+    "name": "Visual Analytics System va_1742626091"
+  }
+]

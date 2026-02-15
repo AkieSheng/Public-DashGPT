@@ -1,0 +1,52 @@
+{
+  "V2": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Visual Analytics System for Enrollment Analysis",
+    "title": "Course Enrollment and Grades",
+    "data": {
+      "url": "http://localhost:8888/vw_enrollment_heatmap.csv"
+    },
+    "mark": "rect",
+    "encoding": {
+      "x": {
+        "field": "CName",
+        "type": "nominal",
+        "title": "Course Name",
+        "axis": {
+          "titleColor": "black"
+        }
+      },
+      "y": {
+        "field": "lettergrade",
+        "type": "nominal",
+        "title": "Grade",
+        "axis": {
+          "titleColor": "black"
+        }
+      },
+      "color": {
+        "field": "gradepoint",
+        "type": "quantitative",
+        "title": "Average Grade Points",
+        "scale": {
+          "type": "linear",
+          "domain": [
+            0,
+            4
+          ],
+          "scheme": "tealblues"
+        },
+        "legend": {
+          "titleColor": "black"
+        }
+      },
+      "tooltip": [
+        {
+          "field": "gradepoint",
+          "type": "quantitative",
+          "title": "Average Grade Points"
+        }
+      ]
+    }
+  }
+}

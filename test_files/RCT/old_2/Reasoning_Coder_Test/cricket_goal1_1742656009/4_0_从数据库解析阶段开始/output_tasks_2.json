@@ -1,0 +1,97 @@
+[
+  {
+    "id": 1,
+    "type": "computing derived values",
+    "data": [
+      "batter_player_stats.total_runs",
+      "batter_player_stats.strike_rate",
+      "bowler_player_stats.total_wickets_taken",
+      "bowler_player_stats.economy_rate"
+    ],
+    "method": "Use D4 role-specific formulas to calculate consistency scores. Visualize with horizontal grouped bar charts (batters vs bowlers) colored by team, sorted by score magnitude. Include statistical bands showing ±1 STD from mean consistency.",
+    "objective": "Quantify performance consistency across roles using standardized metrics for direct comparison within role groups",
+    "corrReq": [
+      "D4"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "characterizing distributions",
+    "data": [
+      "detailed_player_data.runs",
+      "detailed_player_data.economy",
+      "batter_player_stats.player_name",
+      "bowler_player_stats.player_name"
+    ],
+    "method": "Implement V1 requirement with synchronized line charts: X=sequential matches (ordered by date), Y1=rolling 10-match batting runs average, Y2=rolling 10-match bowling economy. Enable team-based highlighting and outlier annotation.",
+    "objective": "Identify performance trend patterns and short-term consistency variations across match sequences",
+    "corrReq": [
+      "V1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 3,
+    "type": "clustering",
+    "data": [
+      "detailed_player_data.venue",
+      "detailed_player_data.runs",
+      "detailed_player_data.wickets"
+    ],
+    "method": "Apply D3 requirement using hexbin heatmaps overlay on world map: X/Y=geo-coordinates of venues (derived from venue names), color intensity=cluster density of runs+wickets performance metrics. Enable cluster boundary toggles.",
+    "objective": "Discover spatial patterns in player performance consistency across global venues",
+    "corrReq": [
+      "D3"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 4,
+    "type": "correlating",
+    "data": [
+      "bowler_player_stats.strike_rate",
+      "bowler_player_stats.matches_won",
+      "batter_player_stats.total_balls_faced",
+      "batter_player_stats.player_of_match_awards"
+    ],
+    "method": "Enable I3 brushing between parallel coordinates (career stats) and scatter plot matrix (match metrics). Brushing propagates selections via D2 composite key across views using role-filtered data channels.",
+    "objective": "Reveal cross-domain relationships between career achievements and match-level performance variability",
+    "corrReq": [
+      "I3",
+      "D2"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 5,
+    "type": "finding extrema",
+    "data": [
+      "detailed_player_data.runs",
+      "detailed_player_data.wickets",
+      "match_summary.venue",
+      "match_summary.dates"
+    ],
+    "method": "Dynamic histogram sliders for runs+wickets thresholds. Display extremes as annotated points on scatter plot with size=performance delta from career average. Contextual encoding uses D2 keys via tooltip linking.",
+    "objective": "Detect exceptionally high/low performances relative to individual baselines across match conditions",
+    "corrReq": [
+      "D2"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 6,
+    "type": "determining ranges",
+    "data": [
+      "batter_player_stats.strike_rate",
+      "bowler_player_stats.average",
+      "detailed_player_data.fantasy_points"
+    ],
+    "method": "V2-compliant violin plots with nested box plots, split by team. Use quantile-based gradient fills (0-25-75-100%) with interactive range slider for metric filtering.",
+    "objective": "Compare value distribution spread across teams to identify consistency outliers and typical performance bands",
+    "corrReq": [
+      "V2"
+    ],
+    "priority": 4
+  }
+]

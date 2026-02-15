@@ -1,0 +1,38 @@
+{
+  "data": [
+    {
+      "id": "D1",
+      "requirement": "Merge Student.Major with Department.DNO and DName to map academic majors to department names, joining with Minor_in to identify secondary disciplines",
+      "reason": "Original DNO binning approach prevented meaningful departmental distinctions. Direct DName mapping preserves semantic clarity while maintaining relationships"
+    },
+    {
+      "id": "D5",
+      "requirement": "Remove compatibility score calculation",
+      "reason": "Redundant with heatmap visualization (V2) and lacking clear implementation path. Major-minor pair frequencies already provide sufficient combinatorial analysis"
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V1",
+      "requirement": "Horizontal bar chart showing student counts per department using DName labels (instead of DNO ranges)",
+      "reason": "Avoids unreadable numerical bins and leverages meaningful department names from Department.DName join"
+    },
+    {
+      "id": "V3",
+      "requirement": "Replace box plots with grouped bar chart showing average GPA per major using Department.DName labels",
+      "reason": "Complies with interaction constraints while maintaining performance comparisons. Error bars can show distribution characteristics"
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I1",
+      "requirement": "Replace DNO range dropdown with department name multi-select filter using Department.DName",
+      "reason": "More interpretable for users than numerical ranges and matches updated data requirements"
+    },
+    {
+      "id": "I2",
+      "requirement": "Removed (invalid interaction on box plots)",
+      "reason": "Original design violated constraint against box plot interactions. GPA filtering can be integrated via brushing in scatter plots later"
+    }
+  ]
+}

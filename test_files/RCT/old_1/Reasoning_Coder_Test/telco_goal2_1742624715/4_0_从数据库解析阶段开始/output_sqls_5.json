@@ -1,0 +1,37 @@
+[
+  {
+    "name": "vw_overview",
+    "SQL": "CREATE VIEW vw_overview AS SELECT Status_Analysis.churn_label, Payment_Info.contract, Online_Services.internet_type FROM Status_Analysis JOIN Payment_Info ON Status_Analysis.customer_id = Payment_Info.customer_id JOIN Online_Services ON Status_Analysis.customer_id = Online_Services.customer_id",
+    "corrView": "1",
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "name": "vw_exploration_2",
+    "SQL": "CREATE VIEW vw_exploration_2 AS SELECT Status_Analysis.churn_score, Status_Analysis.cltv, Status_Analysis.satisfaction_score, Status_Analysis.customer_id FROM Status_Analysis",
+    "corrView": "2",
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "name": "vw_exploration_3",
+    "SQL": "CREATE VIEW vw_exploration_3 AS SELECT Service_Options.tenure, Status_Analysis.churn_category, Status_Analysis.cltv, Status_Analysis.customer_id FROM Service_Options JOIN Status_Analysis ON Service_Options.customer_id = Status_Analysis.customer_id",
+    "corrView": "3",
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "name": "vw_detail_4",
+    "SQL": "CREATE VIEW vw_detail_4 AS SELECT Customer_Info.age, Customer_Info.number_of_dependents, Status_Analysis.satisfaction_score, Status_Analysis.customer_id FROM Customer_Info JOIN Status_Analysis ON Customer_Info.customer_id = Status_Analysis.customer_id",
+    "corrView": "4",
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "name": "vw_insight_5",
+    "SQL": "CREATE VIEW vw_insight_5 AS SELECT Payment_Info.monthly_charges, Payment_Info.total_revenue, Status_Analysis.churn_value, Payment_Info.customer_id FROM Payment_Info JOIN Status_Analysis ON Payment_Info.customer_id = Status_Analysis.customer_id",
+    "corrView": "5",
+    "pk": "customer_id",
+    "fk": []
+  }
+]

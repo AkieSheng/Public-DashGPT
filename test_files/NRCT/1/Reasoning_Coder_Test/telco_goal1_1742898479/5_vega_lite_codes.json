@@ -1,0 +1,385 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "columns": 2,
+  "concat": [
+    {
+      "data": {
+        "url": "http://localhost:8888/getView1.csv"
+      },
+      "description": "View 1: Overview of customer demographics",
+      "encoding": {
+        "color": {
+          "field": "gender",
+          "scale": {
+            "domain": [
+              "Male",
+              "Female"
+            ],
+            "range": [
+              "steelblue",
+              "coral"
+            ]
+          },
+          "title": "Gender",
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "gender",
+            "type": "nominal"
+          },
+          {
+            "aggregate": "count",
+            "type": "quantitative"
+          }
+        ],
+        "x": {
+          "axis": {
+            "labelAngle": 45
+          },
+          "field": "gender",
+          "sort": [
+            "Male",
+            "Female"
+          ],
+          "title": "Gender",
+          "type": "nominal"
+        },
+        "y": {
+          "aggregate": "count",
+          "title": "Count of Customers",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "bar",
+      "params": [
+        {
+          "name": "filterDemographics",
+          "select": {
+            "encodings": [
+              "x"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/getView2.csv"
+      },
+      "description": "View 2: Relationship between churn score and age",
+      "encoding": {
+        "color": {
+          "field": "senior_citizen",
+          "scale": {
+            "domain": [
+              "Yes",
+              "No"
+            ],
+            "range": [
+              "steelblue",
+              "coral"
+            ]
+          },
+          "title": "Senior Citizen Status",
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "churn_score",
+            "type": "quantitative"
+          },
+          {
+            "field": "age",
+            "type": "quantitative"
+          },
+          {
+            "field": "senior_citizen",
+            "type": "nominal"
+          }
+        ],
+        "x": {
+          "field": "age",
+          "scale": {
+            "nice": true,
+            "zero": false
+          },
+          "title": "Age",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "churn_score",
+          "scale": {
+            "nice": true,
+            "zero": false
+          },
+          "title": "Churn Score",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "circle",
+      "params": [
+        {
+          "name": "filterByScatter",
+          "select": {
+            "encodings": [
+              "x",
+              "y"
+            ],
+            "type": "interval"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/getView1.csv"
+            },
+            "fields": [
+              "gender"
+            ],
+            "key": "customer_id"
+          },
+          "lookup": "customer_id"
+        },
+        {
+          "filter": {
+            "param": "filterDemographics"
+          }
+        },
+        {
+          "sample": 150
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/getView3.csv"
+      },
+      "description": "View 3: Heatmap of churn categories by age bins",
+      "encoding": {
+        "color": {
+          "aggregate": "mean",
+          "field": "churn_score",
+          "scale": {
+            "scheme": "viridis"
+          },
+          "title": "Average Churn Score",
+          "type": "quantitative"
+        },
+        "column": {
+          "axis": {
+            "titleAngle": -45
+          },
+          "field": "churn_category",
+          "sort": [
+            "Not Applicable",
+            "Competitor",
+            "Attitude",
+            "Dissatisfaction",
+            "Price"
+          ],
+          "title": "Churn Category",
+          "type": "nominal"
+        },
+        "row": {
+          "bin": {
+            "maxbins": 10
+          },
+          "field": "age",
+          "title": "Age Bins",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "rect",
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/getView1.csv"
+            },
+            "fields": [
+              "gender"
+            ],
+            "key": "customer_id"
+          },
+          "lookup": "customer_id"
+        },
+        {
+          "filter": {
+            "param": "filterDemographics"
+          }
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/getView4.csv"
+      },
+      "description": "View 4: Box plot of churn score by dependent ranges",
+      "encoding": {
+        "color": {
+          "value": "steelblue"
+        },
+        "x": {
+          "bin": {
+            "maxbins": 5
+          },
+          "field": "number_of_dependents",
+          "title": "Number of Dependents",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "churn_score",
+          "scale": {
+            "nice": true,
+            "zero": false
+          },
+          "title": "Churn Score",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "boxplot",
+      "transform": [
+        {
+          "filter": {
+            "param": "filterByScatter"
+          }
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/getView5.csv"
+      },
+      "description": "View 5: Stacked bar chart showing churn by gender and age bins",
+      "encoding": {
+        "color": {
+          "field": "churn_value",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ],
+            "range": [
+              "#fff0d9",
+              "#f9e79f",
+              "#fee064",
+              "#fdae23",
+              "#f46d43",
+              "#d73027"
+            ]
+          },
+          "title": "Churn Value",
+          "type": "nominal"
+        },
+        "column": {
+          "axis": {
+            "titleAngle": -45
+          },
+          "field": "gender",
+          "sort": [
+            "Male",
+            "Female"
+          ],
+          "title": "Gender",
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "gender",
+            "type": "nominal"
+          },
+          {
+            "field": "age",
+            "type": "quantitative"
+          },
+          {
+            "aggregate": "count",
+            "type": "quantitative"
+          },
+          {
+            "field": "churn_value",
+            "type": "nominal"
+          }
+        ],
+        "x": {
+          "axis": {
+            "titleAngle": 45
+          },
+          "bin": {
+            "maxbins": 15
+          },
+          "field": "age",
+          "title": "Age Bins",
+          "type": "quantitative"
+        },
+        "y": {
+          "aggregate": "count",
+          "title": "Count of Customers",
+          "type": "quantitative"
+        }
+      },
+      "mark": "bar",
+      "params": [
+        {
+          "name": "filterByScatter",
+          "select": {
+            "encodings": [
+              "x",
+              "y"
+            ],
+            "type": "interval"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/getView2.csv"
+            },
+            "fields": [
+              "churn_score"
+            ],
+            "key": "customer_id"
+          },
+          "lookup": "customer_id"
+        },
+        {
+          "filter": {
+            "param": "filterByScatter"
+          }
+        },
+        {
+          "aggregate": [
+            {
+              "as": "count",
+              "op": "count"
+            },
+            {
+              "as": "churn_count",
+              "field": "churn_value",
+              "op": "sum"
+            }
+          ],
+          "groupby": [
+            "gender",
+            "age",
+            "churn_score"
+          ]
+        }
+      ]
+    }
+  ]
+}

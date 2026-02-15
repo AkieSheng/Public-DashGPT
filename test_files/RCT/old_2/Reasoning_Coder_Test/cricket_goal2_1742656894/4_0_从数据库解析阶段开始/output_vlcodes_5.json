@@ -1,0 +1,264 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "columns": 2,
+  "concat": [
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/venue_teams_view.csv"
+      },
+      "description": "Overview View - Venue-Team Associations",
+      "mark": "rect",
+      "encoding": {
+        "x": {
+          "field": "teams",
+          "type": "nominal",
+          "title": "Teams"
+        },
+        "y": {
+          "field": "venue",
+          "type": "nominal",
+          "title": "Venue"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.outcome_winner.split(',')[0] === datum.teams.split(',')[0]",
+            "value": "green"
+          },
+          "value": "lightgray"
+        },
+        "opacity": {
+          "value": 0.3,
+          "condition": {
+            "test": "datum.outcome_winner === 'undefined'",
+            "value": 0.1
+          }
+        }
+      },
+      "params": [
+        {
+          "name": "venue_selection",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "y"
+            ]
+          },
+          "bind": {
+            "input": "range",
+            "min": 0,
+            "max": 500
+          }
+        }
+      ],
+      "transform": [
+        {
+          "lookup": "venue",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/match_outcome_view.csv"
+            },
+            "key": "venue",
+            "fields": [
+              "outcome_winner"
+            ]
+          },
+          "missing": "null"
+        }
+      ],
+      "title": "Overview: Venue-Team Associations"
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/match_outcome_view.csv"
+      },
+      "description": "Exploration View - Win Rates by Venue",
+      "mark": "rect",
+      "encoding": {
+        "x": {
+          "field": "teams",
+          "type": "nominal",
+          "title": "Home/Away Match",
+          "axis": {
+            "titleColor": "blue"
+          },
+          "condition": {
+            "test": "datum.teams.split(',')[0] === 'undefined'",
+            "type": "nominal",
+            "title": "Match vs Outcome",
+            "axis": {
+              "titleColor": "red"
+            }
+          }
+        },
+        "y": {
+          "field": "venue",
+          "type": "nominal",
+          "title": "Venue"
+        },
+        "color": {
+          "field": "outcome_by_runs",
+          "type": "quantitative",
+          "title": "Win Rate",
+          "scheme": "blueRed"
+        },
+        "opacity": {
+          "value": 0.6,
+          "condition": {
+            "test": "datum.outcome_winner === 'undefined'",
+            "value": 0.1
+          }
+        }
+      },
+      "transform": [
+        {
+          "lookup": "venue",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/venue_teams_view.csv"
+            },
+            "key": "venue",
+            "fields": [
+              "teams"
+            ]
+          }
+        }
+      ],
+      "title": "Exploration: Win Rates by Venue"
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/player_performance_view.csv"
+      },
+      "description": "Detail View - Fantasy Points by Venue",
+      "mark": "boxplot",
+      "encoding": {
+        "x": {
+          "field": "venue",
+          "type": "nominal",
+          "title": "Venue"
+        },
+        "y": {
+          "field": "fantasy_points",
+          "type": "quantitative",
+          "title": "Fantasy Points"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.venue_selection !== undefined && datum.venue === datum.venue_selection",
+            "value": "red"
+          },
+          "value": "lightgray"
+        },
+        "tooltip": [
+          {
+            "field": "player",
+            "type": "nominal"
+          },
+          {
+            "field": "fantasy_points",
+            "type": "quantitative"
+          }
+        ]
+      },
+      "params": [
+        {
+          "name": "venue_selection",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "y"
+            ]
+          },
+          "bind": {
+            "input": "range",
+            "min": 0,
+            "max": 500
+          }
+        }
+      ],
+      "transform": [
+        {
+          "lookup": "match_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/venue_teams_view.csv"
+            },
+            "key": "match_id",
+            "fields": [
+              "venue"
+            ]
+          }
+        }
+      ],
+      "title": "Detail: Fantasy Points by Venue"
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/boundary_impact_view.csv"
+      },
+      "description": "Insight View - Boundary Impact on Win Rates",
+      "mark": "point",
+      "encoding": {
+        "x": {
+          "field": "total_fours",
+          "type": "quantitative",
+          "title": "Total 4s"
+        },
+        "y": {
+          "field": "total_sixes",
+          "type": "quantitative",
+          "title": "Total 6s"
+        },
+        "size": {
+          "field": "outcome_by_runs",
+          "type": "quantitative",
+          "title": "Match Outcome"
+        },
+        "color": {
+          "field": "venue",
+          "type": "nominal",
+          "title": "Venue"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "match_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/venue_teams_view.csv"
+            },
+            "key": "match_id",
+            "fields": [
+              "venue"
+            ]
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "venue_selection",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "y"
+            ]
+          },
+          "bind": {
+            "input": "range",
+            "min": 0,
+            "max": 500
+          }
+        }
+      ],
+      "title": "Insight: Boundary Impact on Win Rates"
+    }
+  ]
+}

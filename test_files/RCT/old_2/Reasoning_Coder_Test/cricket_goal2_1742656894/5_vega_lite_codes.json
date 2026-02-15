@@ -1,0 +1,259 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "columns": 2,
+  "concat": [
+    {
+      "data": {
+        "url": "http://localhost:8888/venue_teams_view.csv"
+      },
+      "description": "View 1: Overview",
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum.teams in { 'India, Sri Lanka': 1, 'England, Australia': 1 }",
+            "value": "blue"
+          },
+          "value": "lightgrey"
+        },
+        "x": {
+          "field": "teams",
+          "title": "Team",
+          "type": "nominal"
+        },
+        "y": {
+          "field": "venue",
+          "title": "Venue",
+          "type": "nominal"
+        }
+      },
+      "height": 200,
+      "mark": "rect",
+      "params": [
+        {
+          "name": "venue_selection",
+          "select": {
+            "encodings": [
+              "y"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/batter_player_stats.csv"
+            },
+            "fields": [
+              "team"
+            ],
+            "key": "team"
+          },
+          "lookup": "team"
+        },
+        {
+          "filter": {
+            "param": "venue_selection"
+          }
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/venue_teams_view.csv"
+      },
+      "description": "View 2: Exploration",
+      "encoding": {
+        "color": {
+          "field": "outcome_winner",
+          "scale": {
+            "domain": [
+              "India, Sri Lanka",
+              "England, Australia"
+            ],
+            "range": [
+              "green",
+              "red"
+            ]
+          },
+          "title": "Winner",
+          "type": "nominal"
+        },
+        "x": {
+          "field": "team",
+          "title": "Team",
+          "type": "nominal"
+        },
+        "y": {
+          "field": "venue",
+          "title": "Venue",
+          "type": "nominal"
+        }
+      },
+      "height": 200,
+      "mark": "rect",
+      "params": [
+        {
+          "name": "venue_selection",
+          "select": {
+            "encodings": [
+              "y"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/batter_player_stats.csv"
+            },
+            "fields": [
+              "team"
+            ],
+            "key": "team"
+          },
+          "lookup": "team"
+        },
+        {
+          "filter": {
+            "param": "venue_selection"
+          }
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/player_performance_view.csv"
+      },
+      "description": "View 3: Detail",
+      "encoding": {
+        "color": {
+          "field": "venue",
+          "legend": {
+            "title": null
+          },
+          "title": "Venue",
+          "type": "nominal"
+        },
+        "x": {
+          "field": "venue",
+          "title": "Venue",
+          "type": "nominal"
+        },
+        "y": {
+          "field": "fantasy_points",
+          "title": "Fantasy Points",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "boxplot",
+      "params": [
+        {
+          "name": "venue_selection",
+          "select": {
+            "encodings": [
+              "y"
+            ],
+            "type": "point"
+          }
+        },
+        {
+          "name": "player_selection",
+          "select": {
+            "encodings": [
+              "y"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/venue_teams_view.csv"
+            },
+            "fields": [
+              "venue"
+            ],
+            "key": "venue"
+          },
+          "lookup": "venue"
+        },
+        {
+          "filter": {
+            "param": "venue_selection"
+          }
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/boundary_impact_view.csv"
+      },
+      "description": "View 4: Insight",
+      "encoding": {
+        "color": {
+          "field": "venue",
+          "title": "Venue",
+          "type": "nominal"
+        },
+        "size": {
+          "aggregate": "count",
+          "title": "Match Count",
+          "type": "quantitative"
+        },
+        "x": {
+          "field": "total_sixes",
+          "title": "Total Sixes",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "outcome_by_runs",
+          "title": "Win Margin",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "point",
+      "params": [
+        {
+          "name": "venue_selection",
+          "select": {
+            "encodings": [
+              "y"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/venue_teams_view.csv"
+            },
+            "fields": [
+              "venue"
+            ],
+            "key": "venue"
+          },
+          "lookup": "venue"
+        },
+        {
+          "filter": {
+            "param": "venue_selection"
+          }
+        }
+      ],
+      "width": 200
+    }
+  ]
+}

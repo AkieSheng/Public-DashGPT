@@ -1,0 +1,52 @@
+{
+  "database": "blinkit",
+  "description": "This dataset contains sales transaction data from Blinkit, an online grocery delivery platform. It contains sales data from Blinkit, including product details, order quantities, revenue, and timestamps.",
+  "goal_metrics": [
+    {
+      "format_accuracy": 0.0,
+      "sql_success_rate": 0,
+      "vl_success_rate": 0,
+      "average_steps": 0,
+      "average_tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "goal_idx": 0,
+      "goal": "Analyze sales performance across various time dimensions—daily, weekly, and monthly—to identify peaks, troughs, and seasonal patterns. Visualizing historical sales trends helps in understanding how promotional events, holidays, or external factors affect sales, thereby providing valuable insights for inventory management and operational decision-making."
+    },
+    {
+      "format_accuracy": 0.0,
+      "sql_success_rate": 0,
+      "vl_success_rate": 0,
+      "average_steps": 0,
+      "average_tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "goal_idx": 1,
+      "goal": "Examine customer purchase frequency, basket composition, and product co-occurrence patterns to understand buying behavior and preferences. By identifying which products are frequently bought together, this descriptive analysis helps uncover common customer segments and preferences, aiding in product mix optimization and marketing strategy development."
+    },
+    {
+      "format_accuracy": 0.0,
+      "sql_success_rate": 0,
+      "vl_success_rate": 0,
+      "average_steps": 0,
+      "average_tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "goal_idx": 2,
+      "goal": "Perform a statistical analysis of sales volumes, revenue contributions, and price sensitivity across different products or product categories. This descriptive approach identifies key revenue drivers and top-selling items, using visual tools such as bar charts and pie charts to highlight performance differences, which in turn supports decisions related to pricing strategies, inventory management, and promotional activities."
+    }
+  ],
+  "average_metrics": {
+    "format_accuracy": 0.0,
+    "sql_success_rate": 0.0,
+    "vl_success_rate": 0.0,
+    "average_steps": 0.0,
+    "average_tokens": {
+      "input": 0.0,
+      "output": 0.0
+    }
+  }
+}

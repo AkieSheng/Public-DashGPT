@@ -1,0 +1,160 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "detailed_player_data.match_id",
+      "detailed_player_data.runs",
+      "detailed_player_data.balls_faced",
+      "detailed_player_data.wickets",
+      "detailed_player_data.overs_bowled"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "line",
+      "encodings": [
+        "x: detailed_player_data.match_id",
+        "y: derived metric values (e.g., batting strike rate, bowling economy)",
+        "color: role (Batter/Bowler)",
+        "detail: player name"
+      ],
+      "description": "Line chart showing per-match metrics trends (strike rate, economy) over match ID."
+    },
+    "usingParams": [],
+    "interactions": [
+      {
+        "object": "line chart",
+        "verb": "brush",
+        "effect": {
+          "description": "Filters matches by interaction range on match_id axis, updating subsequent views to focus on filtered matches.",
+          "params": [
+            {
+              "name": "match_filter",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "detailed_player_data.runs",
+      "detailed_player_data.balls_faced",
+      "detailed_player_data.wickets",
+      "detailed_player_data.overs_bowled",
+      "detailed_player_data.role"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "boxPlot",
+      "encodings": [
+        "x: role (categorical)",
+        "y: statistics values (e.g., runs, balls faced, wickets)",
+        "color: role"
+      ],
+      "description": "Box plot comparing distributions of batting and bowling statistics between roles."
+    },
+    "usingParams": [
+      "match_filter"
+    ],
+    "components": null,
+    "interactions": []
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "detailed_player_data.runs",
+      "detailed_player_data.balls_faced",
+      "detailed_player_data.wickets",
+      "detailed_player_data.overs_bowled",
+      "detailed_player_data.role"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "point",
+      "encodings": [
+        "x: detailed_player_data.runs or wickets",
+        "y: detailed_player_data.balls_faced or overs_bowled",
+        "color: role",
+        "size: derived metric (e.g., strike rate, economy)"
+      ],
+      "description": "Scatter plot correlating performance metrics (e.g., runs vs balls faced) with efficiency derived metrics."
+    },
+    "usingParams": [
+      "match_filter"
+    ],
+    "components": null,
+    "interactions": []
+  },
+  {
+    "id": 4,
+    "level": "detail",
+    "fields": [
+      "detailed_player_data.opposition_team",
+      "detailed_player_data.venue",
+      "detailed_player_data.runs",
+      "detailed_player_data.wickets"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x: opposition_team",
+        "y: venue",
+        "color: derived metric values (e.g., runs scored, wickets taken)",
+        "tooltip: detailed_player_data.player"
+      ],
+      "description": "Heatmap detailing individual performance metrics across venues and opposition teams."
+    },
+    "usingParams": [
+      "match_filter"
+    ],
+    "components": null,
+    "interactions": []
+  },
+  {
+    "id": 5,
+    "level": "insight",
+    "fields": [
+      "batter_player_stats.total_runs",
+      "bowler_player_stats.total_wickets",
+      "batter_player_stats.average",
+      "bowler_player_stats.average"
+    ],
+    "task": [
+      10
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: time (season/event)",
+        "y: aggregated metrics (e.g., runs, wickets)",
+        "color: role",
+        "detail: batter_player_stats.average | bowler_player_stats.average"
+      ],
+      "description": "Combined bar and line chart comparing aggregated performance metrics over time between batters and bowlers."
+    },
+    "usingParams": [
+      "match_filter"
+    ],
+    "components": null,
+    "interactions": []
+  }
+]

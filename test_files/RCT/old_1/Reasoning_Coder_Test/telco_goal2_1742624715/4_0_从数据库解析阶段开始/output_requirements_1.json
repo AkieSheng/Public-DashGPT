@@ -1,0 +1,38 @@
+{
+  "data": [
+    {
+      "id": "D1",
+      "requirement": "Combine Status_Analysis, Customer_Info, Service_Options, Online_Services, and Payment_Info tables through customer_id to create a unified customer profile with demographics, service usage, payment details, and churn indicators",
+      "reason": "Original requirement missed critical tables (Payment_Info, Online_Services) required for visualizations V2 and V4. Full integration ensures contract_type and internet_type are available for analysis"
+    },
+    {
+      "id": "D3",
+      "requirement": "Create tenure cohorts (0-3mo,4-6mo,7-12mo,13-24mo,25+mo) and pre-binned age groups (20-29,30-39,...,70+)",
+      "reason": "Simpler temporal grouping aligns with business reporting cycles. Pre-binning avoids runtime calculations and ensures consistent grouping across views"
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V2",
+      "requirement": "Grouped bar charts showing churn rates by contract types with clustered internet_type breakdown (instead of nested)",
+      "reason": "Nested hierarchy creates readability issues with legend management. Clustered groups improve comparison between categorical combinations"
+    },
+    {
+      "id": "V3",
+      "requirement": "Heat map of average satisfaction_score across age groups (rows) and binned number_of_dependents (0,1-2,3+)",
+      "reason": "Reduces column count from 10 to 3 for better readability while maintaining analytical value"
+    },
+    {
+      "id": "V4",
+      "requirement": "Multi-line chart showing CLTV trends across tenure cohorts, filtered to churned customers with churn_category color encoding",
+      "reason": "Small multiples create fragmentation with 6 categories. Single view with color encoding improves trend comparison"
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I3",
+      "requirement": "Slider for age group selection using pre-binned cohorts (20-29,30-39,...)",
+      "reason": "Dynamic runtime binning is impractical in Vega-Lite. Pre-binned groups allow efficient filtering via slider"
+    }
+  ]
+}

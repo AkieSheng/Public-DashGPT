@@ -1,0 +1,1 @@
+"Execution failed on sql 'SELECT * FROM intermediate_view_1': no such column: detailed_player_data.role"

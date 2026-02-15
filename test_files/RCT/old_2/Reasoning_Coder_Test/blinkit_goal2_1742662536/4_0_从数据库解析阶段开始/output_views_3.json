@@ -1,0 +1,124 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "blinkit_customers.total_orders",
+      "blinkit_orders.order_id",
+      "blinkit_customers.customer_segment"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x:total_orders (quantitative, aggregated by count)",
+        "y:customer_segment (nominal)",
+        "color:customer_segment (nominal)"
+      ],
+      "description": "Customer order frequency distribution segmented by customer category"
+    },
+    "usingParams": [],
+    "components": "Legend for customer segments",
+    "interactions": [
+      {
+        "object": "customer_segment bars",
+        "verb": "click",
+        "effect": {
+          "description": "Filters subsequent views to selected customer segments",
+          "params": [
+            {
+              "name": "selected_segment",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "blinkit_products.category",
+      "blinkit_order_items.order_id",
+      "blinkit_customers.customer_id"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x:products.category (nominal)",
+        "y:Number of orders (quantitative, aggregated by count)",
+        "color:customer_segment (nominal, from param)"
+      ],
+      "description": "Product category frequency analysis highlighted by selected customer segments"
+    },
+    "usingParams": [
+      "selected_segment"
+    ],
+    "interactions": [
+      {
+        "object": "category heatmap",
+        "verb": "hover",
+        "effect": {
+          "description": "Shows detailed product count tooltip per category"
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "detail",
+    "fields": [
+      "blinkit_order_items.product_id",
+      "blinkit_products.product_name",
+      "blinkit_orders.order_id"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x:Product A (nominal)",
+        "y:Product B (nominal)",
+        "size:Co-occurrence count (quantitative)",
+        "color:Customer segment (nominal, from param)"
+      ],
+      "description": "Co-occurrence matrix showing product pairs frequently bought together"
+    },
+    "usingParams": [
+      "selected_segment"
+    ],
+    "interactions": [
+      {
+        "object": "matrix cells",
+        "verb": "click",
+        "effect": {
+          "description": "Drills down to customer purchase sequences for selected product pair",
+          "params": [
+            {
+              "name": "selected_products",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

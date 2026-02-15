@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "type": "characterizing distributions",
+    "data": [
+      "blinkit_products.category",
+      "blinkit_order_items.quantity",
+      "blinkit_orders.order_date"
+    ],
+    "method": "Stacked bar chart with product categories on X-axis and total sales quantity on Y-axis. Time-of-day patterns represented as color-stacked segments (e.g., morning/afternoon/evening) derived from order_date timestamps. Linked to I1 for category brushing.",
+    "objective": "Identify top-selling categories and their temporal sales patterns to optimize inventory allocation and delivery scheduling",
+    "corrReq": [
+      "V3",
+      "I1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "computing derived values",
+    "data": [
+      "blinkit_orders.order_total",
+      "blinkit_products.margin_percentage",
+      "blinkit_products.category"
+    ],
+    "method": "Toggleable bar chart (per I2) showing category-level revenue sum (primary mode) vs margin-weighted revenue calculated as ∑(order_total × margin_percentage). Color encodes performance quartiles relative to selected metric.",
+    "objective": "Compare raw revenue contribution vs profitability-adjusted performance across product categories",
+    "corrReq": [
+      "I2"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 3,
+    "type": "correlating",
+    "data": [
+      "blinkit_order_items.unit_price",
+      "blinkit_order_items.quantity",
+      "blinkit_products.category"
+    ],
+    "method": "Scatterplot matrix with price-quantity pairs per category, trend lines showing elasticity. Bubble size represents total revenue (price×quantity). Category brush (I1) filters matrix subplots.",
+    "objective": "Analyze price sensitivity and demand elasticity patterns across product categories",
+    "corrReq": [
+      "I1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 4,
+    "type": "determining ranges",
+    "data": [
+      "blinkit_customers.customer_segment",
+      "blinkit_orders.order_total"
+    ],
+    "method": "Grouped bar chart (V4) with customer segments on X-axis and error bars showing ±1.5 IQR ranges. Bar height represents mean order value. Click interactions filter co-occurring views via shared segment parameter.",
+    "objective": "Compare spending patterns across customer segments to inform loyalty program adjustments",
+    "corrReq": [
+      "V4"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 5,
+    "type": "clustering",
+    "data": [
+      "blinkit_inventory.stock_received",
+      "blinkit_order_items.quantity",
+      "blinkit_products.category"
+    ],
+    "method": "Line chart overlay: x-axis=time, y1=stock received (inventory), y2=sales quantity (orders). Category brush (I1) highlights corresponding lines. Anomalies detected via stock-out events (y2 > y1).",
+    "objective": "Identify inventory replenishment needs through temporal alignment of stock levels and sales volume",
+    "corrReq": [
+      "I1"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 6,
+    "type": "finding anomalies",
+    "data": [
+      "blinkit_products.price",
+      "blinkit_products.mrp",
+      "blinkit_order_items.unit_price"
+    ],
+    "method": "Histogram with price ratios (unit_price/mrp) across categories. Anomaly thresholds marked at <0.85 and >1.0 ratios. Category brush (I1) enables focused outlier inspection.",
+    "objective": "Detect pricing irregularities and potential MAP policy violations",
+    "corrReq": [
+      "I1"
+    ],
+    "priority": 3
+  }
+]

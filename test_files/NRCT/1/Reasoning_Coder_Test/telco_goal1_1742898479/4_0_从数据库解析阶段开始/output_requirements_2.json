@@ -1,0 +1,83 @@
+{
+  "data": [
+    {
+      "id": "D1",
+      "requirement": "Extract demographic features from the Customer_Info table, including 'age', 'gender', 'senior_citizen', 'under_30', 'partner', 'number_of_dependents', and 'married'.",
+      "reason": "These are the primary demographic factors mentioned in the analysis goal and will be critical for correlation analysis with churn."
+    },
+    {
+      "id": "D2",
+      "requirement": "Integrate churn-related fields from the Status_Analysis table, including 'churn_label', 'churn_value', 'churn_score', and 'churn_category'.",
+      "reason": "These fields provide information on churn behavior, which needs to be compared against demographic features to identify associations."
+    },
+    {
+      "id": "D3",
+      "requirement": "Aggregate churn-specific metrics by demographic categories, such as average churn score by age group, churn counts by gender, and churn categories by number of dependents.",
+      "reason": "Aggregations across demographic categories provide a macro-level view of patterns and highlight significant group-level characteristics."
+    },
+    {
+      "id": "D4",
+      "requirement": "Ensure micro-level details are accessible, such as the churn reason for individual customers or the exact churn score for a subset of demographics filtered by specific attributes.",
+      "reason": "Detail-level views allow deeper exploration of outliers, anomalies, and specific customer cases within the broader trends."
+    },
+    {
+      "id": "D5",
+      "requirement": "Derive additional features, such as age bins (e.g., 'Under 30', '30-50', 'Over 50') or 'married or partner' combined status for enhanced categorical analysis.",
+      "reason": "Derived features provide higher-order abstractions to simplify comparisons and improve visual clarity in analysis."
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V1",
+      "requirement": "Use bar charts to compare churn counts across demographic categories, such as gender, age bins, or senior citizen status.",
+      "reason": "Bar charts are effective for comparing frequencies across categorical data and visualizing patterns in demographic groups."
+    },
+    {
+      "id": "V2",
+      "requirement": "Employ scatter plots for analyzing the relationship between customer age (numerical) and churn score (numerical).",
+      "reason": "Scatter plots are ideal for visualizing correlations between two numerical dimensions, highlighting trends or clusters."
+    },
+    {
+      "id": "V3",
+      "requirement": "Create a heat map to show churn score distributions across combined demographics, such as gender vs. marital status or partner status vs. churn category.",
+      "reason": "Heat maps enable exploration of multi-dimensional relationships and highlight areas of high or low churn activity."
+    },
+    {
+      "id": "V4",
+      "requirement": "Utilize a pie chart to depict the proportional distribution of churn labels ('Yes' vs. 'No').",
+      "reason": "Pie charts are suitable for showing composition, such as the overall churn rate in the dataset."
+    },
+    {
+      "id": "V5",
+      "requirement": "Use box plots to visualize the churn score distribution by demographic categories (e.g., gender or senior citizen status).",
+      "reason": "Box plots are effective for visualizing the spread, median, and outliers in churn-related metrics across groups."
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I1",
+      "requirement": "Allow users to filter charts by demographic attributes, such as selecting only senior citizens or filtering by marital status.",
+      "reason": "Filtering enables focused analysis by isolating subgroups to study specific behaviors and trends."
+    },
+    {
+      "id": "I2",
+      "requirement": "Enable drill-down interactions, allowing users to click on a bar in a bar chart or heat map to inspect individual customers or detailed churn reasons.",
+      "reason": "Drill-downs connect macro-level aggregations with micro-level customer details to provide context and specific examples."
+    },
+    {
+      "id": "I3",
+      "requirement": "Allow sorting of bar charts or scatter plots by metrics (e.g., churn score, age, or churn count).",
+      "reason": "Sorting helps identify extreme values, rank attributes, and reveal prominent patterns in the data."
+    },
+    {
+      "id": "I4",
+      "requirement": "Introduce hover tooltips to display additional details, such as exact churn scores, churn reasons, or age distributions for any selected data point.",
+      "reason": "Hover tooltips augment visualizations by providing immediate access to supplementary details without cluttering the display."
+    },
+    {
+      "id": "I5",
+      "requirement": "Enable users to toggle between absolute and relative metrics, e.g., absolute churn counts vs. percentage churn by demographic groups.",
+      "reason": "Toggling enhances interpretability, ensuring flexibility to view both raw numbers and normalized values for deeper insights."
+    }
+  ]
+}

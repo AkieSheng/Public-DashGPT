@@ -1,0 +1,21 @@
+{
+  "visualization": [
+    {
+      "id": "V4",
+      "requirement": "Bar chart showing primary department vs secondary appointment counts, sorted by secondary affiliation frequency.",
+      "reason": "Original heat map impractical due to sparse secondary appointments (5 records). Bar chart better surfaces meaningful interdisciplinary patterns."
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I2",
+      "requirement": "Removed - insufficient data support from Member_of secondary appointments",
+      "reason": "Limited secondary appointments (5 entries) make collaboration frequency analysis statistically insignificant"
+    },
+    {
+      "id": "I3",
+      "requirement": "Clicking faculty rank in V2 highlights corresponding proportion in V1 via shared department filter",
+      "reason": "Original dynamic filtering unfeasible due to missing rank data in V1 aggregation - revised interaction maintains logical data flow"
+    }
+  ]
+}

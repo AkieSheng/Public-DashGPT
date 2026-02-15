@@ -1,0 +1,150 @@
+[
+  {
+    "id": 1,
+    "type": "retrieving values | combining | determining ranges | characterizing distributions",
+    "data": [
+      "Customer_Info.customer_id",
+      "Customer_Info.age",
+      "Customer_Info.senior_citizen",
+      "Customer_Info.partner",
+      "Customer_Info.dependents",
+      "Status_Analysis.customer_id",
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.cltv",
+      "Status_Analysis.churn_score"
+    ],
+    "method": "Merge `Customer_Info` and `Status_Analysis` tables on `customer_id` and create a grid-based visualization such as a segmented bar chart or grouped bar chart to represent demographic group distributions alongside satisfaction score, churn score, and CLTV bins.",
+    "objective": "Combine demographic details with key metrics to observe patterns and assess potential predictors of churn.",
+    "corrReq": [
+      "D1",
+      "D3",
+      "V2",
+      "I4"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "aggregating | sorting | characterizing distributions",
+    "data": [
+      "Status_Analysis.churn_score",
+      "Status_Analysis.churn_value",
+      "Status_Analysis.customer_status"
+    ],
+    "method": "Compute macro-level churn rate metrics (e.g., percentage of churned customers, mean churn score) and visualize the results using a pie chart (distribution of customer statuses) and bar chart (churn score distribution).",
+    "objective": "Provide an overview of churn behaviors and trends to highlight high-risk patterns for targeted actions.",
+    "corrReq": [
+      "D2",
+      "V5",
+      "V2",
+      "I5"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 3,
+    "type": "correlating",
+    "data": [
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.churn_score",
+      "Status_Analysis.cltv",
+      "Customer_Info.age",
+      "Customer_Info.partner"
+    ],
+    "method": "Create a heat map to show correlations among numerical variables, segmented by demographic groups such as age categories and partner status.",
+    "objective": "Explore the relationships between satisfaction, churn, and revenue metrics across various customer demographics for actionable insights.",
+    "corrReq": [
+      "D4",
+      "V1",
+      "I1"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 4,
+    "type": "finding anomalies | clustering | characterizing distributions",
+    "data": [
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.churn_score",
+      "Status_Analysis.cltv"
+    ],
+    "method": "Plot a scatter plot of `satisfaction_score` versus `churn_score`, with points colored by CLTV tiers (e.g., low, medium, high) and hover interactions to display individual details.",
+    "objective": "Identify clusters of high-risk and high-value customers, and observe patterns or anomalies in the interaction between satisfaction and churn scores.",
+    "corrReq": [
+      "D3",
+      "V3",
+      "I3"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 5,
+    "type": "characterizing distributions | finding extrema",
+    "data": [
+      "Status_Analysis.churn_score",
+      "Status_Analysis.customer_status"
+    ],
+    "method": "Generate a box plot comparing churn score distributions for customers who have churned versus stayed, incorporating drill-down capabilities for detailed explorations.",
+    "objective": "Compare the variability and central tendency of churn scores for churned and non-churned customers, highlighting significant differences.",
+    "corrReq": [
+      "D2",
+      "V4",
+      "I2"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 6,
+    "type": "aggregating | clustering | correlating | characterizing distributions",
+    "data": [
+      "Customer_Info.age",
+      "Customer_Info.senior_citizen",
+      "Status_Analysis.churn_score",
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.cltv"
+    ],
+    "method": "Group customers into bins based on age (e.g., under 30, 30-50, 50+), CLTV levels, and churn risk, and visualize the results through stacked bar charts. Enable dynamic age and CLTV binning.",
+    "objective": "Cluster customers into actionable categories for predictive modeling and highlight high-risk segments for retention priorities.",
+    "corrReq": [
+      "D3",
+      "V2",
+      "I4",
+      "I5"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 7,
+    "type": "finding anomalies | sorting",
+    "data": [
+      "Status_Analysis.churn_reason",
+      "Status_Analysis.churn_category"
+    ],
+    "method": "Visualize churn reasons and categories using a horizontal bar chart, sorted by frequency and integrated with drill-down to explore specific customer data.",
+    "objective": "Understand the most frequent reasons behind churn to refine and prioritize targeted intervention strategies.",
+    "corrReq": [
+      "D2",
+      "V2",
+      "I2",
+      "I5"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 8,
+    "type": "retrieving values | computing derived values | correlating",
+    "data": [
+      "Payment_Info.monthly_charges",
+      "Payment_Info.total_revenue",
+      "Status_Analysis.churn_score"
+    ],
+    "method": "Plot a multi-line time series or segmented bar chart showing trends of monthly charges and total revenue for customers grouped by churn score bins.",
+    "objective": "Identify if customers at higher churn risk contribute significantly to revenues and monitor trends for early intervention.",
+    "corrReq": [
+      "D4",
+      "V2",
+      "I1"
+    ],
+    "priority": 2
+  }
+]

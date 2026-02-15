@@ -1,0 +1,48 @@
+{
+  "name": "llm4va-front-end",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.5.1",
+    "bootstrap": "^5.3.3",
+    "cra-template": "1.2.0",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "^18.3.1",
+    "react-redux": "^9.2.0",
+    "react-scripts": "5.0.1",
+    "rsuite": "^5.77.1",
+    "typeface-inter": "^3.18.1",
+    "vega": "^5.32.0",
+    "vega-embed": "^6.29.0",
+    "vega-lite": "^5.23.0",
+    "web-vitals": "^4.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
+}

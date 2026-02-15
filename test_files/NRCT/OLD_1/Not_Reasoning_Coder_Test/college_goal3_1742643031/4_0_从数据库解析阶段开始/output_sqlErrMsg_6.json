@@ -1,0 +1,1 @@
+"Execution failed on sql 'SELECT * FROM vwStudentMoreInfo': no such column: m.StuID"

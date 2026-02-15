@@ -1,0 +1,120 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "Status_Analysis.churn_label",
+      "Status_Analysis.churn_category",
+      "Customer_Info.gender",
+      "Customer_Info.age",
+      "Customer_Info.senior_citizen"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: churn_label (Nominal)",
+        "y: count() (Quantitative)",
+        "color: churn_category (Nominal)"
+      ],
+      "description": "Bar chart showing churn distribution segmented by churn reason categories, with interactive filtering capabilities."
+    },
+    "usingParams": [],
+    "interactions": [
+      {
+        "object": "bars",
+        "verb": "click",
+        "effect": {
+          "description": "Filters all subsequent views to show data matching selected churn category(s)",
+          "params": [
+            {
+              "name": "selected_churn_category",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "color"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "components": "Legend for churn categories with toggle visibility"
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "Customer_Info.age",
+      "Status_Analysis.churn_label",
+      "Status_Analysis.satisfaction_score",
+      "Customer_Info.number_of_dependents"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x: age bin (Quantitative, 5-year buckets)",
+        "y: churn_label (Nominal)",
+        "color: average(satisfaction_score) (Quantitative)"
+      ],
+      "description": "Heatmap showing relationship between customer age brackets, churn status, and satisfaction scores"
+    },
+    "usingParams": [
+      "selected_churn_category"
+    ],
+    "interactions": [
+      {
+        "object": "grid cells",
+        "verb": "click",
+        "effect": {
+          "description": "Filters downstream views to specific age-churn combination",
+          "params": [
+            {
+              "name": "selected_age_churn",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "detail",
+    "fields": [
+      "Status_Analysis.cltv",
+      "Service_Options.contract",
+      "Payment_Info.monthly_charges",
+      "Status_Analysis.churn_score"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x: monthly_charges (Quantitative)",
+        "y: churn_score (Quantitative)",
+        "size: cltv (Quantitative)",
+        "color: contract (Nominal)"
+      ],
+      "description": "Bubble plot showing financial metrics relationship with size encoding CLTV"
+    },
+    "usingParams": [
+      "selected_age_churn"
+    ],
+    "components": "Slider for CLTV range filtering"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "total_steps": 10,
+  "completed_stages": 1,
+  "stages": [
+    "requirements"
+  ],
+  "had_sql_backtrack": false,
+  "had_vl_backtrack": false
+}

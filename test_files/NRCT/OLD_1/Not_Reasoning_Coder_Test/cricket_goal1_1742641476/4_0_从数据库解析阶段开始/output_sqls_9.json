@@ -1,0 +1,52 @@
+[
+  {
+    "name": "intermediate_view_1",
+    "SQL": "CREATE VIEW intermediate_view_1 AS SELECT detailed_player_data.match_id, detailed_player_data.player, detailed_player_data.role, detailed_player_data.runs, detailed_player_data.balls_faced, detailed_player_data.wickets, detailed_player_data.overs_bowled FROM detailed_player_data",
+    "corrView": "1",
+    "pk": "match_id",
+    "fk": [
+      {
+        "key": "player",
+        "table": "intermediate_view_2"
+      }
+    ]
+  },
+  {
+    "name": "intermediate_view_2",
+    "SQL": "CREATE VIEW intermediate_view_2 AS SELECT player, SUM(total_runs) AS total_runs, SUM(total_wickets) AS total_wickets, AVG(average) AS average FROM batter_player_stats GROUP BY player",
+    "corrView": "2",
+    "pk": "player",
+    "fk": [
+      {
+        "key": "player",
+        "table": "intermediate_view_3"
+      }
+    ]
+  },
+  {
+    "name": "intermediate_view_3",
+    "SQL": "CREATE VIEW intermediate_view_3 AS SELECT player, SUM(total_wickets) AS total_wickets, SUM(average) AS average FROM bowler_player_stats GROUP BY player",
+    "corrView": "3",
+    "pk": "player",
+    "fk": [
+      {
+        "key": "player",
+        "table": "intermediate_view_4"
+      }
+    ]
+  },
+  {
+    "name": "intermediate_view_4",
+    "SQL": "CREATE VIEW intermediate_view_4 AS SELECT player, SUM(total_runs) AS average FROM match_summary GROUP BY player",
+    "corrView": "4",
+    "pk": "player",
+    "fk": []
+  },
+  {
+    "name": "intermediate_view_5",
+    "SQL": "CREATE VIEW intermediate_view_5 AS SELECT season, SUM(total_runs) AS total_batter_runs, SUM(total_wickets) AS total_bowler_wickets FROM match_summary GROUP BY season",
+    "corrView": "5",
+    "pk": "season",
+    "fk": []
+  }
+]

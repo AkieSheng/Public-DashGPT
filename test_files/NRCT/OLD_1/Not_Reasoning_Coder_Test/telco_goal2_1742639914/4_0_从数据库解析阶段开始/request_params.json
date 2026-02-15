@@ -1,0 +1,17 @@
+{
+  "id": "telco_goal2_1742639914",
+  "desc": "The Telco customer churn dataset contains information about a fictional telco company that provided home phone and Internet services to 7043 customers in California in Q3. It indicates which customers have left, stayed, or signed up for their service. Multiple important demographics are included for each customer, as well as a Satisfaction Score, Churn Score, and Customer Lifetime Value (CLTV) index. It is designed to facilitate analysis of customer behavior and retention strategies.",
+  "goal": "Use customer demographics, satisfaction score, churn score, and CLTV to predict which customers are likely to churn in the coming months, helping the company implement retention strategies.",
+  "initialStage": 0,
+  "maxSteps": 10,
+  "useReflect": true,
+  "useRag": false,
+  "models": {
+    "database": "gpt-4o",
+    "requirements": "gpt-4o",
+    "tasks": "gpt-4o",
+    "plan": "gpt-4o",
+    "sql": "qwen-coder",
+    "vega": "qwen-coder"
+  }
+}

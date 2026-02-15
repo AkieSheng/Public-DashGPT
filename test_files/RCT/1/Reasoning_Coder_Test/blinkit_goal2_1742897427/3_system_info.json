@@ -1,0 +1,405 @@
+{
+  "created": 1742897434,
+  "dataset": {
+    "description": "数据库包含以下表: blinkit_customers, blinkit_customer_feedback, blinkit_delivery_performance, blinkit_inventory, blinkit_inventoryNew, blinkit_marketing_performance, blinkit_orders, blinkit_order_items, blinkit_products",
+    "tables": [
+      {
+        "columns": [
+          {
+            "column": "customer_id",
+            "description": "字段 customer_id，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "customer_name",
+            "description": "字段 customer_name，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "email",
+            "description": "字段 email，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "phone",
+            "description": "字段 phone，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "address",
+            "description": "字段 address，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "area",
+            "description": "字段 area，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "pincode",
+            "description": "字段 pincode，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "registration_date",
+            "description": "字段 registration_date，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "customer_segment",
+            "description": "字段 customer_segment，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "total_orders",
+            "description": "字段 total_orders，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "avg_order_value",
+            "description": "字段 avg_order_value，类型为 REAL",
+            "dtype": "REAL"
+          }
+        ],
+        "table": "blinkit_customers"
+      },
+      {
+        "columns": [
+          {
+            "column": "feedback_id",
+            "description": "字段 feedback_id，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "order_id",
+            "description": "字段 order_id，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "customer_id",
+            "description": "字段 customer_id，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "rating",
+            "description": "字段 rating，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "feedback_text",
+            "description": "字段 feedback_text，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "feedback_category",
+            "description": "字段 feedback_category，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "sentiment",
+            "description": "字段 sentiment，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "feedback_date",
+            "description": "字段 feedback_date，类型为 TEXT",
+            "dtype": "TEXT"
+          }
+        ],
+        "table": "blinkit_customer_feedback"
+      },
+      {
+        "columns": [
+          {
+            "column": "order_id",
+            "description": "字段 order_id，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "delivery_partner_id",
+            "description": "字段 delivery_partner_id，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "promised_time",
+            "description": "字段 promised_time，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "actual_time",
+            "description": "字段 actual_time，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "delivery_time_minutes",
+            "description": "字段 delivery_time_minutes，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "distance_km",
+            "description": "字段 distance_km，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "delivery_status",
+            "description": "字段 delivery_status，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "reasons_if_delayed",
+            "description": "字段 reasons_if_delayed，类型为 TEXT",
+            "dtype": "TEXT"
+          }
+        ],
+        "table": "blinkit_delivery_performance"
+      },
+      {
+        "columns": [
+          {
+            "column": "product_id",
+            "description": "字段 product_id，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "date",
+            "description": "字段 date，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "stock_received",
+            "description": "字段 stock_received，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "damaged_stock",
+            "description": "字段 damaged_stock，类型为 INTEGER",
+            "dtype": "INTEGER"
+          }
+        ],
+        "table": "blinkit_inventory"
+      },
+      {
+        "columns": [
+          {
+            "column": "product_id",
+            "description": "字段 product_id，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "date",
+            "description": "字段 date，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "stock_received",
+            "description": "字段 stock_received，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "damaged_stock",
+            "description": "字段 damaged_stock，类型为 INTEGER",
+            "dtype": "INTEGER"
+          }
+        ],
+        "table": "blinkit_inventoryNew"
+      },
+      {
+        "columns": [
+          {
+            "column": "campaign_id",
+            "description": "字段 campaign_id，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "campaign_name",
+            "description": "字段 campaign_name，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "date",
+            "description": "字段 date，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "target_audience",
+            "description": "字段 target_audience，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "channel",
+            "description": "字段 channel，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "impressions",
+            "description": "字段 impressions，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "clicks",
+            "description": "字段 clicks，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "conversions",
+            "description": "字段 conversions，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "spend",
+            "description": "字段 spend，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "revenue_generated",
+            "description": "字段 revenue_generated，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "roas",
+            "description": "字段 roas，类型为 REAL",
+            "dtype": "REAL"
+          }
+        ],
+        "table": "blinkit_marketing_performance"
+      },
+      {
+        "columns": [
+          {
+            "column": "order_id",
+            "description": "字段 order_id，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "customer_id",
+            "description": "字段 customer_id，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "order_date",
+            "description": "字段 order_date，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "promised_delivery_time",
+            "description": "字段 promised_delivery_time，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "actual_delivery_time",
+            "description": "字段 actual_delivery_time，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "delivery_status",
+            "description": "字段 delivery_status，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "order_total",
+            "description": "字段 order_total，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "payment_method",
+            "description": "字段 payment_method，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "delivery_partner_id",
+            "description": "字段 delivery_partner_id，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "store_id",
+            "description": "字段 store_id，类型为 INTEGER",
+            "dtype": "INTEGER"
+          }
+        ],
+        "table": "blinkit_orders"
+      },
+      {
+        "columns": [
+          {
+            "column": "order_id",
+            "description": "字段 order_id，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "product_id",
+            "description": "字段 product_id，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "quantity",
+            "description": "字段 quantity，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "unit_price",
+            "description": "字段 unit_price，类型为 REAL",
+            "dtype": "REAL"
+          }
+        ],
+        "table": "blinkit_order_items"
+      },
+      {
+        "columns": [
+          {
+            "column": "product_id",
+            "description": "字段 product_id，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "product_name",
+            "description": "字段 product_name，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "category",
+            "description": "字段 category，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "brand",
+            "description": "字段 brand，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "price",
+            "description": "字段 price，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "mrp",
+            "description": "字段 mrp，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "margin_percentage",
+            "description": "字段 margin_percentage，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "shelf_life_days",
+            "description": "字段 shelf_life_days，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "min_stock_level",
+            "description": "字段 min_stock_level，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "max_stock_level",
+            "description": "字段 max_stock_level，类型为 INTEGER",
+            "dtype": "INTEGER"
+          }
+        ],
+        "table": "blinkit_products"
+      }
+    ]
+  },
+  "id": "blinkit_goal2_1742897427",
+  "name": "Visual Analytics System blinkit_goal2_1742897427"
+}

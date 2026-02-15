@@ -1,0 +1,173 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "Student.Major",
+      "Minor_in.DNO",
+      "Student.Advisor"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "text",
+      "encodings": [
+        "rows: Student.StuID",
+        "columns: Student.Major, Minor_in.DNO, Student.Advisor"
+      ],
+      "description": "Tabular visualization showing each student’s major, minor, and advisor. Each row represents a student, while columns represent the respective fields."
+    },
+    "usingParams": [],
+    "components": "",
+    "interactions": []
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "Student.Major",
+      "Minor_in.DNO"
+    ],
+    "task": [
+      2,
+      10
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: department (Student.Major and Minor_in.DNO)",
+        "y: count",
+        "color: type (major/minor)"
+      ],
+      "description": "Bar chart showing the count of students per department, categorized by majors and minors. An additional line overlays the expected count to highlight anomalies."
+    },
+    "usingParams": [],
+    "components": "",
+    "interactions": [
+      {
+        "object": "bar chart",
+        "verb": "click",
+        "effect": {
+          "description": "Selecting a department filters the data for the heat map in View 4.",
+          "params": [
+            {
+              "name": "selectedDepartment",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "Student.Age",
+      "Member_of.Appt_Type"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "point",
+      "encodings": [
+        "x: Student.Age",
+        "y: Member_of.Appt_Type",
+        "color: Appt_Type",
+        "shape: Appt_Type"
+      ],
+      "description": "Scatter plot showing the relationship between student age and extracurricular memberships by appointment type."
+    },
+    "usingParams": [
+      "selectedDepartment"
+    ],
+    "components": "Sliders for filtering age range and dropdowns for selecting sex.",
+    "interactions": []
+  },
+  {
+    "id": 4,
+    "level": "detail",
+    "fields": [
+      "Student.Major",
+      "Minor_in.DNO"
+    ],
+    "task": [
+      6
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x: Minor_in.DNO",
+        "y: Student.Major",
+        "color: count of students in each major-minor combination"
+      ],
+      "description": "Heat map where rows represent majors and columns represent minors, showing the intensity of combinations by the number of students."
+    },
+    "usingParams": [
+      "selectedDepartment"
+    ],
+    "components": "Button for drilldown to explore detailed combinations.",
+    "interactions": [
+      {
+        "object": "heat map",
+        "verb": "hover",
+        "effect": {
+          "description": "Hovering over a cell displays the count of students for that specific major-minor combination.",
+          "params": []
+        }
+      },
+      {
+        "object": "button",
+        "verb": "click",
+        "effect": {
+          "description": "Drill into a selected combination to view detailed student information.",
+          "params": [
+            {
+              "name": "drilldownSelection",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "level": "insight",
+    "fields": [
+      "Department.DName",
+      "Department.Division",
+      "Student.Major",
+      "Minor_in.DNO"
+    ],
+    "task": [
+      5,
+      3
+    ],
+    "visualization": {
+      "markType": "arc",
+      "encodings": [
+        "theta: proportion",
+        "color: Division",
+        "facet: (major/minor)"
+      ],
+      "description": "Pie chart showing the proportion of departments within each division for majors and minors, facilitating comparison between divisions."
+    },
+    "usingParams": [],
+    "components": "Tooltip to display exact numbers and department details.",
+    "interactions": []
+  }
+]

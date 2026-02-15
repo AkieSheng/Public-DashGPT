@@ -1,0 +1,82 @@
+[
+  {
+    "created": 1742900609,
+    "id": "agriculture_goal1_1742900600",
+    "name": "Visual Analytics System agriculture_goal1_1742900600"
+  },
+  {
+    "created": 1742901108,
+    "id": "agriculture_goal2_1742901099",
+    "name": "Visual Analytics System agriculture_goal2_1742901099"
+  },
+  {
+    "created": 1742901566,
+    "id": "agriculture_goal3_1742901557",
+    "name": "Visual Analytics System agriculture_goal3_1742901557"
+  },
+  {
+    "created": 1742901585,
+    "id": "cricket_goal1_1742901575",
+    "name": "Visual Analytics System cricket_goal1_1742901575"
+  },
+  {
+    "created": 1742901607,
+    "id": "cricket_goal2_1742901596",
+    "name": "Visual Analytics System cricket_goal2_1742901596"
+  },
+  {
+    "created": 1742898487,
+    "id": "telco_goal1_1742898479",
+    "name": "Visual Analytics System telco_goal1_1742898479"
+  },
+  {
+    "created": 1742899508,
+    "id": "telco_goal2_1742899501",
+    "name": "Visual Analytics System telco_goal2_1742899501"
+  },
+  {
+    "created": 1742900136,
+    "id": "telco_goal3_1742900126",
+    "name": "Visual Analytics System telco_goal3_1742900126"
+  },
+  {
+    "created": 1742898479,
+    "id": "va_1742898479",
+    "name": "Visual Analytics System va_1742898479"
+  },
+  {
+    "created": 1742899501,
+    "id": "va_1742899501",
+    "name": "Visual Analytics System va_1742899501"
+  },
+  {
+    "created": 1742900126,
+    "id": "va_1742900126",
+    "name": "Visual Analytics System va_1742900126"
+  },
+  {
+    "created": 1742900600,
+    "id": "va_1742900600",
+    "name": "Visual Analytics System va_1742900600"
+  },
+  {
+    "created": 1742901099,
+    "id": "va_1742901099",
+    "name": "Visual Analytics System va_1742901099"
+  },
+  {
+    "created": 1742901557,
+    "id": "va_1742901557",
+    "name": "Visual Analytics System va_1742901557"
+  },
+  {
+    "created": 1742901575,
+    "id": "va_1742901575",
+    "name": "Visual Analytics System va_1742901575"
+  },
+  {
+    "created": 1742901596,
+    "id": "va_1742901596",
+    "name": "Visual Analytics System va_1742901596"
+  }
+]

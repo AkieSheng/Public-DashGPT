@@ -1,0 +1,141 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "Customer_Info.age",
+      "Status_Analysis.churn_label",
+      "Status_Analysis.churn_value"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: Customer_Info.age (binned with step=10, title='Age Group')",
+        "y: count(Status_Analysis.churn_value)",
+        "color: Status_Analysis.churn_label"
+      ],
+      "description": "Stacked bar chart showing distribution of churned vs retained customers across age groups (binned in 10-year increments)"
+    },
+    "usingParams": [],
+    "components": "Age bin size selector (dropdown with 5/10/15 year options)",
+    "interactions": [
+      {
+        "object": "bar",
+        "verb": "click",
+        "effect": {
+          "description": "Filter subsequent views to show data for selected age group",
+          "params": [
+            {
+              "name": "age_selection",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "Customer_Info.gender",
+      "Customer_Info.senior_citizen",
+      "Status_Analysis.churn_value"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "arc",
+      "encodings": [
+        "theta: count(Status_Analysis.churn_value)",
+        "color: Status_Analysis.churn_label",
+        "column: Customer_Info.gender",
+        "row: Customer_Info.senior_citizen"
+      ],
+      "description": "Faceted donut charts showing churn distribution breakdown by gender and senior status within selected age group"
+    },
+    "usingParams": [
+      "age_selection"
+    ],
+    "interactions": [
+      {
+        "object": "arc",
+        "verb": "hover",
+        "effect": {
+          "description": "Highlight corresponding segments in View 3",
+          "params": [
+            {
+              "name": "demo_selection",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "color"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "Online_Services.internet_type",
+      "Payment_Info.contract",
+      "Status_Analysis.churn_value"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: Status_Analysis.churn_value (aggregate=mean)",
+        "y: Online_Services.internet_type",
+        "row: Payment_Info.contract"
+      ],
+      "description": "Horizontal bar charts showing relationship between service contracts, internet types and churn rates within selected demographic segment"
+    },
+    "usingParams": [
+      "age_selection",
+      "demo_selection"
+    ]
+  },
+  {
+    "id": 4,
+    "level": "detail",
+    "fields": [
+      "Status_Analysis.cltv",
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.churn_label"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x: Status_Analysis.satisfaction_score",
+        "y: Status_Analysis.cltv",
+        "color: Status_Analysis.churn_label",
+        "size: Payment_Info.total_revenue"
+      ],
+      "description": "Scatter plot showing CLTV vs Satisfaction Score with revenue indication, filtered by demographic selections"
+    },
+    "usingParams": [
+      "age_selection",
+      "demo_selection"
+    ]
+  }
+]

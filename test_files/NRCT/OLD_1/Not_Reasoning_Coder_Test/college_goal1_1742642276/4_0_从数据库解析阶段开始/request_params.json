@@ -1,0 +1,17 @@
+{
+  "id": "college_goal1_1742642276",
+  "desc": "The database offers a comprehensive view of an educational institution’s academic ecosystem, covering details about courses, departments, enrollment, faculty, students, and related administrative information.",
+  "goal": "Examine enrollment numbers and distribution across various courses, identify popular courses versus those with low enrollment, and explore potential factors influencing these trends.",
+  "initialStage": 0,
+  "maxSteps": 10,
+  "useReflect": true,
+  "useRag": false,
+  "models": {
+    "database": "gpt-4o",
+    "requirements": "gpt-4o",
+    "tasks": "gpt-4o",
+    "plan": "gpt-4o",
+    "sql": "qwen-coder",
+    "vega": "qwen-coder"
+  }
+}

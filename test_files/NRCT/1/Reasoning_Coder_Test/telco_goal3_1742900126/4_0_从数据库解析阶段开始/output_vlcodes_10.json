@@ -1,0 +1,316 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Visual Analytics System for Customer Churn Analysis",
+  "columns": 3,
+  "concat": [
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/ChurnStatusMetrics.csv"
+      },
+      "description": "Overview: Grouped bar chart showing average, median, and standard deviation values of satisfaction score, churn score, and CLTV for different customer statuses ('Stayed', 'Churned', 'Joined'). Color coding differentiates customer statuses.",
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "customer_status",
+          "type": "nominal",
+          "title": "Customer Status"
+        },
+        "y": {
+          "aggregate": "avg, median, stdev",
+          "field": "metric_value",
+          "type": "quantitative",
+          "title": "Metric Value"
+        },
+        "color": {
+          "field": "customer_status",
+          "type": "nominal",
+          "title": "Customer Status"
+        },
+        "opacity": {
+          "value": 0.6
+        }
+      },
+      "params": [
+        {
+          "name": "selectedStatus",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/DemographicsByStatus.csv"
+      },
+      "description": "Exploration: Stacked bar charts comparing demographic distributions like gender, age group, marital status, etc., for each customer status group.",
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "customer_status",
+          "type": "nominal",
+          "title": "Customer Status"
+        },
+        "y": {
+          "field": "count",
+          "type": "quantitative",
+          "title": "Count"
+        },
+        "color": {
+          "field": "demographic_factor",
+          "type": "nominal",
+          "title": "Demographic Factor"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_status",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/ChurnStatusMetrics.csv"
+            },
+            "key": "customer_status",
+            "fields": [
+              "customer_status"
+            ]
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "selectedStatus",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/SatisfactionChurnRelationship.csv"
+      },
+      "description": "Exploration: Scatter plot visualizing the relationship between satisfaction score and churn score, distinguished by customer status. Circle size indicates Customer Lifetime Value (CLTV).",
+      "mark": "point",
+      "encoding": {
+        "x": {
+          "field": "satisfaction_score",
+          "type": "quantitative",
+          "title": "Satisfaction Score"
+        },
+        "y": {
+          "field": "churn_score",
+          "type": "quantitative",
+          "title": "Churn Score"
+        },
+        "size": {
+          "field": "cltv",
+          "type": "quantitative",
+          "title": "Customer Lifetime Value"
+        },
+        "color": {
+          "field": "customer_status",
+          "type": "nominal",
+          "title": "Customer Status"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_status",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/ChurnStatusMetrics.csv"
+            },
+            "key": "customer_status",
+            "fields": [
+              "customer_status"
+            ]
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "selectedStatus",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x"
+            ]
+          }
+        },
+        {
+          "name": "selectedScatterRange",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/Location_Data.csv"
+      },
+      "description": "Detail: Heatmap showing customer status distributions geographically by city and zip code. Allows exploration through zoom and pan.",
+      "mark": "rect",
+      "encoding": {
+        "x": {
+          "field": "city",
+          "type": "nominal",
+          "title": "City"
+        },
+        "y": {
+          "field": "zip_code",
+          "type": "ordinal",
+          "title": "Zip Code"
+        },
+        "color": {
+          "field": "customer_status",
+          "type": "nominal",
+          "title": "Customer Status"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_status",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/ChurnStatusMetrics.csv"
+            },
+            "key": "customer_status",
+            "fields": [
+              "customer_status"
+            ]
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "selectedStatus",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/ScoreDistributions.csv"
+      },
+      "description": "Detail: Box plots showing distributions of satisfaction and churn scores for each customer status group, highlighting outliers explicitly.",
+      "mark": "boxplot",
+      "encoding": {
+        "x": {
+          "field": "customer_status",
+          "type": "nominal",
+          "title": "Customer Status"
+        },
+        "y": {
+          "field": "score_value",
+          "type": "quantitative",
+          "title": "Score Value"
+        },
+        "color": {
+          "field": "customer_status",
+          "type": "nominal",
+          "title": "Customer Status"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_status",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/SatisfactionChurnRelationship.csv"
+            },
+            "key": "customer_status",
+            "fields": [
+              "customer_status"
+            ]
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "selectedScatterRange",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/DemographicsByStatus.csv"
+      },
+      "description": "Insight: Summarized text-based report highlighting anomalies or extreme cases identified, including detailed reasoning.",
+      "mark": "text",
+      "encoding": {
+        "text": {
+          "aggregate": "count",
+          "field": "count",
+          "type": "quantitative",
+          "title": "Insight"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_status",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/SatisfactionChurnRelationship.csv"
+            },
+            "key": "customer_status",
+            "fields": [
+              "customer_status"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "selectedScatterRange"
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "selectedScatterRange",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

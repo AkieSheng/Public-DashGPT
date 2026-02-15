@@ -1,0 +1,167 @@
+[
+  {
+    "id": 1,
+    "type": "retrieving values",
+    "data": [
+      "Customer_Info.age",
+      "Customer_Info.gender",
+      "Customer_Info.senior_citizen",
+      "Customer_Info.under_30",
+      "Customer_Info.partner",
+      "Customer_Info.number_of_dependents",
+      "Customer_Info.married"
+    ],
+    "method": "Extract demographic features as specified and display their value distributions to verify data integrity. Use a bar chart to visualize the frequency of categorical variables like 'gender', 'married', and 'senior_citizen'.",
+    "objective": "Ensure demographic features are available and their initial distributions are clear to enable further analysis.",
+    "corrReq": [
+      "D1",
+      "V1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "finding extrema",
+    "data": [
+      "Status_Analysis.churn_score",
+      "Customer_Info.age"
+    ],
+    "method": "Visualize churn score vs. age using a scatter plot to find trends or outliers. Encode age on the x-axis, churn score on the y-axis, and use color to represent senior citizen status.",
+    "objective": "Identify relationships or anomalies between age and churn score, and explore correlation trends.",
+    "corrReq": [
+      "D1",
+      "D2",
+      "V2"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 3,
+    "type": "characterizing distributions",
+    "data": [
+      "Status_Analysis.churn_score",
+      "Customer_Info.gender",
+      "Customer_Info.senior_citizen"
+    ],
+    "method": "Use box plots to depict the distribution of churn scores across gender and senior citizen categories, with separate plots for each demographic group.",
+    "objective": "Understand how churn score varies across gender and senior citizen groups, identifying spreads and outliers per category.",
+    "corrReq": [
+      "D1",
+      "D2",
+      "V5"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 4,
+    "type": "clustering",
+    "data": [
+      "Customer_Info.age",
+      "Status_Analysis.churn_score",
+      "Status_Analysis.churn_category"
+    ],
+    "method": "Use a heat map where age bins are on the y-axis and churn categories are on the x-axis. Color intensity represents the average churn score in each demographic combination.",
+    "objective": "Examine multi-dimensional correlations between age, churn categories, and associated churn scores.",
+    "corrReq": [
+      "D3",
+      "D5",
+      "V3"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 5,
+    "type": "retrieving values",
+    "data": [
+      "Status_Analysis.churn_label"
+    ],
+    "method": "Create a pie chart showing the proportion of customers who churned ('Yes') vs. those who stayed ('No'). Include hover tooltips for exact percentages and numbers.",
+    "objective": "Establish an overview of churn proportions within the dataset.",
+    "corrReq": [
+      "D2",
+      "V4",
+      "I4"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 6,
+    "type": "aggregating",
+    "data": [
+      "Status_Analysis.churn_score",
+      "Customer_Info.married",
+      "Customer_Info.partner"
+    ],
+    "method": "Combine 'married' and 'partner' columns to derive a new 'married or partner' status. Visualize average churn score for individuals in each category using a bar chart.",
+    "objective": "Assess how relational demographics impact customer churn likelihood.",
+    "corrReq": [
+      "D5",
+      "V1"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 7,
+    "type": "filtering",
+    "data": [
+      "Customer_Info.age",
+      "Status_Analysis.churn_reason"
+    ],
+    "method": "Implement an interactive filter to isolate customers by demographic features (e.g., senior citizens or under 30) and visualize churn reasons using a bar chart.",
+    "objective": "Facilitate targeted exploration of churn behaviors for specific demographic groups.",
+    "corrReq": [
+      "D4",
+      "I1",
+      "V1"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 8,
+    "type": "computing derived values",
+    "data": [
+      "Customer_Info.age"
+    ],
+    "method": "Create age bins (e.g., 'Under 30', '30-50', 'Over 50') and compute average churn scores for each group. Visualize results with a bar chart where bins are on the x-axis and scores on the y-axis.",
+    "objective": "Simplify the analysis of age impact on churn by using derived bins for clearer comparisons.",
+    "corrReq": [
+      "D3",
+      "D5",
+      "V1"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 9,
+    "type": "determining ranges",
+    "data": [
+      "Status_Analysis.churn_score",
+      "Customer_Info.number_of_dependents"
+    ],
+    "method": "Use box plots to analyze the distribution of churn scores across different ranges of dependents (e.g., 0, 1-2, 3+ dependents).",
+    "objective": "Understand how the presence and number of dependents correlate with churn likelihood.",
+    "corrReq": [
+      "D1",
+      "D3",
+      "V5"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 10,
+    "type": "correlating",
+    "data": [
+      "Customer_Info.gender",
+      "Customer_Info.age",
+      "Status_Analysis.churn_value"
+    ],
+    "method": "Use a stacked bar chart to show the proportion of churned vs. non-churned customers within each gender and age bin, with hover tooltips showing exact values and percentages.",
+    "objective": "Explore how churn likelihood varies across combined gender and age groups.",
+    "corrReq": [
+      "D1",
+      "D2",
+      "I4"
+    ],
+    "priority": 4
+  }
+]

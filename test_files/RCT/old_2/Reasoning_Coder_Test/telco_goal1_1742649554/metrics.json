@@ -1,0 +1,10 @@
+{
+  "format_accuracy": 1.0,
+  "sql_success_rate": 1,
+  "vl_success_rate": 1,
+  "average_steps": 7,
+  "average_tokens": {
+    "input": 264.0,
+    "output": 1245.142857142857
+  }
+}

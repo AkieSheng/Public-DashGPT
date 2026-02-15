@@ -1,0 +1,42 @@
+[
+  {
+    "name": "view_1_venue_win_rate",
+    "SQL": "CREATE VIEW view_1_venue_win_rate AS SELECT venue, team, (CAST(COUNT(CASE WHEN match_outcome = 'win' THEN 1 ELSE NULL END) AS FLOAT) / COUNT(match_id)) AS win_rate FROM match_summary JOIN detailed_player_data ON match_summary.match_id = detailed_player_data.match_id GROUP BY venue, team",
+    "corrView": "1",
+    "pk": "match_id",
+    "fk": [
+      {
+        "key": "match_id",
+        "table": "detailed_player_data"
+      }
+    ]
+  },
+  {
+    "name": "view_3_team_win_rate",
+    "SQL": "CREATE VIEW view_3_team_win_rate AS SELECT venue, team_type, (CAST(COUNT(CASE WHEN match_outcome = 'win' THEN 1 ELSE NULL END) AS FLOAT) / COUNT(match_id)) AS win_rate FROM match_summary JOIN (SELECT match_id, CASE WHEN match_summary.match_type = 'home' THEN 'home' ELSE 'away' END AS team_type FROM match_summary) AS team_info ON match_summary.match_id = team_info.match_id GROUP BY venue, team_type",
+    "corrView": "3",
+    "pk": "match_id",
+    "fk": [
+      {
+        "key": "match_id",
+        "table": "match_summary"
+      },
+      {
+        "key": "match_id",
+        "table": "detailed_player_data"
+      }
+    ]
+  },
+  {
+    "name": "view_5_season_match_count",
+    "SQL": "CREATE VIEW view_5_season_match_count AS SELECT season, venue, COUNT(match_id) AS match_count FROM match_summary GROUP BY season, venue",
+    "corrView": "5",
+    "pk": "match_id",
+    "fk": [
+      {
+        "key": "match_id",
+        "table": "match_summary"
+      }
+    ]
+  }
+]

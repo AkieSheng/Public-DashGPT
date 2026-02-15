@@ -1,0 +1,252 @@
+{
+  "telco": {
+    "goal_metrics": [
+      {
+        "format_accuracy": 1.0,
+        "sql_success_rate": 1,
+        "vl_success_rate": 1,
+        "average_steps": 9,
+        "average_tokens": {
+          "input": 264.0,
+          "output": 1071.2222222222222
+        },
+        "goal_idx": 0,
+        "goal": "Analyze the impact of different customer demographic factors (e.g., age, gender, income) on churn to identify which factors are most strongly associated with customer churn, helping the company understand the underlying reasons for churn."
+      },
+      {
+        "format_accuracy": 1.0,
+        "sql_success_rate": 1,
+        "vl_success_rate": 0,
+        "average_steps": 10,
+        "average_tokens": {
+          "input": 254.0,
+          "output": 1048.2
+        },
+        "goal_idx": 1,
+        "goal": "Use customer demographics, satisfaction score, churn score, and CLTV to predict which customers are likely to churn in the coming months, helping the company implement retention strategies."
+      },
+      {
+        "format_accuracy": 1.0,
+        "sql_success_rate": 1,
+        "vl_success_rate": 0,
+        "average_steps": 10,
+        "average_tokens": {
+          "input": 268.0,
+          "output": 1102.1
+        },
+        "goal_idx": 2,
+        "goal": "Analyze customer groups based on their status (churned, retained, newly signed up) by comparing key metrics (satisfaction, churn scores, CLTV) and demographic characteristics, to identify potential factors influencing customer churn and retention."
+      }
+    ],
+    "average_metrics": {
+      "format_accuracy": 1.0,
+      "sql_success_rate": 1.0,
+      "vl_success_rate": 0.3333333333333333,
+      "average_steps": 9.666666666666666,
+      "average_tokens": {
+        "input": 262.0,
+        "output": 1073.8407407407406
+      }
+    }
+  },
+  "agriculture": {
+    "goal_metrics": [
+      {
+        "format_accuracy": 1.0,
+        "sql_success_rate": 1,
+        "vl_success_rate": 0,
+        "average_steps": 10,
+        "average_tokens": {
+          "input": 254.0,
+          "output": 764.5
+        },
+        "goal_idx": 0,
+        "goal": "Analyze the impact of different irrigation methods and water usage efficiency on crop yield, identify areas and crop types with the most efficient use of water resources, and provide recommendations for optimizing water management and sustainable agriculture practices."
+      },
+      {
+        "format_accuracy": 1.0,
+        "sql_success_rate": 1,
+        "vl_success_rate": 0,
+        "average_steps": 10,
+        "average_tokens": {
+          "input": 250.0,
+          "output": 653.5
+        },
+        "goal_idx": 1,
+        "goal": "Use crop production data (including crop type, season, area, yield) to analyze crop productivity in different districts and seasons, predict future yield trends, and support decision-making in agricultural production."
+      },
+      {
+        "format_accuracy": 1.0,
+        "sql_success_rate": 1,
+        "vl_success_rate": 0,
+        "average_steps": 10,
+        "average_tokens": {
+          "input": 253.0,
+          "output": 723.5
+        },
+        "goal_idx": 2,
+        "goal": "Analyze the relationship between soil type, nutrient content (e.g., organic matter, nitrogen, phosphorus, potassium), and crop yield in different districts, providing insights for soil improvement and precision agriculture practices."
+      }
+    ],
+    "average_metrics": {
+      "format_accuracy": 1.0,
+      "sql_success_rate": 1.0,
+      "vl_success_rate": 0.0,
+      "average_steps": 10.0,
+      "average_tokens": {
+        "input": 252.33333333333334,
+        "output": 713.8333333333334
+      }
+    }
+  },
+  "cricket": {
+    "goal_metrics": [
+      {
+        "format_accuracy": 0.2,
+        "sql_success_rate": 0,
+        "vl_success_rate": 0,
+        "average_steps": 10,
+        "average_tokens": {
+          "input": 229.0,
+          "output": 1262.7
+        },
+        "goal_idx": 0,
+        "goal": "Analyze the consistency of individual player performances, focusing on how batters and bowlers vary in their runs, balls faced, wickets taken, and other statistics across different matches."
+      },
+      {
+        "format_accuracy": 0.0,
+        "sql_success_rate": 0,
+        "vl_success_rate": 0,
+        "average_steps": 0,
+        "average_tokens": {
+          "input": 0,
+          "output": 0
+        },
+        "goal_idx": 1,
+        "goal": "Study the impact of different venues on match outcomes, analyzing the win rates for home and away teams and their relationship with individual player performances."
+      },
+      {
+        "format_accuracy": 0.0,
+        "sql_success_rate": 0,
+        "vl_success_rate": 0,
+        "average_steps": 0,
+        "average_tokens": {
+          "input": 0,
+          "output": 0
+        },
+        "goal_idx": 2,
+        "goal": "Analyze which individual player performances contribute most to match victories, focusing on the best players' batting and bowling statistics and their impact on the match outcome."
+      }
+    ],
+    "average_metrics": {
+      "format_accuracy": 0.06666666666666667,
+      "sql_success_rate": 0.0,
+      "vl_success_rate": 0.0,
+      "average_steps": 3.3333333333333335,
+      "average_tokens": {
+        "input": 76.33333333333333,
+        "output": 420.90000000000003
+      }
+    }
+  },
+  "college": {
+    "goal_metrics": [
+      {
+        "format_accuracy": 0.0,
+        "sql_success_rate": 0,
+        "vl_success_rate": 0,
+        "average_steps": 0,
+        "average_tokens": {
+          "input": 0,
+          "output": 0
+        },
+        "goal_idx": 0,
+        "goal": "Examine enrollment numbers and distribution across various courses, identify popular courses versus those with low enrollment, and explore potential factors influencing these trends."
+      },
+      {
+        "format_accuracy": 0.0,
+        "sql_success_rate": 0,
+        "vl_success_rate": 0,
+        "average_steps": 0,
+        "average_tokens": {
+          "input": 0,
+          "output": 0
+        },
+        "goal_idx": 1,
+        "goal": "Analyze the distribution of faculty across departments, understand the staffing characteristics of each department, and examine the relationship between faculty distribution, course offerings, and academic activities."
+      },
+      {
+        "format_accuracy": 0.0,
+        "sql_success_rate": 0,
+        "vl_success_rate": 0,
+        "average_steps": 0,
+        "average_tokens": {
+          "input": 0,
+          "output": 0
+        },
+        "goal_idx": 2,
+        "goal": "Conduct a comprehensive analysis of students’ major subjects, minor selections, and organizational memberships, thereby exploring overall patterns and potential correlations between academic profiles and extracurricular engagement."
+      }
+    ],
+    "average_metrics": {
+      "format_accuracy": 0.0,
+      "sql_success_rate": 0.0,
+      "vl_success_rate": 0.0,
+      "average_steps": 0.0,
+      "average_tokens": {
+        "input": 0.0,
+        "output": 0.0
+      }
+    }
+  },
+  "blinkit": {
+    "goal_metrics": [
+      {
+        "format_accuracy": 0.0,
+        "sql_success_rate": 0,
+        "vl_success_rate": 0,
+        "average_steps": 0,
+        "average_tokens": {
+          "input": 0,
+          "output": 0
+        },
+        "goal_idx": 0,
+        "goal": "Analyze sales performance across various time dimensions—daily, weekly, and monthly—to identify peaks, troughs, and seasonal patterns. Visualizing historical sales trends helps in understanding how promotional events, holidays, or external factors affect sales, thereby providing valuable insights for inventory management and operational decision-making."
+      },
+      {
+        "format_accuracy": 0.0,
+        "sql_success_rate": 0,
+        "vl_success_rate": 0,
+        "average_steps": 0,
+        "average_tokens": {
+          "input": 0,
+          "output": 0
+        },
+        "goal_idx": 1,
+        "goal": "Examine customer purchase frequency, basket composition, and product co-occurrence patterns to understand buying behavior and preferences. By identifying which products are frequently bought together, this descriptive analysis helps uncover common customer segments and preferences, aiding in product mix optimization and marketing strategy development."
+      },
+      {
+        "format_accuracy": 0.0,
+        "sql_success_rate": 0,
+        "vl_success_rate": 0,
+        "average_steps": 0,
+        "average_tokens": {
+          "input": 0,
+          "output": 0
+        },
+        "goal_idx": 2,
+        "goal": "Perform a statistical analysis of sales volumes, revenue contributions, and price sensitivity across different products or product categories. This descriptive approach identifies key revenue drivers and top-selling items, using visual tools such as bar charts and pie charts to highlight performance differences, which in turn supports decisions related to pricing strategies, inventory management, and promotional activities."
+      }
+    ],
+    "average_metrics": {
+      "format_accuracy": 0.0,
+      "sql_success_rate": 0.0,
+      "vl_success_rate": 0.0,
+      "average_steps": 0.0,
+      "average_tokens": {
+        "input": 0.0,
+        "output": 0.0
+      }
+    }
+  }
+}

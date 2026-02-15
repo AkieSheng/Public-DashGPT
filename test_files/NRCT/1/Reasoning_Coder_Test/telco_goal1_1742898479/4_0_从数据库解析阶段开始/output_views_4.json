@@ -1,0 +1,175 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "Customer_Info.age",
+      "Customer_Info.gender",
+      "Customer_Info.senior_citizen",
+      "Customer_Info.under_30",
+      "Customer_Info.partner",
+      "Customer_Info.number_of_dependents",
+      "Customer_Info.married"
+    ],
+    "task": [
+      1,
+      5
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: categorical demographics (e.g., gender, senior_citizen, married)",
+        "y: frequency",
+        "color: demographic categories (optional for clarity)"
+      ],
+      "description": "A set of bar charts representing the frequency distribution for demographic variables such as gender, senior citizens, and married status."
+    },
+    "usingParams": [],
+    "interactions": [
+      {
+        "object": "bar visualization in View 1",
+        "verb": "click",
+        "effect": {
+          "description": "Clicking a demographic category filters data for relevant entities in subsequent views.",
+          "params": [
+            {
+              "name": "filterDemographics",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "Status_Analysis.churn_score",
+      "Customer_Info.age"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x: age",
+        "y: churn score",
+        "color: senior citizen status"
+      ],
+      "description": "A scatter plot showing the relationship between churn score and age, with colors representing senior citizen status."
+    },
+    "usingParams": [
+      "filterDemographics"
+    ],
+    "interactions": [
+      {
+        "object": "scatter plot in View 2",
+        "verb": "drag",
+        "effect": {
+          "description": "Dragging an interval selects a range of age or churn score values to filter data.",
+          "params": [
+            {
+              "name": "filterByScatter",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "Customer_Info.age",
+      "Status_Analysis.churn_category",
+      "Status_Analysis.churn_score"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x: churn categories",
+        "y: age bins",
+        "color: average churn score (color intensity)"
+      ],
+      "description": "A heatmap capturing the intersection of age bins and churn categories with color intensity representing average churn scores."
+    },
+    "usingParams": [
+      "filterDemographics"
+    ],
+    "interactions": []
+  },
+  {
+    "id": 4,
+    "level": "detail",
+    "fields": [
+      "Status_Analysis.churn_score",
+      "Customer_Info.number_of_dependents"
+    ],
+    "task": [
+      9
+    ],
+    "visualization": {
+      "markType": "box plot",
+      "encodings": [
+        "x: number of dependent ranges",
+        "y: churn score"
+      ],
+      "description": "Box plots to analyze churn score distributions based on ranges of dependents (e.g., 0, 1-2, 3+)."
+    },
+    "usingParams": [
+      "filterByScatter"
+    ],
+    "interactions": []
+  },
+  {
+    "id": 5,
+    "level": "insight",
+    "fields": [
+      "Customer_Info.gender",
+      "Customer_Info.age",
+      "Status_Analysis.churn_value"
+    ],
+    "task": [
+      10
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: gender/age bins",
+        "y: proportion",
+        "color: churn value"
+      ],
+      "description": "A stacked bar chart showing the proportions of churned vs. non-churned customers by gender and age bins."
+    },
+    "usingParams": [
+      "filterByScatter"
+    ],
+    "interactions": [
+      {
+        "object": "stacked bar chart in View 5",
+        "verb": "hover",
+        "effect": {
+          "description": "Display detailed proportions and counts on hover.",
+          "params": []
+        }
+      }
+    ]
+  }
+]

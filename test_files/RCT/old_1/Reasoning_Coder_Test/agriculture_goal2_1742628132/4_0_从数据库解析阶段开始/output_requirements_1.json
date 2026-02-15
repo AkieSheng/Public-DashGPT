@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "id": "D2",
+      "requirement": "Remove 3-month moving average requirement as production data lacks temporal granularity (only Season available without Year)",
+      "reason": "Original requirement assumes unavailable date/Year fields in crop_production_data, making time-based aggregations impossible"
+    },
+    {
+      "id": "D3",
+      "requirement": "Revise to aggregate soil data at district level before integration rather than crop-specific matching",
+      "reason": "Soil analysis data isn't crop-specific in original schema - district-level averages better match production data granularity"
+    },
+    {
+      "id": "V2",
+      "requirement": "Replace multi-line temporal chart with small multiples bar charts comparing district performance across seasons",
+      "reason": "Missing annual time series in production data makes temporal trend visualization unfeasible"
+    },
+    {
+      "id": "V4",
+      "requirement": "Change irrigation method heatmap to top-10 crops only with scrollable container",
+      "reason": "Full 23-crop heatmap would exceed readability limits according to established visualization constraints"
+    }
+  ]
+}

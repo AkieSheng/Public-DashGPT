@@ -1,0 +1,59 @@
+开始测试，数据库: cricket, 会话ID: cricket_goal2_1742897341，时间: 1742897341
+数据库描述: The dataset contains four tables: batter_player_stats (batting statistics for individual players), bowler_player_stats (bowling statistics for individual players), detailed_player_data (per-match player performance data), and match_summary (match-level details including toss results, match outcome, player of the match, and venue information).
+分析目标: Study the impact of different venues on match outcomes, analyzing the win rates for home and away teams and their relationship with individual player performances.
+使用自定义模型配置: {'database': 'deepseek-r1-api', 'requirements': 'deepseek-r1-api', 'tasks': 'deepseek-r1-api', 'plan': 'deepseek-r1-api', 'sql': 'qwen-coder', 'vega': 'qwen-coder'}
+
+1. 测试创建新VA系统
+成功创建VA系统，ID: va_1742897341, 名称: Visual Analytics System va_1742897341
+
+2. 上传数据库
+### DATABASE读取处 ###
+读取数据库文件: cricket.db
+数据库上传成功，包含 4 个表
+  表 1: batter_player_stats - 16 列
+  表 2: bowler_player_stats - 17 列
+  表 3: detailed_player_data - 21 列
+  ... (共 4 个表)
+### DATABASE读取结束 ###
+
+3. 获取VA系统信息
+成功获取VA系统信息: Visual Analytics System cricket_goal2_1742897341
+数据库描述: 数据库包含以下表: batter_player_stats, bowler_player_stats, detailed_player_data, match_summary...
+包含表: batter_player_stats, bowler_player_stats, detailed_player_data, match_summary 
+
+使用配置: 使用反思，不使用RAG
+
+4. 测试生成流程 (从数据库解析阶段开始)
+### ANALYSIS GOAL输入处 ###
+分析目标: Study the impact of different venues on match outcomes, analyzing the win rates for home and away teams and their relationship with individual player performances.
+### ANALYSIS GOAL输入结束 ###
+
+接收来自initialStage=0的流式响应 (使用反思，不使用RAG):
+
+总共从initialStage=0接收到 0 个步骤响应
+完成了 0 个主要阶段
+SQL回溯: 否
+Vega-Lite回溯: 否
+
+5. 获取最终VA系统状态
+VA系统最终状态:
+- ID: cricket_goal2_1742897341
+- 名称: Visual Analytics System cricket_goal2_1742897341
+- 描述: 无...
+- 目标: 无...
+- 包含需求: False
+- 包含任务: False
+- 包含计划: False
+- 包含SQL查询: False
+- 包含Vega-Lite规范: False
+
+6. 测试获取VA系统列表
+找到 16 个VA系统:
+  1. Visual Analytics System agriculture_goal1_1742892333 (ID: agriculture_goal1_1742892333)
+  2. Visual Analytics System agriculture_goal2_1742894443 (ID: agriculture_goal2_1742894443)
+  3. Visual Analytics System agriculture_goal3_1742895584 (ID: agriculture_goal3_1742895584)
+  4. Visual Analytics System cricket_goal1_1742896783 (ID: cricket_goal1_1742896783)
+  5. Visual Analytics System cricket_goal2_1742897341 (ID: cricket_goal2_1742897341)
+  ... (共 16 个系统)
+
+测试完成，结果保存在: Reasoning_Coder_Test\cricket_goal2_1742897341

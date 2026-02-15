@@ -1,0 +1,114 @@
+[
+  {
+    "columns": [
+      {
+        "column": "District",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "Crop",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "Market",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "Date",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "Price (INR/quintal)",
+        "dtype": "REAL"
+      }
+    ],
+    "table": "crop_price_data"
+  },
+  {
+    "columns": [
+      {
+        "column": "District",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "Crop",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "Season",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "Area (hectares)",
+        "dtype": "REAL"
+      },
+      {
+        "column": "Yield (quintals)",
+        "dtype": "REAL"
+      },
+      {
+        "column": "Production (metric tons)",
+        "dtype": "REAL"
+      }
+    ],
+    "table": "crop_production_data"
+  },
+  {
+    "columns": [
+      {
+        "column": "District",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "Soil Type",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "pH Level",
+        "dtype": "REAL"
+      },
+      {
+        "column": "Organic Matter (%)",
+        "dtype": "REAL"
+      },
+      {
+        "column": "Nitrogen Content (kg/ha)",
+        "dtype": "REAL"
+      },
+      {
+        "column": "Phosphorus Content (kg/ha)",
+        "dtype": "REAL"
+      },
+      {
+        "column": "Potassium Content (kg/ha)",
+        "dtype": "REAL"
+      }
+    ],
+    "table": "soil_analysis_data"
+  },
+  {
+    "columns": [
+      {
+        "column": "District",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "Crop",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "Irrigation Method",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "Water Consumption (liters/hectare)",
+        "dtype": "REAL"
+      },
+      {
+        "column": "Water Availability (liters/hectare)",
+        "dtype": "REAL"
+      }
+    ],
+    "table": "water_usage_data"
+  }
+]

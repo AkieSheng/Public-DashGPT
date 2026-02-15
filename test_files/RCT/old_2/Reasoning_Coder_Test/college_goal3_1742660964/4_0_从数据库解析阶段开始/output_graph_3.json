@@ -1,0 +1,3 @@
+{
+  "notes": "Critical compatibility fixes: Network/map visualizations replaced with composable matrix and conventional charts. Cluster analysis now uses pairwise attribute comparisons instead of high-dimensional parallel coordinates"
+}

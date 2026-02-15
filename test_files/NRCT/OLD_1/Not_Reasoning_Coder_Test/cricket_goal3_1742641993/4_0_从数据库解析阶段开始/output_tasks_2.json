@@ -1,0 +1,185 @@
+[
+  {
+    "id": 1,
+    "type": "aggregating data | computing derived values",
+    "data": [
+      "player_of_match_awards",
+      "fantasy_points",
+      "total_runs",
+      "total_wickets_taken",
+      "matches_won"
+    ],
+    "method": "Aggregate player-level metrics using a bar chart to rank the top players by total `player_of_match_awards`. Use stacked segments to differentiate between wins and losses.",
+    "objective": "Identify which players consistently perform at the highest level and contribute most to match victories.",
+    "corrReq": [
+      "D1",
+      "D2",
+      "V1",
+      "I5"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "filtering | correlating",
+    "data": [
+      "match_outcome",
+      "player_name",
+      "runs_scored",
+      "wickets_taken",
+      "fantasy_points"
+    ],
+    "method": "Filter the dataset for matches where the player's team won and compare these metrics to matches where their team lost, using a scatter plot with color encoding for win/loss.",
+    "objective": "Analyze the correlation between individual player performance metrics and match outcomes.",
+    "corrReq": [
+      "D2",
+      "V2",
+      "I1",
+      "I2"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 3,
+    "type": "joining | aggregating data",
+    "data": [
+      "batter_player_stats",
+      "bowler_player_stats",
+      "detailed_player_data"
+    ],
+    "method": "Join tables to create a comprehensive dataset for each player. Use a bar chart with stacked segments showing combined batting and bowling metrics, color-coded by match outcome.",
+    "objective": "Analyze all-rounder contributions and their overall impact on match results.",
+    "corrReq": [
+      "D3",
+      "V6",
+      "I4"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 4,
+    "type": "computing derived values | characterizing distributions",
+    "data": [
+      "average",
+      "strike_rate",
+      "economy_rate",
+      "matches_played_as_batter",
+      "matches_played_as_bowler"
+    ],
+    "method": "Calculate career averages for players and visualize using box plots to compare distributions of `strike_rate` and `economy_rate` for top-performing players.",
+    "objective": "Identify players with consistent performance over their careers and correlate these metrics with match outcomes.",
+    "corrReq": [
+      "D4",
+      "V4",
+      "I6"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 5,
+    "type": "retrieving values | finding extrema",
+    "data": [
+      "runs",
+      "wickets",
+      "fantasy_points",
+      "match_outcome"
+    ],
+    "method": "Retrieve and highlight extreme performances using a tick chart to showcase matches with the highest runs scored or wickets taken and their impact on match outcomes.",
+    "objective": "Spot standout individual performances that directly lead to match victories.",
+    "corrReq": [
+      "D5",
+      "V7",
+      "I7"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 6,
+    "type": "aggregating data | clustering",
+    "data": [
+      "venue",
+      "opposition_team",
+      "runs",
+      "wickets"
+    ],
+    "method": "Create a heat map to visualize aggregated player performance (e.g., runs scored, wickets taken) across different venues and opposition teams.",
+    "objective": "Identify patterns of strong performances under specific conditions.",
+    "corrReq": [
+      "D6",
+      "V3",
+      "I5"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 7,
+    "type": "characterizing distributions | detecting trends",
+    "data": [
+      "match_outcome",
+      "runs_scored",
+      "wickets_taken",
+      "fantasy_points",
+      "dates"
+    ],
+    "method": "Use a line chart to track player performance over time, with hover-over functionality to display contextual details for specific matches.",
+    "objective": "Analyze temporal trends in individual player performance and detect periods of peak impact.",
+    "corrReq": [
+      "V5",
+      "I2",
+      "I3"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 8,
+    "type": "computing derived values | aggregating data | sorting",
+    "data": [
+      "role",
+      "matches_won",
+      "matches_played"
+    ],
+    "method": "Use a pie chart to visualize the proportion of matches won by players categorized by their role (batter, bowler, all-rounder).",
+    "objective": "Provide an overview of role-specific contributions to match victories.",
+    "corrReq": [
+      "V8",
+      "I6"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 9,
+    "type": "sorting | filtering | characterizing distributions",
+    "data": [
+      "total_matches_played",
+      "total_runs",
+      "total_wickets_taken",
+      "teams"
+    ],
+    "method": "Allow users to sort and filter bar charts by metrics such as total runs or wickets to compare contributions across teams using dropdown menus.",
+    "objective": "Enable comparative analysis to highlight teams and players with the highest match-winning contributions.",
+    "corrReq": [
+      "I1",
+      "I5",
+      "V1"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 10,
+    "type": "retrieving values | computing derived values | clustering",
+    "data": [
+      "teams",
+      "fantasy_points",
+      "opposition_team",
+      "venue"
+    ],
+    "method": "Allow users to visualize clustering by team/player using heat maps to uncover match-winning performances against specific oppositions and venues.",
+    "objective": "Identify contextual strengths and weaknesses for teams and players under varying conditions.",
+    "corrReq": [
+      "D6",
+      "V3",
+      "I7"
+    ],
+    "priority": 2
+  }
+]

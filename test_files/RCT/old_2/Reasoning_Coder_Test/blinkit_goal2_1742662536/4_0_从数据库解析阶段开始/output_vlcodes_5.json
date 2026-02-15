@@ -1,0 +1,67 @@
+{
+  "view1": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Overview: Total orders over time, grouped by customer segment",
+    "data": {
+      "url": "http://localhost:8888/customer_orders_view.csv"
+    },
+    "mark": "line",
+    "encoding": {
+      "x": {
+        "field": "order_month",
+        "type": "temporal",
+        "title": "Month"
+      },
+      "y": {
+        "field": "total_orders",
+        "type": "quantitative",
+        "title": "Total Orders"
+      },
+      "color": {
+        "field": "customer_segment",
+        "type": "nominal",
+        "title": "Customer Segment"
+      }
+    }
+  },
+  "view2": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Exploration: Outliers in total orders per customer",
+    "data": {
+      "url": "http://localhost:8888/customer_orders_view.csv"
+    },
+    "mark": "box",
+    "encoding": {
+      "y": {
+        "field": "total_orders",
+        "type": "quantitative",
+        "title": "Total Orders"
+      }
+    }
+  },
+  "view3": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Insight: Co-occurrence of product pairs",
+    "data": {
+      "url": "http://localhost:8888/order_items_view.csv"
+    },
+    "mark": "rect",
+    "encoding": {
+      "x": {
+        "field": "product_id",
+        "type": "nominal",
+        "title": "Product A"
+      },
+      "y": {
+        "field": "product_id",
+        "type": "nominal",
+        "title": "Product B"
+      },
+      "color": {
+        "field": "co_occurrence_count",
+        "type": "quantitative",
+        "title": "Co-occurrence Count"
+      }
+    }
+  }
+}

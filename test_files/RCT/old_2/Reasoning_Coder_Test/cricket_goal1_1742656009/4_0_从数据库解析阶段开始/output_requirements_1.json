@@ -1,0 +1,38 @@
+{
+  "data": [
+    {
+      "id": "D2",
+      "requirement": "Link batter/bowler career stats with match performances using player_name + team + role as composite key",
+      "reason": "Original player_name-team key risks collisions for players with same name on same team. Adding role ensures proper separation between batter/bowler records"
+    },
+    {
+      "id": "D3",
+      "requirement": "Calculate venue-based performance clusters using detailed_player_data.venue directly instead of match_summary",
+      "reason": "Detailed_player_data already contains venue field, avoiding unnecessary join complexity. Session timing analysis not feasible without time data in tables"
+    },
+    {
+      "id": "D4",
+      "requirement": "Derive role-specific consistency scores: Batters - (mean_runs * strike_rate)/std_runs, Bowlers - (mean_wickets * (1/economy))/std_wickets",
+      "reason": "Original formula mixed incompatible metrics across roles. New formulas use role-appropriate metrics while maintaining comparability within roles"
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V1",
+      "requirement": "Faceted line charts showing rolling average of runs (batters) and economy (bowlers) over last 10 matches",
+      "reason": "Small multiples impractical with 2k+ players. Rolling averages better show recent consistency trends with scalable implementation"
+    },
+    {
+      "id": "V2",
+      "requirement": "Separate box plots for batter runs and bowler strike rates with team-based color encoding",
+      "reason": "Horizontal stacking of different metrics caused misleading comparisons. Separated views maintain clear role-specific analysis"
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I3",
+      "requirement": "Role-filtered attribute brushing between career stats and match performance metrics",
+      "reason": "Original cross-role brushing wasn't meaningful as players are exclusively batters or bowlers in source tables"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "total_steps": 10,
+  "completed_stages": 4,
+  "stages": [
+    "requirements",
+    "tasks",
+    "views",
+    "sqls"
+  ],
+  "had_sql_backtrack": false,
+  "had_vl_backtrack": false
+}

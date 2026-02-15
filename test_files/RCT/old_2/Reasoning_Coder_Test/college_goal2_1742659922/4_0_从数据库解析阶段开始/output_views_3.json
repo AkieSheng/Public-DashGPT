@@ -1,0 +1,155 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "Department.DName",
+      "Member_of.FacID"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: Department.DName (nominal)",
+        "y: count(Member_of.FacID) (quantitative)"
+      ],
+      "description": "Bar chart showing faculty count per department"
+    },
+    "interactions": [
+      {
+        "object": "bar marks",
+        "verb": "click",
+        "effect": {
+          "description": "Filter subsequent views to selected department(s)",
+          "params": [
+            {
+              "name": "dept_filter",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "Department.DName",
+      "Course.CID",
+      "Course.Instructor"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: Department.DName (nominal)",
+        "y: count(Course.CID) (quantitative)",
+        "color: Faculty.Rank (nominal)"
+      ],
+      "description": "Stacked bar chart showing course count by department colored by instructor rank"
+    },
+    "usingParams": [
+      "dept_filter"
+    ],
+    "components": "Legend for faculty rank categories"
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "Faculty.Rank",
+      "Faculty.Sex",
+      "Department.DName"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: Department.DName (nominal)",
+        "y: count() (quantitative)",
+        "color: Faculty.Sex (nominal)",
+        "column: Faculty.Rank (nominal)"
+      ],
+      "description": "Faceted bar charts showing gender distribution by academic rank per department"
+    },
+    "usingParams": [
+      "dept_filter"
+    ]
+  },
+  {
+    "id": 4,
+    "level": "exploration",
+    "fields": [
+      "Department.DName",
+      "Member_of.FacID",
+      "Course.CID"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x: count(Member_of.FacID) (quantitative)",
+        "y: count(Course.CID) (quantitative)",
+        "size: count(Course.CID)",
+        "color: Department.DName (nominal)"
+      ],
+      "description": "Bubble chart showing relationship between faculty count and course offerings"
+    },
+    "interactions": [
+      {
+        "object": "plot area",
+        "verb": "interval",
+        "effect": {
+          "description": "Filter departments within brushed faculty-course range",
+          "params": [
+            {
+              "name": "bubble_brush",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "level": "detail",
+    "fields": [
+      "Faculty.FacID",
+      "Faculty.Lname",
+      "Faculty.Rank",
+      "Member_of.Appt_Type"
+    ],
+    "task": [
+      5
+    ],
+    "visualization": {
+      "markType": "table",
+      "encodings": [],
+      "description": "Sortable table showing individual faculty details with appointment types"
+    },
+    "usingParams": [
+      "dept_filter"
+    ]
+  }
+]

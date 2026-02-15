@@ -1,0 +1,241 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Visual Analytics System for Enrollment Analysis",
+  "width": 200,
+  "height": 200,
+  "concat": [
+    {
+      "data": {
+        "url": "http://localhost:8888/vw_enrolled_courses.csv"
+      },
+      "description": "Overview: Enrollment numbers and distribution across various courses.",
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "CID",
+          "type": "nominal",
+          "title": "Course ID"
+        },
+        "y": {
+          "field": "TotalEnrollment",
+          "type": "quantitative",
+          "title": "Total Enrollment"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.TotalEnrollment >= st(max(TotalEnrollment), 0.75) || datum.TotalEnrollment <= st(min(TotalEnrollment), 0.25)",
+            "value": "red"
+          },
+          "value": "black"
+        },
+        "opacity": {
+          "value": 0.3,
+          "condition": {
+            "param": "selectedCourses",
+            "value": 1
+          }
+        }
+      },
+      "params": [
+        {
+          "name": "selectedCourses",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/vw_enrollment_heatmap.csv"
+      },
+      "description": "Exploration: Heat map displaying average grade points for each course.",
+      "mark": "rect",
+      "encoding": {
+        "x": {
+          "field": "CID",
+          "type": "nominal",
+          "title": "Course ID"
+        },
+        "y": {
+          "field": "gradepoint",
+          "type": "nominal",
+          "title": "Grade Points"
+        },
+        "color": {
+          "field": "AvgGradePoints",
+          "type": "quantitative",
+          "title": "Average Grade Points"
+        },
+        "opacity": {
+          "value": 0.3,
+          "condition": {
+            "param": "selectedCourses",
+            "value": 1
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": {
+            "param": "selectedCourses"
+          }
+        },
+        {
+          "sample": 150
+        }
+      ],
+      "params": [
+        {
+          "name": "hoveredCourse",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "x"
+            ]
+          },
+          "bind": "scales"
+        }
+      ]
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/vw_department_enrollment.csv"
+      },
+      "description": "Exploration: Enrollment distribution across departments.",
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "DNO",
+          "type": "nominal",
+          "title": "Department Number"
+        },
+        "y": {
+          "field": "TotalEnrollment",
+          "type": "quantitative",
+          "title": "Total Enrollment"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.TotalEnrollment >= st(max(TotalEnrollment), 0.75) || datum.TotalEnrollment <= st(min(TotalEnrollment), 0.25)",
+            "value": "red"
+          },
+          "value": "black"
+        },
+        "opacity": {
+          "value": 0.3,
+          "condition": {
+            "param": "selectedCourses",
+            "value": 1
+          }
+        },
+        "size": {
+          "field": "TotalEnrollment"
+        }
+      },
+      "params": [
+        {
+          "name": "selectedCourses",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/vw_enrollment_by_day_hour.csv"
+      },
+      "description": "Detail: Scatter plot visualizing enrollment patterns by days of the week and course hours.",
+      "mark": "point",
+      "encoding": {
+        "x": {
+          "field": "Days",
+          "type": "nominal",
+          "title": "Days of the Week"
+        },
+        "y": {
+          "field": "Hours",
+          "type": "quantitative",
+          "title": "Course Hours"
+        },
+        "size": {
+          "field": "TotalEnrollment"
+        },
+        "opacity": {
+          "value": 0.3,
+          "condition": {
+            "param": "selectedCourses",
+            "value": 1
+          }
+        }
+      },
+      "params": [
+        {
+          "name": "selectedCourses",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "transform": [
+        {
+          "filter": {
+            "param": "selectedCourses"
+          }
+        }
+      ]
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/vw_enrollment_by_credit.csv"
+      },
+      "description": "Detail: Box plots depicting the distribution of credit hours among courses segmented by enrollment levels.",
+      "mark": "boxplot",
+      "encoding": {
+        "x": {
+          "field": "Credits",
+          "type": "quantitative",
+          "title": "Credit Hours"
+        },
+        "y": {
+          "field": "TotalEnrollment",
+          "type": "quantitative",
+          "title": "Enrollment Levels"
+        },
+        "color": {
+          "field": "DNO",
+          "type": "nominal",
+          "title": "Department"
+        }
+      },
+      "transform": [
+        {
+          "filter": {
+            "param": "selectedCourses"
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "selectedCourses",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "name": "vw_batter_stats",
+    "SQL": "CREATE VIEW vw_batter_stats AS SELECT player_name, total_runs, strike_rate, team, matches_played_as_batter, total_wickets_taken FROM batter_player_stats;",
+    "corrView": "1",
+    "pk": "player_name",
+    "fk": [
+      {
+        "key": "player_name",
+        "table": "vw_bowler_stats"
+      }
+    ]
+  },
+  {
+    "name": "vw_bowler_stats",
+    "SQL": "CREATE VIEW vw_bowler_stats AS SELECT player_name, total_wickets_taken, economy_rate, team, matches_played_as_bowler, total_runs FROM bowler_player_stats;",
+    "corrView": "1",
+    "pk": "player_name",
+    "fk": [
+      {
+        "key": "player_name",
+        "table": "vw_batter_stats"
+      }
+    ]
+  },
+  {
+    "name": "vw_detailed_player_data",
+    "SQL": "CREATE VIEW vw_detailed_player_data AS SELECT match_id, player, team, runs, balls_faced, fours, sixes, wickets, overs_bowled, balls_bowled, runs_conceded, catches, run_outs, maiden, stumps, match_outcome, opposition_team, strike_rate, economy, fantasy_points, venue FROM detailed_player_data;",
+    "corrView": "2, 3, 4, 5",
+    "pk": "match_id",
+    "fk": [
+      {
+        "key": "player",
+        "table": "vw_batter_stats"
+      },
+      {
+        "key": "player",
+        "table": "vw_bowler_stats"
+      },
+      {
+        "key": "match_id",
+        "table": "vw_match_summary"
+      }
+    ]
+  },
+  {
+    "name": "vw_match_summary",
+    "SQL": "CREATE VIEW vw_match_summary AS SELECT match_id, dates, venue, city, gender, match_type, total_wickets_taken, total_runs, total_fours, total_sixes FROM match_summary;",
+    "corrView": "2, 3, 4, 5",
+    "pk": "match_id",
+    "fk": []
+  }
+]

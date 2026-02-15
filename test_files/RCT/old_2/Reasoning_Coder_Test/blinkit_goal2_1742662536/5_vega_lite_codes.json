@@ -1,0 +1,236 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "columns": 3,
+  "concat": [
+    {
+      "data": {
+        "url": "http://localhost:8888/blinkit_customers.csv"
+      },
+      "description": "Customer order frequency distribution segmented by customer category",
+      "encoding": {
+        "color": {
+          "axis": {
+            "titleColor": "blue"
+          },
+          "field": "customer_segment",
+          "title": "Customer Segment",
+          "type": "nominal"
+        },
+        "opacity": {
+          "value": 0.7
+        },
+        "x": {
+          "axis": {
+            "titleColor": "blue"
+          },
+          "field": "total_orders",
+          "title": "Total Orders",
+          "type": "quantitative"
+        },
+        "y": {
+          "axis": {
+            "titleColor": "blue"
+          },
+          "field": "customer_segment",
+          "title": "Customer Segment",
+          "type": "nominal"
+        }
+      },
+      "height": 200,
+      "mark": "bar",
+      "params": [
+        {
+          "bind": {
+            "input": "select",
+            "options": [
+              "Regular",
+              "Premium",
+              "New",
+              "Inactive"
+            ]
+          },
+          "name": "selected_segment",
+          "select": {
+            "encodings": [
+              "y"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/blinkit_products.csv"
+      },
+      "description": "Product category frequency analysis highlighted by selected customer segments",
+      "encoding": {
+        "color": {
+          "axis": {
+            "titleColor": "green"
+          },
+          "field": "customer_segment",
+          "title": "Customer Segment",
+          "type": "nominal"
+        },
+        "x": {
+          "axis": {
+            "titleColor": "green"
+          },
+          "field": "category",
+          "title": "Product Category",
+          "type": "nominal"
+        },
+        "y": {
+          "aggregate": "count",
+          "axis": {
+            "titleColor": "green"
+          },
+          "title": "Number of Orders"
+        }
+      },
+      "height": 200,
+      "mark": "rect",
+      "params": [
+        {
+          "bind": {
+            "input": "select",
+            "options": [
+              "Regular",
+              "Premium",
+              "New",
+              "Inactive"
+            ]
+          },
+          "name": "selected_segment",
+          "select": {
+            "encodings": [
+              "x"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/blinkit_customers.csv"
+            },
+            "fields": [
+              "customer_segment"
+            ],
+            "key": "customer_id"
+          },
+          "lookup": "customer_id"
+        },
+        {
+          "filter": {
+            "param": "selected_segment"
+          }
+        },
+        {
+          "sample": 100
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/blinkit_order_items.csv"
+      },
+      "description": "Co-occurrence matrix showing product pairs frequently bought together",
+      "encoding": {
+        "color": {
+          "axis": {
+            "titleColor": "red"
+          },
+          "field": "customer_segment",
+          "title": "Customer Segment",
+          "type": "nominal"
+        },
+        "size": {
+          "aggregate": "count",
+          "axis": {
+            "titleColor": "red"
+          },
+          "title": "Co-occurrence Count",
+          "type": "quantitative"
+        },
+        "x": {
+          "axis": {
+            "titleColor": "red"
+          },
+          "field": "product_id",
+          "title": "Product A",
+          "type": "nominal"
+        },
+        "y": {
+          "axis": {
+            "titleColor": "red"
+          },
+          "field": "product_id",
+          "title": "Product B",
+          "type": "nominal"
+        }
+      },
+      "height": 200,
+      "mark": "circle",
+      "params": [
+        {
+          "bind": {
+            "input": "select",
+            "options": [
+              "Regular",
+              "Premium",
+              "New",
+              "Inactive"
+            ]
+          },
+          "name": "selected_segment",
+          "select": {
+            "encodings": [
+              "x"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/blinkit_customers.csv"
+            },
+            "fields": [
+              "customer_segment"
+            ],
+            "key": "customer_id"
+          },
+          "lookup": "customer_id"
+        },
+        {
+          "filter": {
+            "param": "selected_segment"
+          }
+        },
+        {
+          "window": [
+            {
+              "as": "row_number",
+              "op": "row_number"
+            }
+          ]
+        },
+        {
+          "filter": {
+            "field": "row_number",
+            "lte": 1000
+          }
+        }
+      ],
+      "width": 200
+    }
+  ]
+}

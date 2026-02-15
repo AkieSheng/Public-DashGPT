@@ -1,0 +1,264 @@
+[
+  {
+    "columns": [
+      {
+        "column": "customer_id",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "satisfaction_score",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "cltv",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "customer_status",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "churn_score",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "churn_label",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "churn_value",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "churn_category",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "churn_reason",
+        "dtype": "TEXT"
+      }
+    ],
+    "table": "Status_Analysis"
+  },
+  {
+    "columns": [
+      {
+        "column": "customer_id",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "tenure",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "internet_service",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "phone_service",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "multiple_lines",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "avg_monthly_gb_download",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "unlimited_data",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "offer",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "referred_a_friend",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "number_of_referrals",
+        "dtype": "INTEGER"
+      }
+    ],
+    "table": "Service_Options"
+  },
+  {
+    "columns": [
+      {
+        "column": "customer_id",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "phone_service",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "internet_service",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "online_security",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "online_backup",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "device_protection",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "premium_tech_support",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "streaming_tv",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "streaming_movies",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "streaming_music",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "internet_type",
+        "dtype": "TEXT"
+      }
+    ],
+    "table": "Online_Services"
+  },
+  {
+    "columns": [
+      {
+        "column": "customer_id",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "contract",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "paperless_billing",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "payment_method",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "monthly_charges",
+        "dtype": "REAL"
+      },
+      {
+        "column": "avg_monthly_long_distance_charges",
+        "dtype": "REAL"
+      },
+      {
+        "column": "total_charges",
+        "dtype": "REAL"
+      },
+      {
+        "column": "total_refunds",
+        "dtype": "REAL"
+      },
+      {
+        "column": "total_extra_data_charges",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "total_long_distance_charges",
+        "dtype": "REAL"
+      },
+      {
+        "column": "total_revenue",
+        "dtype": "REAL"
+      }
+    ],
+    "table": "Payment_Info"
+  },
+  {
+    "columns": [
+      {
+        "column": "customer_id",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "country",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "state",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "city",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "zip_code",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "total_population",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "latitude",
+        "dtype": "REAL"
+      },
+      {
+        "column": "longitude",
+        "dtype": "REAL"
+      }
+    ],
+    "table": "Location_Data"
+  },
+  {
+    "columns": [
+      {
+        "column": "customer_id",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "gender",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "age",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "under_30",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "senior_citizen",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "partner",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "dependents",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "number_of_dependents",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "married",
+        "dtype": "TEXT"
+      }
+    ],
+    "table": "Customer_Info"
+  }
+]

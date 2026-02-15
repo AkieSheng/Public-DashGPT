@@ -1,0 +1,188 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "Customer_Info.age",
+      "Status_Analysis.churn_score",
+      "Customer_Info.gender"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "boxplot",
+      "encodings": [
+        "x: Customer_Info.age (binned 10-year intervals)",
+        "y: Status_Analysis.churn_score",
+        "color: Customer_Info.gender",
+        "size: aggregated count overlay as semi-transparent circle marks"
+      ],
+      "description": "Box plots showing churn score distribution across age groups (10-year bins) with gender differentiation. Interactive swarm plot overlay shows individual customer density."
+    },
+    "interactions": [
+      {
+        "object": "age-group boxes",
+        "verb": "click",
+        "effect": {
+          "description": "Filters subsequent views to selected age bracket and gender",
+          "params": [
+            {
+              "name": "age_gender_filter",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x",
+                  "color"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "Customer_Info.senior_citizen",
+      "Status_Analysis.churn_value"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: Status_Analysis.churn_value",
+        "y: count()",
+        "color: Customer_Info.senior_citizen",
+        "column: Customer_Info.senior_citizen"
+      ],
+      "description": "Back-to-back histograms comparing churn counts between senior/non-senior customers with Cohen's d effect size annotation"
+    },
+    "usingParams": [
+      "age_gender_filter"
+    ],
+    "interactions": [
+      {
+        "object": "histogram bars",
+        "verb": "hover",
+        "effect": {
+          "description": "Highlights corresponding data points in subsequent views",
+          "params": [
+            {
+              "name": "seniority_filter",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "color"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "Customer_Info.married",
+      "Customer_Info.partner",
+      "Customer_Info.dependents",
+      "Status_Analysis.churn_label"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: Customer_Info.married",
+        "y: percentage of Status_Analysis.churn_label=Yes",
+        "color: Customer_Info.dependents",
+        "column: Customer_Info.partner"
+      ],
+      "description": "Grouped bar charts showing churn rates by marital status vs partnership status combinations, with dependents differentiation"
+    },
+    "usingParams": [
+      "age_gender_filter"
+    ],
+    "components": "Statistical significance indicators (p-value stars)"
+  },
+  {
+    "id": 4,
+    "level": "exploration",
+    "fields": [
+      "Customer_Info.gender",
+      "Customer_Info.partner",
+      "Status_Analysis.churn_category"
+    ],
+    "task": [
+      5
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x: Customer_Info.partner",
+        "y: Customer_Info.gender",
+        "color: count(Status_Analysis.churn_category)",
+        "row: Status_Analysis.churn_category"
+      ],
+      "description": "Small multiple heatmaps showing frequency of churn reasons filtered by gender (rows) and partner status (columns)"
+    },
+    "usingParams": [
+      "age_gender_filter"
+    ],
+    "interactions": [
+      {
+        "object": "heatmap cells",
+        "verb": "click",
+        "effect": {
+          "description": "Filters subsequent views to selected churn categories",
+          "params": [
+            {
+              "name": "reason_filter",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "row"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "level": "insight",
+    "fields": [
+      "Location_Data.city",
+      "Location_Data.latitude",
+      "Location_Data.longitude",
+      "Status_Analysis.churn_value"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "latitude: Y",
+        "longitude: X",
+        "color: mean(Status_Analysis.churn_value)",
+        "size: Location_Data.total_population"
+      ],
+      "description": "Bubble map showing churn rates by city with population size encoding and kernel density overlay for spatial patterns"
+    },
+    "usingParams": [
+      "age_gender_filter",
+      "reason_filter"
+    ]
+  }
+]

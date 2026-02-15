@@ -1,0 +1,54 @@
+[
+  {
+    "name": "crop_production_v1",
+    "SQL": "CREATE VIEW crop_production_v1 AS SELECT District, Crop, Season, Area (hectares), Yield (quintals) FROM crop_production_data",
+    "corrView": "1",
+    "pk": "District",
+    "fk": []
+  },
+  {
+    "name": "crop_production_v2",
+    "SQL": "CREATE VIEW crop_production_v2 AS SELECT Season, SUM(Yield (quintals)) AS Total_Yield FROM crop_production_data GROUP BY Season",
+    "corrView": "2",
+    "pk": "Season",
+    "fk": [
+      "crop_production_v1"
+    ]
+  },
+  {
+    "name": "crop_production_v3",
+    "SQL": "CREATE VIEW crop_production_v3 AS SELECT District, AVG(Area (hectares)) AS Avg_Area, AVG(Yield (quintals)) AS Avg_Yield FROM crop_production_data GROUP BY District",
+    "corrView": "3",
+    "pk": "District",
+    "fk": [
+      "crop_production_v1"
+    ]
+  },
+  {
+    "name": "crop_production_v4",
+    "SQL": "CREATE VIEW crop_production_v4 AS SELECT District, Crop, Season, CAST(Yield (quintals) AS REAL) / Area (hectares) AS Yield per Hectare FROM crop_production_data",
+    "corrView": "4",
+    "pk": "(District, Crop, Season)",
+    "fk": [
+      "crop_production_v1"
+    ]
+  },
+  {
+    "name": "crop_production_v5",
+    "SQL": "CREATE VIEW crop_production_v5 AS SELECT Crop, AVG(Yield per Hectare) AS Avg_Yield_per_Hectare, District, Season FROM crop_production_v4 GROUP BY Crop, District, Season",
+    "corrView": "5",
+    "pk": "(Crop, District, Season)",
+    "fk": [
+      "crop_production_v1"
+    ]
+  },
+  {
+    "name": "crop_production_v6",
+    "SQL": "CREATE VIEW crop_production_v6 AS SELECT Crop, District, MIN(Yield per Hectare) AS Min_Yield_per_Hectare, MAX(Yield per Hectare) AS Max_Yield_per_Hectare, AVG(Yield per Hectare) AS Avg_Yield_per_Hectare FROM crop_production_v4 GROUP BY Crop, District",
+    "corrView": "6",
+    "pk": "(Crop, District)",
+    "fk": [
+      "crop_production_v1"
+    ]
+  }
+]

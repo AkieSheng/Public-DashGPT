@@ -1,0 +1,21 @@
+{
+  "visualization": [
+    {
+      "id": "V2",
+      "requirement": "Replace calendar heatmap with stacked area chart showing daily order totals with categorical breakdown (campaign presence/segment)",
+      "reason": "Original design infeasible due to timestamp format limitations and excessive date cardinality. Area charts better handle continuous temporal patterns while maintaining readability with campaign overlays."
+    },
+    {
+      "id": "V4",
+      "requirement": "Change to small multiples of box plots showing order_total distributions per delivery_status (requires conversion to supported chart type)",
+      "reason": "Scatter plot ineffective given order_total's wide range (13-6721) leading to overplotting. Box plots better show value distributions across status categories."
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I4",
+      "requirement": "Replace hover-based category highlighting with click selection propagates to inventory view via shared time parameter",
+      "reason": "Hover conflicts with Vega-Lite's heatmap tooltip handling. Explicit selection better maintains cross-view consistency."
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "Status_Analysis.customer_status",
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.churn_score",
+      "Status_Analysis.cltv"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: Status_Analysis.customer_status",
+        "y: aggregated means of Status_Analysis.satisfaction_score, Status_Analysis.churn_score, and Status_Analysis.cltv",
+        "color: Status_Analysis.customer_status"
+      ],
+      "description": "Displays the mean satisfaction score, churn score, and CLTV for each customer status group (Stayed, Churned, Joined) using group-specific bar charts."
+    },
+    "usingParams": [],
+    "interactions": [
+      {
+        "object": "visualization in this view",
+        "verb": "click",
+        "effect": {
+          "description": "Filters customer_status to a specific group (e.g., Stayed, Churned, Joined) and updates subsequent views.",
+          "params": [
+            {
+              "name": "filterCustomerStatus",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "Status_Analysis.customer_status",
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.churn_score",
+      "Status_Analysis.cltv"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "box Plot",
+      "encodings": [
+        "x: Status_Analysis.customer_status",
+        "y: Status_Analysis.satisfaction_score, Status_Analysis.churn_score, Status_Analysis.cltv",
+        "color: Status_Analysis.customer_status"
+      ],
+      "description": "Displays box plots for satisfaction_score, churn_score, and CLTV segmented by customer_status to show the spread, central tendency, and outliers for each group."
+    },
+    "usingParams": [
+      "filterCustomerStatus"
+    ],
+    "interactions": [
+      {
+        "object": "visualization in this view",
+        "verb": "drag",
+        "effect": {
+          "description": "Selects specific ranges of values on the box plots to refine analysis focus.",
+          "params": [
+            {
+              "name": "rangeBrush",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "Service_Options.internet_service",
+      "Service_Options.phone_service",
+      "Service_Options.multiple_lines",
+      "Online_Services.online_security",
+      "Online_Services.premium_tech_support",
+      "Status_Analysis.customer_status"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x: Service_Options.internet_service, Service_Options.phone_service, Service_Options.multiple_lines, Online_Services.online_security, Online_Services.premium_tech_support",
+        "y: Status_Analysis.customer_status",
+        "color: correlation coefficient between service usage and customer_status"
+      ],
+      "description": "Heat map displaying correlations between service usage metrics (e.g., internet_service, phone_service) and customer_status groups."
+    },
+    "usingParams": [
+      "filterCustomerStatus",
+      "rangeBrush"
+    ],
+    "interactions": [
+      {
+        "object": "visualization in this view",
+        "verb": "hover",
+        "effect": {
+          "description": "Displays customer details in tooltips for specific heat map cells.",
+          "params": [
+            {
+              "name": "hoverDetails",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "level": "detail",
+    "fields": [
+      "Customer_Info.gender",
+      "Customer_Info.senior_citizen",
+      "Customer_Info.dependents",
+      "Customer_Info.married",
+      "Status_Analysis.customer_status"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: Customer_Info.gender, Customer_Info.senior_citizen, Customer_Info.dependents, Customer_Info.married",
+        "y: proportions within Status_Analysis.customer_status",
+        "color: Customer_Info.demographic feature"
+      ],
+      "description": "Stacked bar charts showing proportions of gender, senior_citizen, dependents, and married status across customer_status groups."
+    },
+    "usingParams": [
+      "filterCustomerStatus",
+      "hoverDetails"
+    ],
+    "interactions": [
+      {
+        "object": "visualization in this view",
+        "verb": "click",
+        "effect": {
+          "description": "Highlights or compares distributions for selected demographic features.",
+          "params": [
+            {
+              "name": "highlightDemographics",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "level": "detail",
+    "fields": [
+      "customer_id",
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.churn_score",
+      "Service_Options.*",
+      "Online_Services.*",
+      "Customer_Info.*"
+    ],
+    "task": [
+      8
+    ],
+    "visualization": {
+      "markType": "text",
+      "encodings": [
+        "rows: Detail fields linked to individual customers"
+      ],
+      "description": "Detailed panel or table showing all associated data for selected customer profiles, including metrics, demographics, and service usage."
+    },
+    "usingParams": [
+      "highlightDemographics",
+      "hoverDetails"
+    ],
+    "components": "Add a table component for showing individual customer profiles with sortable columns.",
+    "interactions": [
+      {
+        "object": "table component",
+        "verb": "click",
+        "effect": {
+          "description": "Updates and displays detailed information for selected customer profiles.",
+          "params": [
+            {
+              "name": "profileDetails",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "rows"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

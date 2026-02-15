@@ -1,0 +1,102 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "columns": 2,
+  "concat": [
+    {
+      "data": {
+        "url": "http://localhost:8888/V1.csv"
+      },
+      "description": "Overview View",
+      "encoding": {
+        "color": {
+          "field": "gender",
+          "title": "Gender",
+          "type": "nominal"
+        },
+        "opacity": {
+          "condition": {
+            "param": "selectedGenderAge",
+            "value": 1
+          },
+          "value": 0.7
+        },
+        "x": {
+          "bin": {
+            "binned": true,
+            "maxbins": 20
+          },
+          "field": "age",
+          "title": "Age Group (Bi-Annual)",
+          "type": "quantitative"
+        },
+        "y": {
+          "aggregate": "count",
+          "title": "Count of Records",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "bar",
+      "params": [
+        {
+          "name": "selectedGenderAge",
+          "select": {
+            "encodings": [
+              "x",
+              "color"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888_V2_V3.csv"
+      },
+      "description": "Exploration View",
+      "encoding": {
+        "color": {
+          "field": "churn_label",
+          "title": "Churn Status",
+          "type": "nominal"
+        },
+        "size": {
+          "aggregate": "count",
+          "title": "Count",
+          "type": "quantitative"
+        },
+        "x": {
+          "field": "cltv",
+          "title": "Customer Lifetime Value",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "satisfaction_score",
+          "title": "Satisfaction Score",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "circle",
+      "width": 200
+    }
+  ],
+  "data": {
+    "url": "http://localhost:8888_V1_V2_V3.csv"
+  },
+  "params": [
+    {
+      "name": "selectedGenderAge",
+      "select": {
+        "type": "point"
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  }
+}

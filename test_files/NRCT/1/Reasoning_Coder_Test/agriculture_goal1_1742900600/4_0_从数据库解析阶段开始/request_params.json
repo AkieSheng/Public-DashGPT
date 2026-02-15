@@ -1,0 +1,17 @@
+{
+  "id": "agriculture_goal1_1742900600",
+  "desc": "This dataset provides comprehensive agricultural data for Rajasthan, India from 2018 to 2019. It contains four tabless: Crop_Production_Data, Water_Usage_Data, Soil_Analysis_Data, and Crop_Price_Data. This dataset will be a valuable resource for researchers and data scientists working in the agricultural sector, enabling them to analyze and model various aspects of agricultural practices and market dynamics in Rajasthan.",
+  "goal": "Analyze the impact of different irrigation methods and water usage efficiency on crop yield, identify areas and crop types with the most efficient use of water resources, and provide recommendations for optimizing water management and sustainable agriculture practices.",
+  "initialStage": 0,
+  "maxSteps": 10,
+  "useReflect": true,
+  "useRag": false,
+  "models": {
+    "database": "gpt-4o",
+    "requirements": "gpt-4o",
+    "tasks": "gpt-4o",
+    "plan": "gpt-4o",
+    "sql": "qwen-coder",
+    "vega": "qwen-coder"
+  }
+}

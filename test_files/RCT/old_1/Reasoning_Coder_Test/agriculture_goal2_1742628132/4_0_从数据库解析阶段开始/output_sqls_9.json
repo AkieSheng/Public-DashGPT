@@ -1,0 +1,102 @@
+[
+  {
+    "name": "view_1",
+    "SQL": "CREATE VIEW view_1 AS SELECT crop_production_data.District, crop_production_data.Season, crop_production_data.Yield (quintals), crop_production_data.Year, water_usage_data.Irrigation_Method, water_usage_data.Water_Consumption per_hectare, soil_analysis_data.Nitrogen_Content_per_ha, soil_analysis_data.Phosphorus_Content_per_ha FROM crop_production_data JOIN water_usage_data ON crop_production_data.District = water_usage_data.District AND crop_production_data.Crop = water_usage_data.Crop JOIN soil_analysis_data ON crop_production_data.District = soil_analysis_data.District AND crop_production_data.Crop = soil_analysis_data.Crop",
+    "corrView": "1",
+    "pk": "id",
+    "fk": [
+      {
+        "key": "District",
+        "table": "crop_production_data"
+      },
+      {
+        "key": "Crop",
+        "table": "crop_production_data"
+      }
+    ]
+  },
+  {
+    "name": "view_2",
+    "SQL": "CREATE VIEW view_2 AS SELECT view_1.District, view_1.Crop, view_1.Yield (quintals), view_1.Irrigation_Method, view_1.Water_Consumption_per_hectare, view_1.Nitrogen_Content_per_ha, view_1.Phosphorus_Content_per_ha FROM view_1 JOIN crop_production_data ON view_1.District = crop_production_data.District AND view_1.Crop = crop_production_data.Crop",
+    "corrView": "2",
+    "pk": "id",
+    "fk": [
+      {
+        "key": "District",
+        "table": "crop_production_data"
+      },
+      {
+        "key": "Crop",
+        "table": "crop_production_data"
+      }
+    ]
+  },
+  {
+    "name": "view_3",
+    "SQL": "CREATE VIEW view_3 AS SELECT view_1.Yield (quintals), view_1.Area (hectares), view_1.Irrigation_Method, view_1.Water_Consumption_per_hectare, view_1.Nitrogen_Content_per_ha, view_1.Phosphorus_Content_per_ha FROM view_1 JOIN crop_production_data ON view_1.District = crop_production_data.District AND view_1.Crop = crop_production_data.Crop",
+    "corrView": "3",
+    "pk": "id",
+    "fk": [
+      {
+        "key": "District",
+        "table": "crop_production_data"
+      },
+      {
+        "key": "Crop",
+        "table": "crop_production_data"
+      }
+    ]
+  },
+  {
+    "name": "view_4",
+    "SQL": "CREATE VIEW view_4 AS SELECT view_1.Water-Consumption_per_hectare, view_1.Yield (quintals) FROM view_1 JOIN crop_production_data ON view_1.District = crop_production_data.District AND view_1.Crop = crop_production_data.Crop",
+    "corrView": "4",
+    "pk": "id",
+    "fk": [
+      {
+        "key": "District",
+        "table": "crop_production_data"
+      },
+      {
+        "key": "Crop",
+        "table": "crop_production_data"
+      }
+    ]
+  },
+  {
+    "name": "view_5",
+    "SQL": "CREATE VIEW view_5 AS SELECT view_1.Nitrogen_Content_per_ha, view_1.Phosphorus_Content_per_ha, view_1.Yield (quintals) FROM view_1 JOIN crop_production_data ON view_1.District = crop_production_data.District AND view_1.Crop = crop_production_data.Crop",
+    "corrView": "5",
+    "pk": "id",
+    "fk": [
+      {
+        "key": "District",
+        "table": "crop_production_data"
+      },
+      {
+        "key": "Crop",
+        "table": "crop_production_data"
+      }
+    ]
+  },
+  {
+    "name": "view_6",
+    "SQL": "CREATE VIEW view_6 AS SELECT view_1.Production (metric tons), view_1.Yield (quintals), view_1.Season FROM view_1 JOIN crop_production_data ON view_1.District = crop_production_data.District AND view_1.Crop = crop_production_data.Crop",
+    "corrView": "6",
+    "pk": "id",
+    "fk": [
+      {
+        "key": "District",
+        "table": "crop_production_data"
+      },
+      {
+        "key": "Crop",
+        "table": "crop_production_data"
+      },
+      {
+        "key": "Season",
+        "table": "crop_production_data"
+      }
+    ]
+  }
+]

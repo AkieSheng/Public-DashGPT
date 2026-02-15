@@ -1,0 +1,96 @@
+[
+  {
+    "id": 1,
+    "type": "correlating",
+    "data": [
+      "contract",
+      "internet_type",
+      "churn_label"
+    ],
+    "method": "Grouped bar charts with x-axis: contract type, y-axis: churn rate %, clustered color encoding for internet_type. Calculate churn rates (Yes%) per category combination using unified customer profiles.",
+    "objective": "Identify high-churn service configurations by contract type and internet technology",
+    "corrReq": [
+      "D1",
+      "V2"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "characterizing distributions",
+    "data": [
+      "pre-binned_age_groups",
+      "pre-binned_number_of_dependents",
+      "satisfaction_score"
+    ],
+    "method": "Heat map with rows: age bins (20-29,...,70+), columns: dependents (0,1-2,3+), color intensity: average satisfaction_score. Tooltips show exact values and sample counts.",
+    "objective": "Detect demographic patterns in satisfaction levels that may predict churn",
+    "corrReq": [
+      "D3",
+      "V3"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 3,
+    "type": "trend analysis",
+    "data": [
+      "tenure_cohorts",
+      "churn_category",
+      "cltv"
+    ],
+    "method": "Multi-line chart with x-axis: tenure cohorts (0-3mo,...,25+mo), y-axis: average CLTV, color encoding: churn_category. Filtered to churned customers only. Trend lines smoothed using LOESS regression.",
+    "objective": "Analyze CLTV trajectory patterns associated with different churn reasons over time",
+    "corrReq": [
+      "D3",
+      "V4"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 4,
+    "type": "finding extrema",
+    "data": [
+      "churn_score",
+      "cltv",
+      "satisfaction_score"
+    ],
+    "method": "Interactive scatter plot with x: churn_score, y: CLTV, color: satisfaction_score (gradient 1-5). Brush-and-zoom for selecting outliers. Dynamic filtering of other views when selecting high-risk clusters.",
+    "objective": "Isolate high-value customers (CLTV top 10%) with elevated churn scores and low satisfaction",
+    "corrReq": [
+      "D1"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 5,
+    "type": "filtering",
+    "data": [
+      "pre-binned_age_groups",
+      "unlimited_data",
+      "premium_tech_support",
+      "churn_value"
+    ],
+    "method": "Age group slider (20-29,...,70+) filters parallel coordinates plot showing service adoption (unlimited_data, tech_support) vs churn rates. Updates propagate to all views.",
+    "objective": "Analyze age-specific service preferences and their relationship to churn",
+    "corrReq": [
+      "I3"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 6,
+    "type": "clustering",
+    "data": [
+      "monthly_charges",
+      "total_revenue",
+      "churn_value"
+    ],
+    "method": "Density-based clustering (DBSCAN) visualized as contour overlays on a hexbin plot. X: monthly_charges, y: total_revenue, contour colors: churn density clusters. Interactive cluster selection highlights customer IDs.",
+    "objective": "Identify pricing/revenue patterns in churn hotspots",
+    "corrReq": [
+      "D1"
+    ],
+    "priority": 2
+  }
+]

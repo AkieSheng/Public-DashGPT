@@ -1,0 +1,145 @@
+{
+  "created": 1742653097,
+  "dataset": {
+    "description": "数据库包含以下表: crop_price_data, crop_production_data, soil_analysis_data, water_usage_data",
+    "tables": [
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "字段 District，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "Crop",
+            "description": "字段 Crop，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "Market",
+            "description": "字段 Market，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "Date",
+            "description": "字段 Date，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "Price (INR/quintal)",
+            "description": "字段 Price (INR/quintal)，类型为 REAL",
+            "dtype": "REAL"
+          }
+        ],
+        "table": "crop_price_data"
+      },
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "字段 District，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "Crop",
+            "description": "字段 Crop，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "Season",
+            "description": "字段 Season，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "Area (hectares)",
+            "description": "字段 Area (hectares)，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "Yield (quintals)",
+            "description": "字段 Yield (quintals)，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "Production (metric tons)",
+            "description": "字段 Production (metric tons)，类型为 REAL",
+            "dtype": "REAL"
+          }
+        ],
+        "table": "crop_production_data"
+      },
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "字段 District，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "Soil Type",
+            "description": "字段 Soil Type，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "pH Level",
+            "description": "字段 pH Level，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "Organic Matter (%)",
+            "description": "字段 Organic Matter (%)，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "Nitrogen Content (kg/ha)",
+            "description": "字段 Nitrogen Content (kg/ha)，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "Phosphorus Content (kg/ha)",
+            "description": "字段 Phosphorus Content (kg/ha)，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "Potassium Content (kg/ha)",
+            "description": "字段 Potassium Content (kg/ha)，类型为 REAL",
+            "dtype": "REAL"
+          }
+        ],
+        "table": "soil_analysis_data"
+      },
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "字段 District，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "Crop",
+            "description": "字段 Crop，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "Irrigation Method",
+            "description": "字段 Irrigation Method，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "Water Consumption (liters/hectare)",
+            "description": "字段 Water Consumption (liters/hectare)，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "Water Availability (liters/hectare)",
+            "description": "字段 Water Availability (liters/hectare)，类型为 REAL",
+            "dtype": "REAL"
+          }
+        ],
+        "table": "water_usage_data"
+      }
+    ]
+  },
+  "id": "agriculture_goal2_1742653097",
+  "name": "Visual Analytics System agriculture_goal2_1742653097"
+}

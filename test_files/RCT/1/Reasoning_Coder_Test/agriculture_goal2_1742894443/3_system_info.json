@@ -1,0 +1,507 @@
+{
+  "created": 1742894531,
+  "dataset": {
+    "description": "",
+    "tables": [
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "Administrative district in Rajasthan where crops are traded. Contains 10 unique districts with Kota appearing most frequently.",
+            "dtype": "TEXT",
+            "name": "District",
+            "stats": {
+              "count": 4819,
+              "freq": 542,
+              "samples": [
+                "Kota",
+                "Alwar",
+                "Ajmer",
+                "Jaipur",
+                "Nagaur"
+              ],
+              "top": "Kota",
+              "unique": 10
+            }
+          },
+          {
+            "column": "Crop",
+            "description": "Agricultural commodity being traded, including Pomegranate (most frequent crop), Maize, and Opium. 23 unique crop types recorded.",
+            "dtype": "TEXT",
+            "name": "Crop",
+            "stats": {
+              "count": 4819,
+              "freq": 246,
+              "samples": [
+                "Pomegranate",
+                "Maize",
+                "Opium",
+                "Cumin",
+                "Oilseeds"
+              ],
+              "top": "Pomegranate",
+              "unique": 23
+            }
+          },
+          {
+            "column": "Market",
+            "description": "Specific APMC (Agricultural Produce Market Committee) mandi locations where crops are traded. Alwar APMC Mandi is the most frequent market.",
+            "dtype": "TEXT",
+            "name": "Market",
+            "stats": {
+              "count": 4819,
+              "freq": 278,
+              "samples": [
+                "Alwar APMC Mandi",
+                "Ramganj Mandi",
+                "Kota APMC Mandi",
+                "Kishangarh Mandi",
+                "Udaipur APMC Mandi"
+              ],
+              "top": "Alwar APMC Mandi",
+              "unique": 24
+            }
+          },
+          {
+            "column": "Date",
+            "description": "Transaction date ranging across 424 unique dates between 2018-2019, showing market activity timeline.",
+            "dtype": "TEXT",
+            "name": "Date",
+            "stats": {
+              "count": 4819,
+              "freq": 23,
+              "samples": [
+                "2019-01-28",
+                "2019-03-01",
+                "2018-06-11",
+                "2018-12-19",
+                "2019-03-29"
+              ],
+              "top": "2019-01-28",
+              "unique": 424
+            }
+          },
+          {
+            "column": "Price (INR/quintal)",
+            "description": "Current market price per quintal (100kg) in Indian Rupees, showing variation between ₹1,323 to ₹3,513 with standard deviation of ₹296.",
+            "dtype": "REAL",
+            "name": "Price (INR/quintal)",
+            "stats": {
+              "25%": 2303.968087039464,
+              "50%": 2497.697780894649,
+              "75%": 2694.7361658186883,
+              "count": 4819.0,
+              "max": 3513.3304723868087,
+              "mean": 2498.7153596293347,
+              "min": 1323.2799245144972,
+              "samples": [
+                2161.4945987467668,
+                2490.092420884132,
+                2348.904921887321,
+                2448.2875127639013,
+                2714.41951825531
+              ],
+              "std": 295.65109413541575
+            }
+          }
+        ],
+        "table": "crop_price_data"
+      },
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "Administrative region for agricultural production. Nagaur is the most represented district.",
+            "dtype": "TEXT",
+            "name": "District",
+            "stats": {
+              "count": 1000,
+              "freq": 114,
+              "samples": [
+                "Nagaur",
+                "Udaipur",
+                "Bhilwara",
+                "Alwar",
+                "Ajmer"
+              ],
+              "top": "Nagaur",
+              "unique": 10
+            }
+          },
+          {
+            "column": "Crop",
+            "description": "Cultivated plant species with 23 unique entries, including most frequent Citrus crops.",
+            "dtype": "TEXT",
+            "name": "Crop",
+            "stats": {
+              "count": 1000,
+              "freq": 52,
+              "samples": [
+                "Citrus",
+                "Pulses",
+                "Mustard",
+                "Maize",
+                "Tomato"
+              ],
+              "top": "Citrus",
+              "unique": 23
+            }
+          },
+          {
+            "column": "Season",
+            "description": "Growing seasons - Kharif (monsoon) and Rabi (winter), split almost 50/50 in frequency.",
+            "dtype": "TEXT",
+            "name": "Season",
+            "stats": {
+              "count": 1000,
+              "freq": 503,
+              "samples": [
+                "Kharif",
+                "Rabi"
+              ],
+              "top": "Kharif",
+              "unique": 2
+            }
+          },
+          {
+            "column": "Area (hectares)",
+            "description": "Agricultural land size dedicated to crops, ranging from 5,276 to 20,000 hectares with mean ~15,047 hectares.",
+            "dtype": "REAL",
+            "name": "Area (hectares)",
+            "stats": {
+              "25%": 13165.258125089153,
+              "50%": 15108.13041964114,
+              "75%": 16944.950094195556,
+              "count": 1000.0,
+              "max": 20000.0,
+              "mean": 15046.881838853737,
+              "min": 5276.197979792782,
+              "samples": [
+                20000.0,
+                14959.5083257862,
+                17467.634736309567,
+                15626.590785014268,
+                11015.441853304708
+              ],
+              "std": 2775.3598030166822
+            }
+          },
+          {
+            "column": "Yield (quintals)",
+            "description": "Agricultural productivity per hectare, averaging 37.62 quintals with substantial variation (20.27 to 60.43 quintals).",
+            "dtype": "REAL",
+            "name": "Yield (quintals)",
+            "stats": {
+              "25%": 31.105149570151486,
+              "50%": 37.22705041986063,
+              "75%": 43.71120529710103,
+              "count": 1000.0,
+              "max": 60.42919242071256,
+              "mean": 37.618327668334935,
+              "min": 20.27293597251623,
+              "samples": [
+                42.67334364354665,
+                30.69198608958731,
+                45.81823176835924,
+                29.752628902482016,
+                42.02651077850936
+              ],
+              "std": 8.21858736773909
+            }
+          },
+          {
+            "column": "Production (metric tons)",
+            "description": "Total crop output calculated from Area x Yield, ranging 1,728 to 10,835 metric tons with mean 5,663 tons.",
+            "dtype": "REAL",
+            "name": "Production (metric tons)",
+            "stats": {
+              "25%": 4438.67158158548,
+              "50%": 5561.468280565365,
+              "75%": 6769.7716915726705,
+              "count": 1000.0,
+              "max": 10834.530833886172,
+              "mean": 5662.518484668158,
+              "min": 1728.4459558148258,
+              "samples": [
+                6192.243168853535,
+                5061.152229679753,
+                7763.013071826106,
+                4253.893981440086,
+                8295.040749150847
+              ],
+              "std": 1629.9225050593145
+            }
+          }
+        ],
+        "table": "crop_production_data"
+      },
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "Geographical region analyzed, predominantly Jodhpur district with 128 entries.",
+            "dtype": "TEXT",
+            "name": "District",
+            "stats": {
+              "count": 1000,
+              "freq": 128,
+              "samples": [
+                "Jodhpur",
+                "Kota",
+                "Ajmer",
+                "Jaipur",
+                "Udaipur"
+              ],
+              "top": "Jodhpur",
+              "unique": 10
+            }
+          },
+          {
+            "column": "Soil Type",
+            "description": "Soil classification including Black lava soil (most common), Saline, and Alkaline types.",
+            "dtype": "TEXT",
+            "name": "Soil Type",
+            "stats": {
+              "count": 1000,
+              "freq": 144,
+              "samples": [
+                "Black lava soil",
+                "Saline",
+                "Clay",
+                "Alkaline",
+                "Nitrogenous"
+              ],
+              "top": "Black lava soil",
+              "unique": 8
+            }
+          },
+          {
+            "column": "pH Level",
+            "description": "Soil acidity/alkalinity ranging from 5.89 (mildly acidic) to 9.04 (strongly alkaline), mean 7.5.",
+            "dtype": "REAL",
+            "name": "pH Level",
+            "stats": {
+              "25%": 7.157880924513207,
+              "50%": 7.500129367123334,
+              "75%": 7.846939580508737,
+              "count": 1000.0,
+              "max": 9.038430185090252,
+              "mean": 7.495453084850306,
+              "min": 5.889491822007143,
+              "samples": [
+                8.604927832874232,
+                6.546096221061305,
+                6.832259215450055,
+                7.453181905630415,
+                8.019189425509659
+              ],
+              "std": 0.5171550691492046
+            }
+          },
+          {
+            "column": "Organic Matter (%)",
+            "description": "Percentage of organic content in soil, averaging 1.99% with range from 0.16% to 3.76%.",
+            "dtype": "REAL",
+            "name": "Organic Matter (%)",
+            "stats": {
+              "25%": 1.6389108548905387,
+              "50%": 1.981462328785918,
+              "75%": 2.3456877380031798,
+              "count": 1000.0,
+              "max": 3.764527593785242,
+              "mean": 1.9935921803358339,
+              "min": 0.1558173542857779,
+              "samples": [
+                2.1634972566350488,
+                1.5698074946102492,
+                2.2430181447088184,
+                2.662898323771095,
+                1.240326962261579
+              ],
+              "std": 0.5153401517562567
+            }
+          },
+          {
+            "column": "Nitrogen Content (kg/ha)",
+            "description": "Soil nitrogen levels for plant nutrition, averaging 29.88 kg/ha with 11.99-45.76 kg/ha range.",
+            "dtype": "REAL",
+            "name": "Nitrogen Content (kg/ha)",
+            "stats": {
+              "25%": 26.217325301986918,
+              "50%": 29.822796920009235,
+              "75%": 33.232056328033025,
+              "count": 1000.0,
+              "max": 45.760283672560426,
+              "mean": 29.883357828791514,
+              "min": 11.994574477702413,
+              "samples": [
+                25.824377480138825,
+                27.931972332891775,
+                22.26348005530817,
+                23.56418215707875,
+                15.839222009447155
+              ],
+              "std": 5.202697054149519
+            }
+          },
+          {
+            "column": "Phosphorus Content (kg/ha)",
+            "description": "Available phosphorus levels averaging 19.73 kg/ha, ranging from 4.96 to 35.59 kg/ha.",
+            "dtype": "REAL",
+            "name": "Phosphorus Content (kg/ha)",
+            "stats": {
+              "25%": 16.21647147627612,
+              "50%": 19.913736701664355,
+              "75%": 23.122284640501974,
+              "count": 1000.0,
+              "max": 35.58840564604024,
+              "mean": 19.729932448873114,
+              "min": 4.961838301531214,
+              "samples": [
+                28.26456525615211,
+                29.43843828670095,
+                25.413455269435367,
+                13.014409074435044,
+                17.744205707955008
+              ],
+              "std": 5.067004785298072
+            }
+          },
+          {
+            "column": "Potassium Content (kg/ha)",
+            "description": "Available potassium levels averaging 39.88 kg/ha, spanning 24.12-54.68 kg/ha.",
+            "dtype": "REAL",
+            "name": "Potassium Content (kg/ha)",
+            "stats": {
+              "25%": 36.703916917600125,
+              "50%": 39.796016092839736,
+              "75%": 43.38203941212181,
+              "count": 1000.0,
+              "max": 54.678289511638894,
+              "mean": 39.87790741158031,
+              "min": 24.11648093402,
+              "samples": [
+                50.38888792599222,
+                42.78276562266879,
+                37.64437674091061,
+                37.08200336826997,
+                42.758703999554605
+              ],
+              "std": 4.874751034236264
+            }
+          }
+        ],
+        "table": "soil_analysis_data"
+      },
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "Agricultural region analyzed, predominantly Nagaur district with 116 entries.",
+            "dtype": "TEXT",
+            "name": "District",
+            "stats": {
+              "count": 1000,
+              "freq": 116,
+              "samples": [
+                "Nagaur",
+                "Udaipur",
+                "Alwar",
+                "Bhilwara",
+                "Hanumangarh"
+              ],
+              "top": "Nagaur",
+              "unique": 10
+            }
+          },
+          {
+            "column": "Crop",
+            "description": "Irrigated crops including Onion (most frequent), Pulses, and Citrus.",
+            "dtype": "TEXT",
+            "name": "Crop",
+            "stats": {
+              "count": 1000,
+              "freq": 56,
+              "samples": [
+                "Onion",
+                "Pulses",
+                "Citrus",
+                "Cotton",
+                "Tomato"
+              ],
+              "top": "Onion",
+              "unique": 23
+            }
+          },
+          {
+            "column": "Irrigation Method",
+            "description": "Water delivery systems dominated by Sprinkler Irrigation methods and 4 unique types.",
+            "dtype": "TEXT",
+            "name": "Irrigation Method",
+            "stats": {
+              "count": 1000,
+              "freq": 284,
+              "samples": [
+                "Sprinkler Irrigation",
+                "Tube Well",
+                "Drip Irrigation",
+                "Canal Irrigation"
+              ],
+              "top": "Sprinkler Irrigation",
+              "unique": 4
+            }
+          },
+          {
+            "column": "Water Consumption (liters/hectare)",
+            "description": "Actual water use averaging 10,557 L/ha, ranging from 4,674 to 18,631 L/ha.",
+            "dtype": "REAL",
+            "name": "Water Consumption (liters/hectare)",
+            "stats": {
+              "25%": 8238.226671880226,
+              "50%": 10422.656935236373,
+              "75%": 12808.359360840997,
+              "count": 1000.0,
+              "max": 18631.09132663682,
+              "mean": 10557.110758629942,
+              "min": 4673.530139030418,
+              "samples": [
+                7011.556633995436,
+                11609.330885810616,
+                12648.406038302792,
+                10063.162447916591,
+                10110.539993326256
+              ],
+              "std": 2835.083840963408
+            }
+          },
+          {
+            "column": "Water Availability (liters/hectare)",
+            "description": "Available water resources averaging 10,544 L/ha, closely mirroring consumption values.",
+            "dtype": "REAL",
+            "name": "Water Availability (liters/hectare)",
+            "stats": {
+              "25%": 8142.359044089602,
+              "50%": 10524.479417099716,
+              "75%": 12879.89393404674,
+              "count": 1000.0,
+              "max": 18489.171266347672,
+              "mean": 10543.621287289907,
+              "min": 4505.257189045351,
+              "samples": [
+                6140.081508774301,
+                11335.919980150127,
+                12091.900253943171,
+                9810.943168837392,
+                10754.217313163708
+              ],
+              "std": 2905.372578181591
+            }
+          }
+        ],
+        "table": "water_usage_data"
+      }
+    ]
+  },
+  "id": "agriculture_goal2_1742894443",
+  "name": "Visual Analytics System agriculture_goal2_1742894443"
+}

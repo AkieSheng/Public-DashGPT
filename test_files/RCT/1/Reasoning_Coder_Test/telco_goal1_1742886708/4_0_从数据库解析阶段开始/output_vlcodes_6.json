@@ -1,0 +1,124 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 200,
+  "height": 200,
+  "data": {
+    "url": "http://localhost:8888/V1.csv"
+  },
+  "description": "Overview View",
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "gender",
+      "type": "nominal",
+      "title": "Customer Gender"
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "title": "Count of Records"
+    },
+    "color": {
+      "field": "churn_label",
+      "type": "nominal",
+      "title": "Churn Label"
+    },
+    "opacity": {
+      "value": 0.3,
+      "condition": {
+        "param": "selectedGenderAge",
+        "value": 1
+      }
+    }
+  },
+  "params": [
+    {
+      "name": "selectedGenderAge",
+      "select": {
+        "type": "point",
+        "encodings": [
+          "x",
+          "column"
+        ]
+      }
+    }
+  ],
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "count",
+          "as": "churn_label"
+        }
+      ],
+      "groupby": [
+        "gender",
+        "churn_label"
+      ]
+    },
+    {
+      "lookup": "customer_id",
+      "from": {
+        "data": {
+          "url": "http://localhost:8888/V2.csv"
+        },
+        "key": "customer_id",
+        "fields": [
+          "monthly_charges"
+        ]
+      }
+    },
+    {
+      "filter": {
+        "param": "selectedGenderAge"
+      }
+    }
+  ],
+  "selection": {
+    "selectedGenderAge": {
+      "type": "interval",
+      "Encodings": [
+        "x",
+        "column"
+      ]
+    }
+  },
+  "hconcat": [
+    {
+      "title": "Number of Customers",
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "gender",
+          "type": "nominal",
+          "title": "Customer Gender",
+          "axis": {
+            "titleColor": "black"
+          }
+        },
+        "y": {
+          "field": "churn_label",
+          "type": "nominal",
+          "title": "Churn Count",
+          "axis": {
+            "titleColor": "black"
+          }
+        },
+        "color": {
+          "field": "churn_label",
+          "type": "nominal",
+          "legend": {
+            "titleColor": "black"
+          }
+        },
+        "opacity": {
+          "value": 0.3,
+          "condition": {
+            "param": "selectedGenderAge",
+            "value": 1
+          }
+        }
+      }
+    }
+  ]
+}

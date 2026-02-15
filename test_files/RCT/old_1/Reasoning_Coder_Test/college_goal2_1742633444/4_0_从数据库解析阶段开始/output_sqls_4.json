@@ -1,0 +1,40 @@
+[
+  {
+    "name": "view_1_data",
+    "SQL": "CREATE VIEW view_1_data AS SELECT DNO, Appt_Type FROM Member_of;",
+    "corrView": "1",
+    "pk": "DNO",
+    "fk": []
+  },
+  {
+    "name": "view_2_data",
+    "SQL": "CREATE VIEW view_2_data AS SELECT DNO, Rank FROM Faculty;",
+    "corrView": "2",
+    "pk": "DNO",
+    "fk": []
+  },
+  {
+    "name": "view_3_data",
+    "SQL": "CREATE VIEW view_3_data AS SELECT Course.DNO, Member_of.FacID, Enrolled_in.StuID FROM Course JOIN Member_of ON Course.Instructor = Member_of.FacID JOIN Enrolled_in ON Course.CID = Enrolled_in.CID;",
+    "corrView": "3",
+    "pk": "DNO",
+    "fk": [
+      {
+        "key": "FacID",
+        "table": "view_1_data"
+      }
+    ]
+  },
+  {
+    "name": "view_4_data",
+    "SQL": "CREATE VIEW view_4_data AS SELECT Faculty.Sex, Member_of.DNO FROM Faculty JOIN Member_of ON Faculty.FacID = Member_of.FacID;",
+    "corrView": "4",
+    "pk": "DNO",
+    "fk": [
+      {
+        "key": "FacID",
+        "table": "view_1_data"
+      }
+    ]
+  }
+]

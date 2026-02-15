@@ -1,0 +1,34 @@
+[
+  {
+    "name": "student_major_division",
+    "SQL": "CREATE VIEW student_major_division AS SELECT Student.StuID, Student.Major, Department.Division, Department.DName FROM Student JOIN Member_of ON Student.StuID = Minor_in.StuID JOIN Department ON Member_of.DNO = Department.DNO;",
+    "corrView": "1",
+    "pk": "StuID",
+    "fk": []
+  },
+  {
+    "name": "faculty_advisor_minor",
+    "SQL": "CREATE VIEW faculty_advisor_minor AS SELECT Faculty.Advisor, Student.StuID, Student.Major, Department.Division, Department.DName FROM Faculty JOIN Member_of ON Faculty.FacID = Member_of.FacID JOIN Student ON Student.StuID = Member_of.StuID JOIN Department ON Member_of.DNO = Department.DNO;",
+    "corrView": "3",
+    "pk": "Advisor",
+    "fk": [
+      "StuID"
+    ]
+  },
+  {
+    "name": "faculty_advisor_minor_drilldown",
+    "SQL": "CREATE VIEW faculty_advisor_minor_drilldown AS SELECT Faculty.Advisor, Student.StuID, Student.Major, Department.Division, Department.DName FROM Faculty JOIN Member_of ON Faculty.FacID = Member_of.FacID JOIN Student ON Student.StuID = Member_of.StuID JOIN Department ON Member_of.DNO = Department.DNO WHERE Department.Division = (SELECT Division FROM student_major_division WHERE Division = %s);",
+    "corrView": "3",
+    "pk": "Advisor",
+    "fk": [
+      "StuID"
+    ]
+  },
+  {
+    "name": "minor_enrollment_division",
+    "SQL": "CREATE VIEW minor_enrollment_division AS SELECT Department.Division, COUNT(Minor_in.DNO) AS minor_count FROM Minor_in JOIN student_major_division ON Minor_in.StuID = student_major_division.StuID GROUP BY Department.Division;",
+    "corrView": "2",
+    "pk": "Division",
+    "fk": []
+  }
+]

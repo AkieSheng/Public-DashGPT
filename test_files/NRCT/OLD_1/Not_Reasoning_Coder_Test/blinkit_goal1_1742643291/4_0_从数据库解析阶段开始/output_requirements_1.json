@@ -1,0 +1,83 @@
+{
+  "data": [
+    {
+      "id": "D1",
+      "requirement": "Extract and aggregate sales data (order_total) from the 'blinkit_orders' table across three time dimensions: daily, weekly, and monthly.",
+      "reason": "This allows us to analyze sales patterns and their fluctuations over different time frames, which aligns with the user's goal of identifying seasonal trends."
+    },
+    {
+      "id": "D2",
+      "requirement": "Integrate promotional data (campaign_name and spend) from the 'blinkit_marketing_performance' table with sales data to analyze how campaigns influence sales peaks and troughs.",
+      "reason": "Overlaying sales data with marketing campaign timelines helps reveal the effectiveness of promotions in driving sales performance."
+    },
+    {
+      "id": "D3",
+      "requirement": "Identify and extract holiday or event-based sales data by mapping sales records (order_date) to external event calendars.",
+      "reason": "Understanding the impact of holidays and events on sales aids in identifying external factors driving peaks or troughs in sales patterns."
+    },
+    {
+      "id": "D4",
+      "requirement": "Compute derived metrics such as average daily sales, standard deviation, and cumulative monthly sales from the aggregated data for deeper insights into sales performance.",
+      "reason": "Derived metrics help go beyond simple aggregation to identify variability and growth trends in sales performance."
+    },
+    {
+      "id": "D5",
+      "requirement": "Include the 'category' feature from the 'blinkit_products' table to break down sales performance by product category.",
+      "reason": "Adding category-level granularity allows for a more actionable understanding of which product categories contribute most to seasonal trends."
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V1",
+      "requirement": "Use a line chart to visualize sales trends over time (daily, weekly, monthly) for overall sales performance.",
+      "reason": "Line charts are optimal for visualizing continuous trends over time and enable easy detection of peaks and troughs."
+    },
+    {
+      "id": "V2",
+      "requirement": "Combine area charts with line charts to show cumulative monthly sales alongside daily sales trends.",
+      "reason": "This dual visualization allows users to understand both granular and aggregated sales trends in a single view."
+    },
+    {
+      "id": "V3",
+      "requirement": "Generate a bar chart to compare monthly sales across different product categories derived from the 'category' column.",
+      "reason": "Bar charts are effective for comparing categorical data, highlighting how product categories contribute to sales over time."
+    },
+    {
+      "id": "V4",
+      "requirement": "Utilize a heat map to show weekly sales patterns across days of the week and hours of the day.",
+      "reason": "Heat maps allow for an intuitive representation of dense data across two categorical dimensions, facilitating the detection of spikes or anomalies in sales activity."
+    },
+    {
+      "id": "V5",
+      "requirement": "Create a scatter plot to correlate advertising spend (spend) with sales performance, highlighting campaigns from the 'blinkit_marketing_performance' table.",
+      "reason": "Scatter plots are effective for identifying relationships between two numerical variables, such as spend and resulting sales."
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I1",
+      "requirement": "Allow users to filter sales data by specific time ranges (e.g., months or weeks) using a brush or slider selection.",
+      "reason": "Time-based filtering enables users to focus on specific periods to analyze sales trends more closely."
+    },
+    {
+      "id": "I2",
+      "requirement": "Integrate hover interactions to display detailed metrics (e.g., daily sales total, number of orders) on line or area charts.",
+      "reason": "Hover provides micro-level insights without overwhelming the visualization, helping users quickly access relevant data points."
+    },
+    {
+      "id": "I3",
+      "requirement": "Enable users to toggle between different time aggregations (daily, weekly, monthly) directly in the line chart view.",
+      "reason": "This interaction ensures users can seamlessly switch between various temporal dimensions for flexible analysis."
+    },
+    {
+      "id": "I4",
+      "requirement": "In the scatter plot, allow users to highlight and filter specific marketing campaigns (campaign_name) to see their contributions to sales trends.",
+      "reason": "Filtering campaigns helps users isolate their impact, determining which campaigns were most effective for driving sales growth."
+    },
+    {
+      "id": "I5",
+      "requirement": "Provide drill-down interactions on bar charts or heat maps to view category-specific sales data or sales patterns within specific weeks.",
+      "reason": "Drill-down interactions allow for detailed exploration of aggregated data, helping users identify drivers behind observed sales patterns."
+    }
+  ]
+}

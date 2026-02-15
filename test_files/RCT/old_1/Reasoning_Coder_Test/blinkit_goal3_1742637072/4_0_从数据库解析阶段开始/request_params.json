@@ -1,0 +1,17 @@
+{
+  "id": "blinkit_goal3_1742637072",
+  "desc": "This dataset contains sales transaction data from Blinkit, an online grocery delivery platform. It contains sales data from Blinkit, including product details, order quantities, revenue, and timestamps.",
+  "goal": "Perform a statistical analysis of sales volumes, revenue contributions, and price sensitivity across different products or product categories. This descriptive approach identifies key revenue drivers and top-selling items, using visual tools such as bar charts and pie charts to highlight performance differences, which in turn supports decisions related to pricing strategies, inventory management, and promotional activities.",
+  "initialStage": 0,
+  "maxSteps": 10,
+  "useReflect": true,
+  "useRag": false,
+  "models": {
+    "database": "deepseek-r1-api",
+    "requirements": "deepseek-r1-api",
+    "tasks": "deepseek-r1-api",
+    "plan": "deepseek-r1-api",
+    "sql": "qwen-coder",
+    "vega": "qwen-coder"
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "Overview": {
+    "title": "Overview: Relationship between CLTV and Satisfaction Score, colored by Customer Status",
+    "data": {
+      "url": "http://localhost:8888/view_1_overview.csv"
+    },
+    "mark": "circle",
+    "encoding": {
+      "x": {
+        "field": "CLTV",
+        "type": "quantitative",
+        "title": "CLTV",
+        "scale": {
+          "nice": true
+        }
+      },
+      "y": {
+        "field": "satisfaction_score",
+        "type": "quantitative",
+        "title": "Satisfaction Score"
+      },
+      "color": {
+        "field": "customer_status",
+        "type": "nominal",
+        "title": "Customer Status"
+      },
+      "opacity": {
+        "value": 0.3,
+        "condition": {
+          "param": "customer_select",
+          "value": 1
+        }
+      }
+    },
+    "params": [
+      {
+        "name": "customer_select",
+        "select": {
+          "type": "point",
+          "encodings": [
+            "x",
+            "y"
+          ]
+        }
+      },
+      {
+        "name": "metric_filter",
+        "select": {
+          "type": "interval",
+          "encodings": [
+            "x",
+            "y"
+          ]
+        },
+        "bind": {
+          "x2": "input"
+        }
+      }
+    ]
+  },
+  "Explore": {
+    "title": "Exploration: Average Churn Score by Internet Type and Age Group",
+    "data": {
+      "url": "http://localhost:8888/view_2_explore.csv"
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "customer_status",
+        "type": "nominal",
+        "title": "Customer Status"
+      },
+      "y": {
+        "aggregate": "mean",
+        "field": "churn_score",
+        "type": "quantitative",
+        "title": "Average Churn Score"
+      },
+      "column": {
+        "field": "internet_type",
+        "type": "nominal",
+        "title": "Internet Type"
+      },
+      "color": {
+        "field": "under_30",
+        "type": "nominal",
+        "title": "Age Group",
+        "scale": {
+          "domain": [
+            "No",
+            "Yes"
+          ],
+          "range": [
+            "blue",
+            "orange"
+          ]
+        }
+      }
+    },
+    "transform": [
+      {
+        "lookup": "customer_id",
+        "from": {
+          "data": {
+            "url": "http://localhost:8888/view_1_overview.csv"
+          },
+          "key": "customer_id",
+          "fields": [
+            "customer_status",
+            "satisfaction_score",
+            "CLTV"
+          ]
+        }
+      },
+      {
+        "filter": {
+          "param": "metric_filter"
+        }
+      },
+      {
+        "window": [
+          {
+            "op": "bin",
+            "field": "age",
+            "bins": 2,
+            "as": "age_bin"
+          }
+        ]
+      }
+    ],
+    "params": [
+      {
+        "name": "service_age_filter",
+        "select": {
+          "type": "point",
+          "encodings": [
+            "column",
+            "color"
+          ]
+        }
+      }
+    ]
+  },
+  "Detail": {
+    "title": "Detail: Churn Rates by Contract Length and Tenure Duration, split by Gender",
+    "data": {
+      "url": "http://localhost:8888/view_3_detail.csv"
+    },
+    "mark": "rect",
+    "encoding": {
+      "x": {
+        "field": "contract",
+        "type": "nominal",
+        "title": "Contract Type"
+      },
+      "y": {
+        "field": "tenure",
+        "type ": "quantitative",
+        "title": "Tenure Bins"
+      },
+      "color": {
+        "aggregate": "mean",
+        "field": "churn_score",
+        "type": "quantitative",
+        "title": "Churn Rate (%)",
+        "scale": {
+          "domain": [
+            0,
+            100
+          ],
+          "range": [
+            "#f59191",
+            "#750d0d"
+          ]
+        }
+      },
+      "row": {
+        "field": "gender",
+        "type": "nominal",
+        "title": "Gender"
+      }
+    },
+    "transform": [
+      {
+        "lookup": "customer_id",
+        "from": {
+          "data": {
+            "url": "http://localhost:8888/view_2_explore.csv"
+          },
+          "key": "customer_id",
+          "fields": [
+            "internet_type",
+            "customer_status",
+            "satisfaction_score",
+            "CLTV"
+          ]
+        }
+      },
+      {
+        "filter": {
+          "param": "service_age_filter"
+        }
+      },
+      {
+        "window": [
+          {
+            "op": "bin",
+            "field": "tenure",
+            "bins": 5,
+            "as": "tenure_bin"
+          }
+        ]
+      }
+    ]
+  },
+  "Insight": {
+    "title": "Insight: Combining Churn Reasons, Payment Methods, and Promotional Offers",
+    "data": {
+      "url": "http://localhost:8888/view_4_insight.csv"
+    },
+    "mark": "arc",
+    "encoding": {
+      "theta": {
+        "aggregate": "count",
+        "type": "quantitative",
+        "title": "Count"
+      },
+      "color": {
+        "field": "churn_reason",
+        "type": "nominal",
+        "title": "Churn Category"
+      },
+      "radius": {
+        "field": "payment_method",
+        "type": "nominal",
+        "title": "Payment Method"
+      },
+      "tooltip": {
+        "field": "offer",
+        "type": "nominal",
+        "title": "Promotional Offer"
+      }
+    },
+    "transform": [
+      {
+        "lookup": "customer_id",
+        "from": {
+          "data": {
+            "url": "http://localhost:8888/view_3_detail.csv"
+          },
+          "key": "customer_id",
+          "fields": [
+            "contract",
+            "tenure",
+            "gender",
+            "customer_status",
+            "satisfaction_score",
+            "CLTV"
+          ]
+        }
+      },
+      {
+        "filter": {
+          "param": "customer_select"
+        }
+      }
+    ]
+  }
+}

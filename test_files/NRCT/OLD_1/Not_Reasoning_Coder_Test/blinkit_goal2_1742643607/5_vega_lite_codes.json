@@ -1,0 +1,116 @@
+{
+  "v1_bar_chart": {
+    "encoding": {
+      "color": {
+        "field": "product_id",
+        "type": "nominal"
+      },
+      "x": {
+        "field": "secondary_product_id",
+        "type": "nominal"
+      },
+      "y": {
+        "field": "co_occurrence",
+        "type": "quantitative"
+      }
+    },
+    "mark": "bar"
+  },
+  "v2_heat_map": {
+    "encoding": {
+      "color": {
+        "field": "purchase_frequency",
+        "type": "quantitative"
+      },
+      "x": {
+        "field": "customer_segment",
+        "type": "nominal"
+      },
+      "y": {
+        "field": "area",
+        "type": "nominal"
+      }
+    },
+    "mark": "rect"
+  },
+  "v3_scatter_plot": {
+    "encoding": {
+      "color": {
+        "field": "customer_segment",
+        "type": "nominal"
+      },
+      "tooltip": [
+        {
+          "field": "total_orders"
+        },
+        {
+          "field": "avg_order_value"
+        },
+        {
+          "field": "area"
+        }
+      ],
+      "x": {
+        "field": "avg_order_value",
+        "type": "quantitative"
+      },
+      "y": {
+        "field": "total_orders",
+        "type": "quantitative"
+      }
+    },
+    "mark": "point"
+  },
+  "v4_box_plot": {
+    "encoding": {
+      "x": {
+        "field": "customer_segment",
+        "type": "nominal"
+      },
+      "y": {
+        "field": "basket_size",
+        "type": "quantitative"
+      }
+    },
+    "mark": "box"
+  },
+  "v5_line_chart": {
+    "encoding": {
+      "x": {
+        "field": "order_date",
+        "type": "temporal"
+      },
+      "y": {
+        "field": "purchase_frequency",
+        "type": "quantitative"
+      }
+    },
+    "mark": "line",
+    "selection": {
+      "interval": {
+        "encodings": [
+          "x",
+          "y"
+        ],
+        "type": "interval"
+      }
+    }
+  },
+  "v6_scatter_plot": {
+    "encoding": {
+      "color": {
+        "field": "customer_segment",
+        "type": "nominal"
+      },
+      "x": {
+        "field": "customer_segment",
+        "type": "nominal"
+      },
+      "y": {
+        "field": "total_orders",
+        "type": "quantitative"
+      }
+    },
+    "mark": "point"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "interaction": [
+    {
+      "id": "I4",
+      "requirement": "REMOVED - Years of service filter cannot be implemented due to missing tenure data in schema",
+      "reason": "Database lacks temporal employment records, making seniority derivation impossible"
+    }
+  ]
+}

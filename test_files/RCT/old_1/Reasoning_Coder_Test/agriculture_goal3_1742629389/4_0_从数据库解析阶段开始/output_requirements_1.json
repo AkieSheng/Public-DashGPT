@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "id": "D1",
+      "requirement": "Join soil_analysis_data with crop_production_data on District to enable cross-table analysis of soil properties and yield metrics.",
+      "reason": "Original requirement lacked explicit join logic needed to analyze soil-yield relationships between tables"
+    },
+    {
+      "id": "D4",
+      "requirement": "Calculate yield variation coefficients per soil type rather than z-scores for nutrient-yield correlations",
+      "reason": "Z-score calculation assumes normal distribution and requires full dataset joins not yet established"
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V1",
+      "requirement": "Enhanced scatter matrix showing nutrient vs yield relationships with color encoding for Soil Type instead of small multiples",
+      "reason": "Original 8-facet small multiples would become unreadable given 23 crops and 10 districts"
+    },
+    {
+      "id": "V3",
+      "requirement": "Choropleth map showing district-level soil fertility indices derived from nutrients, paired with bar charts for top-yield crops",
+      "reason": "Spatial heatmap matrix would misrepresent geographic relationships in non-grid district layout"
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I1",
+      "requirement": "Replace lasso selection with rectangular brush selection in scatter plots for cross-filtering",
+      "reason": "Vega-Lite doesn't support lasso selection natively, only rectangular brushing"
+    }
+  ]
+}

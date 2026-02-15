@@ -1,0 +1,1566 @@
+{
+  "created": 1742642276,
+  "dataset": {
+    "description": "The database offers a comprehensive view of an educational institution’s academic ecosystem, covering details about courses, departments, enrollment, faculty, students, and related administrative information.",
+    "tables": [
+      {
+        "columns": [
+          {
+            "column": "StuID",
+            "description": "Unique identifier for each student",
+            "dtype": "INTEGER",
+            "name": "StuID",
+            "stats": {
+              "25%": 1009.25,
+              "50%": 1018.5,
+              "75%": 1026.75,
+              "count": 34.0,
+              "max": 1035.0,
+              "mean": 1018.1470588235294,
+              "min": 1001.0,
+              "samples": [
+                1001,
+                1002,
+                1003,
+                1004,
+                1005
+              ],
+              "std": 10.363491727420529
+            }
+          },
+          {
+            "column": "LName",
+            "description": "Last name of the student",
+            "dtype": "VARCHAR(12)",
+            "name": "LName",
+            "stats": {
+              "count": 34,
+              "freq": 2,
+              "samples": [
+                "Smith",
+                "Lee",
+                "Pang",
+                "Kumar",
+                "Gompers"
+              ],
+              "top": "Smith",
+              "unique": 31
+            }
+          },
+          {
+            "column": "FName",
+            "description": "First name of the student",
+            "dtype": "VARCHAR(12)",
+            "name": "Fname",
+            "stats": {
+              "count": 34,
+              "freq": 5,
+              "samples": [
+                "Eric",
+                "Lisa",
+                "David",
+                "Paul",
+                "Michael"
+              ],
+              "top": "Eric",
+              "unique": 24
+            }
+          },
+          {
+            "column": "Age",
+            "description": "Age of the student in years",
+            "dtype": "INTEGER",
+            "name": "Age",
+            "stats": {
+              "25%": 18.0,
+              "50%": 19.0,
+              "75%": 20.0,
+              "count": 34.0,
+              "max": 27.0,
+              "mean": 19.558823529411764,
+              "min": 16.0,
+              "samples": [
+                18,
+                20,
+                19,
+                17,
+                21
+              ],
+              "std": 2.584231630374799
+            }
+          },
+          {
+            "column": "Sex",
+            "description": "Gender of the student ('M' for male, 'F' for female)",
+            "dtype": "VARCHAR(1)",
+            "name": "Sex",
+            "stats": {
+              "count": 34,
+              "freq": 24,
+              "samples": [
+                "M",
+                "F"
+              ],
+              "top": "M",
+              "unique": 2
+            }
+          },
+          {
+            "column": "Major",
+            "description": "Department number representing the student's major",
+            "dtype": "INTEGER",
+            "name": "Major",
+            "stats": {
+              "25%": 525.0,
+              "50%": 600.0,
+              "75%": 600.0,
+              "count": 34.0,
+              "max": 600.0,
+              "mean": 527.9411764705883,
+              "min": 50.0,
+              "samples": [
+                600,
+                520,
+                550,
+                540,
+                50
+              ],
+              "std": 149.39837757759085
+            }
+          },
+          {
+            "column": "Advisor",
+            "description": "Faculty ID of the advisor assigned to the student",
+            "dtype": "INTEGER",
+            "name": "Advisor",
+            "stats": {
+              "25%": 2192.0,
+              "50%": 7202.5,
+              "75%": 8722.0,
+              "count": 34.0,
+              "max": 9172.0,
+              "mean": 5622.382352941177,
+              "min": 1121.0,
+              "samples": [
+                2192,
+                1121,
+                8772,
+                1148,
+                2311
+              ],
+              "std": 3224.6798855898282
+            }
+          },
+          {
+            "column": "city_code",
+            "description": "City code representing the hometown or base of the student",
+            "dtype": "VARCHAR(3)",
+            "name": "city_code",
+            "stats": {
+              "count": 34,
+              "freq": 4,
+              "samples": [
+                "BAL",
+                "PIT",
+                "HKG",
+                "WAS",
+                "PHL"
+              ],
+              "top": "BAL",
+              "unique": 19
+            }
+          }
+        ],
+        "table": "Student"
+      },
+      {
+        "columns": [
+          {
+            "column": "FacID",
+            "description": "Unique identifier for each faculty member",
+            "dtype": "INTEGER",
+            "name": "FacID",
+            "stats": {
+              "25%": 3650.25,
+              "50%": 7609.0,
+              "75%": 8886.25,
+              "count": 58.0,
+              "max": 9922.0,
+              "mean": 6473.3448275862065,
+              "min": 1082.0,
+              "samples": [
+                1082,
+                1121,
+                1148,
+                1172,
+                1177
+              ],
+              "std": 3008.5165403807746
+            }
+          },
+          {
+            "column": "Lname",
+            "description": "Last name of the faculty member",
+            "dtype": "VARCHAR(15)",
+            "name": "Lname",
+            "stats": {
+              "count": 58,
+              "freq": 1,
+              "samples": [
+                "Giuliano",
+                "Goodrich",
+                "Masson",
+                "Runolfsson",
+                "Naiman"
+              ],
+              "top": "Giuliano",
+              "unique": 58
+            }
+          },
+          {
+            "column": "Fname",
+            "description": "First name of the faculty member",
+            "dtype": "VARCHAR(15)",
+            "name": "Fname",
+            "stats": {
+              "count": 58,
+              "freq": 3,
+              "samples": [
+                "Michael",
+                "Robert",
+                "William",
+                "John",
+                "Mark"
+              ],
+              "top": "Michael",
+              "unique": 53
+            }
+          },
+          {
+            "column": "Rank",
+            "description": "Academic rank or position of the faculty member (e.g., Professor, AsstProf)",
+            "dtype": "VARCHAR(15)",
+            "name": "Rank",
+            "stats": {
+              "count": 58,
+              "freq": 27,
+              "samples": [
+                "Professor",
+                "AsstProf",
+                "Instructor",
+                "AssocProf"
+              ],
+              "top": "Professor",
+              "unique": 4
+            }
+          },
+          {
+            "column": "Sex",
+            "description": "Gender of the faculty member ('M' for male, 'F' for female)",
+            "dtype": "VARCHAR(1)",
+            "name": "Sex",
+            "stats": {
+              "count": 58,
+              "freq": 51,
+              "samples": [
+                "M",
+                "F"
+              ],
+              "top": "M",
+              "unique": 2
+            }
+          },
+          {
+            "column": "Phone",
+            "description": "Contact phone number of the faculty member",
+            "dtype": "INTEGER",
+            "name": "Phone",
+            "stats": {
+              "25%": 2080.25,
+              "50%": 2880.0,
+              "75%": 4928.5,
+              "count": 58.0,
+              "max": 9373.0,
+              "mean": 3616.9137931034484,
+              "min": 1035.0,
+              "samples": [
+                2424,
+                3593,
+                3402,
+                3121,
+                3571
+              ],
+              "std": 2149.3704446249985
+            }
+          },
+          {
+            "column": "Room",
+            "description": "Office room number of the faculty member",
+            "dtype": "VARCHAR(5)",
+            "name": "Room",
+            "stats": {
+              "count": 58,
+              "freq": 20,
+              "samples": [
+                "288",
+                "119",
+                "316",
+                "224",
+                "219"
+              ],
+              "top": "288",
+              "unique": 18
+            }
+          },
+          {
+            "column": "Building",
+            "description": "Building name where the faculty member's office is located",
+            "dtype": "VARCHAR(13)",
+            "name": "Building",
+            "stats": {
+              "count": 58,
+              "freq": 20,
+              "samples": [
+                "Barton",
+                "Krieger",
+                "NEB"
+              ],
+              "top": "Barton",
+              "unique": 3
+            }
+          }
+        ],
+        "table": "Faculty"
+      },
+      {
+        "columns": [
+          {
+            "column": "DNO",
+            "description": "Unique department number identifier",
+            "dtype": "INTEGER",
+            "name": "DNO",
+            "stats": {
+              "25%": 75.0,
+              "50%": 160.0,
+              "75%": 477.5,
+              "count": 26.0,
+              "max": 600.0,
+              "mean": 242.69230769230768,
+              "min": 10.0,
+              "samples": [
+                10,
+                20,
+                30,
+                40,
+                50
+              ],
+              "std": 210.02014555385284
+            }
+          },
+          {
+            "column": "Division",
+            "description": "Division in which the department belongs (e.g., AS for arts & sciences, EN for engineering)",
+            "dtype": "VARCHAR(2)",
+            "name": "Division",
+            "stats": {
+              "count": 26,
+              "freq": 19,
+              "samples": [
+                "AS",
+                "EN"
+              ],
+              "top": "AS",
+              "unique": 2
+            }
+          },
+          {
+            "column": "DName",
+            "description": "Full name of the department",
+            "dtype": "VARCHAR(25)",
+            "name": "DName",
+            "stats": {
+              "count": 26,
+              "freq": 1,
+              "samples": [
+                "History of Art",
+                "Biology",
+                "Chemistry",
+                "Classics",
+                "Cognitive Science"
+              ],
+              "top": "History of Art",
+              "unique": 26
+            }
+          },
+          {
+            "column": "Room",
+            "description": "Room number for departmental administration",
+            "dtype": "VARCHAR(5)",
+            "name": "Room",
+            "stats": {
+              "count": 26,
+              "freq": 2,
+              "samples": [
+                "144",
+                "221",
+                "113",
+                "268",
+                "381"
+              ],
+              "top": "144",
+              "unique": 24
+            }
+          },
+          {
+            "column": "Building",
+            "description": "Building name where the department is located",
+            "dtype": "VARCHAR(13)",
+            "name": "Building",
+            "stats": {
+              "count": 26,
+              "freq": 9,
+              "samples": [
+                "Gilman",
+                "Mergenthaler",
+                "NEB",
+                "Krieger",
+                "Latrobe"
+              ],
+              "top": "Gilman",
+              "unique": 12
+            }
+          },
+          {
+            "column": "DPhone",
+            "description": "Contact phone number for the department administration",
+            "dtype": "INTEGER",
+            "name": "DPhone",
+            "stats": {
+              "25%": 7202.75,
+              "50%": 7414.0,
+              "75%": 7543.0,
+              "count": 26.0,
+              "max": 8680.0,
+              "mean": 7486.076923076923,
+              "min": 7033.0,
+              "samples": [
+                7117,
+                7330,
+                7429,
+                7556,
+                7119
+              ],
+              "std": 440.4182487660495
+            }
+          }
+        ],
+        "table": "Department"
+      },
+      {
+        "columns": [
+          {
+            "column": "FacID",
+            "description": "Faculty ID of the member belonging to a department",
+            "dtype": "INTEGER",
+            "name": "FacID",
+            "stats": {
+              "25%": 4331.0,
+              "50%": 7712.0,
+              "75%": 8854.5,
+              "count": 63.0,
+              "max": 9922.0,
+              "mean": 6610.269841269841,
+              "min": 1082.0,
+              "samples": [
+                7271,
+                8741,
+                8721,
+                8989,
+                9379
+              ],
+              "std": 2930.7350184880092
+            }
+          },
+          {
+            "column": "DNO",
+            "description": "Department number to which the faculty member is affiliated",
+            "dtype": "INTEGER",
+            "name": "DNO",
+            "stats": {
+              "25%": 520.0,
+              "50%": 550.0,
+              "75%": 600.0,
+              "count": 63.0,
+              "max": 600.0,
+              "mean": 484.44444444444446,
+              "min": 50.0,
+              "samples": [
+                520,
+                600,
+                550,
+                50
+              ],
+              "std": 181.75468914195756
+            }
+          },
+          {
+            "column": "Appt_Type",
+            "description": "Appointment type indicating the faculty's affiliation role (e.g., Primary, Secondary)",
+            "dtype": "VARCHAR(15)",
+            "name": "Appt_Type",
+            "stats": {
+              "count": 63,
+              "freq": 58,
+              "samples": [
+                "Primary",
+                "Secondary"
+              ],
+              "top": "Primary",
+              "unique": 2
+            }
+          }
+        ],
+        "table": "Member_of"
+      },
+      {
+        "columns": [
+          {
+            "column": "CID",
+            "description": "Unique course identifier code",
+            "dtype": "VARCHAR(7)",
+            "name": "CID",
+            "stats": {
+              "count": 76,
+              "freq": 1,
+              "samples": [
+                "600.101",
+                "600.103",
+                "600.107",
+                "600.109",
+                "600.113"
+              ],
+              "top": "600.101",
+              "unique": 76
+            }
+          },
+          {
+            "column": "CName",
+            "description": "Full name of the course",
+            "dtype": "VARCHAR(40)",
+            "name": "CName",
+            "stats": {
+              "count": 76,
+              "freq": 2,
+              "samples": [
+                "FORMAL METHODS IN COGNITIVE SCIENCE",
+                "COMBINATORIAL ANALYSIS",
+                "DISTRIBUTED SYSTEMS",
+                "DATABASE SYSTEMS",
+                "COMPUTER LITERACY"
+              ],
+              "top": "FORMAL METHODS IN COGNITIVE SCIENCE",
+              "unique": 72
+            }
+          },
+          {
+            "column": "Credits",
+            "description": "Number of credit hours awarded for completing the course",
+            "dtype": "INTEGER",
+            "name": "Credits",
+            "stats": {
+              "25%": 3.0,
+              "50%": 3.0,
+              "75%": 3.0,
+              "count": 76.0,
+              "max": 4.0,
+              "mean": 3.039473684210526,
+              "min": 1.0,
+              "samples": [
+                3,
+                4,
+                1,
+                2
+              ],
+              "std": 0.6205543644985874
+            }
+          },
+          {
+            "column": "Instructor",
+            "description": "Faculty ID of the instructor teaching the course",
+            "dtype": "INTEGER",
+            "name": "Instructor",
+            "stats": {
+              "25%": 4432.0,
+              "50%": 7029.5,
+              "75%": 8822.75,
+              "count": 76.0,
+              "max": 9922.0,
+              "mean": 6472.526315789473,
+              "min": 1121.0,
+              "samples": [
+                6112,
+                4432,
+                6191,
+                1121,
+                9823
+              ],
+              "std": 2838.180207920487
+            }
+          },
+          {
+            "column": "Days",
+            "description": "Days of the week when the course is held",
+            "dtype": "VARCHAR(5)",
+            "name": "Days",
+            "stats": {
+              "count": 76,
+              "freq": 37,
+              "samples": [
+                "MTW",
+                "ThF",
+                "Th",
+                "M",
+                "MW"
+              ],
+              "top": "MTW",
+              "unique": 11
+            }
+          },
+          {
+            "column": "Hours",
+            "description": "Time duration or schedule for the course",
+            "dtype": "VARCHAR(11)",
+            "name": "Hours",
+            "stats": {
+              "count": 76,
+              "freq": 7,
+              "samples": [
+                "3",
+                "1",
+                "9",
+                "2",
+                "11"
+              ],
+              "top": "3",
+              "unique": 29
+            }
+          },
+          {
+            "column": "DNO",
+            "description": "Department number offering the course",
+            "dtype": "INTEGER",
+            "name": "DNO",
+            "stats": {
+              "25%": 520.0,
+              "50%": 550.0,
+              "75%": 600.0,
+              "count": 76.0,
+              "max": 600.0,
+              "mean": 493.8157894736842,
+              "min": 50.0,
+              "samples": [
+                600,
+                550,
+                520,
+                50
+              ],
+              "std": 176.7179832785421
+            }
+          }
+        ],
+        "table": "Course"
+      },
+      {
+        "columns": [
+          {
+            "column": "StuID",
+            "description": "Student ID of the individual pursuing a minor",
+            "dtype": "INTEGER",
+            "name": "StuID",
+            "stats": {
+              "25%": 1006.25,
+              "50%": 1011.0,
+              "75%": 1015.75,
+              "count": 10.0,
+              "max": 1031.0,
+              "mean": 1013.3,
+              "min": 1004.0,
+              "samples": [
+                1004,
+                1005,
+                1006,
+                1007,
+                1008
+              ],
+              "std": 9.357706271660094
+            }
+          },
+          {
+            "column": "DNO",
+            "description": "Department number representing the minor being pursued",
+            "dtype": "INTEGER",
+            "name": "DNO",
+            "stats": {
+              "25%": 152.5,
+              "50%": 520.0,
+              "75%": 537.5,
+              "count": 10.0,
+              "max": 550.0,
+              "mean": 368.0,
+              "min": 50.0,
+              "samples": [
+                520,
+                550,
+                50,
+                90,
+                140
+              ],
+              "std": 218.67276414262884
+            }
+          }
+        ],
+        "table": "Minor_in"
+      },
+      {
+        "columns": [
+          {
+            "column": "StuID",
+            "description": "Student ID of the individual enrolled in the course",
+            "dtype": "INTEGER",
+            "name": "StuID",
+            "stats": {
+              "25%": 1009.0,
+              "50%": 1019.0,
+              "75%": 1026.0,
+              "count": 210.0,
+              "max": 1035.0,
+              "mean": 1018.1190476190476,
+              "min": 1001.0,
+              "samples": [
+                1021,
+                1022,
+                1024,
+                1023,
+                1009
+              ],
+              "std": 9.89369907493054
+            }
+          },
+          {
+            "column": "CID",
+            "description": "Course ID representing the course in which the student is enrolled",
+            "dtype": "VARCHAR(7)",
+            "name": "CID",
+            "stats": {
+              "count": 210,
+              "freq": 14,
+              "samples": [
+                "600.303",
+                "600.315",
+                "550.420",
+                "600.107",
+                "600.463"
+              ],
+              "top": "600.303",
+              "unique": 42
+            }
+          },
+          {
+            "column": "Grade",
+            "description": "Letter grade earned by the student in the enrolled course",
+            "dtype": "VARCHAR(2)",
+            "name": "Grade",
+            "stats": {
+              "count": 210,
+              "freq": 62,
+              "samples": [
+                "B",
+                "A",
+                "A-",
+                "B-",
+                "B+"
+              ],
+              "top": "B",
+              "unique": 12
+            }
+          }
+        ],
+        "table": "Enrolled_in"
+      },
+      {
+        "columns": [
+          {
+            "column": "lettergrade",
+            "description": "Letter-grade standard used in grading (e.g., A+, B)",
+            "dtype": "VARCHAR(2)",
+            "name": "lettergrade",
+            "stats": {
+              "count": 13,
+              "freq": 1,
+              "samples": [
+                "A+",
+                "A",
+                "A-",
+                "B+",
+                "B"
+              ],
+              "top": "A+",
+              "unique": 13
+            }
+          },
+          {
+            "column": "gradepoint",
+            "description": "Numeric point equivalent (e.g., 4.0 for A+)",
+            "dtype": "FLOAT",
+            "name": "gradepoint",
+            "stats": {
+              "25%": 1.3,
+              "50%": 2.3,
+              "75%": 3.3,
+              "count": 13.0,
+              "max": 4.0,
+              "mean": 2.2846153846153845,
+              "min": 0.0,
+              "samples": [
+                4.0,
+                3.7,
+                3.3,
+                3.0,
+                2.7
+              ],
+              "std": 1.3031028060275687
+            }
+          }
+        ],
+        "table": "Gradeconversion"
+      }
+    ]
+  },
+  "desc": "The database offers a comprehensive view of an educational institution’s academic ecosystem, covering details about courses, departments, enrollment, faculty, students, and related administrative information.",
+  "goal": "Examine enrollment numbers and distribution across various courses, identify popular courses versus those with low enrollment, and explore potential factors influencing these trends.",
+  "id": "college_goal1_1742642276",
+  "name": "Visual Analytics System college_goal1_1742642276",
+  "plan": {
+    "graph": [
+      {
+        "from": 1,
+        "to": 2
+      },
+      {
+        "from": 1,
+        "to": 3
+      },
+      {
+        "from": 1,
+        "to": 4
+      },
+      {
+        "from": 1,
+        "to": 5
+      },
+      {
+        "from": 2,
+        "to": 4
+      }
+    ],
+    "path": "review",
+    "views": [
+      {
+        "fields": [
+          "Enrolled_in.StuID",
+          "Enrolled_in.CID"
+        ],
+        "id": 1,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Select a course or multiple courses by clicking, triggering filtering in subsequent views for detailed exploration.",
+              "params": [
+                {
+                  "name": "selectedCourses",
+                  "select": {
+                    "encodings": [
+                      "x"
+                    ],
+                    "type": "point"
+                  }
+                }
+              ]
+            },
+            "object": "bar chart",
+            "verb": "click"
+          }
+        ],
+        "level": "overview",
+        "task": [
+          1,
+          2,
+          10
+        ],
+        "usingParams": [],
+        "visualization": {
+          "description": "A bar chart showing the number of students enrolled in each course, enabling the identification of course popularity or low enrollment trends.",
+          "encodings": [
+            "x-axis: Enrolled_in.CID (nominal) - unique course identifiers",
+            "y-axis: count(Enrolled_in.StuID) (quantitative) - number of students enrolled",
+            "color: highlight courses based on top 10% and bottom 10% of enrollment if task 2 is selected"
+          ],
+          "markType": "bar"
+        }
+      },
+      {
+        "fields": [
+          "Enrolled_in.CID",
+          "Gradeconversion.gradepoint",
+          "Enrolled_in.Grade"
+        ],
+        "id": 2,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Highlight average grade points of hovered courses and allow further filtering for analysis in subsequent views.",
+              "params": [
+                {
+                  "name": "hoveredCourse",
+                  "select": {
+                    "encodings": [
+                      "x"
+                    ],
+                    "type": "point"
+                  }
+                }
+              ]
+            },
+            "object": "heat map",
+            "verb": "hover"
+          }
+        ],
+        "level": "exploration",
+        "task": [
+          3
+        ],
+        "usingParams": [
+          "selectedCourses"
+        ],
+        "visualization": {
+          "description": "A heat map displaying average grade points for each course, helping users explore patterns in perceived difficulty and enrollment trends.",
+          "encodings": [
+            "x-axis: Enrolled_in.CID (nominal) - course identifiers",
+            "color: mean(Gradeconversion.gradepoint) (quantitative) - average grade points for each course"
+          ],
+          "markType": "rect"
+        }
+      },
+      {
+        "fields": [
+          "Course.DNO",
+          "Enrolled_in.StuID"
+        ],
+        "id": 3,
+        "interactions": [],
+        "level": "exploration",
+        "task": [
+          5
+        ],
+        "usingParams": [
+          "selectedCourses"
+        ],
+        "visualization": {
+          "description": "A stacked bar chart showing the enrollment distribution across departments, with courses represented as stacked segments.",
+          "encodings": [
+            "x-axis: Course.DNO (nominal) - department numbers",
+            "y-axis: count(Enrolled_in.StuID) (quantitative) - aggregated enrollment numbers per department",
+            "color: stack based on Enrolled_in.CID (nominal) - visualizing enrollment distribution by course"
+          ],
+          "markType": "bar"
+        }
+      },
+      {
+        "fields": [
+          "Course.Days",
+          "Course.Hours",
+          "Enrolled_in.StuID"
+        ],
+        "id": 4,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Zoom into specific days and hours ranges, refining the view for temporal enrollment patterns.",
+              "params": []
+            },
+            "object": "scatter plot",
+            "verb": "zoom&pan"
+          }
+        ],
+        "level": "detail",
+        "task": [
+          6
+        ],
+        "usingParams": [
+          "selectedCourses"
+        ],
+        "visualization": {
+          "description": "A scatter plot visualizing enrollment patterns by days of the week and course hours, helping analyze temporal preferences.",
+          "encodings": [
+            "x-axis: Course.Days (ordinal) - days of the week",
+            "y-axis: Course.Hours (quantitative) - course hours",
+            "size: count(Enrolled_in.StuID) (quantitative) - enrollment numbers"
+          ],
+          "markType": "point"
+        }
+      },
+      {
+        "fields": [
+          "Course.Credits",
+          "Enrolled_in.StuID"
+        ],
+        "id": 5,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Highlight hovered credit-hour ranges, facilitating further exploration of courses and credit-hour influences.",
+              "params": []
+            },
+            "object": "boxplot",
+            "verb": "hover"
+          }
+        ],
+        "level": "detail",
+        "task": [
+          7
+        ],
+        "usingParams": [
+          "selectedCourses"
+        ],
+        "visualization": {
+          "description": "Box plots depicting the distribution of credit hours among courses segmented by enrollment levels, enabling further investigation of trends.",
+          "encodings": [
+            "x-axis: Course.Credits (quantitative) - credit hours",
+            "y-axis: count(Enrolled_in.StuID) (quantitative) - enrollment levels",
+            "color: Course.DNO (nominal) - department information"
+          ],
+          "markType": "boxplot"
+        }
+      }
+    ]
+  },
+  "requirements": {
+    "data": [
+      {
+        "id": "D5",
+        "reason": "Identifying outliers provides focal points for further exploration of popularity and low interest.",
+        "requirement": "Highlight courses with extreme enrollment values (top 10% and bottom 10% of student counts)."
+      }
+    ],
+    "visualization": [
+      {
+        "id": "V2",
+        "reason": "A heat map provides a dense and visually effective way to compare academic performance across courses.",
+        "requirement": "Include a heat map to show the average grade point distribution across courses."
+      }
+    ]
+  },
+  "sqls": [
+    {
+      "SQL": "CREATE VIEW vw_enrolled_courses AS SELECT CID, COUNT(StuID) as TotalEnrollment FROM Enrolled_in GROUP BY CID ORDER BY TotalEnrollment DESC",
+      "corrView": 1,
+      "fk": [],
+      "name": "vw_enrolled_courses",
+      "pk": "CID"
+    },
+    {
+      "SQL": "CREATE VIEW vw_enrollment_heatmap AS SELECT E.CID, G.gradepoint, AVG(G.gradepoint) as AvgGradePoints, E.Grade FROM Enrolled_in AS E JOIN Gradeconversion AS G ON E.Grade = G.lettergrade GROUP BY E.CID, G.gradepoint, E.Grade",
+      "corrView": 2,
+      "fk": [],
+      "name": "vw_enrollment_heatmap",
+      "pk": "CID"
+    },
+    {
+      "SQL": "CREATE VIEW vw_department_enrollment AS SELECT D.DNO, COUNT(E.StuID) as TotalEnrollment FROM Course AS C JOIN Enrolled_in AS E ON C.CID = E.CID JOIN Department AS D ON C.DNO = D.DNO GROUP BY D.DNO",
+      "corrView": 3,
+      "fk": [],
+      "name": "vw_department_enrollment",
+      "pk": "DNO"
+    },
+    {
+      "SQL": "CREATE VIEW vw_enrollment_by_day_hour AS SELECT Days, Hours, COUNT(StuID) as TotalEnrollment FROM Enrolled_in JOIN Course ON Enrolled_in.CID = Course.CID GROUP BY Days, Hours ORDER BY Days, Hours",
+      "corrView": 4,
+      "fk": [],
+      "name": "vw_enrollment_by_day_hour",
+      "pk": "Days || Hours"
+    },
+    {
+      "SQL": "CREATE VIEW vw_enrollment_by_credit AS SELECT Credits, COUNT(StuID) as TotalEnrollment FROM Enrolled_in JOIN Course ON Enrolled_in.CID = Course.CID GROUP BY Credits ORDER BY Credits",
+      "corrView": 5,
+      "fk": [],
+      "name": "vw_enrollment_by_credit",
+      "pk": "Credits"
+    }
+  ],
+  "tasks": [
+    {
+      "corrReq": [
+        "D1",
+        "V1",
+        "I3"
+      ],
+      "data": [
+        "Enrolled_in.StuID",
+        "Enrolled_in.CID"
+      ],
+      "id": 1,
+      "method": "Aggregate enrollment data by counting the number of students enrolled per course. Represent the results using a bar chart (V1), with courses on the x-axis and student enrollment numbers on the y-axis.",
+      "objective": "To identify the popularity of each course based on enrollment numbers across the institution.",
+      "priority": 5,
+      "type": "retrieving values | aggregating | characterizing distributions"
+    },
+    {
+      "corrReq": [
+        "D6",
+        "V1",
+        "I5"
+      ],
+      "data": [
+        "Enrolled_in.StuID",
+        "Enrolled_in.CID"
+      ],
+      "id": 2,
+      "method": "Sort courses by enrollment numbers and define thresholds for top 10% and bottom 10% using a computation. Highlight these courses in the bar chart or a separate view with visual markers. Incorporate interactive selection (I5) for detailed views.",
+      "objective": "To identify courses that are outliers in terms of enrollment (both high and low) for further investigation.",
+      "priority": 5,
+      "type": "retrieving values | filtering | finding extrema | characterizing distributions"
+    },
+    {
+      "corrReq": [
+        "D3",
+        "V2",
+        "I2"
+      ],
+      "data": [
+        "Enrolled_in.Grade",
+        "Gradeconversion.lettergrade",
+        "Gradeconversion.gradepoint",
+        "Enrolled_in.CID"
+      ],
+      "id": 3,
+      "method": "Join 'Enrolled_in' with 'Gradeconversion' on the 'Grade' column to calculate average grade points for each course. Visualize the results using a heat map (V2), where courses are on the x-axis and average grade points are color-coded.",
+      "objective": "To explore whether perceived course difficulty (via average grades) impacts enrollment levels.",
+      "priority": 4,
+      "type": "retrieving values | joining | correlating"
+    },
+    {
+      "corrReq": [
+        "D4",
+        "V7",
+        "I3"
+      ],
+      "data": [
+        "Course.DNO",
+        "Course.CID",
+        "Faculty.FacID",
+        "Faculty.Rank"
+      ],
+      "id": 4,
+      "method": "Join 'Course' and 'Faculty' tables using the 'Instructor' field to correlate faculty rank with enrollment numbers using a combined bar and line chart (V7). Display courses sorted by rank categories on the x-axis and enrollment trends on the y-axis.",
+      "objective": "To investigate whether faculty-related attributes, such as rank, influence the popularity of courses.",
+      "priority": 3,
+      "type": "retrieving values | filtering | computing derived values | clustering"
+    },
+    {
+      "corrReq": [
+        "D5",
+        "V3",
+        "I1"
+      ],
+      "data": [
+        "Course.DNO",
+        "Enrolled_in.StuID"
+      ],
+      "id": 5,
+      "method": "Group courses by department (DNO) and aggregate enrollment numbers per department. Visualize the results using a stacked bar chart (V3), with departments as categories and enrollment distributions as stacked segments.",
+      "objective": "To identify enrollment patterns across different departments and analyze department-level trends.",
+      "priority": 4,
+      "type": "retrieving values | aggregating | sorting"
+    },
+    {
+      "corrReq": [
+        "D8",
+        "V4",
+        "I7"
+      ],
+      "data": [
+        "Course.Days",
+        "Course.Hours",
+        "Enrolled_in.StuID"
+      ],
+      "id": 6,
+      "method": "Visualize temporal patterns in enrollment data using a scatter plot (V4), with Days on one axis and Hours on the other. Enable zooming and panning (I7) for detailed exploration.",
+      "objective": "To investigate whether scheduling patterns (e.g., day and time preferences) impact enrollment trends.",
+      "priority": 3,
+      "type": "retrieving values | characterizing distributions"
+    },
+    {
+      "corrReq": [
+        "D7",
+        "V5",
+        "I1"
+      ],
+      "data": [
+        "Course.Credits",
+        "Enrolled_in.StuID"
+      ],
+      "id": 7,
+      "method": "Characterize credit hours of courses with high and low enrollment levels using box plots (V5). Show data segmented by enrollment ranges while enabling filtering by credit range or department.",
+      "objective": "To reveal how the number of credit hours influences enrollment for popular and unpopular courses.",
+      "priority": 3,
+      "type": "retrieving values | filtering | finding anomalies"
+    },
+    {
+      "corrReq": [
+        "D5",
+        "D8",
+        "V8"
+      ],
+      "data": [
+        "Course.Days",
+        "Course.DNO",
+        "Enrolled_in.StuID"
+      ],
+      "id": 8,
+      "method": "Create a heat map (V8) that visualizes course enrollments grouped by department and days of the week, with enrollment represented by color intensity.",
+      "objective": "To uncover dependencies between department, scheduling preferences, and course enrollment.",
+      "priority": 4,
+      "type": "aggregating | clustering"
+    },
+    {
+      "corrReq": [
+        "D6",
+        "V6",
+        "I1"
+      ],
+      "data": [
+        "Enrolled_in.CID",
+        "Enrolled_in.StuID"
+      ],
+      "id": 9,
+      "method": "Calculate proportions of courses segmented by high, medium, and low enrollment levels and visualize them using a pie chart (V6). Provide interactive filtering options to adjust thresholds for each level.",
+      "objective": "To summarize the overall distribution of course popularity across the institution.",
+      "priority": 2,
+      "type": "computing derived values | clustering | characterizing distributions"
+    },
+    {
+      "corrReq": [
+        "I6",
+        "V1"
+      ],
+      "data": [
+        "Enrolled_in.CID",
+        "Enrolled_in.StuID"
+      ],
+      "id": 10,
+      "method": "Enable multi-course selection within the bar chart (V1) for side-by-side comparisons of enrollment trends across specified courses.",
+      "objective": "To allow users to investigate relationships or shared attributes impacting enrollment trends in comparable courses.",
+      "priority": 3,
+      "type": "retrieving values | enabling comparison | clustering | correlating"
+    }
+  ],
+  "vlcodes": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "columns": 2,
+    "concat": [
+      {
+        "data": {
+          "url": "http://localhost:8888/vw_enrolled_courses.csv"
+        },
+        "description": "Overview: View 1",
+        "encoding": {
+          "color": {
+            "condition": {
+              "false": {
+                "value": "grey"
+              },
+              "param": "topCourses",
+              "true": {
+                "value": "blue"
+              }
+            },
+            "field": "TotalEnrollment",
+            "title": "Enrollment",
+            "type": "quantitative"
+          },
+          "x": {
+            "field": "CID",
+            "title": "Course ID",
+            "type": "nominal"
+          },
+          "y": {
+            "aggregate": "count",
+            "title": "Total Enrollment",
+            "type": "quantitative"
+          }
+        },
+        "height": 200,
+        "mark": "bar",
+        "params": [
+          {
+            "bind": "scales",
+            "name": "topCourses",
+            "select": {
+              "fields": [
+                "TotalEnrollment"
+              ],
+              "type": "interval"
+            }
+          },
+          {
+            "name": "selectedCourses",
+            "select": {
+              "encodings": [
+                "x"
+              ],
+              "type": "point"
+            }
+          }
+        ],
+        "width": 200
+      },
+      {
+        "data": {
+          "url": "http://localhost:8888/vw_heatmap_data.csv"
+        },
+        "description": "Exploration: View 2",
+        "encoding": {
+          "color": {
+            "aggregate": "mean",
+            "scale": {
+              "domain": [
+                0,
+                4
+              ]
+            },
+            "title": "Avg Grade Points",
+            "type": "quantitative"
+          },
+          "size": {
+            "value": 50
+          },
+          "x": {
+            "field": "CID",
+            "title": "Course ID",
+            "type": "nominal"
+          },
+          "y": {
+            "field": "gradepoint",
+            "title": "Grade Points",
+            "type": "quantitative"
+          }
+        },
+        "height": 200,
+        "mark": "rect",
+        "params": [
+          {
+            "name": "hoveredCourse",
+            "select": {
+              "encodings": [
+                "x"
+              ],
+              "type": "point"
+            }
+          }
+        ],
+        "tooltip": [
+          {
+            "field": "AvgGradePoints",
+            "type": "quantitative"
+          }
+        ],
+        "transform": [
+          {
+            "from": {
+              "data": {
+                "url": "http://localhost:8888/vw_enrolled_courses.csv"
+              },
+              "fields": [
+                "TotalEnrollment"
+              ],
+              "key": "CID"
+            },
+            "lookup": "CID"
+          },
+          {
+            "param": "selectedCourses"
+          }
+        ],
+        "width": 200
+      },
+      {
+        "data": {
+          "url": "http://localhost:8888/vw_department_enrollment.csv"
+        },
+        "description": "Exploration: View 3",
+        "encoding": {
+          "color": {
+            "condition": {
+              "false": {
+                "value": "grey"
+              },
+              "param": "topDepartments",
+              "true": {
+                "value": "green"
+              }
+            },
+            "field": "TotalEnrollment",
+            "title": "Enrollment",
+            "type": "quantitative"
+          },
+          "x": {
+            "field": "DNO",
+            "title": "Department ID",
+            "type": "nominal"
+          },
+          "y": {
+            "aggregate": "count",
+            "title": "Total Enrollment",
+            "type": "quantitative"
+          }
+        },
+        "height": 200,
+        "mark": "bar",
+        "params": [
+          {
+            "bind": "scales",
+            "name": "topDepartments",
+            "select": {
+              "fields": [
+                "TotalEnrollment"
+              ],
+              "type": "interval"
+            }
+          },
+          {
+            "name": "selectedCourses",
+            "select": {
+              "encodings": [
+                "x"
+              ],
+              "type": "point"
+            }
+          }
+        ],
+        "width": 200
+      },
+      {
+        "data": {
+          "url": "http://localhost:8888/vw_enrollment_by_day_hour.csv"
+        },
+        "description": "Detail: View 4",
+        "encoding": {
+          "size": {
+            "aggregate": "count",
+            "title": "Enrollment Numbers",
+            "type": "quantitative"
+          },
+          "x": {
+            "field": "Days",
+            "title": "Days of the Week",
+            "type": "nominal"
+          },
+          "y": {
+            "field": "Hours",
+            "title": "Course Hours",
+            "type": "quantitative"
+          }
+        },
+        "height": 200,
+        "mark": "point",
+        "params": [
+          {
+            "bind": "scales",
+            "name": "scatter_zoom",
+            "select": {
+              "type": "interval"
+            }
+          }
+        ],
+        "tooltip": [
+          {
+            "field": "TotalEnrollment",
+            "type": "quantitative"
+          }
+        ],
+        "transform": [
+          {
+            "from": {
+              "data": {
+                "url": "http://localhost:8888/vw_enrolled_courses.csv"
+              },
+              "fields": [
+                "TotalEnrollment"
+              ],
+              "key": "CID"
+            },
+            "lookup": "CID"
+          },
+          {
+            "param": "selectedCourses"
+          }
+        ],
+        "width": 200
+      },
+      {
+        "data": {
+          "url": "http://localhost:8888/vw_enrollment_by_credit.csv"
+        },
+        "description": "Detail: View 5",
+        "encoding": {
+          "color": {
+            "field": "DNO",
+            "title": "Department ID",
+            "type": "nominal"
+          },
+          "x": {
+            "field": "Credits",
+            "title": "Credit Hours",
+            "type": "quantitative"
+          },
+          "y": {
+            "aggregate": "count",
+            "title": "Enrollment Levels",
+            "type": "quantitative"
+          }
+        },
+        "height": 200,
+        "mark": "boxplot",
+        "params": [
+          {
+            "name": "hoveredCreditRange",
+            "select": {
+              "encodings": [
+                "x"
+              ],
+              "type": "interval"
+            }
+          }
+        ],
+        "transform": [
+          {
+            "from": {
+              "data": {
+                "url": "http://localhost:8888/vw_enrolled_courses.csv"
+              },
+              "fields": [
+                "TotalEnrollment"
+              ],
+              "key": "CID"
+            },
+            "lookup": "CID"
+          },
+          {
+            "param": "selectedCourses"
+          }
+        ],
+        "width": 200
+      }
+    ]
+  }
+}

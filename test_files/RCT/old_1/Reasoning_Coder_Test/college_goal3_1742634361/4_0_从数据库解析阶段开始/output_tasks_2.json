@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "type": "characterizing distributions",
+    "data": [
+      "Minor_in.DNO",
+      "Department.Division",
+      "Department.DNO"
+    ],
+    "method": "Grouped bar chart with X-axis: academic divisions (AS/EN), Y-axis: minor count totals. Color encodes division. Click interaction triggers drill-down to department-level horizontal bar chart showing DName vs minor counts.",
+    "objective": "Reveal concentration patterns of minor choices at division and department levels",
+    "corrReq": [
+      "V2",
+      "D1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "correlating",
+    "data": [
+      "Student.Major",
+      "Faculty.Advisor",
+      "Member_of.DNO",
+      "Department.Division"
+    ],
+    "method": "Matrix heatmap with X-axis: advisors' primary department divisions (from Member_of), Y-axis: student minor divisions. Aggregation shows count of student-advisor pairs per division combination. Tooltip shows exact counts.",
+    "objective": "Identify mentorship patterns between advisor affiliations and student minor choices",
+    "corrReq": [
+      "V4",
+      "D1"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 3,
+    "type": "computing derived values",
+    "data": [
+      "Student.Major",
+      "Department.Division"
+    ],
+    "method": "Pie chart overlay: Inner ring shows major distribution across divisions (AS/EN), outer ring breaks into sub-sections by Department.DName. Interactive legend allows division filtering.",
+    "objective": "Provide hierarchical view of major concentration patterns",
+    "corrReq": [
+      "D1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 4,
+    "type": "clustering",
+    "data": [
+      "Student.Major",
+      "Minor_in.DNO",
+      "Department.Division"
+    ],
+    "method": "Parallel coordinates plot with axes: MajorDivision, MinorDivision, Age. Brushing highlights student clusters. Color encodes sex (M/F) for secondary pattern discovery.",
+    "objective": "Detect student subgroups with similar academic portfolio configurations",
+    "corrReq": [],
+    "priority": 3
+  },
+  {
+    "id": 5,
+    "type": "finding anomalies",
+    "data": [
+      "Student.Major",
+      "Minor_in.DNO",
+      "Department.Division"
+    ],
+    "method": "Scatter plot with X: major division, Y: minor division. Points colored by frequency. Highlight outliers where students minor outside their major division (e.g., AS majors with EN minors).",
+    "objective": "Identify atypical academic combinations for further investigation",
+    "corrReq": [
+      "D1"
+    ],
+    "priority": 3
+  }
+]

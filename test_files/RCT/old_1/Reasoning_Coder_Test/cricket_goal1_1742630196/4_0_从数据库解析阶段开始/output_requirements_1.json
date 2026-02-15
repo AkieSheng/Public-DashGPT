@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "id": "D1",
+      "requirement": "Integrate batter/bowler_player_stats with detailed_player_data using match_id and player_name (aliased to match detailed_player_data.player)",
+      "reason": "Original requirement fails due to column name mismatch (player vs player_name) and lack of common join key. Match-level stats require match_id-based joining."
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V4",
+      "requirement": "Binned heat maps showing performance by opposition team and venue categories (top 10 venues only)",
+      "reason": "Original 303 venue categories make axes unreadable. Binning and top-N selection maintains readability while preserving matchup analysis."
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "columns": 2,
+  "concat": [
+    {
+      "data": {
+        "url": "http://localhost:8888/temp_view_1.csv"
+      },
+      "description": "View 1",
+      "encoding": {
+        "color": {
+          "field": "gender",
+          "type": "nominal"
+        },
+        "x": {
+          "field": "customer_id",
+          "type": "nominal"
+        },
+        "y": {
+          "field": "churn_label",
+          "title": "Churn Label",
+          "type": "nominal"
+        }
+      },
+      "height": 200,
+      "mark": "bar",
+      "params": [
+        {
+          "name": "selectedGender",
+          "select": {
+            "encodings": [
+              "x"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/temp_view_2.csv"
+            },
+            "fields": [
+              "gender",
+              "churn_label"
+            ],
+            "key": "customer_id"
+          },
+          "lookup": "customer_id"
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/temp_view_2.csv"
+      },
+      "description": "View 2",
+      "encoding": {
+        "color": {
+          "field": "gender",
+          "type": "nominal"
+        },
+        "x": {
+          "field": "age",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "churn_score",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "circle",
+      "params": [
+        {
+          "bind": "scales",
+          "name": "scatter_zoom",
+          "select": {
+            "type": "interval"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/temp_view_1.csv"
+            },
+            "fields": [
+              "gender"
+            ],
+            "key": "customer_id"
+          },
+          "lookup": "customer_id"
+        },
+        {
+          "filter": {
+            "param": "selectedGender"
+          }
+        },
+        {
+          "sample": 150
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/temp_view_2.csv"
+      },
+      "description": "View 3",
+      "encoding": {
+        "color": {
+          "field": "churn_label",
+          "type": "nominal"
+        },
+        "x": {
+          "field": "age",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "city",
+          "type": "nominal"
+        }
+      },
+      "height": 200,
+      "mark": "rect",
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/temp_view_7.csv"
+            },
+            "fields": [
+              "city"
+            ],
+            "key": "customer_id"
+          },
+          "lookup": "customer_id"
+        }
+      ],
+      "width": 200
+    }
+  ]
+}

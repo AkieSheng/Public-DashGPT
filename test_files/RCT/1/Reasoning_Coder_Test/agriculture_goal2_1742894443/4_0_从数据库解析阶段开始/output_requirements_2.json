@@ -1,0 +1,23 @@
+{
+  "data": [
+    {
+      "id": "D3",
+      "requirement": "Remove temporal trend derivation requirement",
+      "reason": "Joining production data with crop_price_data dates creates unreliable temporal associations - production records don't have explicit timestamps and price dates aren't logically connected to growing cycles"
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V3",
+      "requirement": "Replace implied temporal line charts with bar charts showing yield distributions per season",
+      "reason": "Original approach used speculative time ordering from unrelated price data. Seasonal comparison is more logically sound given explicit Season column in production data"
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I3",
+      "requirement": "Replace box plot expansion with detailed bar charts in tooltips",
+      "reason": "Interactions on box plots are explicitly prohibited per constraints. Tooltip bar charts maintain interactivity while showing season distribution details"
+    }
+  ]
+}

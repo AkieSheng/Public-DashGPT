@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "name": "view_1",
+    "SQL": "CREATE VIEW view_1 AS SELECT customer_id, churn_category, churn_score, cltv, satisfaction_score FROM Status_Analysis;",
+    "corrView": "1",
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "id": 2,
+    "name": "view_2",
+    "SQL": "CREATE VIEW view_2 AS SELECT customer_id, churn_value, satisfaction_score, cltv, churn_score FROM Status_Analysis;",
+    "corrView": "2",
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "id": 3,
+    "name": "view_3",
+    "SQL": "CREATE VIEW view_3 AS SELECT customer_id, internet_type, streaming_tv, streaming_movies, churn_value FROM Status_Analysis INNER JOIN Online_Services ON Status_Analysis.customer_id = Online_Services.customer_id;",
+    "corrView": "3",
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "view_1"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "view_4",
+    "SQL": "CREATE VIEW view_4 AS SELECT customer_id, age, gender, number_of_dependents, churn_label FROM Status_Analysis INNER JOIN Customer_Info ON Status_Analysis.customer_id = Customer_Info.customer_id;",
+    "corrView": "4",
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "view_1"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "view_5",
+    "SQL": "CREATE VIEW view_5 AS SELECT customer_id, offer, contract, churn_label, churn_reason FROM Status_Analysis INNER JOIN Service_Options ON Status_Analysis.customer_id = Service_Options.customer_id INNER JOIN Payment_Info ON Status_Analysis.customer_id = Payment_Info.customer_id;",
+    "corrView": "5",
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "view_1"
+      }
+    ]
+  }
+]

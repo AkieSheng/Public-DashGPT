@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "ChurnStatusMetrics",
+    "SQL": "CREATE VIEW ChurnStatusMetrics AS SELECT Status_Analysis.customer_status, satisfaction_score, churn_score, cltv FROM Status_Analysis;",
+    "corrView": 1,
+    "pk": "customer_status",
+    "fk": []
+  },
+  {
+    "id": 2,
+    "name": "DemographicsByStatus",
+    "SQL": "CREATE VIEW DemographicsByStatus AS SELECT Status_Analysis.customer_status, Customer_Info.age, Customer_Info.gender, Customer_Info.senior_citizen, Customer_Info.under_30, Customer_Info.partner, Customer_Info.dependents FROM Status_Analysis JOIN Customer_Info ON Status_Analysis.customer_id = Customer_Info.customer_id;",
+    "corrView": 2,
+    "pk": "customer_status",
+    "fk": [
+      {
+        "key": "customer_status",
+        "table": "ChurnStatusMetrics"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "SatisfactionChurnRelationship",
+    "SQL": "CREATE VIEW SatisfactionChurnRelationship AS SELECT Status_Analysis.satisfaction_score, Status_Analysis.churn_score, Status_Analysis.cltv, Status_Analysis.customer_status FROM Status_Analysis;",
+    "corrView": 3,
+    "pk": "customer_status",
+    "fk": [
+      {
+        "key": "customer_status",
+        "table": "ChurnStatusMetrics"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "CustomerDistributionsGeographically",
+    "SQL": "CREATE VIEW CustomerDistributionsGeographically AS SELECT Status_Analysis.customer_status, Location_Data.city, Location_Data.zip_code, Location_Data.latitude, Location_Data.longitude FROM Status_Analysis JOIN Location_Data ON Status_Analysis.customer_id = Location_Data.customer_id;",
+    "corrView": 4,
+    "pk": "customer_status",
+    "fk": [
+      {
+        "key": "customer_status",
+        "table": "ChurnStatusMetrics"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "ScoreDistributions",
+    "SQL": "CREATE VIEW ScoreDistributions AS SELECT Status_Analysis.satisfaction_score AS score_value, 'satisfaction_score' AS score_type FROM Status_Analysis UNION ALL SELECT Status_Analysis.churn_score AS score_value, 'churn_score' AS score_type FROM Status_Analysis;",
+    "corrView": 5,
+    "pk": "score_value",
+    "fk": [
+      {
+        "key": "score_type",
+        "table": "SatisfactionChurnRelationship"
+      }
+    ]
+  }
+]

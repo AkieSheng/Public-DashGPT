@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "id": "D4",
+      "requirement": "Remove temporal price aggregates requirement",
+      "reason": "Price data analysis doesn't directly contribute to water efficiency-yield relationship investigation. Keep focus on core irrigation-yield-soil analysis goals"
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V2",
+      "requirement": "Replace line charts with faceted bar charts comparing water metrics across districts/crops",
+      "reason": "Original time-based approach conflicts with static production/usage data (no temporal dimension in relevant tables)"
+    },
+    {
+      "id": "V5",
+      "requirement": "Change to stacked bar charts showing irrigation method distribution per soil type",
+      "reason": "Line+bar combination creates unnecessary complexity for categorical soil-irrigation relationship analysis"
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I1",
+      "requirement": "Remove map view cross-filtering reference",
+      "reason": "No spatial map visualization exists in requirements. Replace with heatmap-barchart coordination"
+    },
+    {
+      "id": "I3",
+      "requirement": "Replace lasso with brush selection in individual scatter plots",
+      "reason": "Vega-Lite lacks native scatterplot matrix support. Use pairwise plots with coordinated brushing"
+    }
+  ]
+}

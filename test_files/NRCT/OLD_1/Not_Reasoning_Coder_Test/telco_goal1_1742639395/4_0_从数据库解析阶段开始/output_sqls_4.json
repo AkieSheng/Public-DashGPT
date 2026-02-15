@@ -1,0 +1,71 @@
+[
+  {
+    "name": "temp_view_1",
+    "SQL": "CREATE VIEW temp_view_1 AS SELECT customer_id, gender, age, senior_citizen, partner, dependents FROM Customer_Info",
+    "corrView": "1",
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "name": "temp_view_2",
+    "SQL": "CREATE VIEW temp_view_2 AS SELECT customer_id, churn_label FROM Status_Analysis",
+    "corrView": "1",
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "temp_view_1"
+      }
+    ]
+  },
+  {
+    "name": "temp_view_3",
+    "SQL": "CREATE VIEW temp_view_3 AS SELECT customer_id, churn_score FROM Status_Analysis",
+    "corrView": "2",
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "temp_view_4"
+      }
+    ]
+  },
+  {
+    "name": "temp_view_4",
+    "SQL": "CREATE VIEW temp_view_4 AS SELECT customer_id, age, gender FROM Customer_Info",
+    "corrView": "2",
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "name": "temp_view_5",
+    "SQL": "CREATE VIEW temp_view_5 AS SELECT customer_id, churn_category FROM Status_Analysis",
+    "corrView": "4",
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "temp_view_6"
+      }
+    ]
+  },
+  {
+    "name": "temp_view_6",
+    "SQL": "CREATE VIEW temp_view_6 AS SELECT customer_id, senior_citizen, dependents FROM Customer_Info",
+    "corrView": "4",
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "name": "temp_view_7",
+    "SQL": "CREATE VIEW temp_view_7 AS SELECT customer_id, city FROM Location_Data",
+    "corrView": "5",
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "temp_view_1"
+      }
+    ]
+  }
+]

@@ -1,0 +1,183 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "blinkit_orders.order_date",
+      "blinkit_customers.total_orders"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "line",
+      "encodings": [
+        "x: Temporal(order_date, yearmonthdate) showing purchase trends",
+        "y: Aggregate(count_distinct(order_id)) for transaction frequency",
+        "color: #4c78a8 for baseline encoding"
+      ],
+      "description": "Dual-axis visualization combining order frequency timeline (line chart) with customer order count distribution (adjacent histogram)"
+    },
+    "usingParams": [],
+    "components": "Date range selector below chart",
+    "interactions": [
+      {
+        "object": "line chart area",
+        "verb": "drag",
+        "effect": {
+          "description": "Selects time range and propagates to subsequent views",
+          "params": [
+            {
+              "name": "date_brush",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "blinkit_products.category",
+      "blinkit_customers.customer_segment"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x: Product category (row)",
+        "y: Co-occurring category (column)",
+        "color: Aggregate(jaccard_similarity(co-purchased))"
+      ],
+      "description": "Heatmap matrix showing category purchase co-occurrence patterns"
+    },
+    "usingParams": [
+      "date_brush"
+    ],
+    "components": "Similarity threshold slider",
+    "interactions": [
+      {
+        "object": "heatmap cells",
+        "verb": "click",
+        "effect": {
+          "description": "Filters subsequent views to selected category pairs",
+          "params": [
+            {
+              "name": "category_pair",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "blinkit_products.category",
+      "blinkit_orders.payment_method",
+      "blinkit_customers.avg_order_value"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "row: customer_segment",
+        "column: payment_method",
+        "x: Proportion of category purchases (normalized)",
+        "color: product_category"
+      ],
+      "description": "Small multiples of stacked bars showing payment-category relationships"
+    },
+    "usingParams": [
+      "date_brush"
+    ],
+    "interactions": [
+      {
+        "object": "bar stacks",
+        "verb": "hover",
+        "effect": {
+          "description": "Highlights corresponding transactions in linked views",
+          "params": [
+            {
+              "name": "payment_category",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "color",
+                  "column"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "level": "detail",
+    "fields": [
+      "blinkit_order_items.product_id",
+      "blinkit_products.product_name"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "text",
+      "encodings": [
+        "text: Concatenate(product_id, product_name, frequency)",
+        "order: Frequency descending"
+      ],
+      "description": "Top 20 SKU combinations table for selected categories"
+    },
+    "usingParams": [
+      "category_pair"
+    ],
+    "components": "Sortable table headers"
+  },
+  {
+    "id": 5,
+    "level": "insight",
+    "fields": [
+      "blinkit_customers.avg_order_value",
+      "blinkit_orders.order_total"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x: total_orders",
+        "y: avg_order_value",
+        "size: order_total",
+        "color: customer_segment"
+      ],
+      "description": "Scatterplot matrix of purchase behavior dimensions with trend lines"
+    },
+    "usingParams": [
+      "date_brush",
+      "payment_category"
+    ]
+  }
+]

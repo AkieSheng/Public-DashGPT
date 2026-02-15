@@ -1,0 +1,288 @@
+{
+  "V1_1": {
+    "height": 200,
+    "width": 200,
+    "data": {
+      "url": "http://localhost:8888/overview_view.csv"
+    },
+    "description": "Overview View",
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "DName",
+        "type": "nominal",
+        "title": "Department"
+      },
+      "y": {
+        "aggregate": "sum",
+        "field": "faculty_count",
+        "type": "quantitative",
+        "title": "Faculty Count"
+      },
+      "color": {
+        "field": "DName",
+        "type": "nominal",
+        "title": "Department"
+      },
+      "opacity": {
+        "value": 0.3,
+        "condition": {
+          "param": "dept_filter",
+          "value": 1
+        }
+      }
+    },
+    "params": [
+      {
+        "name": "dept_filter",
+        "select": {
+          "type": "point",
+          "encodings": [
+            "x"
+          ]
+        }
+      }
+    ]
+  },
+  "V2_1": {
+    "height": 200,
+    "width": 200,
+    "data": {
+      "url": "http://localhost:8888/exploration_view_course.csv"
+    },
+    "description": "Exploration View 1",
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "DName",
+        "type": "nominal",
+        "title": "Department"
+      },
+      "y": {
+        "aggregate": "sum",
+        "field": "course_count",
+        "type": "quantitative",
+        "title": "Course Count"
+      },
+      "color": {
+        "field": "Rank",
+        "type": "nominal",
+        "title": "Rank"
+      },
+      "opacity": {
+        "value": 0.3,
+        "condition": {
+          "param": "dept_filter",
+          "value": 1
+        }
+      }
+    },
+    "transform": [
+      {
+        "lookup": "DName",
+        "from": {
+          "data": "Department_Member.csv",
+          "key": "DName",
+          "fields": [
+            "DName"
+          ]
+        }
+      }
+    ],
+    "params": [
+      {
+        "name": "dept_filter",
+        "select": {
+          "type": "point",
+          "encodings": [
+            "x"
+          ]
+        }
+      }
+    ]
+  },
+  "V2_2": {
+    "height": 200,
+    "width": 200,
+    "data": {
+      "url": "http://localhost:8888/exploration_view_details.csv"
+    },
+    "description": "Exploration View 2",
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "DName",
+        "type": "nominal",
+        "title": "Department"
+      },
+      "y": {
+        "aggregate": "sum",
+        "field": "faculty_count",
+        "type": "quantitative",
+        "title": "Faculty Count"
+      },
+      "color": {
+        "field": "Sex",
+        "type": "nominal",
+        "title": "Gender"
+      },
+      "column": {
+        "field": "Rank",
+        "type": "nominal",
+        "title": "Rank"
+      },
+      "opacity": {
+        "value": 0.3,
+        "condition": {
+          "param": "dept_filter",
+          "value": 1
+        }
+      }
+    },
+    "transform": [
+      {
+        "lookup": "DName",
+        "from": {
+          "data": "Department_Member.csv",
+          "key": "DName",
+          "fields": [
+            "DName"
+          ]
+        }
+      }
+    ],
+    "params": [
+      {
+        "name": "dept_filter",
+        "select": {
+          "type": "point",
+          "encodings": [
+            "x"
+          ]
+        }
+      }
+    ]
+  },
+  "V2_3": {
+    "height": 200,
+    "width": 200,
+    "data": {
+      "url": "http://localhost:8888/exploration_view_course.csv"
+    },
+    "description": "Exploration View 3",
+    "mark": "circle",
+    "encoding": {
+      "x": {
+        "field": "count(FacID)",
+        "type": "quantitative",
+        "title": "Faculty Count"
+      },
+      "y": {
+        "field": "count(CID)",
+        "type": "quantitative",
+        "title": "Course Count"
+      },
+      "size": {
+        "field": "count(CID)",
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "DName",
+        "type": "nominal",
+        "title": "Department"
+      }
+    },
+    "transform": [
+      {
+        "lookup": "DName",
+        "from": {
+          "data": "Department_Member.csv",
+          "key": "DName",
+          "fields": [
+            "DName"
+          ]
+        }
+      }
+    ],
+    "params": [
+      {
+        "name": "dept_filter",
+        "select": {
+          "type": "point",
+          "encodings": [
+            "x"
+          ]
+        }
+      }
+    ]
+  },
+  "V3_1": {
+    "description": "Detail View",
+    "data": {
+      "url": "http://localhost:8888/detail_view.csv"
+    },
+    "title": "Faculty Details",
+    "hconcat": [
+      {
+        "title": "Faculty ID",
+        "mark": "text",
+        "encoding": {
+          "text": {
+            "field": "FacID",
+            "type": "nominal"
+          },
+          "y": {
+            "field": "Rank",
+            "type": "nominal",
+            "axis": null
+          }
+        }
+      },
+      {
+        "title": "Faculty Name",
+        "mark": "text",
+        "encoding": {
+          "text": {
+            "field": "Lname",
+            "type": "nominal"
+          },
+          "y": {
+            "field": "Rank",
+            "type": "nominal",
+            "axis": null
+          }
+        }
+      },
+      {
+        "title": "Faculty Rank",
+        "mark": "text",
+        "encoding": {
+          "text": {
+            "field": "Rank",
+            "type": "nominal"
+          },
+          "y": {
+            "field": "Rank",
+            "type": "nominal",
+            "axis": null
+          }
+        }
+      },
+      {
+        "title": "Appointment Type",
+        "mark": "text",
+        "encoding": {
+          "text": {
+            "field": "Appt_Type",
+            "type": "nominal"
+          },
+          "y": {
+            "field": "Rank",
+            "type": "nominal",
+            "axis": null
+          }
+        }
+      }
+    ]
+  }
+}

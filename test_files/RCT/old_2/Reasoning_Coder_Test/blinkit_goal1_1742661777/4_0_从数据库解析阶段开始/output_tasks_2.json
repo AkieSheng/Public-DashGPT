@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "type": "characterizing distributions",
+    "data": [
+      "blinkit_orders.order_date",
+      "blinkit_marketing_performance.date",
+      "blinkit_orders.order_total"
+    ],
+    "method": "Aggregate daily sales using line chart with date axis. Overlay campaign events from marketing_performance as vertical bars with tooltip details (campaign_name, channel). Apply LOESS smoothing to identify underlying trends.",
+    "objective": "Reveal overall sales distribution patterns and correlation with marketing campaigns through temporal alignment of events",
+    "corrReq": [
+      "V1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "finding anomalies",
+    "data": [
+      "blinkit_orders.order_date",
+      "blinkit_order_items.quantity",
+      "blinkit_products.category"
+    ],
+    "method": "Weekly stacked area chart showing product category proportions. Enable anomaly detection through MAD-based outlier highlighting on total sales volume hover interaction.",
+    "objective": "Identify unexpected deviations from normal sales patterns across product categories over time",
+    "corrReq": [
+      "V2"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 3,
+    "type": "determining ranges",
+    "data": [
+      "blinkit_marketing_performance.date",
+      "blinkit_marketing_performance.campaign_name",
+      "blinkit_orders.order_total"
+    ],
+    "method": "Dual-axis visualization combining campaign duration ranges (Gantt-like bars on top) with campaign-triggered sales spikes (line chart below) using synchronized date axis",
+    "objective": "Establish temporal boundaries of marketing impact and quantify campaign effectiveness windows",
+    "corrReq": [
+      "V1"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 4,
+    "type": "clustering",
+    "data": [
+      "blinkit_orders.order_date",
+      "blinkit_products.category",
+      "blinkit_order_items.quantity"
+    ],
+    "method": "Radial calendar heatmap with concentric rings representing categories. Cluster similar weekly patterns using hue saturation for quantity ranges. Integrate dynamic query sliders from I4 for category filtering",
+    "objective": "Discover weekly purchasing pattern similarities across product categories while maintaining temporal context",
+    "corrReq": [
+      "I4"
+    ],
+    "priority": 2
+  },
+  {
+    "id": 5,
+    "type": "correlating",
+    "data": [
+      "blinkit_inventory.date",
+      "blinkit_inventory.stock_received",
+      "blinkit_orders.order_date"
+    ],
+    "method": "Parallel coordinates plot linking inventory replenishment dates (from inventory) with subsequent order dates (from orders) using curved connectors. Color encodes delivery_status correlation",
+    "objective": "Identify temporal relationships between stock replenishment cycles and order fulfillment performance",
+    "corrReq": [
+      "V3"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 6,
+    "type": "seasonal decomposition",
+    "data": [
+      "blinkit_orders.order_date",
+      "blinkit_orders.order_total"
+    ],
+    "method": "STL decomposition view showing trend, seasonal (52-week cycle), and residual components in vertically stacked line charts. Enable cyclical zooming through brush selection",
+    "objective": "Isolate underlying growth patterns from recurring seasonal variations in sales data",
+    "corrReq": [
+      "V3"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 7,
+    "type": "computing derived values",
+    "data": [
+      "blinkit_products.category",
+      "blinkit_order_items.unit_price",
+      "blinkit_orders.order_date"
+    ],
+    "method": "Streamgraph showing daily revenue contribution per category using color-coded layers. Derive weekly moving averages through dynamic temporal aggregation controls",
+    "objective": "Quantify category-level sales momentum and shifting revenue composition patterns",
+    "corrReq": [
+      "V2"
+    ],
+    "priority": 3
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "type": "correlating",
+    "data": [
+      "match_summary.venue",
+      "match_summary.teams"
+    ],
+    "method": "Compute home team inference through venue-city/team string matching. Visualize as a table/matrix (vennue rows ✕ team columns) with checkmark indicators for verified home venues.",
+    "objective": "Establish home venue associations for teams as foundation for win rate calculations",
+    "corrReq": [
+      "D1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "characterizing distributions",
+    "data": [
+      "match_summary.outcome_winner",
+      "match_summary.teams",
+      "match_summary.venue"
+    ],
+    "method": "Calculate home/away win ratio per venue. Use heat matrix (V1 design) with venues as rows, two columns for home/away win rates, color gradients (+ red/blue diverging) to show dominance patterns.",
+    "objective": "Compare team success patterns across venues while maintaining home-away distinction",
+    "corrReq": [
+      "V1",
+      "I1"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 3,
+    "type": "correlating",
+    "data": [
+      "detailed_player_data.runs",
+      "detailed_player_data.economy",
+      "match_summary.venue",
+      "batter_player_stats.strike_rate",
+      "bowler_player_stats.average"
+    ],
+    "method": "Parallel coordinates (V5) showing venue-specific performance: Normalized axes for player runs, strike rate (batters), economy rate (bowlers) and team win rate. Color encodes venue clusters.",
+    "objective": "Identify player performance patterns contributing to venue-specific outcomes",
+    "corrReq": [
+      "V5"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 4,
+    "type": "characterizing distributions",
+    "data": [
+      "detailed_player_data.player",
+      "detailed_player_data.venue",
+      "detailed_player_data.fantasy_points"
+    ],
+    "method": "Small multiples of box plots per venue showing fantasy points distribution. Linked via I1 interaction - selecting a venue highlights outlier players in context view.",
+    "objective": "Analyze individual performance consistency/variability across venues",
+    "corrReq": [
+      "I1"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 5,
+    "type": "correlating",
+    "data": [
+      "match_summary.total_fours",
+      "match_summary.total_sixes",
+      "match_summary.outcome_by_runs",
+      "match_summary.venue"
+    ],
+    "method": "Scatterplot matrix with aggregated venue stats: Four/sixes ratios vs win margin (+symbol size for win frequency). Trend lines show boundary impact relationships.",
+    "objective": "Understand how venue-specific boundary counts correlate with match outcomes",
+    "priority": 2
+  }
+]

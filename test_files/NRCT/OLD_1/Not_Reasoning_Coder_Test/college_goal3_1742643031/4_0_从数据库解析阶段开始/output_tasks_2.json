@@ -1,0 +1,163 @@
+[
+  {
+    "id": 1,
+    "type": "retrieving values",
+    "data": [
+      "Student.Major",
+      "Minor_in.DNO",
+      "Student.Advisor"
+    ],
+    "method": "Create a table showing each student's major, minor, and advisor. This will serve as the foundational dataset for further analysis. Utilize a tabular visualization where rows represent students and columns represent the fields.",
+    "objective": "To compile the relevant academic profile information for all students, which forms the base for downstream analyses and correlations.",
+    "corrReq": [
+      "D1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "characterizing distributions",
+    "data": [
+      "Student.Major",
+      "Minor_in.DNO"
+    ],
+    "method": "Create a bar chart (as per V1) where x-axis represents departments (majors and minors), and y-axis represents the count of students. Different colors or separate bars will distinguish between majors and minors.",
+    "objective": "To visualize the distribution of students across departments for both majors and minors, providing insights into their relative popularity.",
+    "corrReq": [
+      "D2",
+      "V1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 3,
+    "type": "correlating",
+    "data": [
+      "Student.Major",
+      "Minor_in.DNO",
+      "Member_of.Appt_Type"
+    ],
+    "method": "Generate a grouped bar chart (as per V5) where x-axis represents major departments, and y-axis represents student counts with bars grouped by 'Appt_Type'. Each group will show student memberships in organizational types (Primary/Secondary).",
+    "objective": "To identify patterns in how students’ academic choices (majors and minors) correlate with their extracurricular memberships.",
+    "corrReq": [
+      "D3",
+      "V5"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 4,
+    "type": "correlating",
+    "data": [
+      "Student.Age",
+      "Member_of.Appt_Type"
+    ],
+    "method": "Create a scatter plot (as per V3) with 'Age' on the x-axis and 'Appt_Type' on the y-axis. Encode points using different colors or shapes for each 'Appt_Type'. Allow demographic filters (age and sex) using sliders and dropdowns.",
+    "objective": "To explore the relationship between student age and their participation in extracurricular activities.",
+    "corrReq": [
+      "D4",
+      "V3",
+      "I2"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 5,
+    "type": "characterizing distributions",
+    "data": [
+      "Department.DName",
+      "Department.Division",
+      "Student.Major",
+      "Minor_in.DNO"
+    ],
+    "method": "Use a pie chart (as per V6) to show the proportion of departments within each division (Arts and Sciences, Engineering) for both major and minor selections. Create separate pie charts for majors and minors.",
+    "objective": "To classify and compare the distribution of academic choices by division for majors and minors.",
+    "corrReq": [
+      "D5",
+      "V6"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 6,
+    "type": "clustering",
+    "data": [
+      "Student.Major",
+      "Minor_in.DNO"
+    ],
+    "method": "Generate a heat map (as per V4) where rows represent majors and columns represent minors. Each cell's intensity will reflect the number of students in that major-minor combination. Include drilldown capabilities (I5) to explore specific combinations.",
+    "objective": "To identify overlaps and prominent combinations of majors and minors, revealing academic patterns.",
+    "corrReq": [
+      "D2",
+      "V4",
+      "I5"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 7,
+    "type": "correlating",
+    "data": [
+      "Student.Age",
+      "Student.Sex",
+      "Student.city_code",
+      "Faculty.FacID",
+      "Student.Advisor"
+    ],
+    "method": "Merge 'Student' and 'Faculty' tables and create a bubble chart where x-axis represents 'Age', y-axis represents 'Sex', and bubble size represents city-wise student counts. Include tooltips (I3) for detailed faculty advisor information.",
+    "objective": "To explore relationships between student demographics and their assigned advisors, identifying potential patterns in advisor allocation.",
+    "corrReq": [
+      "D6",
+      "I3"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 8,
+    "type": "finding extrema",
+    "data": [
+      "Student.Major",
+      "Student.Sex"
+    ],
+    "method": "Create a stacked bar chart (as per V2) with x-axis as academic majors and y-axis as student count. Each bar will be divided by 'Sex' to show the gender composition in each major.",
+    "objective": "To determine the gender distribution across various academic majors, highlighting extremes and underrepresentations.",
+    "corrReq": [
+      "D1",
+      "V2"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 9,
+    "type": "filtering",
+    "data": [
+      "Student.Age",
+      "Student.Sex",
+      "Student.city_code",
+      "Member_of.Appt_Type"
+    ],
+    "method": "Enable demographic-based filtering (as per I2) using dropdowns and sliders. Filters dynamically update all relevant charts and graphs (brushing and linking as per I1).",
+    "objective": "To allow users to focus on specific demographic groups and understand their academic and extracurricular patterns.",
+    "corrReq": [
+      "D4",
+      "I1",
+      "I2"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 10,
+    "type": "finding anomalies",
+    "data": [
+      "Student.Major",
+      "Minor_in.DNO"
+    ],
+    "method": "Overlay a line in the bar chart (Task 2) to show the expected count of students per department based on statistical modeling. Highlight deviations and outliers.",
+    "objective": "To detect anomalies in student distributions across majors and minors, identifying unusually popular or underrepresented departments.",
+    "corrReq": [
+      "D2",
+      "V1"
+    ],
+    "priority": 2
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "id": "D2",
+      "requirement": "Calculate quarterly/annual yield growth rates using production season cycles (Kharif=Monsoon, Rabi=Winter) instead of price data dates",
+      "reason": "Crop_price_data.Date reflects market transactions unrelated to production timelines - seasons better align with yield cycles and simplify trend calculations"
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V2",
+      "requirement": "Bar charts showing average yield per crop type with error bars, grouped by district",
+      "reason": "Box plots disallow interactions critical for coordinated views and faceted crops (23 types) would create visual clutter"
+    },
+    {
+      "id": "V4",
+      "requirement": "Scatter plot with aggregated mean Yield vs Water Consumption (liters/hectare) using soil type as color encoding",
+      "reason": "Hexbin not supported in Vega-Lite combo charts and categorical overlays require explicit point visibility for interaction"
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I2",
+      "requirement": "Point/interval selection on scatter plots to highlight correlating districts in line/bar charts",
+      "reason": "Hexbin brushing incompatible with aggregated bins - standard selection better maintains coordinated filtering"
+    },
+    {
+      "id": "I3",
+      "requirement": "Slider to adjust forecast horizon (years ahead) in trend visualizations via parametric queries",
+      "reason": "Confidence band adjustment requires statistical backend unavailable in client-side Vega-Lite - horizon control is implementable"
+    }
+  ]
+}

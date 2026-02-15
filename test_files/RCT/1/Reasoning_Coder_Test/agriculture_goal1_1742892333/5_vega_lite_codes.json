@@ -1,0 +1,129 @@
+{
+  "Exploration": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "name": "view_2"
+    },
+    "encoding": {
+      "x": {
+        "axis": {
+          "title": "Irrigation Method"
+        },
+        "field": "Irrigation_Method",
+        "type": "nominal"
+      },
+      "y": {
+        "axis": {
+          "title": "Water Consumption (liters/hectare)"
+        },
+        "field": "Water_Consumption",
+        "type": "quantitative"
+      }
+    },
+    "mark": "bar",
+    "title": "Water Consumption Efficiency by Irrigation Method"
+  },
+  "Insight": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "name": "view_5"
+    },
+    "encoding": {
+      "x": {
+        "axis": {
+          "title": "District"
+        },
+        "field": "District",
+        "type": "nominal"
+      },
+      "y": {
+        "axis": {
+          "title": "Water Consumption (liters/hectare)"
+        },
+        "field": "Water_Consumption",
+        "type": "quantitative"
+      }
+    },
+    "mark": "bar",
+    "title": "Water Consumption by District"
+  },
+  "Line Chart": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "name": "view_4"
+    },
+    "encoding": {
+      "x": {
+        "axis": {
+          "title": "Date"
+        },
+        "field": "Date",
+        "type": "temporal"
+      },
+      "y": {
+        "axis": {
+          "title": "Water Consumption (liters/hectare)"
+        },
+        "field": "Water_Consumption",
+        "type": "quantitative"
+      }
+    },
+    "mark": "line",
+    "title": "Track Changes in Water Efficiency Over Time"
+  },
+  "Overview": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "name": "view_1"
+    },
+    "encoding": {
+      "x": {
+        "axis": {
+          "title": "Crop"
+        },
+        "field": "Crop",
+        "type": "nominal"
+      },
+      "y": {
+        "axis": {
+          "title": "Water Consumption (liters/hectare)"
+        },
+        "field": "Water_Consumption",
+        "type": "quantitative"
+      }
+    },
+    "mark": "bar",
+    "title": "Water Consumption by Crop"
+  },
+  "Scatter Plot": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "name": "view_3"
+    },
+    "encoding": {
+      "color": {
+        "axis": {
+          "title": "Irrigation Method"
+        },
+        "field": "Irrigation_Method",
+        "type": "nominal"
+      },
+      "x": {
+        "axis": {
+          "title": "Irrigation Method"
+        },
+        "field": "Irrigation_Method",
+        "type": "nominal"
+      },
+      "y": {
+        "axis": {
+          "title": "Water Consumption (liters/hectare)"
+        },
+        "field": "Water_Consumption",
+        "type": "quantitative"
+      }
+    },
+    "mark": "point",
+    "title": "Scatter plot of Water Consumption by Irrigation Method"
+  }
+}

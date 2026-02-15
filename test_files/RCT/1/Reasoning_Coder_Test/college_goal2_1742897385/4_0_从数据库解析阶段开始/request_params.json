@@ -1,0 +1,17 @@
+{
+  "id": "college_goal2_1742897385",
+  "desc": "The database offers a comprehensive view of an educational institution’s academic ecosystem, covering details about courses, departments, enrollment, faculty, students, and related administrative information.",
+  "goal": "Analyze the distribution of faculty across departments, understand the staffing characteristics of each department, and examine the relationship between faculty distribution, course offerings, and academic activities.",
+  "initialStage": 0,
+  "maxSteps": 10,
+  "useReflect": true,
+  "useRag": false,
+  "models": {
+    "database": "deepseek-r1-api",
+    "requirements": "deepseek-r1-api",
+    "tasks": "deepseek-r1-api",
+    "plan": "deepseek-r1-api",
+    "sql": "qwen-coder",
+    "vega": "qwen-coder"
+  }
+}

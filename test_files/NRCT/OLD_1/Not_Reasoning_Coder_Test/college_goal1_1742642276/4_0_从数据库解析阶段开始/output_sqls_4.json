@@ -1,0 +1,37 @@
+[
+  {
+    "name": "vw_enrolled_courses",
+    "SQL": "CREATE VIEW vw_enrolled_courses AS SELECT CID, COUNT(StuID) as TotalEnrollment FROM Enrolled_in GROUP BY CID ORDER BY TotalEnrollment DESC",
+    "corrView": 1,
+    "pk": "CID",
+    "fk": []
+  },
+  {
+    "name": "vw_enrollment_heatmap",
+    "SQL": "CREATE VIEW vw_enrollment_heatmap AS SELECT E.CID, G.gradepoint, AVG(G.gradepoint) as AvgGradePoints, E.Grade FROM Enrolled_in AS E JOIN Gradeconversion AS G ON E.Grade = G.lettergrade GROUP BY E.CID, G.gradepoint, E.Grade",
+    "corrView": 2,
+    "pk": "CID",
+    "fk": []
+  },
+  {
+    "name": "vw_department_enrollment",
+    "SQL": "CREATE VIEW vw_department_enrollment AS SELECT D.DNO, COUNT(E.StuID) as TotalEnrollment FROM Course AS C JOIN Enrolled_in AS E ON C.CID = E.CID JOIN Department AS D ON C.DNO = D.DNO GROUP BY D.DNO",
+    "corrView": 3,
+    "pk": "DNO",
+    "fk": []
+  },
+  {
+    "name": "vw_enrollment_by_day_hour",
+    "SQL": "CREATE VIEW vw_enrollment_by_day_hour AS SELECT Days, Hours, COUNT(StuID) as TotalEnrollment FROM Enrolled_in JOIN Course ON Enrolled_in.CID = Course.CID GROUP BY Days, Hours ORDER BY Days, Hours",
+    "corrView": 4,
+    "pk": "Days || Hours",
+    "fk": []
+  },
+  {
+    "name": "vw_enrollment_by_credit",
+    "SQL": "CREATE VIEW vw_enrollment_by_credit AS SELECT Credits, COUNT(StuID) as TotalEnrollment FROM Enrolled_in JOIN Course ON Enrolled_in.CID = Course.CID GROUP BY Credits ORDER BY Credits",
+    "corrView": 5,
+    "pk": "Credits",
+    "fk": []
+  }
+]

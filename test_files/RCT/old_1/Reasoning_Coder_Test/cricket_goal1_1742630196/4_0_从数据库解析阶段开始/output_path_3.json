@@ -1,0 +1,1 @@
+"The user first examines player consistency patterns in View 1 (Overview) via avg-stdev scatterplot. Selecting a player filters View 2 (Exploration) to show temporal performance trends via line chart. Hovering on match dates triggers View 3 (Exploration) to display venue/opposition performance distributions. View 4 (Insight) reveals correlation between awards and consistency."

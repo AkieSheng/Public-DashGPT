@@ -1,0 +1,196 @@
+{
+  "V1": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Overview: CLTV vs Satisfaction Score",
+    "data": {
+      "url": "http://localhost:8888/view_1_intermediate.csv"
+    },
+    "mark": "circle",
+    "encoding": {
+      "x": {
+        "field": "cltv",
+        "type": "quantitative",
+        "title": "Customer Lifetime Value"
+      },
+      "y": {
+        "field": "satisfaction_score",
+        "type": "quantitative",
+        "title": "Customer Satisfaction Score"
+      },
+      "color": {
+        "field": "customer_status",
+        "type": "nominal",
+        "title": "Customer Status"
+      }
+    },
+    "params": [
+      {
+        "name": "customer_select",
+        "select": {
+          "type": "point",
+          "encodings": [
+            "x",
+            "y"
+          ]
+        }
+      }
+    ]
+  },
+  "V2": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Exploration: Average Churn Scores Split by Service Type and Age Demographics",
+    "data": {
+      "url": "http://localhost:8888/view_2_intermediate.csv"
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "service_type",
+        "type": "nominal",
+        "title": "Service Type"
+      },
+      "y": {
+        "field": "avg_churn_score",
+        "type": "quantitative",
+        "title": "Average Churn Score"
+      },
+      "column": {
+        "field": "age_group",
+        "type": "nominal",
+        "title": "Age Group"
+      }
+    },
+    "transform": [
+      {
+        "lookup": "customer_id",
+        "from": {
+          "data": {
+            "url": "http://localhost:8888/view_1_intermediate.csv"
+          },
+          "key": "customer_id",
+          "fields": [
+            "age_group"
+          ]
+        }
+      }
+    ],
+    "params": [
+      {
+        "name": "metric_filter",
+        "select": {
+          "type": "interval",
+          "encodings": [
+            "x",
+            "y"
+          ]
+        }
+      }
+    ]
+  },
+  "V3": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Detail: Churn Rates by Contract Length and Tenure Duration Split by Gender",
+    "data": {
+      "url": "http://localhost:8888/view_3_intermediate.csv"
+    },
+    "mark": "rect",
+    "encoding": {
+      "x": {
+        "field": "contract",
+        "type": "nominal",
+        "title": "Contract Type"
+      },
+      "y": {
+        "field": "tenure_bins",
+        "type": "ordinal",
+        "title": "Tenure Bins"
+      },
+      "color": {
+        "field": "churn_rate",
+        "type": "quantitative",
+        "title": "Churn Rate (%)"
+      }
+    },
+    "transform": [
+      {
+        "lookup": "customer_id",
+        "from": {
+          "data": {
+            "url": "http://localhost:8888/view_2_intermediate.csv"
+          },
+          "key": "customer_id",
+          "fields": [
+            "gender"
+          ]
+        }
+      }
+    ],
+    "params": [
+      {
+        "name": "service_age_filter",
+        "select": {
+          "type": "point",
+          "encodings": [
+            "column",
+            "color"
+          ]
+        }
+      }
+    ]
+  },
+  "V4": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Insight: Factors Influencing Churn",
+    "data": {
+      "url": "http://localhost:8888/view_4_intermediate.csv"
+    },
+    "mark": "arc",
+    "encoding": {
+      "theta": {
+        "field": "count",
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "churn_category",
+        "type": "nominal",
+        "title": "Churn Category"
+      },
+      "radius": {
+        "field": "payment_method",
+        "type": "nominal",
+        "title": "Payment Method"
+      },
+      "tooltip": {
+        "field": "offer",
+        "type": "nominal",
+        "title": "Promotional Offer"
+      }
+    },
+    "transform": [
+      {
+        "lookup": "customer_id",
+        "from": {
+          "data": {
+            "url": "http://localhost:8888/view_3_intermediate.csv"
+          },
+          "key": "customer_id",
+          "fields": [
+            "customer_select"
+          ]
+        }
+      }
+    ],
+    "params": [
+      {
+        "name": "customer_select",
+        "select": {
+          "type": "point",
+          "encodings": [
+            "x",
+            "y"
+          ]
+        }
+      }
+    ]
+  }
+}

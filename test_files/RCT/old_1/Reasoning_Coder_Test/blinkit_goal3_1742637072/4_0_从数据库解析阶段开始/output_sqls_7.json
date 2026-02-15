@@ -1,0 +1,62 @@
+[
+  {
+    "name": "sales_summary",
+    "SQL": "SELECT category, quantity, order_date FROM blinkit_products JOIN blinkit_order_items ON blinkit_products.product_id = blinkit_order_items.product_id JOIN blinkit_orders ON blinkit_order_items.order_id = blinkit_orders.order_id",
+    "corrView": "1",
+    "pk": "quantity",
+    "fk": [
+      {
+        "key": "order_id",
+        "table": "blinkit_orders"
+      }
+    ]
+  },
+  {
+    "name": "price_quantity_analysis",
+    "SQL": "SELECT category, quantity, unit_price FROM blinkit_products JOIN blinkit_order_items ON blinkit_products.product_id = blinkit_order_items.product_id",
+    "corrView": "2",
+    "pk": "quantity",
+    "fk": [
+      {
+        "key": "product_id",
+        "table": "blinkit_products"
+      }
+    ]
+  },
+  {
+    "name": "revenue_analysis",
+    "SQL": "SELECT category, order_total, margin_percentage FROM blinkit_products JOIN blinkit_orders ON blinkit_products.product_id = blinkit_orders.product_id",
+    "corrView": "3",
+    "pk": "order_total",
+    "fk": [
+      {
+        "key": "product_id",
+        "table": "blinkit_products"
+      }
+    ]
+  },
+  {
+    "name": "inventory_sales_alignment",
+    "SQL": "SELECT stock_received, quantity, order_date FROM blinkit_inventory JOIN blinkit_order_items ON blinkit_inventory.product_id = blinkit_order_items.product_id JOIN blinkit_orders ON blinkit_order_items.order_id = blinkit_orders.order_id",
+    "corrView": "4",
+    "pk": "quantity",
+    "fk": [
+      {
+        "key": "product_id",
+        "table": "blinkit_products"
+      }
+    ]
+  },
+  {
+    "name": "price_ratio_analysis",
+    "SQL": "SELECT unit_price, mrp, category FROM blinkit_products",
+    "corrView": "5",
+    "pk": "unit_price",
+    "fk": [
+      {
+        "key": "product_id",
+        "table": "blinkit_products"
+      }
+    ]
+  }
+]

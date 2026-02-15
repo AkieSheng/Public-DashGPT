@@ -1,0 +1,52 @@
+{
+  "database": "agriculture",
+  "description": "This dataset provides comprehensive agricultural data for Rajasthan, India from 2018 to 2019. It contains four tabless: Crop_Production_Data, Water_Usage_Data, Soil_Analysis_Data, and Crop_Price_Data. This dataset will be a valuable resource for researchers and data scientists working in the agricultural sector, enabling them to analyze and model various aspects of agricultural practices and market dynamics in Rajasthan.",
+  "goal_metrics": [
+    {
+      "format_accuracy": 1.0,
+      "sql_success_rate": 1,
+      "vl_success_rate": 0,
+      "average_steps": 10,
+      "average_tokens": {
+        "input": 254.0,
+        "output": 724.3
+      },
+      "goal_idx": 0,
+      "goal": "Analyze the impact of different irrigation methods and water usage efficiency on crop yield, identify areas and crop types with the most efficient use of water resources, and provide recommendations for optimizing water management and sustainable agriculture practices."
+    },
+    {
+      "format_accuracy": 0.6,
+      "sql_success_rate": 0,
+      "vl_success_rate": 0,
+      "average_steps": 10,
+      "average_tokens": {
+        "input": 250.0,
+        "output": 1051.2
+      },
+      "goal_idx": 1,
+      "goal": "Use crop production data (including crop type, season, area, yield) to analyze crop productivity in different districts and seasons, predict future yield trends, and support decision-making in agricultural production."
+    },
+    {
+      "format_accuracy": 0.8,
+      "sql_success_rate": 1,
+      "vl_success_rate": 0,
+      "average_steps": 10,
+      "average_tokens": {
+        "input": 253.0,
+        "output": 726.8
+      },
+      "goal_idx": 2,
+      "goal": "Analyze the relationship between soil type, nutrient content (e.g., organic matter, nitrogen, phosphorus, potassium), and crop yield in different districts, providing insights for soil improvement and precision agriculture practices."
+    }
+  ],
+  "average_metrics": {
+    "format_accuracy": 0.7999999999999999,
+    "sql_success_rate": 0.6666666666666666,
+    "vl_success_rate": 0.0,
+    "average_steps": 10.0,
+    "average_tokens": {
+      "input": 252.33333333333334,
+      "output": 834.1
+    }
+  }
+}

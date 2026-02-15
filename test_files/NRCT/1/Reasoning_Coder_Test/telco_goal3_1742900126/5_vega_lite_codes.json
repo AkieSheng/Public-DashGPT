@@ -1,0 +1,316 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "columns": 3,
+  "concat": [
+    {
+      "data": {
+        "url": "http://localhost:8888/ChurnStatusMetrics.csv"
+      },
+      "description": "Overview: Grouped bar chart showing average, median, and standard deviation values of satisfaction score, churn score, and CLTV for different customer statuses ('Stayed', 'Churned', 'Joined'). Color coding differentiates customer statuses.",
+      "encoding": {
+        "color": {
+          "field": "customer_status",
+          "title": "Customer Status",
+          "type": "nominal"
+        },
+        "opacity": {
+          "value": 0.6
+        },
+        "x": {
+          "field": "customer_status",
+          "title": "Customer Status",
+          "type": "nominal"
+        },
+        "y": {
+          "aggregate": "avg, median, stdev",
+          "field": "metric_value",
+          "title": "Metric Value",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "bar",
+      "params": [
+        {
+          "name": "selectedStatus",
+          "select": {
+            "encodings": [
+              "x"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/DemographicsByStatus.csv"
+      },
+      "description": "Exploration: Stacked bar charts comparing demographic distributions like gender, age group, marital status, etc., for each customer status group.",
+      "encoding": {
+        "color": {
+          "field": "demographic_factor",
+          "title": "Demographic Factor",
+          "type": "nominal"
+        },
+        "x": {
+          "field": "customer_status",
+          "title": "Customer Status",
+          "type": "nominal"
+        },
+        "y": {
+          "field": "count",
+          "title": "Count",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "bar",
+      "params": [
+        {
+          "name": "selectedStatus",
+          "select": {
+            "encodings": [
+              "x"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/ChurnStatusMetrics.csv"
+            },
+            "fields": [
+              "customer_status"
+            ],
+            "key": "customer_status"
+          },
+          "lookup": "customer_status"
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/SatisfactionChurnRelationship.csv"
+      },
+      "description": "Exploration: Scatter plot visualizing the relationship between satisfaction score and churn score, distinguished by customer status. Circle size indicates Customer Lifetime Value (CLTV).",
+      "encoding": {
+        "color": {
+          "field": "customer_status",
+          "title": "Customer Status",
+          "type": "nominal"
+        },
+        "size": {
+          "field": "cltv",
+          "title": "Customer Lifetime Value",
+          "type": "quantitative"
+        },
+        "x": {
+          "field": "satisfaction_score",
+          "title": "Satisfaction Score",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "churn_score",
+          "title": "Churn Score",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "point",
+      "params": [
+        {
+          "name": "selectedStatus",
+          "select": {
+            "encodings": [
+              "x"
+            ],
+            "type": "point"
+          }
+        },
+        {
+          "name": "selectedScatterRange",
+          "select": {
+            "encodings": [
+              "x",
+              "y"
+            ],
+            "type": "interval"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/ChurnStatusMetrics.csv"
+            },
+            "fields": [
+              "customer_status"
+            ],
+            "key": "customer_status"
+          },
+          "lookup": "customer_status"
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/Location_Data.csv"
+      },
+      "description": "Detail: Heatmap showing customer status distributions geographically by city and zip code. Allows exploration through zoom and pan.",
+      "encoding": {
+        "color": {
+          "field": "customer_status",
+          "title": "Customer Status",
+          "type": "nominal"
+        },
+        "x": {
+          "field": "city",
+          "title": "City",
+          "type": "nominal"
+        },
+        "y": {
+          "field": "zip_code",
+          "title": "Zip Code",
+          "type": "ordinal"
+        }
+      },
+      "height": 200,
+      "mark": "rect",
+      "params": [
+        {
+          "name": "selectedStatus",
+          "select": {
+            "encodings": [
+              "x"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/ChurnStatusMetrics.csv"
+            },
+            "fields": [
+              "customer_status"
+            ],
+            "key": "customer_status"
+          },
+          "lookup": "customer_status"
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/ScoreDistributions.csv"
+      },
+      "description": "Detail: Box plots showing distributions of satisfaction and churn scores for each customer status group, highlighting outliers explicitly.",
+      "encoding": {
+        "color": {
+          "field": "customer_status",
+          "title": "Customer Status",
+          "type": "nominal"
+        },
+        "x": {
+          "field": "customer_status",
+          "title": "Customer Status",
+          "type": "nominal"
+        },
+        "y": {
+          "field": "score_value",
+          "title": "Score Value",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "boxplot",
+      "params": [
+        {
+          "name": "selectedScatterRange",
+          "select": {
+            "encodings": [
+              "x",
+              "y"
+            ],
+            "type": "interval"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/SatisfactionChurnRelationship.csv"
+            },
+            "fields": [
+              "customer_status"
+            ],
+            "key": "customer_status"
+          },
+          "lookup": "customer_status"
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/DemographicsByStatus.csv"
+      },
+      "description": "Insight: Summarized text-based report highlighting anomalies or extreme cases identified, including detailed reasoning.",
+      "encoding": {
+        "text": {
+          "aggregate": "count",
+          "field": "count",
+          "title": "Insight",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "text",
+      "params": [
+        {
+          "name": "selectedScatterRange",
+          "select": {
+            "encodings": [
+              "x",
+              "y"
+            ],
+            "type": "interval"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/SatisfactionChurnRelationship.csv"
+            },
+            "fields": [
+              "customer_status"
+            ],
+            "key": "customer_status"
+          },
+          "lookup": "customer_status"
+        },
+        {
+          "filter": {
+            "param": "selectedScatterRange"
+          }
+        }
+      ],
+      "width": 200
+    }
+  ],
+  "description": "Visual Analytics System for Customer Churn Analysis"
+}

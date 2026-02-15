@@ -1,0 +1,145 @@
+{
+  "id": "agriculture_goal3_1742901557",
+  "name": "Visual Analytics System agriculture_goal3_1742901557",
+  "created": 1742901566,
+  "dataset": {
+    "tables": [
+      {
+        "table": "crop_price_data",
+        "columns": [
+          {
+            "column": "District",
+            "dtype": "TEXT",
+            "description": "字段 District，类型为 TEXT"
+          },
+          {
+            "column": "Crop",
+            "dtype": "TEXT",
+            "description": "字段 Crop，类型为 TEXT"
+          },
+          {
+            "column": "Market",
+            "dtype": "TEXT",
+            "description": "字段 Market，类型为 TEXT"
+          },
+          {
+            "column": "Date",
+            "dtype": "TEXT",
+            "description": "字段 Date，类型为 TEXT"
+          },
+          {
+            "column": "Price (INR/quintal)",
+            "dtype": "REAL",
+            "description": "字段 Price (INR/quintal)，类型为 REAL"
+          }
+        ]
+      },
+      {
+        "table": "crop_production_data",
+        "columns": [
+          {
+            "column": "District",
+            "dtype": "TEXT",
+            "description": "字段 District，类型为 TEXT"
+          },
+          {
+            "column": "Crop",
+            "dtype": "TEXT",
+            "description": "字段 Crop，类型为 TEXT"
+          },
+          {
+            "column": "Season",
+            "dtype": "TEXT",
+            "description": "字段 Season，类型为 TEXT"
+          },
+          {
+            "column": "Area (hectares)",
+            "dtype": "REAL",
+            "description": "字段 Area (hectares)，类型为 REAL"
+          },
+          {
+            "column": "Yield (quintals)",
+            "dtype": "REAL",
+            "description": "字段 Yield (quintals)，类型为 REAL"
+          },
+          {
+            "column": "Production (metric tons)",
+            "dtype": "REAL",
+            "description": "字段 Production (metric tons)，类型为 REAL"
+          }
+        ]
+      },
+      {
+        "table": "soil_analysis_data",
+        "columns": [
+          {
+            "column": "District",
+            "dtype": "TEXT",
+            "description": "字段 District，类型为 TEXT"
+          },
+          {
+            "column": "Soil Type",
+            "dtype": "TEXT",
+            "description": "字段 Soil Type，类型为 TEXT"
+          },
+          {
+            "column": "pH Level",
+            "dtype": "REAL",
+            "description": "字段 pH Level，类型为 REAL"
+          },
+          {
+            "column": "Organic Matter (%)",
+            "dtype": "REAL",
+            "description": "字段 Organic Matter (%)，类型为 REAL"
+          },
+          {
+            "column": "Nitrogen Content (kg/ha)",
+            "dtype": "REAL",
+            "description": "字段 Nitrogen Content (kg/ha)，类型为 REAL"
+          },
+          {
+            "column": "Phosphorus Content (kg/ha)",
+            "dtype": "REAL",
+            "description": "字段 Phosphorus Content (kg/ha)，类型为 REAL"
+          },
+          {
+            "column": "Potassium Content (kg/ha)",
+            "dtype": "REAL",
+            "description": "字段 Potassium Content (kg/ha)，类型为 REAL"
+          }
+        ]
+      },
+      {
+        "table": "water_usage_data",
+        "columns": [
+          {
+            "column": "District",
+            "dtype": "TEXT",
+            "description": "字段 District，类型为 TEXT"
+          },
+          {
+            "column": "Crop",
+            "dtype": "TEXT",
+            "description": "字段 Crop，类型为 TEXT"
+          },
+          {
+            "column": "Irrigation Method",
+            "dtype": "TEXT",
+            "description": "字段 Irrigation Method，类型为 TEXT"
+          },
+          {
+            "column": "Water Consumption (liters/hectare)",
+            "dtype": "REAL",
+            "description": "字段 Water Consumption (liters/hectare)，类型为 REAL"
+          },
+          {
+            "column": "Water Availability (liters/hectare)",
+            "dtype": "REAL",
+            "description": "字段 Water Availability (liters/hectare)，类型为 REAL"
+          }
+        ]
+      }
+    ],
+    "description": "数据库包含以下表: crop_price_data, crop_production_data, soil_analysis_data, water_usage_data"
+  }
+}

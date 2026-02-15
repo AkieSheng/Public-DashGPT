@@ -1,0 +1,299 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "columns": 2,
+  "concat": [
+    {
+      "data": {
+        "url": "http://localhost:8888/vw_enrolled_courses.csv"
+      },
+      "description": "Overview: View 1",
+      "encoding": {
+        "color": {
+          "condition": {
+            "false": {
+              "value": "grey"
+            },
+            "param": "topCourses",
+            "true": {
+              "value": "blue"
+            }
+          },
+          "field": "TotalEnrollment",
+          "title": "Enrollment",
+          "type": "quantitative"
+        },
+        "x": {
+          "field": "CID",
+          "title": "Course ID",
+          "type": "nominal"
+        },
+        "y": {
+          "aggregate": "count",
+          "title": "Total Enrollment",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "bar",
+      "params": [
+        {
+          "bind": "scales",
+          "name": "topCourses",
+          "select": {
+            "fields": [
+              "TotalEnrollment"
+            ],
+            "type": "interval"
+          }
+        },
+        {
+          "name": "selectedCourses",
+          "select": {
+            "encodings": [
+              "x"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/vw_heatmap_data.csv"
+      },
+      "description": "Exploration: View 2",
+      "encoding": {
+        "color": {
+          "aggregate": "mean",
+          "scale": {
+            "domain": [
+              0,
+              4
+            ]
+          },
+          "title": "Avg Grade Points",
+          "type": "quantitative"
+        },
+        "size": {
+          "value": 50
+        },
+        "x": {
+          "field": "CID",
+          "title": "Course ID",
+          "type": "nominal"
+        },
+        "y": {
+          "field": "gradepoint",
+          "title": "Grade Points",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "rect",
+      "params": [
+        {
+          "name": "hoveredCourse",
+          "select": {
+            "encodings": [
+              "x"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "tooltip": [
+        {
+          "field": "AvgGradePoints",
+          "type": "quantitative"
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/vw_enrolled_courses.csv"
+            },
+            "fields": [
+              "TotalEnrollment"
+            ],
+            "key": "CID"
+          },
+          "lookup": "CID"
+        },
+        {
+          "param": "selectedCourses"
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/vw_department_enrollment.csv"
+      },
+      "description": "Exploration: View 3",
+      "encoding": {
+        "color": {
+          "condition": {
+            "false": {
+              "value": "grey"
+            },
+            "param": "topDepartments",
+            "true": {
+              "value": "green"
+            }
+          },
+          "field": "TotalEnrollment",
+          "title": "Enrollment",
+          "type": "quantitative"
+        },
+        "x": {
+          "field": "DNO",
+          "title": "Department ID",
+          "type": "nominal"
+        },
+        "y": {
+          "aggregate": "count",
+          "title": "Total Enrollment",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "bar",
+      "params": [
+        {
+          "bind": "scales",
+          "name": "topDepartments",
+          "select": {
+            "fields": [
+              "TotalEnrollment"
+            ],
+            "type": "interval"
+          }
+        },
+        {
+          "name": "selectedCourses",
+          "select": {
+            "encodings": [
+              "x"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/vw_enrollment_by_day_hour.csv"
+      },
+      "description": "Detail: View 4",
+      "encoding": {
+        "size": {
+          "aggregate": "count",
+          "title": "Enrollment Numbers",
+          "type": "quantitative"
+        },
+        "x": {
+          "field": "Days",
+          "title": "Days of the Week",
+          "type": "nominal"
+        },
+        "y": {
+          "field": "Hours",
+          "title": "Course Hours",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "point",
+      "params": [
+        {
+          "bind": "scales",
+          "name": "scatter_zoom",
+          "select": {
+            "type": "interval"
+          }
+        }
+      ],
+      "tooltip": [
+        {
+          "field": "TotalEnrollment",
+          "type": "quantitative"
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/vw_enrolled_courses.csv"
+            },
+            "fields": [
+              "TotalEnrollment"
+            ],
+            "key": "CID"
+          },
+          "lookup": "CID"
+        },
+        {
+          "param": "selectedCourses"
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/vw_enrollment_by_credit.csv"
+      },
+      "description": "Detail: View 5",
+      "encoding": {
+        "color": {
+          "field": "DNO",
+          "title": "Department ID",
+          "type": "nominal"
+        },
+        "x": {
+          "field": "Credits",
+          "title": "Credit Hours",
+          "type": "quantitative"
+        },
+        "y": {
+          "aggregate": "count",
+          "title": "Enrollment Levels",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "boxplot",
+      "params": [
+        {
+          "name": "hoveredCreditRange",
+          "select": {
+            "encodings": [
+              "x"
+            ],
+            "type": "interval"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/vw_enrolled_courses.csv"
+            },
+            "fields": [
+              "TotalEnrollment"
+            ],
+            "key": "CID"
+          },
+          "lookup": "CID"
+        },
+        {
+          "param": "selectedCourses"
+        }
+      ],
+      "width": 200
+    }
+  ]
+}

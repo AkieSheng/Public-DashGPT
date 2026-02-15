@@ -1,0 +1,405 @@
+{
+  "id": "cricket_goal3_1742897356",
+  "name": "Visual Analytics System cricket_goal3_1742897356",
+  "created": 1742897363,
+  "dataset": {
+    "tables": [
+      {
+        "table": "batter_player_stats",
+        "columns": [
+          {
+            "column": "player_name",
+            "dtype": "TEXT",
+            "description": "字段 player_name，类型为 TEXT"
+          },
+          {
+            "column": "role",
+            "dtype": "TEXT",
+            "description": "字段 role，类型为 TEXT"
+          },
+          {
+            "column": "total_runs",
+            "dtype": "INTEGER",
+            "description": "字段 total_runs，类型为 INTEGER"
+          },
+          {
+            "column": "strike_rate",
+            "dtype": "REAL",
+            "description": "字段 strike_rate，类型为 REAL"
+          },
+          {
+            "column": "total_balls_faced",
+            "dtype": "INTEGER",
+            "description": "字段 total_balls_faced，类型为 INTEGER"
+          },
+          {
+            "column": "total_wickets_taken",
+            "dtype": "INTEGER",
+            "description": "字段 total_wickets_taken，类型为 INTEGER"
+          },
+          {
+            "column": "total_runs_conceded",
+            "dtype": "INTEGER",
+            "description": "字段 total_runs_conceded，类型为 INTEGER"
+          },
+          {
+            "column": "total_overs_bowled",
+            "dtype": "INTEGER",
+            "description": "字段 total_overs_bowled，类型为 INTEGER"
+          },
+          {
+            "column": "total_matches_played",
+            "dtype": "INTEGER",
+            "description": "字段 total_matches_played，类型为 INTEGER"
+          },
+          {
+            "column": "matches_played_as_batter",
+            "dtype": "INTEGER",
+            "description": "字段 matches_played_as_batter，类型为 INTEGER"
+          },
+          {
+            "column": "matches_played_as_bowler",
+            "dtype": "INTEGER",
+            "description": "字段 matches_played_as_bowler，类型为 INTEGER"
+          },
+          {
+            "column": "matches_won",
+            "dtype": "INTEGER",
+            "description": "字段 matches_won，类型为 INTEGER"
+          },
+          {
+            "column": "matches_lost",
+            "dtype": "INTEGER",
+            "description": "字段 matches_lost，类型为 INTEGER"
+          },
+          {
+            "column": "player_of_match_awards",
+            "dtype": "INTEGER",
+            "description": "字段 player_of_match_awards，类型为 INTEGER"
+          },
+          {
+            "column": "team",
+            "dtype": "TEXT",
+            "description": "字段 team，类型为 TEXT"
+          },
+          {
+            "column": "average",
+            "dtype": "REAL",
+            "description": "字段 average，类型为 REAL"
+          }
+        ]
+      },
+      {
+        "table": "bowler_player_stats",
+        "columns": [
+          {
+            "column": "player_name",
+            "dtype": "TEXT",
+            "description": "字段 player_name，类型为 TEXT"
+          },
+          {
+            "column": "role",
+            "dtype": "TEXT",
+            "description": "字段 role，类型为 TEXT"
+          },
+          {
+            "column": "total_runs",
+            "dtype": "INTEGER",
+            "description": "字段 total_runs，类型为 INTEGER"
+          },
+          {
+            "column": "strike_rate",
+            "dtype": "REAL",
+            "description": "字段 strike_rate，类型为 REAL"
+          },
+          {
+            "column": "total_balls_faced",
+            "dtype": "INTEGER",
+            "description": "字段 total_balls_faced，类型为 INTEGER"
+          },
+          {
+            "column": "total_wickets_taken",
+            "dtype": "INTEGER",
+            "description": "字段 total_wickets_taken，类型为 INTEGER"
+          },
+          {
+            "column": "total_runs_conceded",
+            "dtype": "INTEGER",
+            "description": "字段 total_runs_conceded，类型为 INTEGER"
+          },
+          {
+            "column": "total_overs_bowled",
+            "dtype": "INTEGER",
+            "description": "字段 total_overs_bowled，类型为 INTEGER"
+          },
+          {
+            "column": "total_matches_played",
+            "dtype": "INTEGER",
+            "description": "字段 total_matches_played，类型为 INTEGER"
+          },
+          {
+            "column": "matches_played_as_batter",
+            "dtype": "INTEGER",
+            "description": "字段 matches_played_as_batter，类型为 INTEGER"
+          },
+          {
+            "column": "matches_played_as_bowler",
+            "dtype": "INTEGER",
+            "description": "字段 matches_played_as_bowler，类型为 INTEGER"
+          },
+          {
+            "column": "matches_won",
+            "dtype": "INTEGER",
+            "description": "字段 matches_won，类型为 INTEGER"
+          },
+          {
+            "column": "matches_lost",
+            "dtype": "INTEGER",
+            "description": "字段 matches_lost，类型为 INTEGER"
+          },
+          {
+            "column": "player_of_match_awards",
+            "dtype": "INTEGER",
+            "description": "字段 player_of_match_awards，类型为 INTEGER"
+          },
+          {
+            "column": "team",
+            "dtype": "TEXT",
+            "description": "字段 team，类型为 TEXT"
+          },
+          {
+            "column": "economy_rate",
+            "dtype": "REAL",
+            "description": "字段 economy_rate，类型为 REAL"
+          },
+          {
+            "column": "average",
+            "dtype": "REAL",
+            "description": "字段 average，类型为 REAL"
+          }
+        ]
+      },
+      {
+        "table": "detailed_player_data",
+        "columns": [
+          {
+            "column": "match_id",
+            "dtype": "INTEGER",
+            "description": "字段 match_id，类型为 INTEGER"
+          },
+          {
+            "column": "player",
+            "dtype": "TEXT",
+            "description": "字段 player，类型为 TEXT"
+          },
+          {
+            "column": "team",
+            "dtype": "TEXT",
+            "description": "字段 team，类型为 TEXT"
+          },
+          {
+            "column": "runs",
+            "dtype": "INTEGER",
+            "description": "字段 runs，类型为 INTEGER"
+          },
+          {
+            "column": "balls_faced",
+            "dtype": "INTEGER",
+            "description": "字段 balls_faced，类型为 INTEGER"
+          },
+          {
+            "column": "fours",
+            "dtype": "INTEGER",
+            "description": "字段 fours，类型为 INTEGER"
+          },
+          {
+            "column": "sixes",
+            "dtype": "INTEGER",
+            "description": "字段 sixes，类型为 INTEGER"
+          },
+          {
+            "column": "wickets",
+            "dtype": "INTEGER",
+            "description": "字段 wickets，类型为 INTEGER"
+          },
+          {
+            "column": "overs_bowled",
+            "dtype": "INTEGER",
+            "description": "字段 overs_bowled，类型为 INTEGER"
+          },
+          {
+            "column": "balls_bowled",
+            "dtype": "INTEGER",
+            "description": "字段 balls_bowled，类型为 INTEGER"
+          },
+          {
+            "column": "runs_conceded",
+            "dtype": "INTEGER",
+            "description": "字段 runs_conceded，类型为 INTEGER"
+          },
+          {
+            "column": "catches",
+            "dtype": "INTEGER",
+            "description": "字段 catches，类型为 INTEGER"
+          },
+          {
+            "column": "run_outs",
+            "dtype": "INTEGER",
+            "description": "字段 run_outs，类型为 INTEGER"
+          },
+          {
+            "column": "maiden",
+            "dtype": "INTEGER",
+            "description": "字段 maiden，类型为 INTEGER"
+          },
+          {
+            "column": "stumps",
+            "dtype": "INTEGER",
+            "description": "字段 stumps，类型为 INTEGER"
+          },
+          {
+            "column": "match_outcome",
+            "dtype": "TEXT",
+            "description": "字段 match_outcome，类型为 TEXT"
+          },
+          {
+            "column": "opposition_team",
+            "dtype": "TEXT",
+            "description": "字段 opposition_team，类型为 TEXT"
+          },
+          {
+            "column": "strike_rate",
+            "dtype": "REAL",
+            "description": "字段 strike_rate，类型为 REAL"
+          },
+          {
+            "column": "economy",
+            "dtype": "REAL",
+            "description": "字段 economy，类型为 REAL"
+          },
+          {
+            "column": "fantasy_points",
+            "dtype": "INTEGER",
+            "description": "字段 fantasy_points，类型为 INTEGER"
+          },
+          {
+            "column": "venue",
+            "dtype": "TEXT",
+            "description": "字段 venue，类型为 TEXT"
+          }
+        ]
+      },
+      {
+        "table": "match_summary",
+        "columns": [
+          {
+            "column": "match_id",
+            "dtype": "INTEGER",
+            "description": "字段 match_id，类型为 INTEGER"
+          },
+          {
+            "column": "created",
+            "dtype": "TEXT",
+            "description": "字段 created，类型为 TEXT"
+          },
+          {
+            "column": "city",
+            "dtype": "TEXT",
+            "description": "字段 city，类型为 TEXT"
+          },
+          {
+            "column": "dates",
+            "dtype": "TEXT",
+            "description": "字段 dates，类型为 TEXT"
+          },
+          {
+            "column": "event_name",
+            "dtype": "TEXT",
+            "description": "字段 event_name，类型为 TEXT"
+          },
+          {
+            "column": "match_number",
+            "dtype": "REAL",
+            "description": "字段 match_number，类型为 REAL"
+          },
+          {
+            "column": "gender",
+            "dtype": "TEXT",
+            "description": "字段 gender，类型为 TEXT"
+          },
+          {
+            "column": "match_type",
+            "dtype": "TEXT",
+            "description": "字段 match_type，类型为 TEXT"
+          },
+          {
+            "column": "match_type_number",
+            "dtype": "INTEGER",
+            "description": "字段 match_type_number，类型为 INTEGER"
+          },
+          {
+            "column": "toss_winner",
+            "dtype": "TEXT",
+            "description": "字段 toss_winner，类型为 TEXT"
+          },
+          {
+            "column": "toss_decision",
+            "dtype": "TEXT",
+            "description": "字段 toss_decision，类型为 TEXT"
+          },
+          {
+            "column": "outcome_winner",
+            "dtype": "TEXT",
+            "description": "字段 outcome_winner，类型为 TEXT"
+          },
+          {
+            "column": "outcome_by_runs",
+            "dtype": "REAL",
+            "description": "字段 outcome_by_runs，类型为 REAL"
+          },
+          {
+            "column": "outcome_by_wickets",
+            "dtype": "REAL",
+            "description": "字段 outcome_by_wickets，类型为 REAL"
+          },
+          {
+            "column": "overs",
+            "dtype": "INTEGER",
+            "description": "字段 overs，类型为 INTEGER"
+          },
+          {
+            "column": "player_of_match",
+            "dtype": "TEXT",
+            "description": "字段 player_of_match，类型为 TEXT"
+          },
+          {
+            "column": "season",
+            "dtype": "TEXT",
+            "description": "字段 season，类型为 TEXT"
+          },
+          {
+            "column": "teams",
+            "dtype": "TEXT",
+            "description": "字段 teams，类型为 TEXT"
+          },
+          {
+            "column": "venue",
+            "dtype": "TEXT",
+            "description": "字段 venue，类型为 TEXT"
+          },
+          {
+            "column": "total_fours",
+            "dtype": "INTEGER",
+            "description": "字段 total_fours，类型为 INTEGER"
+          },
+          {
+            "column": "total_sixes",
+            "dtype": "INTEGER",
+            "description": "字段 total_sixes，类型为 INTEGER"
+          }
+        ]
+      }
+    ],
+    "description": "数据库包含以下表: batter_player_stats, bowler_player_stats, detailed_player_data, match_summary"
+  }
+}

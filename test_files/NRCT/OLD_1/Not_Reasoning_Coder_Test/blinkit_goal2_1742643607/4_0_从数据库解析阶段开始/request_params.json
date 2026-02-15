@@ -1,0 +1,17 @@
+{
+  "id": "blinkit_goal2_1742643607",
+  "desc": "This dataset contains sales transaction data from Blinkit, an online grocery delivery platform. It contains sales data from Blinkit, including product details, order quantities, revenue, and timestamps.",
+  "goal": "Examine customer purchase frequency, basket composition, and product co-occurrence patterns to understand buying behavior and preferences. By identifying which products are frequently bought together, this descriptive analysis helps uncover common customer segments and preferences, aiding in product mix optimization and marketing strategy development.",
+  "initialStage": 0,
+  "maxSteps": 10,
+  "useReflect": true,
+  "useRag": false,
+  "models": {
+    "database": "gpt-4o",
+    "requirements": "gpt-4o",
+    "tasks": "gpt-4o",
+    "plan": "gpt-4o",
+    "sql": "qwen-coder",
+    "vega": "qwen-coder"
+  }
+}

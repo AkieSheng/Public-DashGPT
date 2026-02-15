@@ -1,0 +1,180 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "columns": 2,
+  "concat": [
+    {
+      "description": "Overview View: Churn Score vs CLTV by Churn Status",
+      "data": {
+        "url": "http://localhost:8888/Overview_View.csv"
+      },
+      "mark": "circle",
+      "encoding": {
+        "x": {
+          "field": "churn_score",
+          "type": "quantitative",
+          "title": "Churn Score"
+        },
+        "y": {
+          "field": "cltv",
+          "type": "quantitative",
+          "title": "CLTV"
+        },
+        "color": {
+          "field": "churn_label",
+          "type": "nominal",
+          "title": "Churn Status"
+        }
+      },
+      "params": [
+        {
+          "name": "score_cltv_brush",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ],
+      "interactions": [
+        {
+          "object": "scatter plot marks",
+          "verb": "interval",
+          "effect": {
+            "params": [
+              {
+                "name": "score_cltv_brush"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "description": "Exploration View 1: Tenure vs Number of Referrals by Churn Status",
+      "data": {
+        "url": "http://localhost:8888/Exploration_View_1.csv"
+      },
+      "mark": "rect",
+      "encoding": {
+        "x": {
+          "field": "tenure_bin",
+          "bin": {
+            "maxbins": 4
+          },
+          "type": "nominal",
+          "title": "Tenure (Months)"
+        },
+        "y": {
+          "field": "number_of_referrals_bin",
+          "bin": {
+            "maxbins": 3
+          },
+          "type": "nominal",
+          "title": "Number of Referrals"
+        },
+        "color": {
+          "field": "mean_churn_value",
+          "type": "quantitative",
+          "title": "Mean Churn Value",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ]
+          }
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/Overview_View.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "churn_value"
+            ]
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "tenure_ref_filter",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ],
+      "interactions": [
+        {
+          "object": "heatmap cells",
+          "verb": "click",
+          "effect": {
+            "params": [
+              {
+                "name": "tenure_ref_filter"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "description": "Exploration View 2: Service Bundle vs Churn Category",
+      "data": {
+        "url": "http://localhost:8888/Exploration_View_2.csv"
+      },
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "service_bundle",
+          "type": "nominal",
+          "title": "Service Bundle"
+        },
+        "y": {
+          "aggregate": "percent",
+          "type": "quantitative",
+          "title": "Percentage"
+        },
+        "color": {
+          "field": "churn_category",
+          "type": "nominal",
+          "title": "Churn Category"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/Overview_View.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "churn_category"
+            ]
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "tenure_ref_filter",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

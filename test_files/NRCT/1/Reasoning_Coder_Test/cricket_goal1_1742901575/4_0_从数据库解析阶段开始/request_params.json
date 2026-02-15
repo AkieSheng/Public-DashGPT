@@ -1,0 +1,17 @@
+{
+  "id": "cricket_goal1_1742901575",
+  "desc": "The dataset contains four tables: batter_player_stats (batting statistics for individual players), bowler_player_stats (bowling statistics for individual players), detailed_player_data (per-match player performance data), and match_summary (match-level details including toss results, match outcome, player of the match, and venue information).",
+  "goal": "Analyze the consistency of individual player performances, focusing on how batters and bowlers vary in their runs, balls faced, wickets taken, and other statistics across different matches.",
+  "initialStage": 0,
+  "maxSteps": 10,
+  "useReflect": true,
+  "useRag": false,
+  "models": {
+    "database": "gpt-4o",
+    "requirements": "gpt-4o",
+    "tasks": "gpt-4o",
+    "plan": "gpt-4o",
+    "sql": "qwen-coder",
+    "vega": "qwen-coder"
+  }
+}

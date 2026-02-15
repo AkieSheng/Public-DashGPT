@@ -1,0 +1,330 @@
+{
+  "created": 1742623983,
+  "dataset": {
+    "description": "数据库包含以下表: Status_Analysis, Service_Options, Online_Services, Payment_Info, Location_Data, Customer_Info",
+    "tables": [
+      {
+        "columns": [
+          {
+            "column": "customer_id",
+            "description": "字段 customer_id，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "satisfaction_score",
+            "description": "字段 satisfaction_score，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "cltv",
+            "description": "字段 cltv，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "customer_status",
+            "description": "字段 customer_status，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "churn_score",
+            "description": "字段 churn_score，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "churn_label",
+            "description": "字段 churn_label，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "churn_value",
+            "description": "字段 churn_value，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "churn_category",
+            "description": "字段 churn_category，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "churn_reason",
+            "description": "字段 churn_reason，类型为 TEXT",
+            "dtype": "TEXT"
+          }
+        ],
+        "table": "Status_Analysis"
+      },
+      {
+        "columns": [
+          {
+            "column": "customer_id",
+            "description": "字段 customer_id，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "tenure",
+            "description": "字段 tenure，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "internet_service",
+            "description": "字段 internet_service，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "phone_service",
+            "description": "字段 phone_service，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "multiple_lines",
+            "description": "字段 multiple_lines，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "avg_monthly_gb_download",
+            "description": "字段 avg_monthly_gb_download，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "unlimited_data",
+            "description": "字段 unlimited_data，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "offer",
+            "description": "字段 offer，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "referred_a_friend",
+            "description": "字段 referred_a_friend，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "number_of_referrals",
+            "description": "字段 number_of_referrals，类型为 INTEGER",
+            "dtype": "INTEGER"
+          }
+        ],
+        "table": "Service_Options"
+      },
+      {
+        "columns": [
+          {
+            "column": "customer_id",
+            "description": "字段 customer_id，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "phone_service",
+            "description": "字段 phone_service，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "internet_service",
+            "description": "字段 internet_service，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "online_security",
+            "description": "字段 online_security，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "online_backup",
+            "description": "字段 online_backup，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "device_protection",
+            "description": "字段 device_protection，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "premium_tech_support",
+            "description": "字段 premium_tech_support，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "streaming_tv",
+            "description": "字段 streaming_tv，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "streaming_movies",
+            "description": "字段 streaming_movies，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "streaming_music",
+            "description": "字段 streaming_music，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "internet_type",
+            "description": "字段 internet_type，类型为 TEXT",
+            "dtype": "TEXT"
+          }
+        ],
+        "table": "Online_Services"
+      },
+      {
+        "columns": [
+          {
+            "column": "customer_id",
+            "description": "字段 customer_id，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "contract",
+            "description": "字段 contract，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "paperless_billing",
+            "description": "字段 paperless_billing，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "payment_method",
+            "description": "字段 payment_method，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "monthly_charges",
+            "description": "字段 monthly_charges，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "avg_monthly_long_distance_charges",
+            "description": "字段 avg_monthly_long_distance_charges，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "total_charges",
+            "description": "字段 total_charges，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "total_refunds",
+            "description": "字段 total_refunds，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "total_extra_data_charges",
+            "description": "字段 total_extra_data_charges，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "total_long_distance_charges",
+            "description": "字段 total_long_distance_charges，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "total_revenue",
+            "description": "字段 total_revenue，类型为 REAL",
+            "dtype": "REAL"
+          }
+        ],
+        "table": "Payment_Info"
+      },
+      {
+        "columns": [
+          {
+            "column": "customer_id",
+            "description": "字段 customer_id，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "country",
+            "description": "字段 country，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "state",
+            "description": "字段 state，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "city",
+            "description": "字段 city，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "zip_code",
+            "description": "字段 zip_code，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "total_population",
+            "description": "字段 total_population，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "latitude",
+            "description": "字段 latitude，类型为 REAL",
+            "dtype": "REAL"
+          },
+          {
+            "column": "longitude",
+            "description": "字段 longitude，类型为 REAL",
+            "dtype": "REAL"
+          }
+        ],
+        "table": "Location_Data"
+      },
+      {
+        "columns": [
+          {
+            "column": "customer_id",
+            "description": "字段 customer_id，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "gender",
+            "description": "字段 gender，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "age",
+            "description": "字段 age，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "under_30",
+            "description": "字段 under_30，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "senior_citizen",
+            "description": "字段 senior_citizen，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "partner",
+            "description": "字段 partner，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "dependents",
+            "description": "字段 dependents，类型为 TEXT",
+            "dtype": "TEXT"
+          },
+          {
+            "column": "number_of_dependents",
+            "description": "字段 number_of_dependents，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "married",
+            "description": "字段 married，类型为 TEXT",
+            "dtype": "TEXT"
+          }
+        ],
+        "table": "Customer_Info"
+      }
+    ]
+  },
+  "id": "telco_goal1_1742623982",
+  "name": "Visual Analytics System telco_goal1_1742623982"
+}

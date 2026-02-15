@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "Member_of.DNO",
+      "Member_of.Appt_Type"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: DNO (nominal)",
+        "y: count() (quantitative)",
+        "color: Appt_Type (nominal)"
+      ],
+      "description": "Grouped bar chart showing primary vs secondary faculty appointments per department. X-axis shows departments (DNO), grouped bars distinguish appointment types by color."
+    },
+    "interactions": [
+      {
+        "object": "chart",
+        "verb": "click",
+        "effect": {
+          "description": "Selects department(s) and propagates filter to dependent views",
+          "params": [
+            {
+              "name": "dept_select",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "Department.DName",
+      "Faculty.Rank"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: DName (nominal)",
+        "y: count() (quantitative)",
+        "color: Rank (nominal)"
+      ],
+      "description": "Stacked bar chart showing faculty rank distribution per department. Departments filtered by selection from View 1."
+    },
+    "usingParams": [
+      "dept_select"
+    ],
+    "components": "Department name labels rotated 45° for readability"
+  },
+  {
+    "id": 3,
+    "level": "insight",
+    "fields": [
+      "Course.DNO",
+      "Member_of.FacID",
+      "Enrolled_in.StuID"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x: count(FacID) (quantitative)",
+        "y: count(CID) (quantitative)",
+        "size: count(StuID) (quantitative)",
+        "color: DNO (nominal)"
+      ],
+      "description": "Bubble chart comparing faculty count vs courses offered per department. Size represents student enrollments. 500-level clusters highlighted."
+    },
+    "usingParams": [
+      "dept_select"
+    ]
+  },
+  {
+    "id": 4,
+    "level": "detail",
+    "fields": [
+      "Faculty.Sex",
+      "Member_of.DNO"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "arc",
+      "encodings": [
+        "theta: count() (quantitative)",
+        "color: Sex (nominal)"
+      ],
+      "description": "Pie chart showing gender distribution for departments selected in View 1. Annotations added for >90% male departments."
+    },
+    "usingParams": [
+      "dept_select"
+    ],
+    "components": "Dropdown to select multiple departments"
+  }
+]

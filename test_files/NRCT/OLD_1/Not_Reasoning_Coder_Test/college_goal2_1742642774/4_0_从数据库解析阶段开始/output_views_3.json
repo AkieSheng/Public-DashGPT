@@ -1,0 +1,192 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "Member_of.FacID",
+      "Member_of.DNO",
+      "Member_of.Appt_Type"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        {
+          "channel": "x",
+          "field": "Member_of.DNO",
+          "type": "nominal"
+        },
+        {
+          "channel": "y",
+          "field": "count(Member_of.FacID)",
+          "type": "quantitative"
+        },
+        {
+          "channel": "color",
+          "field": "Member_of.Appt_Type",
+          "type": "nominal"
+        }
+      ],
+      "description": "A segmented bar chart showing the number of faculty members in each department, segmented by appointment type (Primary vs. Secondary)."
+    },
+    "usingParams": [],
+    "interactions": [
+      {
+        "object": "visualization",
+        "verb": "click",
+        "effect": {
+          "description": "Filters the data by department, passing the selected department to subsequent views.",
+          "params": [
+            {
+              "name": "selectedDepartment",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "Member_of.FacID",
+      "Course.DNO",
+      "Course.CID"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        {
+          "channel": "x",
+          "field": "Course.DNO",
+          "type": "nominal"
+        },
+        {
+          "channel": "y",
+          "field": "count(Member_of.FacID)",
+          "type": "quantitative"
+        },
+        {
+          "channel": "color",
+          "field": "count(Course.CID)",
+          "type": "quantitative"
+        }
+      ],
+      "description": "A heatmap correlating the number of faculty members and the number of courses offered in each department. Higher color intensity indicates more academic activity."
+    },
+    "usingParams": [
+      "selectedDepartment"
+    ],
+    "interactions": [
+      {
+        "object": "visualization",
+        "verb": "hover",
+        "effect": {
+          "description": "Displays detailed counts of faculty and courses for the hovered department.",
+          "params": []
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "detail",
+    "fields": [
+      "Member_of.FacID",
+      "Course.DNO"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "boxplot",
+      "encodings": [
+        {
+          "channel": "x",
+          "field": "Course.DNO",
+          "type": "nominal"
+        },
+        {
+          "channel": "y",
+          "field": "facToCourseRatio",
+          "type": "quantitative"
+        }
+      ],
+      "description": "A box plot visualizing anomalies in faculty-to-course ratios for each department, highlighting outliers."
+    },
+    "usingParams": [
+      "selectedDepartment"
+    ],
+    "interactions": [
+      {
+        "object": "visualization",
+        "verb": "hover",
+        "effect": {
+          "description": "Calculation of aggregated metrics such as median and IQR for the hovered department.",
+          "params": []
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "level": "exploration",
+    "fields": [
+      "Course.DNO",
+      "Faculty.FacID",
+      "Faculty.Rank",
+      "Course.Credits"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "point",
+      "encodings": [
+        {
+          "channel": "x",
+          "field": "Faculty.Rank",
+          "type": "ordinal"
+        },
+        {
+          "channel": "y",
+          "field": "Course.Credits",
+          "type": "quantitative"
+        },
+        {
+          "channel": "color",
+          "field": "Course.DNO",
+          "type": "nominal"
+        }
+      ],
+      "description": "A scatter plot showing the relationship between faculty rank and course credits, colored by department."
+    },
+    "usingParams": [
+      "selectedDepartment"
+    ],
+    "components": {
+      "filterDropdown": [
+        {
+          "field": "Faculty.Rank",
+          "label": "Filter by Rank"
+        },
+        {
+          "field": "Course.DNO",
+          "label": "Filter by Department"
+        }
+      ]
+    },
+    "interactions": []
+  }
+]

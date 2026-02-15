@@ -1,0 +1,331 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "columns": 2,
+  "concat": [
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/getView1.csv"
+      },
+      "description": "View 1",
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "field",
+          "type": "nominal",
+          "title": "Demographic Field",
+          "axis": {
+            "titleColor": "#000"
+          }
+        },
+        "y": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "title": "Count",
+          "axis": {
+            "titleColor": "#000"
+          }
+        },
+        "color": {
+          "field": "field",
+          "type": "nominal",
+          "title": "Demographic Field",
+          "legend": null
+        },
+        "opacity": {
+          "value": 0.3,
+          "condition": {
+            "param": "filterDemographics",
+            "value": 1
+          }
+        }
+      },
+      "params": [
+        {
+          "name": "filterDemographics",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/getView2.csv"
+      },
+      "description": "View 2",
+      "mark": "circle",
+      "encoding": {
+        "x": {
+          "field": "Customer_Info.age",
+          "type": "quantitative",
+          "title": "Age",
+          "scale": {
+            "zero": false,
+            "nice": true
+          }
+        },
+        "y": {
+          "field": "Status_Analysis.churn_score",
+          "type": "quantitative",
+          "title": "Churn Score",
+          "scale": {
+            "zero": false,
+            "nice": true
+          }
+        },
+        "color": {
+          "field": "Customer_Info.senior_citizen",
+          "type": "nominal",
+          "title": "Senior Citizen",
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "Customer_Info.gender",
+            "type": "nominal"
+          },
+          {
+            "field": "Status_Analysis.churn_score",
+            "type": "quantitative"
+          },
+          {
+            "field": "Customer_Info.age",
+            "type": "quantitative"
+          }
+        ]
+      },
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/getView1.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "field"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "filterDemographics"
+          }
+        },
+        {
+          "sample": 150
+        }
+      ],
+      "params": [
+        {
+          "name": "filterByScatter",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/getView3.csv"
+      },
+      "description": "View 3",
+      "mark": "rect",
+      "encoding": {
+        "x": {
+          "field": "Status_Analysis.churn_category",
+          "type": "nominal",
+          "title": "Churn Category",
+          "axis": {
+            "titleColor": "#000"
+          }
+        },
+        "y": {
+          "field": "Customer_Info.age",
+          "type": "quantitative",
+          "title": "Age",
+          "bin": {
+            "maxbins": 10
+          },
+          "axis": {
+            "titleColor": "#000",
+            "title": "Age Bins"
+          }
+        },
+        "color": {
+          "aggregate": "mean",
+          "field": "Status_Analysis.churn_score",
+          "type": "quantitative",
+          "title": "Average Churn Score",
+          "scale": {
+            "zero": false
+          }
+        },
+        "opacity": {
+          "value": 0.5
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/getView1.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "field"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "filterDemographics"
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/getView4.csv"
+      },
+      "description": "View 4",
+      "mark": "box",
+      "encoding": {
+        "x": {
+          "field": "Customer_Info.number_of_dependents",
+          "type": "quantitative",
+          "title": "Number of Dependents",
+          "bin": {
+            "maxbins": 5
+          },
+          "axis": {
+            "titleColor": "#000",
+            "title": "Dependent Range"
+          }
+        },
+        "y": {
+          "field": "Status_Analysis.churn_score",
+          "type": "quantitative",
+          "title": "Churn Score"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/getView2.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "Customer_Info.age"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "filterByScatter"
+          }
+        }
+      ]
+    },
+    {
+      "description": "View 5: Stacked Bar Chart",
+      "data": {
+        "url": "http://localhost:8888/getView5.csv"
+      },
+      "title": "Gender & Age Bin Churn",
+      "transform": [
+        {
+          "cut": {
+            "field": "Customer_Info.age",
+            "every": 5,
+            "offset": 0,
+            "as": "age_bin"
+          }
+        },
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/getView2.csv"
+            },
+            "key": "customer_id"
+          }
+        },
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/getView1.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "Customer_Info.gender"
+            ]
+          }
+        }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "age_bin",
+          "type": "nominal",
+          "title": "Age Bin",
+          "axis": {
+            "titleColor": "#000",
+            "title": "Age Bin"
+          }
+        },
+        "y": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "title": "Count",
+          "axis": {
+            "titleColor": "#000"
+          }
+        },
+        "color": {
+          "field": "Customer_Info.gender",
+          "type": "nominal",
+          "title": "Gender",
+          "legend": null
+        },
+        "opacity": {
+          "value": 0.7,
+          "condition": {
+            "param": "filterByScatter"
+          }
+        }
+      },
+      "params": [
+        {
+          "name": "filterByScatter",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

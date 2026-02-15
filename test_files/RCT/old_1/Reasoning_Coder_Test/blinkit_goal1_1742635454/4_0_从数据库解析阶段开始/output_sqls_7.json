@@ -1,0 +1,40 @@
+[
+  {
+    "name": "daily_sales",
+    "SQL": "CREATE VIEW daily_sales AS SELECT order_date, SUM(order_total) AS total_sales, campaign_name FROM blinkit_orders JOIN blinkit_marketing_performance ON blinkit_orders.order_date = blinkit_marketing_performance.date GROUP BY order_date, campaign_name ORDER BY order_date",
+    "corrView": "1",
+    "pk": "order_date",
+    "fk": [
+      {
+        "key": "campaign_name",
+        "table": "daily_campaign"
+      }
+    ]
+  },
+  {
+    "name": "monthly_inventory_sales",
+    "SQL": "CREATE VIEW monthly_inventory_sales AS SELECT DATE(date, 'start of month') AS month, AVG(stock_received) AS avg_stock, SUM(order_total) AS total_sales FROM blinkit_inventoryNew JOIN blinkit_orders ON blinkit_inventoryNew.date <= blinkit_orders.order_date GROUP BY month ORDER BY month",
+    "corrView": "2",
+    "pk": "month",
+    "fk": []
+  },
+  {
+    "name": "delivery_status_sales",
+    "SQL": "CREATE VIEW delivery_status_sales AS SELECT delivery_status, SUM(order_total) AS total_sales FROM blinkit_orders GROUP BY delivery_status",
+    "corrView": "3",
+    "pk": "delivery_status",
+    "fk": []
+  },
+  {
+    "name": "year_week_revenue",
+    "SQL": "CREATE VIEW year_week_revenue AS SELECT STRFTIME('%Y', order_date) AS year, STRFTIME('%W', order_date) AS week, SUM(revenue_generated) AS total_revenue, campaign_name FROM blinkit_orders JOIN blinkit_marketing_performance ON blinkit_orders.order_date = blinkit_marketing_performance.date GROUP BY year, week HAVING COUNT(date) > 0",
+    "corrView": "4",
+    "pk": "(week, year)",
+    "fk": [
+      {
+        "key": "campaign_name",
+        "table": "year_week_campaign"
+      }
+    ]
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "id": "blinkit_goal1_1742643291",
+  "desc": "This dataset contains sales transaction data from Blinkit, an online grocery delivery platform. It contains sales data from Blinkit, including product details, order quantities, revenue, and timestamps.",
+  "goal": "Analyze sales performance across various time dimensions—daily, weekly, and monthly—to identify peaks, troughs, and seasonal patterns. Visualizing historical sales trends helps in understanding how promotional events, holidays, or external factors affect sales, thereby providing valuable insights for inventory management and operational decision-making.",
+  "initialStage": 0,
+  "maxSteps": 10,
+  "useReflect": true,
+  "useRag": false,
+  "models": {
+    "database": "gpt-4o",
+    "requirements": "gpt-4o",
+    "tasks": "gpt-4o",
+    "plan": "gpt-4o",
+    "sql": "qwen-coder",
+    "vega": "qwen-coder"
+  }
+}

@@ -1,0 +1,117 @@
+[
+  {
+    "id": 1,
+    "type": "characterizing distributions",
+    "data": [
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.churn_score",
+      "Status_Analysis.cltv",
+      "Status_Analysis.customer_status"
+    ],
+    "method": "Grouped box plots/violin plots showing distributions of satisfaction_score, churn_score and CLTV split by customer_status. X-axis: status categories, Y-axis: metric values. Color encoding by customer_status (Stayed=green, Churned=red, Joined=blue).",
+    "objective": "Compare key metric distributions across customer status groups to identify baseline differences",
+    "corrReq": [],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "correlating",
+    "data": [
+      "Status_Analysis.cltv",
+      "Payment_Info.total_revenue",
+      "Status_Analysis.customer_status"
+    ],
+    "method": "Pairwise scatter plot of CLTV vs Total Revenue with hexagonal binning. X-axis: CLTV, Y-axis: Total Revenue. Color encoding: customer_status. Size encoding: point density. Linked tooltip showing aggregated counts per bin.",
+    "objective": "Identify financial value patterns and outliers across customer statuses",
+    "corrReq": [
+      "V3"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 3,
+    "type": "clustering",
+    "data": [
+      "Customer_Info.age",
+      "Customer_Info.gender",
+      "Customer_Info.dependents",
+      "Status_Analysis.customer_status"
+    ],
+    "method": "Grouped bar charts with age brackets on X-axis, gender/dependents as stacked segments. Color encoding: customer_status (3-color scale). Small multiples by dependent status.",
+    "objective": "Analyze demographic clusters associated with different churn/retention patterns",
+    "corrReq": [],
+    "priority": 3
+  },
+  {
+    "id": 4,
+    "type": "determining ranges",
+    "data": [
+      "Location_Data.latitude",
+      "Location_Data.longitude",
+      "Status_Analysis.churn_value"
+    ],
+    "method": "Heatmap with geospatial aggregation using 0.1° grid cells. Color encoding: density of churn_value=1 (red intensity). Base map: California outline. Interactive brushing to select regions for detailed analysis.",
+    "objective": "Identify geographical hotspots with concentrated churn activity",
+    "corrReq": [
+      "V4",
+      "I2"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 5,
+    "type": "filtering",
+    "data": [
+      "Service_Options.internet_type",
+      "Payment_Info.contract",
+      "Payment_Info.payment_method",
+      "Status_Analysis.customer_status"
+    ],
+    "method": "Interactive treemap with hierarchical grouping: 1st level-service_type, 2nd level-contract_type, 3rd level-payment_method. Size encoding: customer count. Color encoding: % Churned (red-yellow-green gradient). Linked filtering by customer_status.",
+    "objective": "Reveal service/payment combinations with disproportionate churn rates",
+    "corrReq": [
+      "I1"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 6,
+    "type": "finding extrema",
+    "data": [
+      "Status_Analysis.cltv",
+      "Status_Analysis.churn_score",
+      "Payment_Info.total_charges",
+      "Status_Analysis.customer_status"
+    ],
+    "method": "Parallel coordinates plot showing CLTV, churn_score and total_charges. Lines colored by customer_status. Interactive axis brushing to select value ranges. Highlight top 10% CLTV customers.",
+    "objective": "Identify high-value customers at risk of churn based on score patterns",
+    "corrReq": [
+      "D2"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 7,
+    "type": "trend analysis",
+    "data": [
+      "Service_Options.tenure",
+      "Status_Analysis.customer_status"
+    ],
+    "method": "Stacked area chart showing tenure distribution by status (X-axis: months, Y-axis: % customers). Color encoding: customer_status. Interactive slider for tenure range selection.",
+    "objective": "Analyze how relationship duration affects status transitions",
+    "corrReq": [],
+    "priority": 2
+  },
+  {
+    "id": 8,
+    "type": "correlating",
+    "data": [
+      "Service_Options.number_of_referrals",
+      "Status_Analysis.customer_status"
+    ],
+    "method": "Histogram with referral counts (0-5+) on X-axis, status proportions as stacked bars. Color encoding: customer_status. Curve overlay showing churn_rate vs referrals.",
+    "objective": "Understand impact of referral programs on retention behavior",
+    "corrReq": [],
+    "priority": 3
+  }
+]

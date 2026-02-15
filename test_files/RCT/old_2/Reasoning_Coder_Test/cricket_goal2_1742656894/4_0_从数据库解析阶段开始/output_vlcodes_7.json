@@ -1,0 +1,219 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "columns": 2,
+  "concat": [
+    {
+      "height": 200,
+      "width": 200,
+      "description": "View 1",
+      "data": {
+        "url": "http://localhost:8888/venue_teams_view.csv"
+      },
+      "mark": "rect",
+      "encoding": {
+        "x": {
+          "field": "teams",
+          "type": "nominal",
+          "title": "Teams"
+        },
+        "y": {
+          "field": "venue",
+          "type": "nominal",
+          "title": "Venue"
+        },
+        "color": {
+          "field": "is_home",
+          "type": "nominal",
+          "title": "Home Venue",
+          "legend": null
+        }
+      },
+      "params": [
+        {
+          "name": "venue_selection",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "y"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "description": "View 2",
+      "data": {
+        "url": "http://localhost:8888/match_outcome_view.csv"
+      },
+      "mark": "rect",
+      "encoding": {
+        "x": {
+          "field": "outcome_type",
+          "type": "nominal",
+          "title": "Outcome Type (Home/Away)"
+        },
+        "y": {
+          "field": "venue",
+          "type": "nominal",
+          "title": "Venue"
+        },
+        "color": {
+          "field": "win_rate",
+          "type": "quantitative",
+          "title": "Win Rate",
+          "scheme": "blues"
+        }
+      }
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "description": "View 3",
+      "data": {
+        "url": "http://localhost:8888/player_performance_view.csv"
+      },
+      "mark": "boxplot",
+      "encoding": {
+        "x": {
+          "field": "venue",
+          "type": "nominal",
+          "title": "Venue"
+        },
+        "y": {
+          "field": "fantasy_points",
+          "type": "quantitative",
+          "title": "Fantasy Points"
+        },
+        "color": {
+          "field": "is_selected",
+          "type": "nominal",
+          "title": "Selected Venue",
+          "legend": null
+        }
+      },
+      "transform": [
+        {
+          "lookup": "venue",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/venue_teams_view.csv"
+            },
+            "key": "venue",
+            "fields": [
+              "is_home"
+            ]
+          },
+          "as": "is_home"
+        }
+      ],
+      "components": [
+        {
+          "name": "outlier_player_list",
+          "title": "Outlier Players",
+          "description": "Click on an outlier point to view player match performance timeline",
+          "mark": "circle",
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "y",
+              "type": "quantitative"
+            },
+            "size": {
+              "value": 50
+            },
+            "color": {
+              "value": "red"
+            }
+          }
+        }
+      ],
+      "interactions": [
+        {
+          "object": "boxplot outliers",
+          "verb": "click",
+          "effect": {
+            "description": "Shows outlier player match performance timeline in View 4",
+            "params": [
+              {
+                "name": "player_selection",
+                "select": {
+                  "type": "point",
+                  "encodings": [
+                    "y"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "description": "View 4",
+      "data": {
+        "url": "http://localhost:8888/boundary_impact_view.csv"
+      },
+      "mark": "point",
+      "encoding": {
+        "x": {
+          "field": "total_fours",
+          "type": "quantitative",
+          "title": "Total Fours"
+        },
+        "y": {
+          "field": "total_sixes",
+          "type": "quantitative",
+          "title": "Total Sixes"
+        },
+        "size": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "title": "Match Count"
+        },
+        "color": {
+          "field": "venue",
+          "type": "nominal",
+          "title": "Venue"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "venue",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/venue_teams_view.csv"
+            },
+            "key": "venue",
+            "fields": [
+              "is_home"
+            ]
+          },
+          "as": "is_home"
+        },
+        {
+          "filter": {
+            "param": "venue_selection"
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "venue_selection",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "y"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

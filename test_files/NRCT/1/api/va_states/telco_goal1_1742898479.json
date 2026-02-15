@@ -1,0 +1,2041 @@
+{
+  "id": "telco_goal1_1742898479",
+  "name": "Visual Analytics System telco_goal1_1742898479",
+  "created": 1742898487,
+  "dataset": {
+    "tables": [
+      {
+        "table": "Status_Analysis",
+        "columns": [
+          {
+            "name": "customer_id",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 7043,
+              "top": "9995-HOTOH",
+              "freq": 1,
+              "samples": [
+                "9995-HOTOH",
+                "0002-ORFBO",
+                "0003-MKNFE",
+                "9938-PRCVK",
+                "9938-TKDGL"
+              ]
+            },
+            "column": "customer_id",
+            "description": "Unique identifier for each customer in the dataset."
+          },
+          {
+            "name": "satisfaction_score",
+            "dtype": "INTEGER",
+            "stats": {
+              "count": 7043.0,
+              "mean": 3.2449240380519666,
+              "std": 1.2016571225409585,
+              "min": 1.0,
+              "25%": 3.0,
+              "50%": 3.0,
+              "75%": 4.0,
+              "max": 5.0,
+              "samples": [
+                3,
+                4,
+                5,
+                1,
+                2
+              ]
+            },
+            "column": "satisfaction_score",
+            "description": "Customer satisfaction score, ranging from 1 (very unsatisfied) to 5 (very satisfied)."
+          },
+          {
+            "name": "cltv",
+            "dtype": "INTEGER",
+            "stats": {
+              "count": 7043.0,
+              "mean": 4400.295754650007,
+              "std": 1183.05715195252,
+              "min": 2003.0,
+              "25%": 3469.0,
+              "50%": 4527.0,
+              "75%": 5380.5,
+              "max": 6500.0,
+              "samples": [
+                5546,
+                2269,
+                4741,
+                5915,
+                4745
+              ]
+            },
+            "column": "cltv",
+            "description": "Customer Lifetime Value index, indicating the financial value the customer brings."
+          },
+          {
+            "name": "customer_status",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 3,
+              "top": "Stayed",
+              "freq": 4720,
+              "samples": [
+                "Stayed",
+                "Churned",
+                "Joined"
+              ]
+            },
+            "column": "customer_status",
+            "description": "Indicates whether the customer has 'Stayed', 'Churned', or 'Joined' the service."
+          },
+          {
+            "name": "churn_score",
+            "dtype": "INTEGER",
+            "stats": {
+              "count": 7043.0,
+              "mean": 58.505040465710636,
+              "std": 21.170030779815324,
+              "min": 5.0,
+              "25%": 40.0,
+              "50%": 61.0,
+              "75%": 75.5,
+              "max": 96.0,
+              "samples": [
+                91,
+                80,
+                71,
+                77,
+                67
+              ]
+            },
+            "column": "churn_score",
+            "description": "A score (0-100) representing how likely a customer is to churn, the higher the score, the higher the likelihood."
+          },
+          {
+            "name": "churn_label",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "No",
+              "freq": 5174,
+              "samples": [
+                "No",
+                "Yes"
+              ]
+            },
+            "column": "churn_label",
+            "description": "Binary churn indicator: 'Yes' if the customer churned, 'No' otherwise."
+          },
+          {
+            "name": "churn_value",
+            "dtype": "INTEGER",
+            "stats": {
+              "count": 7043.0,
+              "mean": 0.2653698707936959,
+              "std": 0.441561305121947,
+              "min": 0.0,
+              "25%": 0.0,
+              "50%": 0.0,
+              "75%": 1.0,
+              "max": 1.0,
+              "samples": [
+                0,
+                1
+              ]
+            },
+            "column": "churn_value",
+            "description": "Numerical representation of churn: 1 for churned customers, 0 otherwise."
+          },
+          {
+            "name": "churn_category",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 6,
+              "top": "Not Applicable",
+              "freq": 5174,
+              "samples": [
+                "Not Applicable",
+                "Competitor",
+                "Attitude",
+                "Dissatisfaction",
+                "Price"
+              ]
+            },
+            "column": "churn_category",
+            "description": "Categorical variable identifying the reason for churn or 'Not Applicable' for non-churned customers."
+          },
+          {
+            "name": "churn_reason",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 1869,
+              "unique": 20,
+              "top": "Competitor had better devices",
+              "freq": 313,
+              "samples": [
+                "Competitor had better devices",
+                "Competitor made better offer",
+                "Attitude of support person",
+                "Don't know",
+                "Competitor offered more data"
+              ]
+            },
+            "column": "churn_reason",
+            "description": "Detailed reason for churn for churned customers. Null for non-churned individuals."
+          }
+        ]
+      },
+      {
+        "table": "Service_Options",
+        "columns": [
+          {
+            "name": "customer_id",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 7043,
+              "top": "9995-HOTOH",
+              "freq": 1,
+              "samples": [
+                "9995-HOTOH",
+                "0002-ORFBO",
+                "0003-MKNFE",
+                "9938-PRCVK",
+                "9938-TKDGL"
+              ]
+            },
+            "column": "customer_id",
+            "description": "Unique identifier for each customer in the dataset."
+          },
+          {
+            "name": "tenure",
+            "dtype": "INTEGER",
+            "stats": {
+              "count": 7043.0,
+              "mean": 32.37114865824223,
+              "std": 24.55948102309446,
+              "min": 0.0,
+              "25%": 9.0,
+              "50%": 29.0,
+              "75%": 55.0,
+              "max": 72.0,
+              "samples": [
+                1,
+                72,
+                2,
+                3,
+                4
+              ]
+            },
+            "column": "tenure",
+            "description": "Number of months the customer has been with the company."
+          },
+          {
+            "name": "internet_service",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "Yes",
+              "freq": 5517,
+              "samples": [
+                "Yes",
+                "No"
+              ]
+            },
+            "column": "internet_service",
+            "description": "Indicates whether the customer has an internet service ('Yes' or 'No')."
+          },
+          {
+            "name": "phone_service",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "Yes",
+              "freq": 6361,
+              "samples": [
+                "Yes",
+                "No"
+              ]
+            },
+            "column": "phone_service",
+            "description": "Indicates whether the customer has a phone service ('Yes' or 'No')."
+          },
+          {
+            "name": "multiple_lines",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "No",
+              "freq": 4072,
+              "samples": [
+                "No",
+                "Yes"
+              ]
+            },
+            "column": "multiple_lines",
+            "description": "Indicates whether the customer has multiple phone lines ('Yes' or 'No')."
+          },
+          {
+            "name": "avg_monthly_gb_download",
+            "dtype": "INTEGER",
+            "stats": {
+              "count": 7043.0,
+              "mean": 20.515405367031093,
+              "std": 20.418940392245453,
+              "min": 0.0,
+              "25%": 3.0,
+              "50%": 17.0,
+              "75%": 27.0,
+              "max": 85.0,
+              "samples": [
+                0,
+                19,
+                27,
+                30,
+                59
+              ]
+            },
+            "column": "avg_monthly_gb_download",
+            "description": "Average amount of monthly data downloaded by the customer in GB."
+          },
+          {
+            "name": "unlimited_data",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "Yes",
+              "freq": 4745,
+              "samples": [
+                "Yes",
+                "No"
+              ]
+            },
+            "column": "unlimited_data",
+            "description": "Indicates whether the customer has unlimited data ('Yes' or 'No')."
+          },
+          {
+            "name": "offer",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 3166,
+              "unique": 5,
+              "top": "Offer B",
+              "freq": 824,
+              "samples": [
+                "Offer B",
+                "Offer E",
+                "Offer D",
+                "Offer A",
+                "Offer C"
+              ]
+            },
+            "column": "offer",
+            "description": "Promotional offer availed by the customer, if any."
+          },
+          {
+            "name": "referred_a_friend",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "No",
+              "freq": 3821,
+              "samples": [
+                "No",
+                "Yes"
+              ]
+            },
+            "column": "referred_a_friend",
+            "description": "Indicates whether the customer referred a friend ('Yes' or 'No')."
+          },
+          {
+            "name": "number_of_referrals",
+            "dtype": "INTEGER",
+            "stats": {
+              "count": 7043.0,
+              "mean": 1.9518671020871787,
+              "std": 3.0011992998901,
+              "min": 0.0,
+              "25%": 0.0,
+              "50%": 0.0,
+              "75%": 3.0,
+              "max": 11.0,
+              "samples": [
+                0,
+                1,
+                5,
+                3,
+                7
+              ]
+            },
+            "column": "number_of_referrals",
+            "description": "Number of friends referred by the customer."
+          }
+        ]
+      },
+      {
+        "table": "Online_Services",
+        "columns": [
+          {
+            "name": "customer_id",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 7043,
+              "top": "9995-HOTOH",
+              "freq": 1,
+              "samples": [
+                "9995-HOTOH",
+                "0002-ORFBO",
+                "0003-MKNFE",
+                "9938-PRCVK",
+                "9938-TKDGL"
+              ]
+            },
+            "column": "customer_id",
+            "description": "Unique identifier for each customer in the dataset."
+          },
+          {
+            "name": "phone_service",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "Yes",
+              "freq": 6361,
+              "samples": [
+                "Yes",
+                "No"
+              ]
+            },
+            "column": "phone_service",
+            "description": "Indicates whether the customer has a phone service ('Yes' or 'No')."
+          },
+          {
+            "name": "internet_service",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "Yes",
+              "freq": 5517,
+              "samples": [
+                "Yes",
+                "No"
+              ]
+            },
+            "column": "internet_service",
+            "description": "Indicates whether the customer has an internet service ('Yes' or 'No')."
+          },
+          {
+            "name": "online_security",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "No",
+              "freq": 5024,
+              "samples": [
+                "No",
+                "Yes"
+              ]
+            },
+            "column": "online_security",
+            "description": "Indicates whether the customer subscribed to an online security service ('Yes' or 'No')."
+          },
+          {
+            "name": "online_backup",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "No",
+              "freq": 4614,
+              "samples": [
+                "No",
+                "Yes"
+              ]
+            },
+            "column": "online_backup",
+            "description": "Indicates whether the customer subscribed to an online backup service ('Yes' or 'No')."
+          },
+          {
+            "name": "device_protection",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "No",
+              "freq": 4621,
+              "samples": [
+                "No",
+                "Yes"
+              ]
+            },
+            "column": "device_protection",
+            "description": "Indicates whether the customer subscribed to a device protection plan ('Yes' or 'No')."
+          },
+          {
+            "name": "premium_tech_support",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "No",
+              "freq": 4999,
+              "samples": [
+                "No",
+                "Yes"
+              ]
+            },
+            "column": "premium_tech_support",
+            "description": "Indicates whether the customer subscribed to premium technical support ('Yes' or 'No')."
+          },
+          {
+            "name": "streaming_tv",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "No",
+              "freq": 4336,
+              "samples": [
+                "No",
+                "Yes"
+              ]
+            },
+            "column": "streaming_tv",
+            "description": "Indicates whether the customer subscribed to streaming TV services ('Yes' or 'No')."
+          },
+          {
+            "name": "streaming_movies",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "No",
+              "freq": 4311,
+              "samples": [
+                "No",
+                "Yes"
+              ]
+            },
+            "column": "streaming_movies",
+            "description": "Indicates whether the customer subscribed to streaming movie services ('Yes' or 'No')."
+          },
+          {
+            "name": "streaming_music",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "No",
+              "freq": 4555,
+              "samples": [
+                "No",
+                "Yes"
+              ]
+            },
+            "column": "streaming_music",
+            "description": "Indicates whether the customer subscribed to streaming music services ('Yes' or 'No')."
+          },
+          {
+            "name": "internet_type",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 5517,
+              "unique": 3,
+              "top": "Fiber Optic",
+              "freq": 3035,
+              "samples": [
+                "Fiber Optic",
+                "DSL",
+                "Cable"
+              ]
+            },
+            "column": "internet_type",
+            "description": "Indicates the type of internet service (e.g., Fiber Optic, DSL, Cable) for customers with internet services."
+          }
+        ]
+      },
+      {
+        "table": "Payment_Info",
+        "columns": [
+          {
+            "name": "customer_id",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 7043,
+              "top": "9995-HOTOH",
+              "freq": 1,
+              "samples": [
+                "9995-HOTOH",
+                "0002-ORFBO",
+                "0003-MKNFE",
+                "9938-PRCVK",
+                "9938-TKDGL"
+              ]
+            },
+            "column": "customer_id",
+            "description": "Unique identifier for each customer in the dataset."
+          },
+          {
+            "name": "contract",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 3,
+              "top": "Month-to-Month",
+              "freq": 3610,
+              "samples": [
+                "Month-to-Month",
+                "Two Year",
+                "One Year"
+              ]
+            },
+            "column": "contract",
+            "description": "Type of contract the customer has (e.g., Month-to-Month, One Year, Two Year)."
+          },
+          {
+            "name": "paperless_billing",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "Yes",
+              "freq": 4171,
+              "samples": [
+                "Yes",
+                "No"
+              ]
+            },
+            "column": "paperless_billing",
+            "description": "Indicates whether the customer opted for paperless billing ('Yes' or 'No')."
+          },
+          {
+            "name": "payment_method",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 4,
+              "top": "Electronic check",
+              "freq": 2365,
+              "samples": [
+                "Electronic check",
+                "Mailed check",
+                "Bank transfer (automatic)",
+                "Credit card (automatic)"
+              ]
+            },
+            "column": "payment_method",
+            "description": "Preferred payment method of the customer (e.g., Electronic check, Mailed check)."
+          },
+          {
+            "name": "monthly_charges",
+            "dtype": "REAL",
+            "stats": {
+              "count": 7043.0,
+              "mean": 64.76169246059918,
+              "std": 30.090047097678493,
+              "min": 18.25,
+              "25%": 35.5,
+              "50%": 70.35,
+              "75%": 89.85,
+              "max": 118.75,
+              "samples": [
+                20.05,
+                19.85,
+                19.9,
+                19.95,
+                19.65
+              ]
+            },
+            "column": "monthly_charges",
+            "description": "Amount charged to the customer monthly."
+          },
+          {
+            "name": "avg_monthly_long_distance_charges",
+            "dtype": "REAL",
+            "stats": {
+              "count": 7043.0,
+              "mean": 22.958953570921484,
+              "std": 15.448113345456905,
+              "min": 0.0,
+              "25%": 9.21,
+              "50%": 22.89,
+              "75%": 36.394999999999996,
+              "max": 49.99,
+              "samples": [
+                0.0,
+                18.26,
+                34.49,
+                18.74,
+                49.51
+              ]
+            },
+            "column": "avg_monthly_long_distance_charges",
+            "description": "Average monthly charges incurred for long-distance calls."
+          },
+          {
+            "name": "total_charges",
+            "dtype": "REAL",
+            "stats": {
+              "count": 7043.0,
+              "mean": 2280.3812636660514,
+              "std": 2266.2204619194617,
+              "min": 18.8,
+              "25%": 400.15,
+              "50%": 1394.55,
+              "75%": 3786.6,
+              "max": 8684.8,
+              "samples": [
+                20.2,
+                19.75,
+                19.9,
+                19.65,
+                20.05
+              ]
+            },
+            "column": "total_charges",
+            "description": "Total charges incurred by the customer over their tenure."
+          },
+          {
+            "name": "total_refunds",
+            "dtype": "REAL",
+            "stats": {
+              "count": 7043.0,
+              "mean": 1.9621823086752803,
+              "std": 7.902614384451006,
+              "min": 0.0,
+              "25%": 0.0,
+              "50%": 0.0,
+              "75%": 0.0,
+              "max": 49.79,
+              "samples": [
+                0.0,
+                20.45,
+                12.48,
+                29.76,
+                46.06
+              ]
+            },
+            "column": "total_refunds",
+            "description": "Total amount refunded to the customer."
+          },
+          {
+            "name": "total_extra_data_charges",
+            "dtype": "INTEGER",
+            "stats": {
+              "count": 7043.0,
+              "mean": 6.860712764446968,
+              "std": 25.1049779997244,
+              "min": 0.0,
+              "25%": 0.0,
+              "50%": 0.0,
+              "75%": 0.0,
+              "max": 150.0,
+              "samples": [
+                0,
+                10,
+                40,
+                30,
+                20
+              ]
+            },
+            "column": "total_extra_data_charges",
+            "description": "Additional charges incurred for exceeding data limits."
+          },
+          {
+            "name": "total_long_distance_charges",
+            "dtype": "REAL",
+            "stats": {
+              "count": 7043.0,
+              "mean": 749.099261678262,
+              "std": 846.660054798712,
+              "min": 0.0,
+              "25%": 70.545,
+              "50%": 401.44,
+              "75%": 1191.1,
+              "max": 3564.72,
+              "samples": [
+                0.0,
+                48.96,
+                22.86,
+                15.6,
+                808.08
+              ]
+            },
+            "column": "total_long_distance_charges",
+            "description": "Total charges incurred for long-distance calls."
+          },
+          {
+            "name": "total_revenue",
+            "dtype": "REAL",
+            "stats": {
+              "count": 7043.0,
+              "mean": 3034.3790558000856,
+              "std": 2865.2045415115304,
+              "min": 21.36,
+              "25%": 605.61,
+              "50%": 2108.64,
+              "75%": 4801.145,
+              "max": 11979.34,
+              "samples": [
+                66.56,
+                68.41,
+                24.8,
+                116.27,
+                90.55
+              ]
+            },
+            "column": "total_revenue",
+            "description": "Overall revenue generated from the customer."
+          }
+        ]
+      },
+      {
+        "table": "Location_Data",
+        "columns": [
+          {
+            "name": "customer_id",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 7043,
+              "top": "9995-HOTOH",
+              "freq": 1,
+              "samples": [
+                "9995-HOTOH",
+                "0002-ORFBO",
+                "0003-MKNFE",
+                "9938-PRCVK",
+                "9938-TKDGL"
+              ]
+            },
+            "column": "customer_id",
+            "description": "Unique identifier for each customer in the dataset."
+          },
+          {
+            "name": "country",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 1,
+              "top": "United States",
+              "freq": 7043,
+              "samples": [
+                "United States"
+              ]
+            },
+            "column": "country",
+            "description": "Country of residence for the customer."
+          },
+          {
+            "name": "state",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 1,
+              "top": "California",
+              "freq": 7043,
+              "samples": [
+                "California"
+              ]
+            },
+            "column": "state",
+            "description": "State of residence for the customer."
+          },
+          {
+            "name": "city",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 1106,
+              "top": "Los Angeles",
+              "freq": 293,
+              "samples": [
+                "Los Angeles",
+                "San Diego",
+                "San Jose",
+                "Sacramento",
+                "San Francisco"
+              ]
+            },
+            "column": "city",
+            "description": "City of residence for the customer."
+          },
+          {
+            "name": "zip_code",
+            "dtype": "INTEGER",
+            "stats": {
+              "count": 7043.0,
+              "mean": 93486.07113445975,
+              "std": 1856.7680449528348,
+              "min": 90001.0,
+              "25%": 92101.0,
+              "50%": 93518.0,
+              "75%": 95329.0,
+              "max": 96150.0,
+              "samples": [
+                92028,
+                92027,
+                92122,
+                92117,
+                92126
+              ]
+            },
+            "column": "zip_code",
+            "description": "ZIP code of the customer's address."
+          },
+          {
+            "name": "total_population",
+            "dtype": "INTEGER",
+            "stats": {
+              "count": 7043.0,
+              "mean": 22139.814567655827,
+              "std": 21152.174406626564,
+              "min": 11.0,
+              "25%": 2344.0,
+              "50%": 17554.0,
+              "75%": 36125.0,
+              "max": 105285.0,
+              "samples": [
+                42239,
+                48690,
+                34902,
+                51213,
+                74232
+              ]
+            },
+            "column": "total_population",
+            "description": "Population of the customer's residential area."
+          },
+          {
+            "name": "latitude",
+            "dtype": "REAL",
+            "stats": {
+              "count": 7043.0,
+              "mean": 36.19745482180888,
+              "std": 2.468928681585293,
+              "min": 32.555828,
+              "25%": 33.990646,
+              "50%": 36.205465,
+              "75%": 38.161321,
+              "max": 41.962127,
+              "samples": [
+                33.362575,
+                33.141265,
+                32.85723,
+                32.825086,
+                32.886925
+              ]
+            },
+            "column": "latitude",
+            "description": "Geographical latitude of the customer's address."
+          },
+          {
+            "name": "longitude",
+            "dtype": "REAL",
+            "stats": {
+              "count": 7043.0,
+              "mean": -119.75668367414455,
+              "std": 2.154425092169477,
+              "min": -124.301372,
+              "25%": -121.78809,
+              "50%": -119.595293,
+              "75%": -117.969795,
+              "max": -114.192901,
+              "samples": [
+                -117.299644,
+                -116.967221,
+                -117.209774,
+                -117.199424,
+                -117.152162
+              ]
+            },
+            "column": "longitude",
+            "description": "Geographical longitude of the customer's address."
+          }
+        ]
+      },
+      {
+        "table": "Customer_Info",
+        "columns": [
+          {
+            "name": "customer_id",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 7043,
+              "top": "9995-HOTOH",
+              "freq": 1,
+              "samples": [
+                "9995-HOTOH",
+                "0002-ORFBO",
+                "0003-MKNFE",
+                "9938-PRCVK",
+                "9938-TKDGL"
+              ]
+            },
+            "column": "customer_id",
+            "description": "Unique identifier for each customer in the dataset."
+          },
+          {
+            "name": "gender",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "Male",
+              "freq": 3555,
+              "samples": [
+                "Male",
+                "Female"
+              ]
+            },
+            "column": "gender",
+            "description": "Gender of the customer ('Male' or 'Female')."
+          },
+          {
+            "name": "age",
+            "dtype": "INTEGER",
+            "stats": {
+              "count": 7043.0,
+              "mean": 46.50972596904728,
+              "std": 16.750351655102634,
+              "min": 19.0,
+              "25%": 32.0,
+              "50%": 46.0,
+              "75%": 60.0,
+              "max": 80.0,
+              "samples": [
+                42,
+                47,
+                40,
+                44,
+                23
+              ]
+            },
+            "column": "age",
+            "description": "Age of the customer in years."
+          },
+          {
+            "name": "under_30",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "No",
+              "freq": 5642,
+              "samples": [
+                "No",
+                "Yes"
+              ]
+            },
+            "column": "under_30",
+            "description": "Indicates whether the customer is under 30 years old ('Yes' or 'No')."
+          },
+          {
+            "name": "senior_citizen",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "No",
+              "freq": 5901,
+              "samples": [
+                "No",
+                "Yes"
+              ]
+            },
+            "column": "senior_citizen",
+            "description": "Indicates whether the customer is a senior citizen ('Yes' or 'No')."
+          },
+          {
+            "name": "partner",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "No",
+              "freq": 3641,
+              "samples": [
+                "No",
+                "Yes"
+              ]
+            },
+            "column": "partner",
+            "description": "Indicates whether the customer has a partner ('Yes' or 'No')."
+          },
+          {
+            "name": "dependents",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "No",
+              "freq": 5416,
+              "samples": [
+                "No",
+                "Yes"
+              ]
+            },
+            "column": "dependents",
+            "description": "Indicates whether the customer has dependents ('Yes' or 'No')."
+          },
+          {
+            "name": "number_of_dependents",
+            "dtype": "INTEGER",
+            "stats": {
+              "count": 7043.0,
+              "mean": 0.4686923186142269,
+              "std": 0.9628019509440209,
+              "min": 0.0,
+              "25%": 0.0,
+              "50%": 0.0,
+              "75%": 0.0,
+              "max": 9.0,
+              "samples": [
+                0,
+                1,
+                2,
+                3,
+                5
+              ]
+            },
+            "column": "number_of_dependents",
+            "description": "Number of dependents associated with the customer."
+          },
+          {
+            "name": "married",
+            "dtype": "TEXT",
+            "stats": {
+              "count": 7043,
+              "unique": 2,
+              "top": "No",
+              "freq": 3641,
+              "samples": [
+                "No",
+                "Yes"
+              ]
+            },
+            "column": "married",
+            "description": "Indicates whether the customer is married ('Yes' or 'No')."
+          }
+        ]
+      }
+    ],
+    "description": "The Telco customer churn dataset contains information about a fictional telco company that provided home phone and Internet services to 7043 customers in California in Q3. It indicates which customers have left, stayed, or signed up for their service. Multiple important demographics are included for each customer, as well as a Satisfaction Score, Churn Score, and Customer Lifetime Value (CLTV) index. It is designed to facilitate analysis of customer behavior and retention strategies."
+  },
+  "desc": "The Telco customer churn dataset contains information about a fictional telco company that provided home phone and Internet services to 7043 customers in California in Q3. It indicates which customers have left, stayed, or signed up for their service. Multiple important demographics are included for each customer, as well as a Satisfaction Score, Churn Score, and Customer Lifetime Value (CLTV) index. It is designed to facilitate analysis of customer behavior and retention strategies.",
+  "goal": "Analyze the impact of different customer demographic factors (e.g., age, gender, income) on churn to identify which factors are most strongly associated with customer churn, helping the company understand the underlying reasons for churn.",
+  "requirements": {
+    "data": [
+      {
+        "id": "D1",
+        "requirement": "Extract demographic features from the Customer_Info table, including 'age', 'gender', 'senior_citizen', 'under_30', 'partner', 'number_of_dependents', and 'married'.",
+        "reason": "These are the primary demographic factors mentioned in the analysis goal and will be critical for correlation analysis with churn."
+      },
+      {
+        "id": "D2",
+        "requirement": "Integrate churn-related fields from the Status_Analysis table, including 'churn_label', 'churn_value', 'churn_score', and 'churn_category'.",
+        "reason": "These fields provide information on churn behavior, which needs to be compared against demographic features to identify associations."
+      },
+      {
+        "id": "D3",
+        "requirement": "Aggregate churn-specific metrics by demographic categories, such as average churn score by age group, churn counts by gender, and churn categories by number of dependents.",
+        "reason": "Aggregations across demographic categories provide a macro-level view of patterns and highlight significant group-level characteristics."
+      },
+      {
+        "id": "D4",
+        "requirement": "Ensure micro-level details are accessible, such as the churn reason for individual customers or the exact churn score for a subset of demographics filtered by specific attributes.",
+        "reason": "Detail-level views allow deeper exploration of outliers, anomalies, and specific customer cases within the broader trends."
+      },
+      {
+        "id": "D5",
+        "requirement": "Derive additional features, such as age bins (e.g., 'Under 30', '30-50', 'Over 50') or 'married or partner' combined status for enhanced categorical analysis.",
+        "reason": "Derived features provide higher-order abstractions to simplify comparisons and improve visual clarity in analysis."
+      }
+    ],
+    "visualization": [
+      {
+        "id": "V1",
+        "requirement": "Use bar charts to compare churn counts across demographic categories, such as gender, age bins, or senior citizen status.",
+        "reason": "Bar charts are effective for comparing frequencies across categorical data and visualizing patterns in demographic groups."
+      },
+      {
+        "id": "V2",
+        "requirement": "Employ scatter plots for analyzing the relationship between customer age (numerical) and churn score (numerical).",
+        "reason": "Scatter plots are ideal for visualizing correlations between two numerical dimensions, highlighting trends or clusters."
+      },
+      {
+        "id": "V3",
+        "requirement": "Create a heat map to show churn score distributions across combined demographics, such as gender vs. marital status or partner status vs. churn category.",
+        "reason": "Heat maps enable exploration of multi-dimensional relationships and highlight areas of high or low churn activity."
+      },
+      {
+        "id": "V4",
+        "requirement": "Utilize a pie chart to depict the proportional distribution of churn labels ('Yes' vs. 'No').",
+        "reason": "Pie charts are suitable for showing composition, such as the overall churn rate in the dataset."
+      },
+      {
+        "id": "V5",
+        "requirement": "Use box plots to visualize the churn score distribution by demographic categories (e.g., gender or senior citizen status).",
+        "reason": "Box plots are effective for visualizing the spread, median, and outliers in churn-related metrics across groups."
+      }
+    ],
+    "interaction": [
+      {
+        "id": "I1",
+        "requirement": "Allow users to filter charts by demographic attributes, such as selecting only senior citizens or filtering by marital status.",
+        "reason": "Filtering enables focused analysis by isolating subgroups to study specific behaviors and trends."
+      },
+      {
+        "id": "I2",
+        "requirement": "Enable drill-down interactions, allowing users to click on a bar in a bar chart or heat map to inspect individual customers or detailed churn reasons.",
+        "reason": "Drill-downs connect macro-level aggregations with micro-level customer details to provide context and specific examples."
+      },
+      {
+        "id": "I3",
+        "requirement": "Allow sorting of bar charts or scatter plots by metrics (e.g., churn score, age, or churn count).",
+        "reason": "Sorting helps identify extreme values, rank attributes, and reveal prominent patterns in the data."
+      },
+      {
+        "id": "I4",
+        "requirement": "Introduce hover tooltips to display additional details, such as exact churn scores, churn reasons, or age distributions for any selected data point.",
+        "reason": "Hover tooltips augment visualizations by providing immediate access to supplementary details without cluttering the display."
+      },
+      {
+        "id": "I5",
+        "requirement": "Enable users to toggle between absolute and relative metrics, e.g., absolute churn counts vs. percentage churn by demographic groups.",
+        "reason": "Toggling enhances interpretability, ensuring flexibility to view both raw numbers and normalized values for deeper insights."
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "id": 1,
+      "type": "retrieving values",
+      "data": [
+        "Customer_Info.age",
+        "Customer_Info.gender",
+        "Customer_Info.senior_citizen",
+        "Customer_Info.under_30",
+        "Customer_Info.partner",
+        "Customer_Info.number_of_dependents",
+        "Customer_Info.married"
+      ],
+      "method": "Extract demographic features as specified and display their value distributions to verify data integrity. Use a bar chart to visualize the frequency of categorical variables like 'gender', 'married', and 'senior_citizen'.",
+      "objective": "Ensure demographic features are available and their initial distributions are clear to enable further analysis.",
+      "corrReq": [
+        "D1",
+        "V1"
+      ],
+      "priority": 5
+    },
+    {
+      "id": 2,
+      "type": "finding extrema",
+      "data": [
+        "Status_Analysis.churn_score",
+        "Customer_Info.age"
+      ],
+      "method": "Visualize churn score vs. age using a scatter plot to find trends or outliers. Encode age on the x-axis, churn score on the y-axis, and use color to represent senior citizen status.",
+      "objective": "Identify relationships or anomalies between age and churn score, and explore correlation trends.",
+      "corrReq": [
+        "D1",
+        "D2",
+        "V2"
+      ],
+      "priority": 4
+    },
+    {
+      "id": 3,
+      "type": "characterizing distributions",
+      "data": [
+        "Status_Analysis.churn_score",
+        "Customer_Info.gender",
+        "Customer_Info.senior_citizen"
+      ],
+      "method": "Use box plots to depict the distribution of churn scores across gender and senior citizen categories, with separate plots for each demographic group.",
+      "objective": "Understand how churn score varies across gender and senior citizen groups, identifying spreads and outliers per category.",
+      "corrReq": [
+        "D1",
+        "D2",
+        "V5"
+      ],
+      "priority": 4
+    },
+    {
+      "id": 4,
+      "type": "clustering",
+      "data": [
+        "Customer_Info.age",
+        "Status_Analysis.churn_score",
+        "Status_Analysis.churn_category"
+      ],
+      "method": "Use a heat map where age bins are on the y-axis and churn categories are on the x-axis. Color intensity represents the average churn score in each demographic combination.",
+      "objective": "Examine multi-dimensional correlations between age, churn categories, and associated churn scores.",
+      "corrReq": [
+        "D3",
+        "D5",
+        "V3"
+      ],
+      "priority": 5
+    },
+    {
+      "id": 5,
+      "type": "retrieving values",
+      "data": [
+        "Status_Analysis.churn_label"
+      ],
+      "method": "Create a pie chart showing the proportion of customers who churned ('Yes') vs. those who stayed ('No'). Include hover tooltips for exact percentages and numbers.",
+      "objective": "Establish an overview of churn proportions within the dataset.",
+      "corrReq": [
+        "D2",
+        "V4",
+        "I4"
+      ],
+      "priority": 3
+    },
+    {
+      "id": 6,
+      "type": "aggregating",
+      "data": [
+        "Status_Analysis.churn_score",
+        "Customer_Info.married",
+        "Customer_Info.partner"
+      ],
+      "method": "Combine 'married' and 'partner' columns to derive a new 'married or partner' status. Visualize average churn score for individuals in each category using a bar chart.",
+      "objective": "Assess how relational demographics impact customer churn likelihood.",
+      "corrReq": [
+        "D5",
+        "V1"
+      ],
+      "priority": 4
+    },
+    {
+      "id": 7,
+      "type": "filtering",
+      "data": [
+        "Customer_Info.age",
+        "Status_Analysis.churn_reason"
+      ],
+      "method": "Implement an interactive filter to isolate customers by demographic features (e.g., senior citizens or under 30) and visualize churn reasons using a bar chart.",
+      "objective": "Facilitate targeted exploration of churn behaviors for specific demographic groups.",
+      "corrReq": [
+        "D4",
+        "I1",
+        "V1"
+      ],
+      "priority": 3
+    },
+    {
+      "id": 8,
+      "type": "computing derived values",
+      "data": [
+        "Customer_Info.age"
+      ],
+      "method": "Create age bins (e.g., 'Under 30', '30-50', 'Over 50') and compute average churn scores for each group. Visualize results with a bar chart where bins are on the x-axis and scores on the y-axis.",
+      "objective": "Simplify the analysis of age impact on churn by using derived bins for clearer comparisons.",
+      "corrReq": [
+        "D3",
+        "D5",
+        "V1"
+      ],
+      "priority": 4
+    },
+    {
+      "id": 9,
+      "type": "determining ranges",
+      "data": [
+        "Status_Analysis.churn_score",
+        "Customer_Info.number_of_dependents"
+      ],
+      "method": "Use box plots to analyze the distribution of churn scores across different ranges of dependents (e.g., 0, 1-2, 3+ dependents).",
+      "objective": "Understand how the presence and number of dependents correlate with churn likelihood.",
+      "corrReq": [
+        "D1",
+        "D3",
+        "V5"
+      ],
+      "priority": 4
+    },
+    {
+      "id": 10,
+      "type": "correlating",
+      "data": [
+        "Customer_Info.gender",
+        "Customer_Info.age",
+        "Status_Analysis.churn_value"
+      ],
+      "method": "Use a stacked bar chart to show the proportion of churned vs. non-churned customers within each gender and age bin, with hover tooltips showing exact values and percentages.",
+      "objective": "Explore how churn likelihood varies across combined gender and age groups.",
+      "corrReq": [
+        "D1",
+        "D2",
+        "I4"
+      ],
+      "priority": 4
+    }
+  ],
+  "plan": {
+    "views": [
+      {
+        "id": 1,
+        "level": "overview",
+        "fields": [
+          "Customer_Info.age",
+          "Customer_Info.gender",
+          "Customer_Info.senior_citizen",
+          "Customer_Info.under_30",
+          "Customer_Info.partner",
+          "Customer_Info.number_of_dependents",
+          "Customer_Info.married"
+        ],
+        "task": [
+          1,
+          5
+        ],
+        "visualization": {
+          "markType": "bar",
+          "encodings": [
+            "x: categorical demographics (e.g., gender, senior_citizen, married)",
+            "y: frequency",
+            "color: demographic categories (optional for clarity)"
+          ],
+          "description": "A set of bar charts representing the frequency distribution for demographic variables such as gender, senior citizens, and married status."
+        },
+        "usingParams": [],
+        "interactions": [
+          {
+            "object": "bar visualization in View 1",
+            "verb": "click",
+            "effect": {
+              "description": "Clicking a demographic category filters data for relevant entities in subsequent views.",
+              "params": [
+                {
+                  "name": "filterDemographics",
+                  "select": {
+                    "type": "point",
+                    "encodings": [
+                      "x"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "level": "exploration",
+        "fields": [
+          "Status_Analysis.churn_score",
+          "Customer_Info.age"
+        ],
+        "task": [
+          2
+        ],
+        "visualization": {
+          "markType": "circle",
+          "encodings": [
+            "x: age",
+            "y: churn score",
+            "color: senior citizen status"
+          ],
+          "description": "A scatter plot showing the relationship between churn score and age, with colors representing senior citizen status."
+        },
+        "usingParams": [
+          "filterDemographics"
+        ],
+        "interactions": [
+          {
+            "object": "scatter plot in View 2",
+            "verb": "drag",
+            "effect": {
+              "description": "Dragging an interval selects a range of age or churn score values to filter data.",
+              "params": [
+                {
+                  "name": "filterByScatter",
+                  "select": {
+                    "type": "interval",
+                    "encodings": [
+                      "x",
+                      "y"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "level": "exploration",
+        "fields": [
+          "Customer_Info.age",
+          "Status_Analysis.churn_category",
+          "Status_Analysis.churn_score"
+        ],
+        "task": [
+          4
+        ],
+        "visualization": {
+          "markType": "rect",
+          "encodings": [
+            "x: churn categories",
+            "y: age bins",
+            "color: average churn score (color intensity)"
+          ],
+          "description": "A heatmap capturing the intersection of age bins and churn categories with color intensity representing average churn scores."
+        },
+        "usingParams": [
+          "filterDemographics"
+        ],
+        "interactions": []
+      },
+      {
+        "id": 4,
+        "level": "detail",
+        "fields": [
+          "Status_Analysis.churn_score",
+          "Customer_Info.number_of_dependents"
+        ],
+        "task": [
+          9
+        ],
+        "visualization": {
+          "markType": "box plot",
+          "encodings": [
+            "x: number of dependent ranges",
+            "y: churn score"
+          ],
+          "description": "Box plots to analyze churn score distributions based on ranges of dependents (e.g., 0, 1-2, 3+)."
+        },
+        "usingParams": [
+          "filterByScatter"
+        ],
+        "interactions": []
+      },
+      {
+        "id": 5,
+        "level": "insight",
+        "fields": [
+          "Customer_Info.gender",
+          "Customer_Info.age",
+          "Status_Analysis.churn_value"
+        ],
+        "task": [
+          10
+        ],
+        "visualization": {
+          "markType": "bar",
+          "encodings": [
+            "x: gender/age bins",
+            "y: proportion",
+            "color: churn value"
+          ],
+          "description": "A stacked bar chart showing the proportions of churned vs. non-churned customers by gender and age bins."
+        },
+        "usingParams": [
+          "filterByScatter"
+        ],
+        "interactions": [
+          {
+            "object": "stacked bar chart in View 5",
+            "verb": "hover",
+            "effect": {
+              "description": "Display detailed proportions and counts on hover.",
+              "params": []
+            }
+          }
+        ]
+      }
+    ],
+    "graph": [
+      {
+        "from": 1,
+        "to": 2
+      },
+      {
+        "from": 1,
+        "to": 3
+      },
+      {
+        "from": 2,
+        "to": 4
+      },
+      {
+        "from": 2,
+        "to": 5
+      }
+    ],
+    "path": "The user starts with View 1 at the [Overview] level to understand the overall distribution of demographic variables. By clicking on demographic categories, data filters are applied to subsequent views like Views 2 and 3. In View 2 at the [Exploration] level, the user explores the relationship between age and churn score using scatter plots and identifies specific patterns or anomalies. The user transitions to View 3, a heatmap at the [Exploration] level, for multi-dimensional analysis involving churn categories and age bins. Next, detailed correlations are examined in View 4, where the distribution of churn scores based on dependents is displayed with box plots, filtered through the selection made in View 2. Finally, insights are summarized in View 5, where the proportion of churned vs. non-churned customers is displayed using a stacked bar chart by gender and age bins."
+  },
+  "sqls": [
+    {
+      "id": 1,
+      "name": "getView1",
+      "SQL": "CREATE VIEW getView1 AS SELECT Customer_Info.age, Customer_Info.gender, Customer_Info.senior_citizen, Customer_Info.under_30, Customer_Info.partner, Customer_Info.number_of_dependents, Customer_Info.married FROM Customer_Info",
+      "corrView": "1",
+      "pk": "customer_id",
+      "fk": []
+    },
+    {
+      "id": 2,
+      "name": "getView2",
+      "SQL": "CREATE VIEW getView2 AS SELECT Status_Analysis.churn_score, Customer_Info.age, Customer_Info.senior_citizen FROM Status_Analysis JOIN Customer_Info ON Status_Analysis.customer_id = Customer_Info.customer_id",
+      "corrView": "2",
+      "pk": "customer_id",
+      "fk": [
+        {
+          "key": "customer_id",
+          "table": "getView1"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "getView3",
+      "SQL": "CREATE VIEW getView3 AS SELECT Status_Analysis.churn_category, Customer_Info.age FROM Status_Analysis JOIN Customer_Info ON Status_Analysis.customer_id = Customer_Info.customer_id",
+      "corrView": "3",
+      "pk": "customer_id",
+      "fk": [
+        {
+          "key": "customer_id",
+          "table": "getView1"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "getView4",
+      "SQL": "CREATE VIEW getView4 AS SELECT Status_Analysis.churn_score, Customer_Info.number_of_dependents FROM Status_Analysis JOIN Customer_Info ON Status_Analysis.customer_id = Customer_Info.customer_id",
+      "corrView": "4",
+      "pk": "customer_id",
+      "fk": [
+        {
+          "key": "customer_id",
+          "table": "getView1"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "getView5",
+      "SQL": "CREATE VIEW getView5 AS SELECT Customer_Info.gender, Customer_Info.age, Status_Analysis.churn_value FROM Customer_Info JOIN Status_Analysis ON Customer_Info.customer_id = Status_Analysis.customer_id",
+      "corrView": "5",
+      "pk": "customer_id",
+      "fk": [
+        {
+          "key": "customer_id",
+          "table": "getView1"
+        }
+      ]
+    }
+  ],
+  "vlcodes": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "columns": 2,
+    "concat": [
+      {
+        "height": 200,
+        "width": 200,
+        "data": {
+          "url": "http://localhost:8888/getView1.csv"
+        },
+        "description": "View 1: Overview of customer demographics",
+        "mark": "bar",
+        "encoding": {
+          "x": {
+            "field": "gender",
+            "type": "nominal",
+            "title": "Gender",
+            "axis": {
+              "labelAngle": 45
+            },
+            "sort": [
+              "Male",
+              "Female"
+            ]
+          },
+          "y": {
+            "aggregate": "count",
+            "type": "quantitative",
+            "title": "Count of Customers"
+          },
+          "color": {
+            "field": "gender",
+            "type": "nominal",
+            "title": "Gender",
+            "scale": {
+              "domain": [
+                "Male",
+                "Female"
+              ],
+              "range": [
+                "steelblue",
+                "coral"
+              ]
+            }
+          },
+          "tooltip": [
+            {
+              "field": "gender",
+              "type": "nominal"
+            },
+            {
+              "aggregate": "count",
+              "type": "quantitative"
+            }
+          ]
+        },
+        "params": [
+          {
+            "name": "filterDemographics",
+            "select": {
+              "type": "point",
+              "encodings": [
+                "x"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "height": 200,
+        "width": 200,
+        "description": "View 2: Relationship between churn score and age",
+        "data": {
+          "url": "http://localhost:8888/getView2.csv"
+        },
+        "mark": "circle",
+        "encoding": {
+          "x": {
+            "field": "age",
+            "type": "quantitative",
+            "title": "Age",
+            "scale": {
+              "zero": false,
+              "nice": true
+            }
+          },
+          "y": {
+            "field": "churn_score",
+            "type": "quantitative",
+            "title": "Churn Score",
+            "scale": {
+              "zero": false,
+              "nice": true
+            }
+          },
+          "color": {
+            "field": "senior_citizen",
+            "type": "nominal",
+            "title": "Senior Citizen Status",
+            "scale": {
+              "domain": [
+                "Yes",
+                "No"
+              ],
+              "range": [
+                "steelblue",
+                "coral"
+              ]
+            }
+          },
+          "tooltip": [
+            {
+              "field": "churn_score",
+              "type": "quantitative"
+            },
+            {
+              "field": "age",
+              "type": "quantitative"
+            },
+            {
+              "field": "senior_citizen",
+              "type": "nominal"
+            }
+          ]
+        },
+        "transform": [
+          {
+            "lookup": "customer_id",
+            "from": {
+              "data": {
+                "url": "http://localhost:8888/getView1.csv"
+              },
+              "key": "customer_id",
+              "fields": [
+                "gender"
+              ]
+            }
+          },
+          {
+            "filter": {
+              "param": "filterDemographics"
+            }
+          },
+          {
+            "sample": 150
+          }
+        ],
+        "params": [
+          {
+            "name": "filterByScatter",
+            "select": {
+              "type": "interval",
+              "encodings": [
+                "x",
+                "y"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "height": 200,
+        "width": 200,
+        "description": "View 3: Heatmap of churn categories by age bins",
+        "data": {
+          "url": "http://localhost:8888/getView3.csv"
+        },
+        "mark": "rect",
+        "encoding": {
+          "row": {
+            "bin": {
+              "maxbins": 10
+            },
+            "field": "age",
+            "type": "quantitative",
+            "title": "Age Bins"
+          },
+          "column": {
+            "field": "churn_category",
+            "type": "nominal",
+            "title": "Churn Category",
+            "axis": {
+              "titleAngle": -45
+            },
+            "sort": [
+              "Not Applicable",
+              "Competitor",
+              "Attitude",
+              "Dissatisfaction",
+              "Price"
+            ]
+          },
+          "color": {
+            "aggregate": "mean",
+            "field": "churn_score",
+            "type": "quantitative",
+            "title": "Average Churn Score",
+            "scale": {
+              "scheme": "viridis"
+            }
+          }
+        },
+        "transform": [
+          {
+            "lookup": "customer_id",
+            "from": {
+              "data": {
+                "url": "http://localhost:8888/getView1.csv"
+              },
+              "key": "customer_id",
+              "fields": [
+                "gender"
+              ]
+            }
+          },
+          {
+            "filter": {
+              "param": "filterDemographics"
+            }
+          }
+        ]
+      },
+      {
+        "height": 200,
+        "width": 200,
+        "description": "View 4: Box plot of churn score by dependent ranges",
+        "data": {
+          "url": "http://localhost:8888/getView4.csv"
+        },
+        "mark": "boxplot",
+        "encoding": {
+          "x": {
+            "bin": {
+              "maxbins": 5
+            },
+            "field": "number_of_dependents",
+            "type": "quantitative",
+            "title": "Number of Dependents"
+          },
+          "y": {
+            "field": "churn_score",
+            "type": "quantitative",
+            "title": "Churn Score",
+            "scale": {
+              "zero": false,
+              "nice": true
+            }
+          },
+          "color": {
+            "value": "steelblue"
+          }
+        },
+        "transform": [
+          {
+            "filter": {
+              "param": "filterByScatter"
+            }
+          }
+        ]
+      },
+      {
+        "description": "View 5: Stacked bar chart showing churn by gender and age bins",
+        "data": {
+          "url": "http://localhost:8888/getView5.csv"
+        },
+        "mark": "bar",
+        "encoding": {
+          "x": {
+            "bin": {
+              "maxbins": 15
+            },
+            "field": "age",
+            "type": "quantitative",
+            "title": "Age Bins",
+            "axis": {
+              "titleAngle": 45
+            }
+          },
+          "y": {
+            "aggregate": "count",
+            "type": "quantitative",
+            "title": "Count of Customers"
+          },
+          "column": {
+            "field": "gender",
+            "type": "nominal",
+            "title": "Gender",
+            "axis": {
+              "titleAngle": -45
+            },
+            "sort": [
+              "Male",
+              "Female"
+            ]
+          },
+          "color": {
+            "field": "churn_value",
+            "type": "nominal",
+            "title": "Churn Value",
+            "scale": {
+              "domain": [
+                0,
+                1
+              ],
+              "range": [
+                "#fff0d9",
+                "#f9e79f",
+                "#fee064",
+                "#fdae23",
+                "#f46d43",
+                "#d73027"
+              ]
+            }
+          },
+          "tooltip": [
+            {
+              "field": "gender",
+              "type": "nominal"
+            },
+            {
+              "field": "age",
+              "type": "quantitative"
+            },
+            {
+              "aggregate": "count",
+              "type": "quantitative"
+            },
+            {
+              "field": "churn_value",
+              "type": "nominal"
+            }
+          ]
+        },
+        "transform": [
+          {
+            "lookup": "customer_id",
+            "from": {
+              "data": {
+                "url": "http://localhost:8888/getView2.csv"
+              },
+              "key": "customer_id",
+              "fields": [
+                "churn_score"
+              ]
+            }
+          },
+          {
+            "filter": {
+              "param": "filterByScatter"
+            }
+          },
+          {
+            "aggregate": [
+              {
+                "op": "count",
+                "as": "count"
+              },
+              {
+                "op": "sum",
+                "field": "churn_value",
+                "as": "churn_count"
+              }
+            ],
+            "groupby": [
+              "gender",
+              "age",
+              "churn_score"
+            ]
+          }
+        ],
+        "params": [
+          {
+            "name": "filterByScatter",
+            "select": {
+              "type": "interval",
+              "encodings": [
+                "x",
+                "y"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "evaluation": {
+    "failed_format_following": 0,
+    "total_sql": 2,
+    "total_error_sql": 0,
+    "total_vl": 4,
+    "total_error_vl": 3,
+    "total_steps": 0
+  }
+}

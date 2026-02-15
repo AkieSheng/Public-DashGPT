@@ -1,0 +1,42 @@
+[
+  {
+    "name": "intermediate_view_1",
+    "SQL": "CREATE VIEW intermediate_view_1 AS SELECT detailed_player_data.player, detailed_player_data.fantasy_points, detailed_player_data.match_outcome, batter_player_stats.total_runs, bowler_player_stats.total_wickets_taken FROM detailed_player_data JOIN batter_player_stats ON detailed_player_data.player = batter_player_stats.player_name JOIN bowler_player_stats ON detailed_player_data.player = bowler_player_stats.player_name;",
+    "corrView": "1",
+    "pk": "player",
+    "fk": [
+      {
+        "key": "player_name",
+        "table": "batter_player_stats"
+      },
+      {
+        "key": "player_name",
+        "table": "bowler_player_stats"
+      }
+    ]
+  },
+  {
+    "name": "intermediate_view_2",
+    "SQL": "CREATE VIEW intermediate_view_2 AS SELECT detailed_player_data.match_id, detailed_player_data.runs, detailed_player_data.wickets, detailed_player_data.match_outcome FROM detailed_player_data;",
+    "corrView": "3",
+    "pk": "match_id",
+    "fk": [
+      {
+        "key": "match_id",
+        "table": "match_summary"
+      }
+    ]
+  },
+  {
+    "name": "intermediate_view_3",
+    "SQL": "CREATE VIEW intermediate_view_3 AS SELECT match_summary.match_id, match_summary.outcome_winner, match_summary.player_of_match, match_summary.total_fours, match_summary.total_sixes FROM match_summary;",
+    "corrView": "4",
+    "pk": "match_id",
+    "fk": [
+      {
+        "key": "match_id",
+        "table": "detailed_player_data"
+      }
+    ]
+  }
+]

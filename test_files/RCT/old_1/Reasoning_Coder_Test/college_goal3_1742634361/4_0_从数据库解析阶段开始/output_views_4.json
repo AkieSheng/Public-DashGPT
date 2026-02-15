@@ -1,0 +1,138 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "Student.Major",
+      "Department.Division",
+      "Department.DName"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "arc",
+      "encodings": [
+        "theta: aggregated count of Student.Major (quantitative)",
+        "color: Department.Division (nominal, inner ring)",
+        "outerColor: Department.DName (nominal, outer ring)"
+      ],
+      "description": "Concentric pie chart showing distributions of majors across academic divisions (AS/EN) and individual departments"
+    },
+    "interactions": [
+      {
+        "object": "division segments",
+        "verb": "click",
+        "effect": {
+          "description": "Filters subsequent views to selected academic division",
+          "params": [
+            {
+              "name": "selected_division",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "color"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "Minor_in.DNO",
+      "Department.Division",
+      "Department.DNO",
+      "Department.DName"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: Department.Division (nominal)",
+        "y: count of Minor_in.DNO (quantitative)",
+        "color: Department.Division (nominal)"
+      ],
+      "description": "Grouped bar chart comparing minor enrollment counts between academic divisions"
+    },
+    "usingParams": [
+      "selected_division"
+    ],
+    "interactions": [
+      {
+        "object": "bar groups",
+        "verb": "click",
+        "effect": {
+          "description": "Drill down to department-level minor allocations",
+          "params": [
+            {
+              "name": "selected_dept_drilldown",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "Faculty.Advisor",
+      "Member_of.DNO",
+      "Department.Division"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x: advisor_division derived from Member_of.DNO (nominal)",
+        "y: minor_division from Student.Major (nominal)",
+        "color: count of Student.StuID (quantitative)"
+      ],
+      "description": "Heatmap matrix showing advisor affiliations vs student minor divisions"
+    },
+    "usingParams": [
+      "selected_division"
+    ]
+  },
+  {
+    "id": 4,
+    "level": "insight",
+    "fields": [
+      "Student.Major",
+      "Minor_in.DNO",
+      "Department.Division"
+    ],
+    "task": [
+      5
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x: major_division (nominal)",
+        "y: minor_division (nominal)",
+        "color: frequency (quantitative)",
+        "size: anomaly_score (quantitative)"
+      ],
+      "description": "Scatter plot highlighting cross-division minor selections with outlier emphasis"
+    },
+    "usingParams": [
+      "selected_division",
+      "selected_dept_drilldown"
+    ]
+  }
+]

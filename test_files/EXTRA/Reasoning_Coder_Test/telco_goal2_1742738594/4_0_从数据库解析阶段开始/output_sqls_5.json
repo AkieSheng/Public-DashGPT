@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "name": "Overview_View",
+    "SQL": "CREATE VIEW Overview_View AS SELECT Status_Analysis.customer_id, Status_Analysis.churn_score, Status_Analysis.cltv, Status_Analysis.churn_label FROM Status_Analysis;",
+    "corrView": 1,
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "id": 2,
+    "name": "Exploration_View_1",
+    "SQL": "CREATE VIEW Exploration_View_1 AS SELECT Service_Options.customer_id, Service_Options.tenure, Service_Options.number_of_referrals, Status_Analysis.churn_label FROM Service_Options JOIN Status_Analysis ON Service_Options.customer_id = Status_Analysis.customer_id;",
+    "corrView": 2,
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "Overview_View"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Exploration_View_2",
+    "SQL": "CREATE VIEW Exploration_View_2 AS SELECT Online_Services.customer_id, Online_Services.streaming_tv, Online_Services.streaming_movies, Online_Services.streaming_music, Status_Analysis.churn_category FROM Online_Services JOIN Status_Analysis ON Online_Services.customer_id = Status_Analysis.customer_id;",
+    "corrView": 3,
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "Overview_View"
+      }
+    ]
+  }
+]

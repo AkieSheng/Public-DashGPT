@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Student_Major_Department",
+    "SQL": "SELECT Student.Major, Department.DNO, Department.DName, Department.Division FROM Student JOIN Enrolled_in USING (StuID) JOIN Course ON Enrolled_in.CID = Course.CID JOIN Member_of ON Student.StuID = Member_of.StuID JOIN Department ON Member_of.DNO = Department.DNO",
+    "corrView": "1",
+    "pk": "NULL",
+    "fk": [
+      {
+        "key": "DNO",
+        "table": "Department"
+      },
+      {
+        "key": "DNO",
+        "table": "Member_of"
+      },
+      {
+        "key": "FacID",
+        "table": "Faculty"
+      }
+    ]
+  },
+  {
+    "name": "Student_Major_Minor",
+    "SQL": "SELECT Student.Major, Minor_in.DNO, Department.DName FROM Student JOIN Minor_in ON Student.StuID = Minor_in.StuID JOIN Department ON Minor_in.DNO = Department.DNO",
+    "corrView": "2",
+    "pk": "NULL",
+    "fk": [
+      {
+        "key": "DNO",
+        "table": "Department"
+      },
+      {
+        "key": "DNO",
+        "table": "Student_Major_Department"
+      }
+    ]
+  },
+  {
+    "name": "Student_Grade_Gradepoint",
+    "SQL": "SELECT Student.Major, Enrolled_in.Grade, Gradeconversion.gradepoint, Student.Sex FROM Student JOIN Enrolled_in ON Student.StuID = Enrolled_in.StuID JOIN Gradeconversion ON Enrolled_in.Grade = Gradeconversion.lettergrade",
+    "corrView": "3",
+    "pk": "NULL",
+    "fk": [
+      {
+        "key": "Major",
+        "table": "Department"
+      },
+      {
+        "key": "Major",
+        "table": "Student_Major_Department"
+      }
+    ]
+  },
+  {
+    "name": "Faculty_Stu_Member",
+    "SQL": "SELECT Faculty.FacID, Student.StuID, Member_of.DNO, Department.DName FROM Faculty JOIN Member_of ON Faculty.FacID = Member_of.FacID JOIN Student ON Member_of.StuID = Student.StuID JOIN Department ON Member_of.DNO = Department.DNO",
+    "corrView": "4",
+    "pk": "NULL",
+    "fk": [
+      {
+        "key": "FacID",
+        "table": "Department"
+      },
+      {
+        "key": "FacID",
+        "table": "Student_Major_Department"
+      },
+      {
+        "key": "DNO",
+        "table": "Department"
+      }
+    ]
+  }
+]

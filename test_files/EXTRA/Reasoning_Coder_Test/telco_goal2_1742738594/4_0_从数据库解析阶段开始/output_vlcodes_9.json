@@ -1,0 +1,278 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Visual Analytics System for customer churn prediction",
+  "columns": 3,
+  "concat": [
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/Overview_View.csv"
+      },
+      "description": "Overview View",
+      "mark": "circle",
+      "encoding": {
+        "x": {
+          "field": "churn_score",
+          "type": "quantitative",
+          "title": "Churn Score"
+        },
+        "y": {
+          "field": "cltv",
+          "type": "quantitative",
+          "title": "Customer Lifetime Value (CLTV)"
+        },
+        "color": {
+          "field": "churn_label",
+          "type": "nominal",
+          "title": "Churn Status",
+          "legend": {
+            "title": "Churn Status"
+          }
+        },
+        "opacity": {
+          "value": 0.3,
+          "condition": {
+            "param": "score_cltv_brush",
+            "value": 1
+          }
+        }
+      },
+      "params": [
+        {
+          "name": "score_cltv_brush",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ],
+      "interactions": [
+        {
+          "object": "scatter plot marks",
+          "verb": "interval",
+          "effect": {
+            "description": "Filters subsequent views to selected range of churn scores and CLTV values",
+            "params": [
+              {
+                "name": "score_cltv_brush",
+                "select": {
+                  "type": "interval",
+                  "encodings": [
+                    "x",
+                    "y"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/Exploration_View_1.csv"
+      },
+      "description": "Exploration View 1",
+      "mark": "rect",
+      "encoding": {
+        "x": {
+          "field": "tenure",
+          "type": "quantitative",
+          "title": "Tenure",
+          "bin": {
+            "maxbins": 4
+          }
+        },
+        "y": {
+          "field": "number_of_referrals",
+          "type": "quantitative",
+          "title": "Number of Referrals",
+          "bin": {
+            "maxbins": 5
+          }
+        },
+        "color": {
+          "aggregate": "mean",
+          "field": "churn_value",
+          "type": "quantitative",
+          "title": "Average Churn Rate",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ],
+            "scheme": "yellowgreen"
+          }
+        }
+      },
+      "params": [
+        {
+          "name": "score_cltv_brush",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ],
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/Overview_View.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "churn_score",
+              "cltv"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "score_cltv_brush"
+          }
+        }
+      ],
+      "interactions": [
+        {
+          "object": "heatmap cells",
+          "verb": "click",
+          "effect": {
+            "description": "Filters subsequent views to selected tenure-referral groups",
+            "params": [
+              {
+                "name": "tenure_ref_filter",
+                "select": {
+                  "type": "point",
+                  "encodings": [
+                    "x",
+                    "y"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/Exploration_View_2.csv"
+      },
+      "description": "Exploration View 2",
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "service_bundle",
+          "type": "nominal",
+          "title": "Service Bundle",
+          "axis": {
+            "titleColor": "rgb(256, 256, 256)"
+          }
+        },
+        "y": {
+          "aggregate": "percent",
+          "field": "number",
+          "type": "quantitative",
+          "title": "Percentage of Customers"
+        },
+        "color": {
+          "field": "churn_category",
+          "type": "nominal",
+          "title": "Churn Category",
+          "scale": {
+            "domain": [
+              "Competitor",
+              "Attitude",
+              "Dissatisfaction",
+              "Price"
+            ],
+            "scheme": [
+              "#3465a4",
+              "#6574cd",
+              "#6574cd",
+              "#8856a7"
+            ]
+          }
+        }
+      },
+      "params": [
+        {
+          "name": "score_cltv_brush",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        {
+          "name": "tenure_ref_filter",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ],
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/Overview_View.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "churn_score",
+              "cltv",
+              "tenure",
+              "number_of_referrals"
+            ]
+          }
+        },
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/Exploration_View_1.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "tenure",
+              "number_of_referrals"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "and": [
+              {
+                "param": "score_cltv_brush"
+              },
+              {
+                "param": "tenure_ref_filter"
+              }
+            ]
+          }
+        }
+      ],
+      "interactions": []
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+[
+  {
+    "id": 1,
+    "type": "characterizing distributions",
+    "data": [
+      "blinkit_customers.total_orders",
+      "blinkit_orders.order_date"
+    ],
+    "method": "Time series line chart showing purchase frequency trends. Dual-axis visualization overlaying histogram of order count distribution per customer (x: total_orders bins, y: count of customers). Encoding: Line color for temporal patterns, bar opacity for density representation",
+    "objective": "Establish baseline purchase behavior patterns and identify high-frequency purchasers",
+    "corrReq": [
+      "V1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "clustering",
+    "data": [
+      "blinkit_order_items.product_id",
+      "blinkit_products.category",
+      "blinkit_customers.customer_segment"
+    ],
+    "method": "Matrix heatmap of product category co-occurrence in orders (rows: purchased categories, columns: co-purchased categories). Linked detail view on click showing exact SKU combinations using adjacency list with frequency counts (implementation of I3). Color intensity encodes Jaccard similarity coefficient",
+    "objective": "Identify complementary product categories and segment-specific purchase patterns",
+    "corrReq": [
+      "I3"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 3,
+    "type": "correlating",
+    "data": [
+      "blinkit_orders.payment_method",
+      "blinkit_products.category",
+      "blinkit_customers.avg_order_value"
+    ],
+    "method": "Small multiples of horizontal stacked bars (implementation of V3) split by customer segment. X-axis: category composition percentage, Y-axis: payment methods. Encoding: Color hue for product categories, bar length for proportional representation",
+    "objective": "Reveal payment method preferences and category associations across different value segments",
+    "corrReq": [
+      "V3"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 4,
+    "type": "finding anomalies",
+    "data": [
+      "blinkit_customers.total_orders",
+      "blinkit_customers.avg_order_value",
+      "blinkit_orders.order_total"
+    ],
+    "method": "Scatter plot matrix with brush-based filtering. Axes: Order frequency vs. avg order value vs. max single order value. Encoding: Color by customer_segment, size by total_spent. Trend lines show expected value distributions",
+    "objective": "Detect outlier customers with unusual purchase patterns for targeted analysis",
+    "corrReq": [],
+    "priority": 3
+  },
+  {
+    "id": 5,
+    "type": "computing derived values",
+    "data": [
+      "blinkit_order_items.quantity",
+      "blinkit_order_items.unit_price",
+      "blinkit_products.margin_percentage"
+    ],
+    "method": "Radar chart showing profitability vs. popularity metrics. Radial axes: Margin%, InventoryTurnover(derived), CategoryFrequency(derived). Encoding: Line thickness for customer segment density, angular position for product categories",
+    "objective": "Optimize product mix by visualizing trade-offs between margins and purchase frequency",
+    "corrReq": [],
+    "priority": 3
+  },
+  {
+    "id": 6,
+    "type": "determining ranges",
+    "data": [
+      "blinkit_products.shelf_life_days",
+      "blinkit_inventory.stock_received",
+      "blinkit_inventory.damaged_stock"
+    ],
+    "method": "Bubble chart with perishability quadrant analysis. X: ShelfLife, Y: StockRotationRate(derived). Encoding: Bubble size=damage rate, color=intensity=recommended_order_quantity(derived)",
+    "objective": "Identify optimal inventory levels based on product shelf life and spoilage patterns",
+    "corrReq": [],
+    "priority": 2
+  }
+]

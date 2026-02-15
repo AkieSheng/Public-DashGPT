@@ -1,0 +1,213 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.churn_score",
+      "Status_Analysis.cltv",
+      "Status_Analysis.customer_status"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "boxplot",
+      "encodings": [
+        "x: customer_status",
+        "y: satisfaction_score|churn_score|cltv",
+        "color: customer_status (Stayed=green, Churned=red, Joined=blue)"
+      ],
+      "description": "Grouped box plots showing distribution comparison of three key metrics across customer statuses"
+    },
+    "usingParams": [],
+    "components": "Dropdown menu for metric selection (satisfaction/churn/CLTV)",
+    "interactions": [
+      {
+        "object": "boxplot groups",
+        "verb": "click",
+        "effect": {
+          "description": "Filters subsequent views to selected customer status group(s)",
+          "params": [
+            {
+              "name": "status_select",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "Status_Analysis.cltv",
+      "Payment_Info.total_revenue",
+      "Status_Analysis.customer_status"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x: CLTV (bin)",
+        "y: Total Revenue (bin)",
+        "color: customer_status",
+        "size: count()"
+      ],
+      "description": "Hexagonally binned scatterplot showing financial value patterns with status coloring"
+    },
+    "usingParams": [
+      "status_select"
+    ],
+    "interactions": [
+      {
+        "object": "hexagonal bins",
+        "verb": "brush",
+        "effect": {
+          "description": "Filters subsequent views to selected CLTV-revenue ranges",
+          "params": [
+            {
+              "name": "value_brush",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "Location_Data.latitude",
+      "Location_Data.longitude",
+      "Status_Analysis.churn_value"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "longitude: longitude (bin 0.1°)",
+        "latitude: latitude (bin 0.1°)",
+        "color: mean(churn_value) (red gradient)"
+      ],
+      "description": "Geo heatmap showing churn concentration across California"
+    },
+    "usingParams": [
+      "status_select"
+    ],
+    "interactions": [
+      {
+        "object": "map cells",
+        "verb": "brush",
+        "effect": {
+          "description": "Filters subsequent views to selected geographical regions",
+          "params": [
+            {
+              "name": "geo_brush",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "longitude",
+                  "latitude"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "level": "exploration",
+    "fields": [
+      "Service_Options.internet_type",
+      "Payment_Info.contract",
+      "Payment_Info.payment_method",
+      "Status_Analysis.customer_status"
+    ],
+    "task": [
+      5
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "size: count()",
+        "color: mean(churn_value) (red-yellow-green)",
+        "path hierarchy: internet_type→contract→payment_method"
+      ],
+      "description": "Treemap showing service-payment combinations colored by churn rate"
+    },
+    "usingParams": [
+      "status_select"
+    ],
+    "interactions": [
+      {
+        "object": "treemap nodes",
+        "verb": "click",
+        "effect": {
+          "description": "Filters subsequent views to selected service/payment combination",
+          "params": [
+            {
+              "name": "service_filter",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "path"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "level": "detail",
+    "fields": [
+      "Customer_Info.age",
+      "Customer_Info.gender",
+      "Customer_Info.dependents",
+      "Status_Analysis.customer_status"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: age (binned)",
+        "y: count()",
+        "color: customer_status",
+        "column: dependents",
+        "row: gender"
+      ],
+      "description": "Faceted bar charts showing demographic distributions with status coloring"
+    },
+    "usingParams": [
+      "status_select",
+      "value_brush",
+      "geo_brush",
+      "service_filter"
+    ],
+    "components": "Age bracket slider for dynamic binning"
+  }
+]

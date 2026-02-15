@@ -1,0 +1,161 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "Status_Analysis.cltv",
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.customer_status"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x: CLTV (quantitative)",
+        "y: Satisfaction Score (quantitative)",
+        "color: Customer Status (nominal)"
+      ],
+      "description": "Scatter plot showing relationship between CLTV and Satisfaction Score, colored by customer status (Churned/Retained/Joined)"
+    },
+    "interactions": [
+      {
+        "object": "scatter plot",
+        "verb": "click",
+        "effect": {
+          "description": "Select individual customers for detailed inspection",
+          "params": [
+            {
+              "name": "customer_select",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "object": "scatter plot",
+        "verb": "interval",
+        "effect": {
+          "description": "Brush to select customer groups based on CLTV and satisfaction ranges",
+          "params": [
+            {
+              "name": "metric_filter",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "Status_Analysis.churn_score",
+      "Online_Services.internet_type",
+      "Customer_Info.age"
+    ],
+    "task": [
+      2,
+      3
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: Customer Status (nominal)",
+        "y: Avg Churn Score (quantitative)",
+        "column: Internet Type (nominal)",
+        "color: Age Group (ordinal)"
+      ],
+      "description": "Grouped bar chart showing average churn scores split by service type and age demographics"
+    },
+    "usingParams": [
+      "metric_filter"
+    ],
+    "components": "Age group binning slider (20-30, 30-40, etc.)",
+    "interactions": [
+      {
+        "object": "bar",
+        "verb": "click",
+        "effect": {
+          "description": "Filter subsequent views by selected service type and age group",
+          "params": [
+            {
+              "name": "service_age_filter",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "column",
+                  "color"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "detail",
+    "fields": [
+      "Payment_Info.contract",
+      "Service_Options.tenure",
+      "Customer_Info.gender"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x: Contract Type (nominal)",
+        "y: Tenure Bins (ordinal)",
+        "color: Churn Rate (%) (quantitative)",
+        "row: Gender (nominal)"
+      ],
+      "description": "Heatmap showing churn rates by contract length and tenure duration, split by gender"
+    },
+    "usingParams": [
+      "service_age_filter"
+    ]
+  },
+  {
+    "id": 4,
+    "level": "insight",
+    "fields": [
+      "Status_Analysis.churn_category",
+      "Payment_Info.payment_method",
+      "Service_Options.offer"
+    ],
+    "task": [
+      5
+    ],
+    "visualization": {
+      "markType": "arc",
+      "encodings": [
+        "theta: Count (quantitative)",
+        "color: Churn Category (nominal)",
+        "radius: Payment Method (nominal)",
+        "tooltip: Promotional Offer (nominal)"
+      ],
+      "description": "Radial chart combining churn reasons, payment methods and active promotions"
+    },
+    "usingParams": [
+      "customer_select"
+    ]
+  }
+]

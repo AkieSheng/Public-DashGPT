@@ -1,0 +1,246 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "columns": 4,
+  "concat": [
+    {
+      "height": 300,
+      "width": 300,
+      "description": "View 1: Venue-Team Associations",
+      "data": {
+        "url": "http://localhost:8888/venue_teams_view.csv"
+      },
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "team",
+          "type": "nominal",
+          "title": "Teams"
+        },
+        "y": {
+          "field": "venue",
+          "type": "nominal",
+          "title": "Venues"
+        },
+        "color": {
+          "value": "blue",
+          "condition": {
+            "param": "home_team",
+            "value": 1,
+            "test": "datum.team === 'Home Team'"
+          }
+        }
+      },
+      "transform": [
+        {
+          "lookup": "venue",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/venue_teams_view.csv"
+            },
+            "key": "venue",
+            "fields": [
+              "team"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "home_team"
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "home_team",
+          "select": {
+            "type": "interval"
+          }
+        }
+      ]
+    },
+    {
+      "height": 300,
+      "width": 300,
+      "description": "View 2: Home vs Away Win Rates",
+      "data": {
+        "url": "http://localhost:8888/match_outcome_view.csv"
+      },
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "outcome_winner",
+          "type": "nominal",
+          "title": "Outcome"
+        },
+        "y": {
+          "field": "venue",
+          "type": "nominal",
+          "title": "Venues",
+          "axis": {
+            "minExtent": 30
+          }
+        },
+        "color": {
+          "field": "win_rate",
+          "type": "quantitative",
+          "title": "Win Rate",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ],
+            "scheme": "bluesreds"
+          }
+        }
+      },
+      "transform": [
+        {
+          "lookup": "venue",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/match_outcome_view.csv"
+            },
+            "key": "venue",
+            "fields": [
+              "match_id",
+              "outcome_winner"
+            ]
+          }
+        },
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "field": "match_id",
+              "as": "match_count"
+            },
+            {
+              "op": "mean",
+              "field": "match_count",
+              "as": "win_rate"
+            }
+          ],
+          "groupby": [
+            "outcome_winner",
+            "venue"
+          ]
+        }
+      ],
+      "params": [
+        {
+          "name": "selected_venue",
+          "select": {
+            "type": "interval"
+          }
+        }
+      ]
+    },
+    {
+      "height": 300,
+      "width": 300,
+      "description": "View 3: Fantasy Points by Venue",
+      "data": {
+        "url": "http://localhost:8888/player_performance_view.csv"
+      },
+      "mark": "boxplot",
+      "encoding": {
+        "x": {
+          "field": "venue",
+          "type": "nominal",
+          "title": "Venues"
+        },
+        "y": {
+          "field": "fantasy_points",
+          "type": "quantitative",
+          "title": "Fantasy Points"
+        },
+        "color": {
+          "field": "venue",
+          "type": "nominal",
+          "title": "Venues"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "venue",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/player_performance_view.csv"
+            },
+            "key": "venue",
+            "fields": [
+              "venue"
+            ]
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "selected_venue2",
+          "select": {
+            "type": "interval"
+          }
+        }
+      ]
+    },
+    {
+      "height": 300,
+      "width": 300,
+      "description": "View 4: Boundary Impact",
+      "data": {
+        "url": "http://localhost:8888/boundary_impact_view.csv"
+      },
+      "mark": "point",
+      "encoding": {
+        "x": {
+          "field": "total_fours",
+          "type": "quantitative",
+          "title": "Total Fours"
+        },
+        "y": {
+          "field": "total_sixes",
+          "type": "quantitative",
+          "title": "Total Sixes"
+        },
+        "size": {
+          "aggregate": "count",
+          "field": "match_id",
+          "type": "quantitative",
+          "title": "Match Count"
+        },
+        "color": {
+          "field": "venue",
+          "type": "nominal",
+          "title": "Venue"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "venue",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/boundary_impact_view.csv"
+            },
+            "key": "venue",
+            "fields": [
+              "outcome_by_runs"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "selected_venue3"
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "selected_venue3",
+          "select": {
+            "type": "interval"
+          }
+        }
+      ]
+    }
+  ]
+}

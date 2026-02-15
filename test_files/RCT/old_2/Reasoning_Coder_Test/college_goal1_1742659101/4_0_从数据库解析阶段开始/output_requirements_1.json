@@ -1,0 +1,26 @@
+{
+  "visualization": [
+    {
+      "id": "V1",
+      "requirement": "Horizontal bar chart showing enrollment counts per course (CName on y-axis), color-coded by Department.Division (AS/EN categories).",
+      "reason": "Vertical bar chart with course IDs would create label overlap. Using divisions instead of departments reduces categories from 24 to 2 for clearer color encoding."
+    },
+    {
+      "id": "V2",
+      "requirement": "Stacked bar chart showing enrollment by time-slot categories (binned Hours as Morning/Afternoon combined with Days).",
+      "reason": "Original heat map requirement violates cardinality limits - raw Hours has 29 unique string values. Temporal bins improve pattern detection while maintaining readability."
+    },
+    {
+      "id": "V3",
+      "requirement": "Box plot of student age distribution per Department.Division (x-axis) instead of DName.",
+      "reason": "Department names (26 unique values) would create overcrowded x-axis labels. Division reduces to 2 categories for meaningful comparison."
+    }
+  ],
+  "data": [
+    {
+      "id": "D5",
+      "requirement": "Create standardized time categories by binning Hours into Morning (<=11), Afternoon (12-16), Evening (>=17) and combining with Days.",
+      "reason": "Raw Hours values are ambiguous strings (e.g., '3', '11'). Binning ensures temporal logic and prevents excessive time-slot combinations."
+    }
+  ]
+}

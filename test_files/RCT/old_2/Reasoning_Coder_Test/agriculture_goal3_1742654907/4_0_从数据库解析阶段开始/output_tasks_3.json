@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "type": "correlating",
+    "data": [
+      "soil_analysis_data.Nitrogen Content (kg/ha)",
+      "soil_analysis_data.Phosphorus Content (kg/ha)",
+      "soil_analysis_data.Potassium Content (kg/ha)",
+      "soil_analysis_data.Organic Matter (%)",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "method": "Scatterplot matrix with linked brushing. Each scatterplot shows pairwise relationships between soil nutrients and crop yield. Districts encoded through color. Interaction includes zooming and tooltip details.",
+    "objective": "Identify key nutrient-yield correlations to prioritize soil enhancement strategies",
+    "corrReq": [
+      "D1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "characterizing distributions",
+    "data": [
+      "soil_analysis_data.Soil Type",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "method": "Vertical grouped bar chart per district. X-axis: Soil types, grouped bars show frequency. Secondary axis line chart overlays average yield. Color encoding distinguishes soil prevalence vs yield metrics.",
+    "objective": "Compare soil type distribution with agricultural productivity across districts",
+    "corrReq": [
+      "V2"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 3,
+    "type": "determining ranges",
+    "data": [
+      "soil_analysis_data.Soil Type",
+      "soil_analysis_data.Organic Matter (%)"
+    ],
+    "method": "Box plots arranged horizontally. X-axis: Soil type categories. Y-axis: Organic Matter (%) ranges. Whiskers show min/max, boxes show quartiles. Interactive hover reveals district distribution details.",
+    "objective": "Analyze organic matter variability across soil types to identify amendment priorities",
+    "corrReq": [
+      "V3"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 4,
+    "type": "clustering",
+    "data": [
+      "soil_analysis_data.pH Level",
+      "soil_analysis_data.Nitrogen Content (kg/ha)",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "method": "Parallel coordinates plot showing interactions between pH, nitrogen, and yield. Districts encoded as polylines. Brushing filters clusters of similar soil-yield profiles.",
+    "objective": "Discover combinations of pH/nitrogen levels associated with high yield clusters",
+    "corrReq": [
+      "D1"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 5,
+    "type": "filtering",
+    "data": [
+      "crop_production_data.Season",
+      "crop_production_data.Yield (quintals)",
+      "soil_analysis_data.Soil Type"
+    ],
+    "method": "Cascading filter system. Primary filter: Season (Kharif/Rabi). Updates linked bubble charts showing soil type vs yield size-encoded by production. Color indicates district.",
+    "objective": "Assess seasonal variations in soil-yield relationships for crop rotation planning",
+    "corrReq": [
+      "I2"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 6,
+    "type": "finding extrema",
+    "data": [
+      "soil_analysis_data.District",
+      "soil_analysis_data.Phosphorus Content (kg/ha)",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "method": "Bidirectional bar chart. Left bars show districts with highest phosphorus levels. Right bars show districts with highest yields. Connecting lines highlight mismatches for targeted interventions.",
+    "objective": "Identify districts needing phosphorus optimization despite high yields",
+    "corrReq": [
+      "D1"
+    ],
+    "priority": 2
+  }
+]

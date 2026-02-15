@@ -1,0 +1,240 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "match_summary.venue",
+      "match_summary.match_outcome",
+      "match_summary.outcome_winner"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        {
+          "x": "venue",
+          "type": "nominal"
+        },
+        {
+          "y": "win_rate",
+          "type": "quantitative"
+        },
+        {
+          "color": "team_type",
+          "type": "nominal"
+        }
+      ],
+      "description": "A grouped bar chart showing win rates at each venue for home and away teams. Each venue is on the x-axis, win rate on the y-axis, and team type (home or away) is indicated by color."
+    },
+    "usingParams": [],
+    "interactions": [
+      {
+        "object": "bar chart",
+        "verb": "interval",
+        "effect": {
+          "description": "Allows selecting a subset of venues by brushing, filtering data for subsequent views.",
+          "params": [
+            {
+              "name": "selected_venues",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "detailed_player_data.match_id",
+      "detailed_player_data.venue",
+      "detailed_player_data.player",
+      "detailed_player_data.runs",
+      "detailed_player_data.wickets",
+      "detailed_player_data.strike_rate"
+    ],
+    "task": [
+      2,
+      7
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        {
+          "x": "venue",
+          "type": "nominal"
+        },
+        {
+          "y": "performance_metric",
+          "type": "quantitative"
+        },
+        {
+          "size": "runs",
+          "type": "quantitative"
+        },
+        {
+          "color": "wickets",
+          "type": "quantitative"
+        }
+      ],
+      "description": "A scatter plot where each point represents a venue, x-axis shows venue names, y-axis shows a generic performance metric, size encodes runs scored, and color encodes wickets taken."
+    },
+    "usingParams": [
+      "selected_venues"
+    ],
+    "interactions": [
+      {
+        "object": "circle plot",
+        "verb": "hover",
+        "effect": {
+          "description": "Show tooltip with player performance details (runs, wickets, strike rate).",
+          "params": []
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "match_summary.team",
+      "match_summary.venue",
+      "match_summary.match_outcome"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        {
+          "x": "venue",
+          "type": "nominal"
+        },
+        {
+          "y": "team_type",
+          "type": "nominal"
+        },
+        {
+          "color": "win_rate",
+          "type": "quantitative"
+        }
+      ],
+      "description": "A heatmap representing win rates for home and away teams, with venues on the x-axis, team type on the y-axis, and win rates encoded as color intensity."
+    },
+    "usingParams": [
+      "selected_venues"
+    ],
+    "interactions": [
+      {
+        "object": "rect",
+        "verb": "hover",
+        "effect": {
+          "description": "Show detailed win rate statistics for the selected venue and team type.",
+          "params": []
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "level": "detail",
+    "fields": [
+      "detailed_player_data.venue",
+      "detailed_player_data.runs",
+      "detailed_player_data.wickets",
+      "detailed_player_data.strike_rate"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "boxplot",
+      "encodings": [
+        {
+          "x": "venue",
+          "type": "nominal"
+        },
+        {
+          "y": "performance_metric",
+          "type": "quantitative"
+        },
+        {
+          "color": "metric_type",
+          "type": "nominal"
+        }
+      ],
+      "description": "A set of box plots for each venue displaying distributions of runs scored, wickets taken, and strike rates across players."
+    },
+    "usingParams": [
+      "selected_venues"
+    ],
+    "interactions": [
+      {
+        "object": "boxplot",
+        "verb": "hover",
+        "effect": {
+          "description": "Show a tooltip with median, quartiles, and outlier information for the selected metric.",
+          "params": []
+        }
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "level": "detail",
+    "fields": [
+      "match_summary.season",
+      "match_summary.venue"
+    ],
+    "task": [
+      5
+    ],
+    "visualization": {
+      "markType": "area",
+      "encodings": [
+        {
+          "x": "season",
+          "type": "temporal"
+        },
+        {
+          "y": "match_count",
+          "type": "quantitative"
+        }
+      ],
+      "description": "An area chart displaying the trend of total matches played at specific venues over seasons."
+    },
+    "usingParams": [
+      "selected_venues"
+    ],
+    "components": "A slider to dynamically filter seasons and update the visualization.",
+    "interactions": [
+      {
+        "object": "slider",
+        "verb": "drag",
+        "effect": {
+          "description": "Filter the view by season range selected by the slider.",
+          "params": [
+            {
+              "name": "selected_season_range",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,1 @@
+"Execution failed on sql 'SELECT * FROM student_major_division': no such column: Minor_in.StuID"

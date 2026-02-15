@@ -1,0 +1,43 @@
+{
+  "data": [
+    {
+      "id": "D2",
+      "requirement": "Create age cohorts aligned with existing 'under_30' and 'senior_citizen' columns (19-29, 30-64, 65+)",
+      "reason": "Original bins conflicted with existing schema features. Ensures consistency with pre-computed senior citizen flags while maintaining life stage groupings"
+    },
+    {
+      "id": "D4",
+      "requirement": "Simplify to 'household_size' feature combining partner+dependents status (Single, Couple, Family)",
+      "reason": "Original composite created excessive categories. Streamlined grouping maintains household dynamics analysis while ensuring visual readability"
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V1",
+      "requirement": "Grouped bar chart showing churn rates vs retention rates across age cohorts",
+      "reason": "Simplifies comparison of churn behavior while avoiding CLTV quartile complexity not directly tied to demographic analysis"
+    },
+    {
+      "id": "V2",
+      "requirement": "Double-encoded heatmap showing gender (rows) vs household_size (columns) with color=churn_rate and size=population_count",
+      "reason": "Maintains multidimensional analysis while resolving 3D encoding issue through dual visual channels"
+    },
+    {
+      "id": "V4",
+      "requirement": "Faceted scatter plots showing age vs churn_score with color=churn_label, split by household_size",
+      "reason": "Reduces cognitive load from scatter matrix while maintaining demographic focus through strategic faceting"
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I3",
+      "requirement": "Click-to-expand interaction on heatmap cells showing top 3 churn reasons with frequencies",
+      "reason": "Ensures drill-down viability by requiring Status_Analysis join to include churn_reason column"
+    },
+    {
+      "id": "I4",
+      "requirement": "Remove dynamic slider interaction due to schema conflict with senior_citizen column",
+      "reason": "Prevents inconsistent age definitions between user-adjusted bins and existing business logic"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "name": "aggregated_production_data",
+    "SQL": "CREATE VIEW aggregated_production_data AS SELECT District, Season, AVG(Yield (quintals)) AS average_yield FROM crop_production_data GROUP BY District, Season;",
+    "corrView": "1",
+    "pk": "District|Season",
+    "fk": []
+  },
+  {
+    "id": 2,
+    "name": "district_details",
+    "SQL": "CREATE VIEW district_details AS SELECT District, SUM(Yield (quintals)) AS total_yield, AVG(Area (hectares)) AS average_area FROM crop_production_data GROUP BY District;",
+    "corrView": "2",
+    "pk": "District",
+    "fk": [
+      {
+        "key": "District",
+        "table": "aggregated_production_data"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "crop_district_details",
+    "SQL": "CREATE VIEW crop_district_details AS SELECT District, Crop, Season, AVG(Yield (quintals)) AS average_yield FROM crop_production_data GROUP BY District, Crop, Season;",
+    "corrView": "3",
+    "pk": "District|Crop|Season",
+    "fk": [
+      {
+        "key": "District",
+        "table": "aggregated_production_data"
+      },
+      {
+        "key": "District|Season",
+        "table": "district_details"
+      }
+    ]
+  }
+]

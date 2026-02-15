@@ -1,0 +1,198 @@
+[
+  {
+    "columns": [
+      {
+        "column": "StuID",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "LName",
+        "dtype": "VARCHAR(12)"
+      },
+      {
+        "column": "Fname",
+        "dtype": "VARCHAR(12)"
+      },
+      {
+        "column": "Age",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "Sex",
+        "dtype": "VARCHAR(1)"
+      },
+      {
+        "column": "Major",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "Advisor",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "city_code",
+        "dtype": "VARCHAR(3)"
+      }
+    ],
+    "table": "Student"
+  },
+  {
+    "columns": [
+      {
+        "column": "FacID",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "Lname",
+        "dtype": "VARCHAR(15)"
+      },
+      {
+        "column": "Fname",
+        "dtype": "VARCHAR(15)"
+      },
+      {
+        "column": "Rank",
+        "dtype": "VARCHAR(15)"
+      },
+      {
+        "column": "Sex",
+        "dtype": "VARCHAR(1)"
+      },
+      {
+        "column": "Phone",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "Room",
+        "dtype": "VARCHAR(5)"
+      },
+      {
+        "column": "Building",
+        "dtype": "VARCHAR(13)"
+      }
+    ],
+    "table": "Faculty"
+  },
+  {
+    "columns": [
+      {
+        "column": "DNO",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "Division",
+        "dtype": "VARCHAR(2)"
+      },
+      {
+        "column": "DName",
+        "dtype": "VARCHAR(25)"
+      },
+      {
+        "column": "Room",
+        "dtype": "VARCHAR(5)"
+      },
+      {
+        "column": "Building",
+        "dtype": "VARCHAR(13)"
+      },
+      {
+        "column": "DPhone",
+        "dtype": "INTEGER"
+      }
+    ],
+    "table": "Department"
+  },
+  {
+    "columns": [
+      {
+        "column": "FacID",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "DNO",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "Appt_Type",
+        "dtype": "VARCHAR(15)"
+      }
+    ],
+    "table": "Member_of"
+  },
+  {
+    "columns": [
+      {
+        "column": "CID",
+        "dtype": "VARCHAR(7)"
+      },
+      {
+        "column": "CName",
+        "dtype": "VARCHAR(40)"
+      },
+      {
+        "column": "Credits",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "Instructor",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "Days",
+        "dtype": "VARCHAR(5)"
+      },
+      {
+        "column": "Hours",
+        "dtype": "VARCHAR(11)"
+      },
+      {
+        "column": "DNO",
+        "dtype": "INTEGER"
+      }
+    ],
+    "table": "Course"
+  },
+  {
+    "columns": [
+      {
+        "column": "StuID",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "DNO",
+        "dtype": "INTEGER"
+      }
+    ],
+    "table": "Minor_in"
+  },
+  {
+    "columns": [
+      {
+        "column": "StuID",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "CID",
+        "dtype": "VARCHAR(7)"
+      },
+      {
+        "column": "Grade",
+        "dtype": "VARCHAR(2)"
+      }
+    ],
+    "table": "Enrolled_in"
+  },
+  {
+    "columns": [
+      {
+        "column": "lettergrade",
+        "dtype": "VARCHAR(2)"
+      },
+      {
+        "column": "gradepoint",
+        "dtype": "FLOAT"
+      }
+    ],
+    "table": "Gradeconversion"
+  }
+]

@@ -1,0 +1,169 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "batter_player_stats.total_runs",
+      "batter_player_stats.strike_rate",
+      "bowler_player_stats.total_wickets_taken",
+      "bowler_player_stats.economy_rate",
+      "batter_player_stats.player_of_match_awards",
+      "bowler_player_stats.matches_won"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "line",
+      "encodings": [
+        "x: quantitative axes for normalized batting/bowling metrics",
+        "y: parallel axes showing performance impact scores",
+        "color: matches_won gradient",
+        "opacity: player_of_match_awards frequency"
+      ],
+      "description": "Parallel coordinates plot showing computed performance impact scores across normalized metrics. Lines colored by matches won percentage with opacity encoding award frequency"
+    },
+    "interactions": [
+      {
+        "object": "parallel coordinates axes",
+        "verb": "drag",
+        "effect": {
+          "description": "Brushing on any axis filters players meeting selected metric thresholds",
+          "params": [
+            {
+              "name": "performance_range",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "detailed_player_data.runs",
+      "detailed_player_data.wickets",
+      "detailed_player_data.strike_rate",
+      "detailed_player_data.economy",
+      "match_summary.outcome_winner"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x: runs (quantitative)",
+        "y: wickets (quantitative)",
+        "color: outcome_winner (nominal)",
+        "size: strike_rate (quantitative)",
+        "row: economy binned (ordinal)"
+      ],
+      "description": "Scatter plot matrix with runs vs wickets in main view, colored by match outcome. Size encodes strike rate, faceted rows show economy rate brackets"
+    },
+    "usingParams": [
+      "performance_range"
+    ],
+    "interactions": [
+      {
+        "object": "scatter points",
+        "verb": "click",
+        "effect": {
+          "description": "Select individual players to highlight venue patterns",
+          "params": [
+            {
+              "name": "selected_players",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "detailed_player_data.fantasy_points",
+      "match_summary.player_of_match",
+      "detailed_player_data.runs",
+      "detailed_player_data.wickets"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: player_name (nominal)",
+        "y: fantasy_points (quantitative)",
+        "color: player_of_match status (binary)",
+        "column: match_outcome (nominal)"
+      ],
+      "description": "Faceted bar charts split by match outcome, showing top 20 players by fantasy points. Color highlights PoM awards"
+    },
+    "usingParams": [
+      "performance_range"
+    ],
+    "components": "Slider for adjusting fantasy_points threshold"
+  },
+  {
+    "id": 4,
+    "level": "insight",
+    "fields": [
+      "match_summary.city",
+      "detailed_player_data.runs",
+      "detailed_player_data.wickets",
+      "match_summary.outcome_winner"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "latitude/longitude: city geocoding",
+        "color: avg(runs) gradient",
+        "size: avg(wickets) quantitative"
+      ],
+      "description": "Geospatial heatmap with hexagonal bins showing venue performance patterns. Color shows average runs scored, size shows wickets taken for home-team wins"
+    },
+    "usingParams": [
+      "selected_players"
+    ]
+  },
+  {
+    "id": 5,
+    "level": "insight",
+    "fields": [
+      "batter_player_stats.average",
+      "bowler_player_stats.average",
+      "matches_won"
+    ],
+    "task": [
+      6
+    ],
+    "visualization": {
+      "markType": "area",
+      "encodings": [
+        "x: career averages (batting/bowling combo)",
+        "y: kernel density estimate",
+        "color: matches_won gradient"
+      ],
+      "description": "Multi-panel density plots showing distribution of player averages, linked to team success through color encoding"
+    }
+  }
+]

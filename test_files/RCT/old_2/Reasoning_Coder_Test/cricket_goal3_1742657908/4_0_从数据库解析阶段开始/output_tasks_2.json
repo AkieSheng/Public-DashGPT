@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "type": "correlating",
+    "data": [
+      "detailed_player_data.match_outcome",
+      "detailed_player_data.runs",
+      "detailed_player_data.wickets",
+      "detailed_player_data.strike_rate",
+      "detailed_player_data.economy",
+      "match_summary.outcome_winner"
+    ],
+    "method": "Scatter plot matrix with trend lines combining match outcome and metrics, using SQL JOIN on match_id between detailed_player_data and match_summary. Highlight players from winning teams using color encoding.",
+    "objective": "Identify direct relationships between individual batting/bowling metrics and match victories",
+    "corrReq": [
+      "D1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "computing derived values",
+    "data": [
+      "batter_player_stats.total_runs",
+      "batter_player_stats.strike_rate",
+      "bowler_player_stats.total_wickets_taken",
+      "bowler_player_stats.economy_rate",
+      "player_of_match_awards"
+    ],
+    "method": "Parallel coordinates plot showing computed performance impact scores (D2 formula), with axes for normalized metrics and award frequency. Interactive brushing to filter top performers.",
+    "objective": "Compare relative importance of different metrics in determining match-winning contributions",
+    "corrReq": [
+      "D2"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 3,
+    "type": "finding extrema",
+    "data": [
+      "detailed_player_data.fantasy_points",
+      "match_summary.player_of_match",
+      "match_summary.outcome_winner"
+    ],
+    "method": "Faceted bar charts (V1) split by batter/bowler roles. Use length encoding for metrics and color for match outcome. Sort bars by fantasy_points descending.",
+    "objective": "Identify players with consistently high fantasy points in winning matches",
+    "corrReq": [
+      "V1"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 4,
+    "type": "determining ranges",
+    "data": [
+      "match_summary.city",
+      "detailed_player_data.runs",
+      "detailed_player_data.wickets",
+      "match_summary.outcome_winner"
+    ],
+    "method": "Geospatial heatmap (V4) layered with hexagonal binning. Geographic positions encoded via city, intensity shows avg runs/wickets for home-team winners.",
+    "objective": "Reveal venue-specific performance patterns contributing to victories",
+    "corrReq": [
+      "V4"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 5,
+    "type": "clustering",
+    "data": [
+      "performance impact score",
+      "player_of_match_awards",
+      "total_matches_played"
+    ],
+    "method": "Interactive radar chart with weight sliders (I2). Radial axes represent D2 metrics. Clusters identified via k-means based on slider-adjusted weights.",
+    "objective": "Discover player archetypes with distinct match-winning contribution patterns",
+    "corrReq": [
+      "I2"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 6,
+    "type": "characterizing distributions",
+    "data": [
+      "batter_player_stats.average",
+      "bowler_player_stats.average",
+      "matches_won"
+    ],
+    "method": "Multi-panel kernel density estimation plots. Progression from career averages to match-specific wins shown through linked selections.",
+    "objective": "Analyze how batting/bowling consistency correlates with team success",
+    "priority": 3
+  },
+  {
+    "id": 7,
+    "type": "finding anomalies",
+    "data": [
+      "performance impact score",
+      "player_of_match_awards"
+    ],
+    "method": "Bubble plot with performance-impact vs awards ratio. Size encodes total matches. Anomaly detection via DBSCAN to highlight over/under-valued players.",
+    "objective": "Identify players with disproportionate impact compared to formal recognition",
+    "priority": 2
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "id": 1,
+    "type": "retrieving values | computing derived values",
+    "data": [
+      "blinkit_orders.order_total",
+      "blinkit_orders.order_date"
+    ],
+    "method": "Aggregate sales data by computing daily, weekly, and monthly sales totals and averages. Visualize these using a multi-line chart (V1), with one line for each time granularity to compare trends.",
+    "objective": "Understand overall sales performance across different time dimensions, highlighting peaks, troughs, and seasonal patterns.",
+    "corrReq": [
+      "D1",
+      "V1",
+      "I3"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "correlating | filtering",
+    "data": [
+      "blinkit_marketing_performance.spend",
+      "blinkit_marketing_performance.campaign_name",
+      "blinkit_orders.order_date",
+      "blinkit_orders.order_total"
+    ],
+    "method": "Correlate marketing campaign expenditure (spend) with daily sales performance using a scatter plot (V5). Campaigns can be highlighted and filtered for deeper insights into performance during specific time periods.",
+    "objective": "Analyze how marketing efforts (spend) influence sales trends, helping optimize future campaigns for better ROI.",
+    "corrReq": [
+      "D2",
+      "V5",
+      "I4"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 3,
+    "type": "retrieving values | finding extrema",
+    "data": [
+      "blinkit_orders.order_total",
+      "blinkit_orders.order_date",
+      "external_event_calendar.holidays"
+    ],
+    "method": "Overlay sales data with an external event calendar. Highlight holiday periods on a line chart (V1) to compare sales fluctuations during holidays versus regular days.",
+    "objective": "Identify the impact of holidays and events on sales, helping plan inventory and marketing strategies during peak periods.",
+    "corrReq": [
+      "D3",
+      "V1"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 4,
+    "type": "computing derived values | characterizing distributions",
+    "data": [
+      "blinkit_orders.order_total",
+      "blinkit_orders.order_date"
+    ],
+    "method": "Calculate derived metrics (average daily sales, standard deviation, cumulative monthly sales) and create an area chart overlaid with a line chart (V2) to show cumulative sales alongside daily patterns.",
+    "objective": "Gain deeper insights into sales variability and growth trends over time.",
+    "corrReq": [
+      "D4",
+      "V2"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 5,
+    "type": "retrieving values | sorting",
+    "data": [
+      "blinkit_orders.order_total",
+      "blinkit_orders.order_date",
+      "blinkit_products.category"
+    ],
+    "method": "Break down sales data by monthly sales totals across product categories using a grouped bar chart (V3). Allow drill-down interactions to explore individual categories in greater detail.",
+    "objective": "Analyze category-level contributions to overall sales trends, helping identify high-performing product categories.",
+    "corrReq": [
+      "D5",
+      "V3",
+      "I5"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 6,
+    "type": "characterizing distributions | finding anomalies",
+    "data": [
+      "blinkit_orders.order_total",
+      "blinkit_orders.order_date",
+      "blinkit_orders.order_time"
+    ],
+    "method": "Use a heat map (V4) to visualize sales patterns across days of the week and hours of the day, with intensity representing sales volume. Enable drill-down interactions to view sales within specific weeks or time slots.",
+    "objective": "Identify spikes or anomalies in sales activity across time intervals, enabling better resource allocation and scheduling.",
+    "corrReq": [
+      "V4",
+      "I5"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 7,
+    "type": "computing derived values | determining ranges",
+    "data": [
+      "blinkit_orders.order_total",
+      "blinkit_products.category",
+      "blinkit_marketing_performance.campaign_name"
+    ],
+    "method": "Compute average monthly sales per campaign for each product category. Use a stacked bar chart to visualize overlapping contributions of campaigns to category-wise sales.",
+    "objective": "Understand how specific campaigns influence sales by category and help tailor marketing strategies for targeted segments.",
+    "corrReq": [
+      "D2",
+      "D5",
+      "V3"
+    ],
+    "priority": 3
+  }
+]

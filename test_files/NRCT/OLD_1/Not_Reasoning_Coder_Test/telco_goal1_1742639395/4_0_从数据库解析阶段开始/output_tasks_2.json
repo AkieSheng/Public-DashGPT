@@ -1,0 +1,183 @@
+[
+  {
+    "id": 1,
+    "type": "retrieving values | correlating",
+    "data": [
+      "Customer_Info.gender",
+      "Customer_Info.age",
+      "Customer_Info.senior_citizen",
+      "Customer_Info.partner",
+      "Customer_Info.dependents",
+      "Status_Analysis.churn_label"
+    ],
+    "method": "Use bar charts (V1) to compare churn rates across demographic categories like gender, senior citizen status, and partner status. Encode demographic categories on the x-axis and churn rates on the y-axis.",
+    "objective": "Establish baseline relationships between categorical demographic factors and churn rates.",
+    "corrReq": [
+      "D1",
+      "D2",
+      "V1",
+      "I1",
+      "I7"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "computing derived values | characterizing distributions",
+    "data": [
+      "Customer_Info.age",
+      "Status_Analysis.churn_score"
+    ],
+    "method": "Create a scatter plot (V2) of churn scores against age with gender as a color encoding. Add trend lines to highlight correlations.",
+    "objective": "Identify how churn risk varies across age and explore differences by gender.",
+    "corrReq": [
+      "D1",
+      "D2",
+      "V2",
+      "I6"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 3,
+    "type": "computing derived values | correlating",
+    "data": [
+      "Customer_Info.age",
+      "Status_Analysis.churn_label"
+    ],
+    "method": "Group ages into bins (e.g., 18-30, 31-45, 46-60, 61+) as specified in D3. Use an area chart (V6) to show changes in churn rates across age groups, segmented by satisfaction scores.",
+    "objective": "Identify patterns in churn rates across age groups while exploring the moderating effect of satisfaction.",
+    "corrReq": [
+      "D3",
+      "D4",
+      "V6",
+      "I6"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 4,
+    "type": "filtering | correlating | characterizing distributions",
+    "data": [
+      "Customer_Info.senior_citizen",
+      "Customer_Info.dependents",
+      "Status_Analysis.churn_category"
+    ],
+    "method": "Use pie charts (V5) to display the proportion of churn categories for senior citizens compared to non-senior citizens and customers with dependents compared to those without.",
+    "objective": "Explore whether specific churn reasons dominate for high-risk groups like senior citizens and those with dependents.",
+    "corrReq": [
+      "D5",
+      "D7",
+      "V5",
+      "I8"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 5,
+    "type": "finding anomalies | clustering",
+    "data": [
+      "Customer_Info.age",
+      "Status_Analysis.churn_label",
+      "Location_Data.city"
+    ],
+    "method": "Create a heat map (V4) with churn rates as the colored value and demographic factors (e.g., age groups, partner status) on one axis and cities on the other axis.",
+    "objective": "Identify regions or demographic intersections with unusually high churn rates.",
+    "corrReq": [
+      "D6",
+      "V4",
+      "I3",
+      "I6"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 6,
+    "type": "characterizing distributions | finding extrema",
+    "data": [
+      "Customer_Info.gender",
+      "Customer_Info.partner",
+      "Status_Analysis.churn_score"
+    ],
+    "method": "Use box plots (V3) to show the distribution of churn scores within specific demographic groups (e.g., gender, partner status). Encode churn scores on the y-axis and demographic categories on the x-axis.",
+    "objective": "Characterize churn risk distributions within specific demographic groups and detect outliers.",
+    "corrReq": [
+      "D2",
+      "V3",
+      "I2",
+      "I4"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 7,
+    "type": "retrieving values | filtering | summarizing text data",
+    "data": [
+      "Customer_Info.gender",
+      "Status_Analysis.churn_reason"
+    ],
+    "method": "Display a tick chart (V8) to highlight the frequency of churn reasons across gender groups. Allow interactions to filter by gender or reason to dynamically update related visualizations.",
+    "objective": "Summarize the most common churn reasons for each gender and enable further exploration.",
+    "corrReq": [
+      "D8",
+      "V8",
+      "I8",
+      "I4"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 8,
+    "type": "correlating | retrieving values",
+    "data": [
+      "Status_Analysis.satisfaction_score",
+      "Location_Data.city",
+      "Status_Analysis.churn_label"
+    ],
+    "method": "Combine a bar chart and line chart (V7), with churn rates represented as bars and satisfaction scores represented as lines for different cities.",
+    "objective": "Highlight whether satisfaction levels correlate with churn rates across different locations.",
+    "corrReq": [
+      "D6",
+      "D4",
+      "V7",
+      "I1",
+      "I7"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 9,
+    "type": "filtering | correlating | sorting",
+    "data": [
+      "Customer_Info.number_of_dependents",
+      "Status_Analysis.churn_label",
+      "Status_Analysis.churn_category"
+    ],
+    "method": "Allow sorting of a bar chart (V1) to reorder demographic factors by churn rates. Overlay churn categories as segments within the bars for additional context.",
+    "objective": "Explore the impact of dependents on churn rates and investigate the reasons behind their churn.",
+    "corrReq": [
+      "D2",
+      "D5",
+      "V1",
+      "I4",
+      "I5"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 10,
+    "type": "finding anomalies | filtering",
+    "data": [
+      "Customer_Info.age",
+      "Status_Analysis.churn_score"
+    ],
+    "method": "Enable zooming interactions (I6) within scatter plots (V2) to focus on specific age windows with high churn scores.",
+    "objective": "Analyze churn risk among high-scoring segments more closely and identify deviations or sub-patterns.",
+    "corrReq": [
+      "D7",
+      "V2",
+      "I6"
+    ],
+    "priority": 2
+  }
+]

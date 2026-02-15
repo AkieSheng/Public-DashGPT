@@ -1,0 +1,98 @@
+{
+  "data": [
+    {
+      "id": "D1",
+      "requirement": "Extract and aggregate data based on customer_status categories (Stayed, Churned, Joined) for key metrics (satisfaction_score, churn_score, CLTV).",
+      "reason": "Customer status is the primary analysis entity, and comparisons across key metrics are necessary to analyze behavior patterns and differences in these groups."
+    },
+    {
+      "id": "D2",
+      "requirement": "Include demographic data (age, gender, senior_citizen, dependents, married) in the analysis, segmented by customer_status.",
+      "reason": "Demographic characteristics provide contextual information to identify trends and potential explanations for churn or retention behavior for different customer groups."
+    },
+    {
+      "id": "D3",
+      "requirement": "Provide an overview of the distribution of numerical metrics (satisfaction_score, churn_score, CLTV) by customer_status, including statistics such as mean, median, and variance.",
+      "reason": "This ensures that macro-level trends and differences can be observed and contrasted across groups."
+    },
+    {
+      "id": "D4",
+      "requirement": "Enable the identification of extreme values (high or low churn_scores, satisfaction_scores, CLTV) within each customer_status group.",
+      "reason": "Analyzing outliers can provide deeper insights into factors affecting unusually high/low performances, churn, or retention."
+    },
+    {
+      "id": "D5",
+      "requirement": "Incorporate and join data from the Service_Options and Online_Services tables based on customer_id to examine how service usage (internet_service, phone_service, streaming services, etc.) clusters with customer_status.",
+      "reason": "Service usage patterns may highlight specific behaviors or products influencing churn or retention."
+    },
+    {
+      "id": "D6",
+      "requirement": "Guide users from an aggregated view of all customer groups to a detailed inspection of individual customer profiles and their service/demographic metrics.",
+      "reason": "This drill-down capability enables deeper examination of individual cases and ensures logical flow from general to specific insights."
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V1",
+      "requirement": "Utilize bar charts to compare the mean satisfaction_score, churn_score, and CLTV for each customer_status group.",
+      "reason": "Bar charts are effective for group-level comparisons and showing differences in these metrics across customer statuses."
+    },
+    {
+      "id": "V2",
+      "requirement": "Create box plots for satisfaction_score, churn_score, and CLTV segmented by customer_status.",
+      "reason": "Box plots allow visualization of the spread, medians, and outliers within each group for these key metrics."
+    },
+    {
+      "id": "V3",
+      "requirement": "Use a heat map to depict correlations between service usage variables (e.g., online_security, premium_tech_support) and customer_status.",
+      "reason": "Heat maps effectively reveal patterns and potential factors driving differences in customer behavior."
+    },
+    {
+      "id": "V4",
+      "requirement": "Deploy a stacked bar chart to show the proportions of demographic characteristics (e.g., gender, senior_citizen) within each status group.",
+      "reason": "Stacked bar charts are suited for showing proportions and categorical breakdowns within groups for demographic comparisons."
+    },
+    {
+      "id": "V5",
+      "requirement": "Create a scatter plot for churn_score vs. CLTV, color-coded by customer_status, with optional point size based on satisfaction_score.",
+      "reason": "Scatter plots support correlation and trend analysis to investigate interactions between churn risk, customer value, and customer satisfaction."
+    },
+    {
+      "id": "V6",
+      "requirement": "Implement a line chart or area chart to trend satisfaction_score or churn_score over tenure for different customer_status groups.",
+      "reason": "These visualizations are useful for understanding temporal patterns and changes in satisfaction or churn likelihood over time."
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I1",
+      "requirement": "Allow filtering of data by customer_status (Stayed, Churned, Joined) using dropdown menus or buttons.",
+      "reason": "Users need the ability to isolate and focus on specific customer groups to perform comparative analyses or drill-downs."
+    },
+    {
+      "id": "I2",
+      "requirement": "Enable selection or brushing on visualizations (e.g., box plots or scatter plots) to highlight specific ranges or points, dynamically updating related views.",
+      "reason": "Helps users understand relationships between selected data points and the broader dataset."
+    },
+    {
+      "id": "I3",
+      "requirement": "Integrate tooltips to display customer-level details (e.g., satisfaction_score, churn_score, CLTV, demographics) when hovering over visualization points (e.g., scatter plot points or heat map cells).",
+      "reason": "Allows the user to access detailed information when needed, without overwhelming the interface with data at all times."
+    },
+    {
+      "id": "I4",
+      "requirement": "Provide drill-down capabilities from macro-level group summaries (e.g., heat map or bar chart) to individual customer records via clicking.",
+      "reason": "Supports logical navigation from general insights to specific, actionable cases for further analysis."
+    },
+    {
+      "id": "I5",
+      "requirement": "Allow selection of specific demographic features (e.g., gender, senior_citizen) to highlight or compare distributions within the visualizations.",
+      "reason": "This interaction enables targeted subgroup analyses based on demographic characteristics."
+    },
+    {
+      "id": "I6",
+      "requirement": "Allow panning or zooming on scatter plots and line charts to analyze specific areas of interest (e.g., extreme CLTV values or churn_score trends).",
+      "reason": "Panning and zooming assist in detailed examination of data regions otherwise difficult to observe in crowded plots or with wide data ranges."
+    }
+  ]
+}

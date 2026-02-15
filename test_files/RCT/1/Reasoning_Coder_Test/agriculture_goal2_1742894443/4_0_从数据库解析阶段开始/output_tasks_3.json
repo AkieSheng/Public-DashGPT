@@ -1,0 +1,36 @@
+[
+  {
+    "type": "Comparative Analysis",
+    "data": [
+      "District",
+      "Season",
+      "Yield (quintals)"
+    ],
+    "method": "Vertical grouped bar charts showing average yield per district, grouped by season. X-axis: District, Y-axis: Average Yield, Color: Season (Kharif/Rabi). Enables direct seasonal productivity comparison within regions. Proper axis truncation (Yield 20-60 quintals) maintains readability.",
+    "objective": "Identify districts with significant seasonal yield variations and optimal growing seasons",
+    "priority": "High"
+  },
+  {
+    "type": "Pattern Detection",
+    "data": [
+      "District",
+      "Area (hectares)",
+      "Yield (quintals)"
+    ],
+    "method": "Hexbin-enhanced scatter plot with Area on X and Yield on Y. Color shows data point density. District selector filter allows isolation of regional patterns. Axis binning maintains clarity despite wide area range (5k-20k hectares).",
+    "objective": "Detect operational patterns and outliers in land-use efficiency",
+    "priority": "Medium"
+  },
+  {
+    "type": "Decision Support",
+    "data": [
+      "District",
+      "Crop",
+      "Season",
+      "Yield (quintals)"
+    ],
+    "method": "Interactive heatmap with District rows and Crop columns. Color encodes average yield. Season toggle switches between Kharif/Rabi views. Tooltip shows exact values.",
+    "objective": "Recommend optimal crop-season combinations for each district based on historical performance",
+    "priority": "High"
+  }
+]

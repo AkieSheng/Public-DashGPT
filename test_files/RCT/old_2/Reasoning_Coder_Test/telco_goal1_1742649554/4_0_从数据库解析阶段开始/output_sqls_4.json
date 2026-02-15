@@ -1,0 +1,30 @@
+[
+  {
+    "name": "vw_customer_summary",
+    "SQL": "CREATE VIEW vw_customer_summary AS SELECT ci.customer_id, ci.gender, ci.age, ci.senior_citizen, ci.married, ci.dependents, ca.churn_label, ca.cltv FROM Customer_Info ci JOIN Status_Analysis ca ON ci.customer_id = ca.customer_id;",
+    "corrView": "1",
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "name": "vw_age_group_churn",
+    "SQL": "CREATE VIEW vw_age_group_churn AS SELECT ci.age, ca.churn_label, ca.cltv FROM Customer_Info ci JOIN Status_Analysis ca ON ci.customer_id = ca.customer_id;",
+    "corrView": "2",
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "name": "vw_marriage_dependents_churn",
+    "SQL": "CREATE VIEW vw_marriage_dependents_churn AS SELECT ci.married, ci.dependents, ca.churn_value FROM Customer_Info ci JOIN Status_Analysis ca ON ci.customer_id = ca.customer_id;",
+    "corrView": "3",
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "name": "vw_customer_details",
+    "SQL": "CREATE VIEW vw_customer_details AS SELECT ci.customer_id, ci.age, ci.gender, ca.cltv, ca.churn_category FROM Customer_Info ci JOIN Status_Analysis ca ON ci.customer_id = ca.customer_id;",
+    "corrView": "4",
+    "pk": "customer_id",
+    "fk": []
+  }
+]

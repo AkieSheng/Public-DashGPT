@@ -1,0 +1,1390 @@
+{
+  "created": 1742643031,
+  "dataset": {
+    "description": "The database offers a comprehensive view of an educational institution’s academic ecosystem, covering details about courses, departments, enrollment, faculty, students, and related administrative information.",
+    "tables": [
+      {
+        "columns": [
+          {
+            "column": "StuID",
+            "description": "Unique identifier for each student.",
+            "dtype": "INTEGER",
+            "name": "StuID",
+            "stats": {
+              "25%": 1009.25,
+              "50%": 1018.5,
+              "75%": 1026.75,
+              "count": 34.0,
+              "max": 1035.0,
+              "mean": 1018.1470588235294,
+              "min": 1001.0,
+              "samples": [
+                1001,
+                1002,
+                1003,
+                1004,
+                1005
+              ],
+              "std": 10.363491727420529
+            }
+          },
+          {
+            "column": "LName",
+            "description": "Last name of the student.",
+            "dtype": "VARCHAR(12)",
+            "name": "LName",
+            "stats": {
+              "count": 34,
+              "freq": 2,
+              "samples": [
+                "Smith",
+                "Lee",
+                "Pang",
+                "Kumar",
+                "Gompers"
+              ],
+              "top": "Smith",
+              "unique": 31
+            }
+          },
+          {
+            "column": "Fname",
+            "description": "First name of the student.",
+            "dtype": "VARCHAR(12)",
+            "name": "Fname",
+            "stats": {
+              "count": 34,
+              "freq": 5,
+              "samples": [
+                "Eric",
+                "Lisa",
+                "David",
+                "Paul",
+                "Michael"
+              ],
+              "top": "Eric",
+              "unique": 24
+            }
+          },
+          {
+            "column": "Age",
+            "description": "Age of the student.",
+            "dtype": "INTEGER",
+            "name": "Age",
+            "stats": {
+              "25%": 18.0,
+              "50%": 19.0,
+              "75%": 20.0,
+              "count": 34.0,
+              "max": 27.0,
+              "mean": 19.558823529411764,
+              "min": 16.0,
+              "samples": [
+                18,
+                20,
+                19,
+                17,
+                21
+              ],
+              "std": 2.584231630374799
+            }
+          },
+          {
+            "column": "Sex",
+            "description": "Gender of the student (M for male, F for female).",
+            "dtype": "VARCHAR(1)",
+            "name": "Sex",
+            "stats": {
+              "count": 34,
+              "freq": 24,
+              "samples": [
+                "M",
+                "F"
+              ],
+              "top": "M",
+              "unique": 2
+            }
+          },
+          {
+            "column": "Major",
+            "description": "Department number representing the student's major field of study.",
+            "dtype": "INTEGER",
+            "name": "Major",
+            "stats": {
+              "25%": 525.0,
+              "50%": 600.0,
+              "75%": 600.0,
+              "count": 34.0,
+              "max": 600.0,
+              "mean": 527.9411764705883,
+              "min": 50.0,
+              "samples": [
+                600,
+                520,
+                550,
+                540,
+                50
+              ],
+              "std": 149.39837757759085
+            }
+          },
+          {
+            "column": "Advisor",
+            "description": "Faculty ID of the advisor assigned to the student.",
+            "dtype": "INTEGER",
+            "name": "Advisor",
+            "stats": {
+              "25%": 2192.0,
+              "50%": 7202.5,
+              "75%": 8722.0,
+              "count": 34.0,
+              "max": 9172.0,
+              "mean": 5622.382352941177,
+              "min": 1121.0,
+              "samples": [
+                2192,
+                1121,
+                8772,
+                1148,
+                2311
+              ],
+              "std": 3224.6798855898282
+            }
+          },
+          {
+            "column": "city_code",
+            "description": "Three-character code for the student's city of residence.",
+            "dtype": "VARCHAR(3)",
+            "name": "city_code",
+            "stats": {
+              "count": 34,
+              "freq": 4,
+              "samples": [
+                "BAL",
+                "PIT",
+                "HKG",
+                "WAS",
+                "PHL"
+              ],
+              "top": "BAL",
+              "unique": 19
+            }
+          }
+        ],
+        "table": "Student"
+      },
+      {
+        "columns": [
+          {
+            "column": "FacID",
+            "description": "Unique identifier for each faculty member.",
+            "dtype": "INTEGER",
+            "name": "FacID",
+            "stats": {
+              "25%": 3650.25,
+              "50%": 7609.0,
+              "75%": 8886.25,
+              "count": 58.0,
+              "max": 9922.0,
+              "mean": 6473.3448275862065,
+              "min": 1082.0,
+              "samples": [
+                1082,
+                1121,
+                1148,
+                1172,
+                1177
+              ],
+              "std": 3008.5165403807746
+            }
+          },
+          {
+            "column": "Lname",
+            "description": "Last name of the faculty member.",
+            "dtype": "VARCHAR(15)",
+            "name": "Lname",
+            "stats": {
+              "count": 58,
+              "freq": 1,
+              "samples": [
+                "Giuliano",
+                "Goodrich",
+                "Masson",
+                "Runolfsson",
+                "Naiman"
+              ],
+              "top": "Giuliano",
+              "unique": 58
+            }
+          },
+          {
+            "column": "Fname",
+            "description": "First name of the faculty member.",
+            "dtype": "VARCHAR(15)",
+            "name": "Fname",
+            "stats": {
+              "count": 58,
+              "freq": 3,
+              "samples": [
+                "Michael",
+                "Robert",
+                "William",
+                "John",
+                "Mark"
+              ],
+              "top": "Michael",
+              "unique": 53
+            }
+          },
+          {
+            "column": "Rank",
+            "description": "Faculty rank (e.g., Professor, Associate Professor, Assistant Professor, Instructor).",
+            "dtype": "VARCHAR(15)",
+            "name": "Rank",
+            "stats": {
+              "count": 58,
+              "freq": 27,
+              "samples": [
+                "Professor",
+                "AsstProf",
+                "Instructor",
+                "AssocProf"
+              ],
+              "top": "Professor",
+              "unique": 4
+            }
+          },
+          {
+            "column": "Sex",
+            "description": "Gender of the faculty member (M for male, F for female).",
+            "dtype": "VARCHAR(1)",
+            "name": "Sex",
+            "stats": {
+              "count": 58,
+              "freq": 51,
+              "samples": [
+                "M",
+                "F"
+              ],
+              "top": "M",
+              "unique": 2
+            }
+          },
+          {
+            "column": "Phone",
+            "description": "Contact phone number of the faculty member.",
+            "dtype": "INTEGER",
+            "name": "Phone",
+            "stats": {
+              "25%": 2080.25,
+              "50%": 2880.0,
+              "75%": 4928.5,
+              "count": 58.0,
+              "max": 9373.0,
+              "mean": 3616.9137931034484,
+              "min": 1035.0,
+              "samples": [
+                2424,
+                3593,
+                3402,
+                3121,
+                3571
+              ],
+              "std": 2149.3704446249985
+            }
+          },
+          {
+            "column": "Room",
+            "description": "Room number where the faculty member's office is located.",
+            "dtype": "VARCHAR(5)",
+            "name": "Room",
+            "stats": {
+              "count": 58,
+              "freq": 20,
+              "samples": [
+                "288",
+                "119",
+                "316",
+                "224",
+                "219"
+              ],
+              "top": "288",
+              "unique": 18
+            }
+          },
+          {
+            "column": "Building",
+            "description": "Building name where the faculty member's office is located.",
+            "dtype": "VARCHAR(13)",
+            "name": "Building",
+            "stats": {
+              "count": 58,
+              "freq": 20,
+              "samples": [
+                "Barton",
+                "Krieger",
+                "NEB"
+              ],
+              "top": "Barton",
+              "unique": 3
+            }
+          }
+        ],
+        "table": "Faculty"
+      },
+      {
+        "columns": [
+          {
+            "column": "DNO",
+            "description": "Unique identifier for each academic department.",
+            "dtype": "INTEGER",
+            "name": "DNO",
+            "stats": {
+              "25%": 75.0,
+              "50%": 160.0,
+              "75%": 477.5,
+              "count": 26.0,
+              "max": 600.0,
+              "mean": 242.69230769230768,
+              "min": 10.0,
+              "samples": [
+                10,
+                20,
+                30,
+                40,
+                50
+              ],
+              "std": 210.02014555385284
+            }
+          },
+          {
+            "column": "Division",
+            "description": "Division code (e.g., AS for Arts and Sciences, EN for Engineering).",
+            "dtype": "VARCHAR(2)",
+            "name": "Division",
+            "stats": {
+              "count": 26,
+              "freq": 19,
+              "samples": [
+                "AS",
+                "EN"
+              ],
+              "top": "AS",
+              "unique": 2
+            }
+          },
+          {
+            "column": "DName",
+            "description": "Name of the academic department.",
+            "dtype": "VARCHAR(25)",
+            "name": "DName",
+            "stats": {
+              "count": 26,
+              "freq": 1,
+              "samples": [
+                "History of Art",
+                "Biology",
+                "Chemistry",
+                "Classics",
+                "Cognitive Science"
+              ],
+              "top": "History of Art",
+              "unique": 26
+            }
+          },
+          {
+            "column": "Room",
+            "description": "Room number where the department office is located.",
+            "dtype": "VARCHAR(5)",
+            "name": "Room",
+            "stats": {
+              "count": 26,
+              "freq": 2,
+              "samples": [
+                "144",
+                "221",
+                "113",
+                "268",
+                "381"
+              ],
+              "top": "144",
+              "unique": 24
+            }
+          },
+          {
+            "column": "Building",
+            "description": "Building name where the department office is located.",
+            "dtype": "VARCHAR(13)",
+            "name": "Building",
+            "stats": {
+              "count": 26,
+              "freq": 9,
+              "samples": [
+                "Gilman",
+                "Mergenthaler",
+                "NEB",
+                "Krieger",
+                "Latrobe"
+              ],
+              "top": "Gilman",
+              "unique": 12
+            }
+          },
+          {
+            "column": "DPhone",
+            "description": "Contact phone number for the department.",
+            "dtype": "INTEGER",
+            "name": "DPhone",
+            "stats": {
+              "25%": 7202.75,
+              "50%": 7414.0,
+              "75%": 7543.0,
+              "count": 26.0,
+              "max": 8680.0,
+              "mean": 7486.076923076923,
+              "min": 7033.0,
+              "samples": [
+                7117,
+                7330,
+                7429,
+                7556,
+                7119
+              ],
+              "std": 440.4182487660495
+            }
+          }
+        ],
+        "table": "Department"
+      },
+      {
+        "columns": [
+          {
+            "column": "FacID",
+            "description": "Unique identifier of the faculty member.",
+            "dtype": "INTEGER",
+            "name": "FacID",
+            "stats": {
+              "25%": 4331.0,
+              "50%": 7712.0,
+              "75%": 8854.5,
+              "count": 63.0,
+              "max": 9922.0,
+              "mean": 6610.269841269841,
+              "min": 1082.0,
+              "samples": [
+                7271,
+                8741,
+                8721,
+                8989,
+                9379
+              ],
+              "std": 2930.7350184880092
+            }
+          },
+          {
+            "column": "DNO",
+            "description": "Department number the faculty member is affiliated with.",
+            "dtype": "INTEGER",
+            "name": "DNO",
+            "stats": {
+              "25%": 520.0,
+              "50%": 550.0,
+              "75%": 600.0,
+              "count": 63.0,
+              "max": 600.0,
+              "mean": 484.44444444444446,
+              "min": 50.0,
+              "samples": [
+                520,
+                600,
+                550,
+                50
+              ],
+              "std": 181.75468914195756
+            }
+          },
+          {
+            "column": "Appt_Type",
+            "description": "Appointment type for the faculty member in the department (e.g., Primary, Secondary).",
+            "dtype": "VARCHAR(15)",
+            "name": "Appt_Type",
+            "stats": {
+              "count": 63,
+              "freq": 58,
+              "samples": [
+                "Primary",
+                "Secondary"
+              ],
+              "top": "Primary",
+              "unique": 2
+            }
+          }
+        ],
+        "table": "Member_of"
+      },
+      {
+        "columns": [
+          {
+            "column": "CID",
+            "description": "Unique identifier for each course.",
+            "dtype": "VARCHAR(7)",
+            "name": "CID",
+            "stats": {
+              "count": 76,
+              "freq": 1,
+              "samples": [
+                "600.101",
+                "600.103",
+                "600.107",
+                "600.109",
+                "600.113"
+              ],
+              "top": "600.101",
+              "unique": 76
+            }
+          },
+          {
+            "column": "CName",
+            "description": "Name of the course.",
+            "dtype": "VARCHAR(40)",
+            "name": "CName",
+            "stats": {
+              "count": 76,
+              "freq": 2,
+              "samples": [
+                "FORMAL METHODS IN COGNITIVE SCIENCE",
+                "COMBINATORIAL ANALYSIS",
+                "DISTRIBUTED SYSTEMS",
+                "DATABASE SYSTEMS",
+                "COMPUTER LITERACY"
+              ],
+              "top": "FORMAL METHODS IN COGNITIVE SCIENCE",
+              "unique": 72
+            }
+          },
+          {
+            "column": "Credits",
+            "description": "Number of credit hours assigned to the course.",
+            "dtype": "INTEGER",
+            "name": "Credits",
+            "stats": {
+              "25%": 3.0,
+              "50%": 3.0,
+              "75%": 3.0,
+              "count": 76.0,
+              "max": 4.0,
+              "mean": 3.039473684210526,
+              "min": 1.0,
+              "samples": [
+                3,
+                4,
+                1,
+                2
+              ],
+              "std": 0.6205543644985874
+            }
+          },
+          {
+            "column": "Instructor",
+            "description": "Faculty ID of the instructor teaching the course.",
+            "dtype": "INTEGER",
+            "name": "Instructor",
+            "stats": {
+              "25%": 4432.0,
+              "50%": 7029.5,
+              "75%": 8822.75,
+              "count": 76.0,
+              "max": 9922.0,
+              "mean": 6472.526315789473,
+              "min": 1121.0,
+              "samples": [
+                6112,
+                4432,
+                6191,
+                1121,
+                9823
+              ],
+              "std": 2838.180207920487
+            }
+          },
+          {
+            "column": "Days",
+            "description": "Days when the course is conducted (e.g., MTW, ThF).",
+            "dtype": "VARCHAR(5)",
+            "name": "Days",
+            "stats": {
+              "count": 76,
+              "freq": 37,
+              "samples": [
+                "MTW",
+                "ThF",
+                "Th",
+                "M",
+                "MW"
+              ],
+              "top": "MTW",
+              "unique": 11
+            }
+          },
+          {
+            "column": "Hours",
+            "description": "Hours when the course is conducted.",
+            "dtype": "VARCHAR(11)",
+            "name": "Hours",
+            "stats": {
+              "count": 76,
+              "freq": 7,
+              "samples": [
+                "3",
+                "1",
+                "9",
+                "2",
+                "11"
+              ],
+              "top": "3",
+              "unique": 29
+            }
+          },
+          {
+            "column": "DNO",
+            "description": "Department number offering the course.",
+            "dtype": "INTEGER",
+            "name": "DNO",
+            "stats": {
+              "25%": 520.0,
+              "50%": 550.0,
+              "75%": 600.0,
+              "count": 76.0,
+              "max": 600.0,
+              "mean": 493.8157894736842,
+              "min": 50.0,
+              "samples": [
+                600,
+                550,
+                520,
+                50
+              ],
+              "std": 176.7179832785421
+            }
+          }
+        ],
+        "table": "Course"
+      },
+      {
+        "columns": [
+          {
+            "column": "StuID",
+            "description": "Student ID of the student pursuing a minor.",
+            "dtype": "INTEGER",
+            "name": "StuID",
+            "stats": {
+              "25%": 1006.25,
+              "50%": 1011.0,
+              "75%": 1015.75,
+              "count": 10.0,
+              "max": 1031.0,
+              "mean": 1013.3,
+              "min": 1004.0,
+              "samples": [
+                1004,
+                1005,
+                1006,
+                1007,
+                1008
+              ],
+              "std": 9.357706271660094
+            }
+          },
+          {
+            "column": "DNO",
+            "description": "Department number where the minor is being pursued.",
+            "dtype": "INTEGER",
+            "name": "DNO",
+            "stats": {
+              "25%": 152.5,
+              "50%": 520.0,
+              "75%": 537.5,
+              "count": 10.0,
+              "max": 550.0,
+              "mean": 368.0,
+              "min": 50.0,
+              "samples": [
+                520,
+                550,
+                50,
+                90,
+                140
+              ],
+              "std": 218.67276414262884
+            }
+          }
+        ],
+        "table": "Minor_in"
+      },
+      {
+        "columns": [
+          {
+            "column": "StuID",
+            "description": "Student ID of the student enrolled in the course.",
+            "dtype": "INTEGER",
+            "name": "StuID",
+            "stats": {
+              "25%": 1009.0,
+              "50%": 1019.0,
+              "75%": 1026.0,
+              "count": 210.0,
+              "max": 1035.0,
+              "mean": 1018.1190476190476,
+              "min": 1001.0,
+              "samples": [
+                1021,
+                1022,
+                1024,
+                1023,
+                1009
+              ],
+              "std": 9.89369907493054
+            }
+          },
+          {
+            "column": "CID",
+            "description": "Course ID of the course the student is enrolled in.",
+            "dtype": "VARCHAR(7)",
+            "name": "CID",
+            "stats": {
+              "count": 210,
+              "freq": 14,
+              "samples": [
+                "600.303",
+                "600.315",
+                "550.420",
+                "600.107",
+                "600.463"
+              ],
+              "top": "600.303",
+              "unique": 42
+            }
+          },
+          {
+            "column": "Grade",
+            "description": "Grade obtained by the student in the course.",
+            "dtype": "VARCHAR(2)",
+            "name": "Grade",
+            "stats": {
+              "count": 210,
+              "freq": 62,
+              "samples": [
+                "B",
+                "A",
+                "A-",
+                "B-",
+                "B+"
+              ],
+              "top": "B",
+              "unique": 12
+            }
+          }
+        ],
+        "table": "Enrolled_in"
+      },
+      {
+        "columns": [
+          {
+            "column": "lettergrade",
+            "description": "Letter grade (e.g., A+, A, A-).",
+            "dtype": "VARCHAR(2)",
+            "name": "lettergrade",
+            "stats": {
+              "count": 13,
+              "freq": 1,
+              "samples": [
+                "A+",
+                "A",
+                "A-",
+                "B+",
+                "B"
+              ],
+              "top": "A+",
+              "unique": 13
+            }
+          },
+          {
+            "column": "gradepoint",
+            "description": "Grade point equivalent for the corresponding letter grade.",
+            "dtype": "FLOAT",
+            "name": "gradepoint",
+            "stats": {
+              "25%": 1.3,
+              "50%": 2.3,
+              "75%": 3.3,
+              "count": 13.0,
+              "max": 4.0,
+              "mean": 2.2846153846153845,
+              "min": 0.0,
+              "samples": [
+                4.0,
+                3.7,
+                3.3,
+                3.0,
+                2.7
+              ],
+              "std": 1.3031028060275687
+            }
+          }
+        ],
+        "table": "Gradeconversion"
+      }
+    ]
+  },
+  "desc": "The database offers a comprehensive view of an educational institution’s academic ecosystem, covering details about courses, departments, enrollment, faculty, students, and related administrative information.",
+  "goal": "Conduct a comprehensive analysis of students’ major subjects, minor selections, and organizational memberships, thereby exploring overall patterns and potential correlations between academic profiles and extracurricular engagement.",
+  "id": "college_goal3_1742643031",
+  "name": "Visual Analytics System college_goal3_1742643031",
+  "plan": {
+    "graph": {
+      "edges": [
+        {
+          "label": "Requirements",
+          "source": "REQUIREMENT GENERATION",
+          "target": "TASK GENERATION"
+        },
+        {
+          "label": "Tasks",
+          "source": "TASK GENERATION",
+          "target": "PLAN GENERATION"
+        },
+        {
+          "label": "Plan",
+          "source": "PLAN GENERATION",
+          "target": "SQL GENERATION"
+        },
+        {
+          "label": "SQL Queries",
+          "source": "SQL GENERATION",
+          "target": "VEGA-LITE GENERATION"
+        }
+      ],
+      "nodes": [
+        {
+          "description": "Define the data, visualization, and interaction requirements for the VAS.",
+          "id": "REQUIREMENT GENERATION",
+          "label": "REQUIREMENT GENERATION"
+        },
+        {
+          "description": "Break down the overall analysis goal into specific analytical tasks with detailed methods and visualizations.",
+          "id": "TASK GENERATION",
+          "label": "TASK GENERATION"
+        },
+        {
+          "description": "Design the views for the VAS, including the relationship between different views and their interaction modes.",
+          "id": "PLAN GENERATION",
+          "label": "PLAN GENERATION"
+        },
+        {
+          "description": "Generate intermediate tables for each view based on the results from task generation.",
+          "id": "SQL GENERATION",
+          "label": "SQL GENERATION"
+        },
+        {
+          "description": "Convert the intermediate tables and the overall plan into Vega-Lite specifications to visualize the data.",
+          "id": "VEGA-LITE GENERATION",
+          "label": "VEGA-LITE GENERATION"
+        }
+      ]
+    },
+    "path": "REQUIREMENT GENERATION -> TASK GENERATION -> PLAN GENERATION -> SQL GENERATION -> VEGA-LITE GENERATION",
+    "views": [
+      {
+        "components": "",
+        "fields": [
+          "Student.Major",
+          "Minor_in.DNO",
+          "Student.Advisor"
+        ],
+        "id": 1,
+        "interactions": [],
+        "level": "overview",
+        "task": [
+          1
+        ],
+        "usingParams": [],
+        "visualization": {
+          "description": "Tabular visualization showing each student’s major, minor, and advisor. Each row represents a student, while columns represent the respective fields.",
+          "encodings": [
+            "rows: Student.StuID",
+            "columns: Student.Major, Minor_in.DNO, Student.Advisor"
+          ],
+          "markType": "text"
+        }
+      },
+      {
+        "components": "",
+        "fields": [
+          "Student.Major",
+          "Minor_in.DNO"
+        ],
+        "id": 2,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Selecting a department filters the data for the heat map in View 4.",
+              "params": [
+                {
+                  "name": "selectedDepartment",
+                  "select": {
+                    "encodings": [
+                      "x"
+                    ],
+                    "type": "interval"
+                  }
+                }
+              ]
+            },
+            "object": "bar chart",
+            "verb": "click"
+          }
+        ],
+        "level": "exploration",
+        "task": [
+          2,
+          10
+        ],
+        "usingParams": [],
+        "visualization": {
+          "description": "Bar chart showing the count of students per department, categorized by majors and minors. An additional line overlays the expected count to highlight anomalies.",
+          "encodings": [
+            "x: department (Student.Major and Minor_in.DNO)",
+            "y: count",
+            "color: type (major/minor)"
+          ],
+          "markType": "bar"
+        }
+      },
+      {
+        "components": "Sliders for filtering age range and dropdowns for selecting sex.",
+        "fields": [
+          "Student.Age",
+          "Member_of.Appt_Type"
+        ],
+        "id": 3,
+        "interactions": [],
+        "level": "exploration",
+        "task": [
+          4
+        ],
+        "usingParams": [
+          "selectedDepartment"
+        ],
+        "visualization": {
+          "description": "Scatter plot showing the relationship between student age and extracurricular memberships by appointment type.",
+          "encodings": [
+            "x: Student.Age",
+            "y: Member_of.Appt_Type",
+            "color: Appt_Type",
+            "shape: Appt_Type"
+          ],
+          "markType": "point"
+        }
+      },
+      {
+        "components": "Button for drilldown to explore detailed combinations.",
+        "fields": [
+          "Student.Major",
+          "Minor_in.DNO"
+        ],
+        "id": 4,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Hovering over a cell displays the count of students for that specific major-minor combination.",
+              "params": []
+            },
+            "object": "heat map",
+            "verb": "hover"
+          },
+          {
+            "effect": {
+              "description": "Drill into a selected combination to view detailed student information.",
+              "params": [
+                {
+                  "name": "drilldownSelection",
+                  "select": {
+                    "encodings": [
+                      "x",
+                      "y"
+                    ],
+                    "type": "point"
+                  }
+                }
+              ]
+            },
+            "object": "button",
+            "verb": "click"
+          }
+        ],
+        "level": "detail",
+        "task": [
+          6
+        ],
+        "usingParams": [
+          "selectedDepartment"
+        ],
+        "visualization": {
+          "description": "Heat map where rows represent majors and columns represent minors, showing the intensity of combinations by the number of students.",
+          "encodings": [
+            "x: Minor_in.DNO",
+            "y: Student.Major",
+            "color: count of students in each major-minor combination"
+          ],
+          "markType": "rect"
+        }
+      },
+      {
+        "components": "Tooltip to display exact numbers and department details.",
+        "fields": [
+          "Department.DName",
+          "Department.Division",
+          "Student.Major",
+          "Minor_in.DNO"
+        ],
+        "id": 5,
+        "interactions": [],
+        "level": "insight",
+        "task": [
+          5,
+          3
+        ],
+        "usingParams": [],
+        "visualization": {
+          "description": "Pie chart showing the proportion of departments within each division for majors and minors, facilitating comparison between divisions.",
+          "encodings": [
+            "theta: proportion",
+            "color: Division",
+            "facet: (major/minor)"
+          ],
+          "markType": "arc"
+        }
+      }
+    ]
+  },
+  "requirements": {
+    "data": [
+      {
+        "id": "D1",
+        "reason": "This ensures we capture each student's academic profile and advisor assignment, which is a foundation for further analysis.",
+        "requirement": "Retrieve all student details (from the 'Student' table), specifically focusing on major ('Major'), minor ('DNO' from 'Minor_in'), and advisor ('Advisor')."
+      },
+      {
+        "id": "D2",
+        "reason": "This provides an overview of the popularity and participation rates across different academic fields, necessary for understanding overall patterns.",
+        "requirement": "Aggregate the number of students by major ('Major' from 'Student') and minor ('DNO' from 'Minor_in'), including counts and percentage distributions at the department level."
+      },
+      {
+        "id": "D3",
+        "reason": "This allows analysis of how academic choices may influence or correlate with organizational affiliations.",
+        "requirement": "Combine data from 'Student' and 'Member_of' on 'StuID' to explore correlations between students’ academic choices (Major and Minor) and their extracurricular memberships ('Appt_Type')."
+      },
+      {
+        "id": "D4",
+        "reason": "Understanding demographics provides context for patterns in academic and extracurricular engagement.",
+        "requirement": "Filter student and membership-related data using demographic attributes ('Age', 'Sex', and 'city_code' from 'Student')."
+      },
+      {
+        "id": "D5",
+        "reason": "This helps identify division-based trends in academic and extracurricular choices.",
+        "requirement": "Retrieve department details ('DName' and 'Division' from the 'Department' table) related to both majors and minors to classify patterns with respect to academic divisions like Arts and Sciences or Engineering."
+      },
+      {
+        "id": "D6",
+        "reason": "This provides insights into how advisor allocation may vary with student profiles, adding depth to the analysis.",
+        "requirement": "Merge 'Student', 'Faculty', and 'Advisor' information to explore potential relationships between student demographics and faculty advisor assignments (e.g., by 'Sex' or 'city_code')."
+      }
+    ],
+    "interaction": [
+      {
+        "id": "I1",
+        "reason": "This fosters interactive exploration to identify relationships quickly.",
+        "requirement": "Allow brushing and linking between visualizations (e.g., highlighting a major in the bar chart and seeing corresponding extracurricular data in the scatter plot)."
+      },
+      {
+        "id": "I2",
+        "reason": "Users can focus on specific demographic slices for in-depth exploration.",
+        "requirement": "Enable filtering by student demographics (e.g., sliders for 'Age' or dropdowns for 'Sex' and 'city_code')."
+      },
+      {
+        "id": "I3",
+        "reason": "Tooltips help users access precise information without overloading the visualization.",
+        "requirement": "Provide tooltips on hover for data points (e.g., detailed information on a bar or point in a scatter plot)."
+      },
+      {
+        "id": "I4",
+        "reason": "Sorting enables users to reorient data views to emphasize specific trends.",
+        "requirement": "Allow sorting of categorical axes (e.g., sorting majors by popularity or alphabetical order in the bar chart)."
+      },
+      {
+        "id": "I5",
+        "reason": "This supports multi-level exploration, bridging overview and focus details.",
+        "requirement": "Facilitate click-based drilldowns in heat maps to move from macro-level patterns to detailed lists of students within specific major-minor combinations."
+      },
+      {
+        "id": "I6",
+        "reason": "This ensures users can navigate back to the initial state during explorations.",
+        "requirement": "Include a reset option to clear all filters and interactions and return to the default overview state."
+      }
+    ],
+    "visualization": [
+      {
+        "id": "V1",
+        "reason": "Bar charts provide a clear comparison of different academic fields and their respective student counts.",
+        "requirement": "Create a bar chart to display the distribution of students by major and minor departments, with separate bars for majors and minors."
+      },
+      {
+        "id": "V2",
+        "reason": "Stacked bars offer an effective way to compare gender representation within academic choices.",
+        "requirement": "Use a stacked bar chart to analyze the demographic breakdown ('Sex') of students across majors or minors."
+      },
+      {
+        "id": "V3",
+        "reason": "Scatter plots are suitable for identifying trends or correlations between numerical and categorical data.",
+        "requirement": "Generate a scatter plot to explore correlations between student ages ('Age') and the likelihood of participating in extracurricular activities ('Appt_Type')."
+      },
+      {
+        "id": "V4",
+        "reason": "Heat maps are ideal for showing joint distributions and interactions between two categorical attributes.",
+        "requirement": "Produce a heat map to show overlaps between students' majors and minors, with intensity indicating the frequency of specific combinations."
+      },
+      {
+        "id": "V5",
+        "reason": "A grouped bar chart allows comparisons across multiple categorical groups for structured insights.",
+        "requirement": "Create a grouped bar chart comparing student participation in organizational memberships by appointment type ('Appt_Type') across different major departments ('Major')."
+      },
+      {
+        "id": "V6",
+        "reason": "Pie charts effectively illustrate proportions, making them useful for division-level distributions.",
+        "requirement": "Use a pie chart to depict the division-wise distribution of departments ('Division' from 'Department') for both major and minor selections."
+      }
+    ]
+  },
+  "sqls": [
+    {
+      "SQL": "CREATE VIEW vwStudentMinor AS SELECT s.StuID, s.Major, m.DNO FROM Student s JOIN Minor_in m ON s.StuID = m.StuID;",
+      "corrView": "1",
+      "fk": [
+        {
+          "key": "DNO",
+          "table": "Department"
+        }
+      ],
+      "name": "vwStudentMinor",
+      "pk": "StuID"
+    },
+    {
+      "SQL": "CREATE VIEW vwStudentAdvisor AS SELECT s.StuID, s.Major, s.Advisor FROM Student s;",
+      "corrView": "1",
+      "fk": [
+        {
+          "key": "Advisor",
+          "table": "Faculty"
+        }
+      ],
+      "name": "vwStudentAdvisor",
+      "pk": "StuID"
+    },
+    {
+      "SQL": "CREATE VIEW vwStudentMoreInfo AS SELECT s.StuID, s.Age, m.DNO, m.Appt_Type FROM Student s JOIN Enrolled_in e ON s.StuID = e.StuID JOIN Member_of m ON s.StuID = m.StuID;",
+      "corrView": "3,4",
+      "fk": [
+        {
+          "key": "DNO",
+          "table": "Department"
+        },
+        {
+          "key": "Appt_Type",
+          "table": "Faculty"
+        }
+      ],
+      "name": "vwStudentMoreInfo",
+      "pk": "StuID"
+    },
+    {
+      "SQL": "CREATE VIEW vwStudentCourse AS SELECT s.StuID, s.Major, c.CID, c.DNO FROM Student s JOIN Enrolled_in e ON s.StuID = e.StuID JOIN Course c ON e.CID = c.CID;",
+      "corrView": "4",
+      "fk": [
+        {
+          "key": "CID",
+          "table": "Course"
+        },
+        {
+          "key": "DNO",
+          "table": "Department"
+        }
+      ],
+      "name": "vwStudentCourse",
+      "pk": "StuID"
+    }
+  ],
+  "tasks": [
+    {
+      "corrReq": [
+        "D1"
+      ],
+      "data": [
+        "Student.Major",
+        "Minor_in.DNO",
+        "Student.Advisor"
+      ],
+      "id": 1,
+      "method": "Create a table showing each student's major, minor, and advisor. This will serve as the foundational dataset for further analysis. Utilize a tabular visualization where rows represent students and columns represent the fields.",
+      "objective": "To compile the relevant academic profile information for all students, which forms the base for downstream analyses and correlations.",
+      "priority": 5,
+      "type": "retrieving values"
+    },
+    {
+      "corrReq": [
+        "D2",
+        "V1"
+      ],
+      "data": [
+        "Student.Major",
+        "Minor_in.DNO"
+      ],
+      "id": 2,
+      "method": "Create a bar chart (as per V1) where x-axis represents departments (majors and minors), and y-axis represents the count of students. Different colors or separate bars will distinguish between majors and minors.",
+      "objective": "To visualize the distribution of students across departments for both majors and minors, providing insights into their relative popularity.",
+      "priority": 5,
+      "type": "characterizing distributions"
+    },
+    {
+      "corrReq": [
+        "D3",
+        "V5"
+      ],
+      "data": [
+        "Student.Major",
+        "Minor_in.DNO",
+        "Member_of.Appt_Type"
+      ],
+      "id": 3,
+      "method": "Generate a grouped bar chart (as per V5) where x-axis represents major departments, and y-axis represents student counts with bars grouped by 'Appt_Type'. Each group will show student memberships in organizational types (Primary/Secondary).",
+      "objective": "To identify patterns in how students’ academic choices (majors and minors) correlate with their extracurricular memberships.",
+      "priority": 4,
+      "type": "correlating"
+    },
+    {
+      "corrReq": [
+        "D4",
+        "V3",
+        "I2"
+      ],
+      "data": [
+        "Student.Age",
+        "Member_of.Appt_Type"
+      ],
+      "id": 4,
+      "method": "Create a scatter plot (as per V3) with 'Age' on the x-axis and 'Appt_Type' on the y-axis. Encode points using different colors or shapes for each 'Appt_Type'. Allow demographic filters (age and sex) using sliders and dropdowns.",
+      "objective": "To explore the relationship between student age and their participation in extracurricular activities.",
+      "priority": 4,
+      "type": "correlating"
+    },
+    {
+      "corrReq": [
+        "D5",
+        "V6"
+      ],
+      "data": [
+        "Department.DName",
+        "Department.Division",
+        "Student.Major",
+        "Minor_in.DNO"
+      ],
+      "id": 5,
+      "method": "Use a pie chart (as per V6) to show the proportion of departments within each division (Arts and Sciences, Engineering) for both major and minor selections. Create separate pie charts for majors and minors.",
+      "objective": "To classify and compare the distribution of academic choices by division for majors and minors.",
+      "priority": 3,
+      "type": "characterizing distributions"
+    },
+    {
+      "corrReq": [
+        "D2",
+        "V4",
+        "I5"
+      ],
+      "data": [
+        "Student.Major",
+        "Minor_in.DNO"
+      ],
+      "id": 6,
+      "method": "Generate a heat map (as per V4) where rows represent majors and columns represent minors. Each cell's intensity will reflect the number of students in that major-minor combination. Include drilldown capabilities (I5) to explore specific combinations.",
+      "objective": "To identify overlaps and prominent combinations of majors and minors, revealing academic patterns.",
+      "priority": 5,
+      "type": "clustering"
+    },
+    {
+      "corrReq": [
+        "D6",
+        "I3"
+      ],
+      "data": [
+        "Student.Age",
+        "Student.Sex",
+        "Student.city_code",
+        "Faculty.FacID",
+        "Student.Advisor"
+      ],
+      "id": 7,
+      "method": "Merge 'Student' and 'Faculty' tables and create a bubble chart where x-axis represents 'Age', y-axis represents 'Sex', and bubble size represents city-wise student counts. Include tooltips (I3) for detailed faculty advisor information.",
+      "objective": "To explore relationships between student demographics and their assigned advisors, identifying potential patterns in advisor allocation.",
+      "priority": 3,
+      "type": "correlating"
+    },
+    {
+      "corrReq": [
+        "D1",
+        "V2"
+      ],
+      "data": [
+        "Student.Major",
+        "Student.Sex"
+      ],
+      "id": 8,
+      "method": "Create a stacked bar chart (as per V2) with x-axis as academic majors and y-axis as student count. Each bar will be divided by 'Sex' to show the gender composition in each major.",
+      "objective": "To determine the gender distribution across various academic majors, highlighting extremes and underrepresentations.",
+      "priority": 4,
+      "type": "finding extrema"
+    },
+    {
+      "corrReq": [
+        "D4",
+        "I1",
+        "I2"
+      ],
+      "data": [
+        "Student.Age",
+        "Student.Sex",
+        "Student.city_code",
+        "Member_of.Appt_Type"
+      ],
+      "id": 9,
+      "method": "Enable demographic-based filtering (as per I2) using dropdowns and sliders. Filters dynamically update all relevant charts and graphs (brushing and linking as per I1).",
+      "objective": "To allow users to focus on specific demographic groups and understand their academic and extracurricular patterns.",
+      "priority": 5,
+      "type": "filtering"
+    },
+    {
+      "corrReq": [
+        "D2",
+        "V1"
+      ],
+      "data": [
+        "Student.Major",
+        "Minor_in.DNO"
+      ],
+      "id": 10,
+      "method": "Overlay a line in the bar chart (Task 2) to show the expected count of students per department based on statistical modeling. Highlight deviations and outliers.",
+      "objective": "To detect anomalies in student distributions across majors and minors, identifying unusually popular or underrepresented departments.",
+      "priority": 2,
+      "type": "finding anomalies"
+    }
+  ],
+  "vlcodes": {}
+}

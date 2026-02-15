@@ -1,0 +1,150 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "Student.Major",
+      "Department.DNO",
+      "Department.DName",
+      "Department.Division"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: aggregate count of Student.Major (quantitative)",
+        "y: Department.DName (nominal) sorted by enrollment count",
+        "color: Division (nominal)"
+      ],
+      "description": "Horizontal bar chart showing student distribution across academic departments, colored by institutional division (AS/EN)"
+    },
+    "interactions": [
+      {
+        "object": "chart",
+        "verb": "click",
+        "effect": {
+          "description": "Select single/multiple departments to filter subsequent views",
+          "params": [
+            {
+              "name": "selected_dept",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "Student.Major",
+      "Minor_in.DNO",
+      "Department.DName"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x: Minor_in.DNO (nominal) mapped to DName via join",
+        "y: Student.Major (nominal) mapped to DName via join",
+        "color: aggregate count (quantitative)"
+      ],
+      "description": "Heatmap showing major-minor combinations with color intensity indicating frequency"
+    },
+    "usingParams": [
+      "selected_dept"
+    ],
+    "components": "Department name labels for both axes via join on DNO",
+    "interactions": [
+      {
+        "object": "chart",
+        "verb": "hover",
+        "effect": {
+          "description": "Show tooltip with exact minor pair count and department names"
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "Student.Major",
+      "Enrolled_in.Grade",
+      "Gradeconversion.gradepoint",
+      "Student.Sex"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: Department.DName (nominal)",
+        "y: average gradepoint (quantitative)",
+        "color: Sex (nominal)",
+        "column: Sex (nominal)"
+      ],
+      "description": "Grouped bar chart showing gender-based academic performance per department with error bars"
+    },
+    "usingParams": [
+      "selected_dept"
+    ],
+    "interactions": [
+      {
+        "object": "chart",
+        "verb": "click",
+        "effect": {
+          "description": "Filter transaction records in detail view",
+          "params": [
+            {
+              "name": "selected_performance",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "level": "insight",
+    "fields": [
+      "Student.Advisor",
+      "Faculty.FacID",
+      "Member_of.DNO",
+      "Department.DName"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "rule",
+      "encodings": [
+        "source/target node positions: Force-directed layout of departments",
+        "strokeWidth: count of advisor-student connections (quantitative)",
+        "color: Division (nominal)"
+      ],
+      "description": "Network diagram showing faculty-student-department relationships through flowing connections"
+    },
+    "usingParams": [
+      "selected_dept"
+    ],
+    "components": "Node size legend, edge thickness scale"
+  }
+]

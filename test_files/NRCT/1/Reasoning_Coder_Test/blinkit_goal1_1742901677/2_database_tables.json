@@ -1,0 +1,327 @@
+[
+  {
+    "columns": [
+      {
+        "column": "customer_id",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "customer_name",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "email",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "phone",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "address",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "area",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "pincode",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "registration_date",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "customer_segment",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "total_orders",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "avg_order_value",
+        "dtype": "REAL"
+      }
+    ],
+    "table": "blinkit_customers"
+  },
+  {
+    "columns": [
+      {
+        "column": "feedback_id",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "order_id",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "customer_id",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "rating",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "feedback_text",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "feedback_category",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "sentiment",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "feedback_date",
+        "dtype": "TEXT"
+      }
+    ],
+    "table": "blinkit_customer_feedback"
+  },
+  {
+    "columns": [
+      {
+        "column": "order_id",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "delivery_partner_id",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "promised_time",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "actual_time",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "delivery_time_minutes",
+        "dtype": "REAL"
+      },
+      {
+        "column": "distance_km",
+        "dtype": "REAL"
+      },
+      {
+        "column": "delivery_status",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "reasons_if_delayed",
+        "dtype": "TEXT"
+      }
+    ],
+    "table": "blinkit_delivery_performance"
+  },
+  {
+    "columns": [
+      {
+        "column": "product_id",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "date",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "stock_received",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "damaged_stock",
+        "dtype": "INTEGER"
+      }
+    ],
+    "table": "blinkit_inventory"
+  },
+  {
+    "columns": [
+      {
+        "column": "product_id",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "date",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "stock_received",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "damaged_stock",
+        "dtype": "INTEGER"
+      }
+    ],
+    "table": "blinkit_inventoryNew"
+  },
+  {
+    "columns": [
+      {
+        "column": "campaign_id",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "campaign_name",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "date",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "target_audience",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "channel",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "impressions",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "clicks",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "conversions",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "spend",
+        "dtype": "REAL"
+      },
+      {
+        "column": "revenue_generated",
+        "dtype": "REAL"
+      },
+      {
+        "column": "roas",
+        "dtype": "REAL"
+      }
+    ],
+    "table": "blinkit_marketing_performance"
+  },
+  {
+    "columns": [
+      {
+        "column": "order_id",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "customer_id",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "order_date",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "promised_delivery_time",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "actual_delivery_time",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "delivery_status",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "order_total",
+        "dtype": "REAL"
+      },
+      {
+        "column": "payment_method",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "delivery_partner_id",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "store_id",
+        "dtype": "INTEGER"
+      }
+    ],
+    "table": "blinkit_orders"
+  },
+  {
+    "columns": [
+      {
+        "column": "order_id",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "product_id",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "quantity",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "unit_price",
+        "dtype": "REAL"
+      }
+    ],
+    "table": "blinkit_order_items"
+  },
+  {
+    "columns": [
+      {
+        "column": "product_id",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "product_name",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "category",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "brand",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "price",
+        "dtype": "REAL"
+      },
+      {
+        "column": "mrp",
+        "dtype": "REAL"
+      },
+      {
+        "column": "margin_percentage",
+        "dtype": "REAL"
+      },
+      {
+        "column": "shelf_life_days",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "min_stock_level",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "max_stock_level",
+        "dtype": "INTEGER"
+      }
+    ],
+    "table": "blinkit_products"
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "visualization": [
+    {
+      "id": "V3",
+      "requirement": "Bar chart showing sales frequency by product category (primary) with time-of-day patterns as stacked segments",
+      "reason": "Simplifies temporal analysis while maintaining category focus. Heatmap would become unreadable with 11 categories + 24 time bins (264 cells) according to visualization constraints against complex designs."
+    },
+    {
+      "id": "V4",
+      "requirement": "Grouped bar chart comparing average order_total per customer_segment",
+      "reason": "Replaces non-interactive box plots with interactive bars aligned to interaction capabilities. Maintains segment comparison while enabling filter propagation via I1."
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I2",
+      "requirement": "Toggle between absolute revenue and margin-weighted revenue in bar charts",
+      "reason": "Original customer-segment metric toggle wasn't supported by D1's category-focused data. New version stays within same data context."
+    },
+    {
+      "id": "I1",
+      "requirement": "Category brush should propagate through ALL views via shared product-category param",
+      "reason": "Original spec failed to ensure customer_segment views (V4) connect to categories via orders->products relationship"
+    }
+  ]
+}

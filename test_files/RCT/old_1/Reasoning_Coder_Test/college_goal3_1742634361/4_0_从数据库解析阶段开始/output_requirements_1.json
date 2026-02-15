@@ -1,0 +1,21 @@
+{
+  "visualization": [
+    {
+      "id": "V2",
+      "requirement": "Grouped bar chart showing minor count distribution by academic division (AS/EN) with drill-down to department level via interaction.",
+      "reason": "Heatmap would be sparse due to only 10 minor records. Division-based grouping provides more meaningful patterns while maintaining drill-down capability."
+    },
+    {
+      "id": "V4",
+      "requirement": "Bar chart comparing advisor's primary department division with student minor divisions, aggregated by academic division pairs.",
+      "reason": "Scatter plot would suffer from low data density (only 10 minors). Division-level comparison better reveals mentorship patterns."
+    }
+  ],
+  "data": [
+    {
+      "id": "D1",
+      "requirement": "Enhance department mapping to include academic divisions (AS/EN) for both major and minor associations.",
+      "reason": "Enables higher-level grouping to overcome sparsity issues in minor data analysis."
+    }
+  ]
+}

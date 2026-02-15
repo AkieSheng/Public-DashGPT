@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "id": "D3",
+      "requirement": "Calculate tenure-based metrics like average tenure for churned customers and age cohort analysis using binned age groups (20-30, 30-40 etc)",
+      "reason": "Birth year derivation from age is redundant since age is already available. Age cohorts better align with existing 'senior_citizen' and 'under_30' demographic flags"
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V3",
+      "requirement": "Scatter plot showing cltv vs satisfaction_score with color encoding for customer_status (avoid matrix due to overplotting risk with 7043 points)",
+      "reason": "Simplifies complex relationships while maintaining key correlation analysis capabilities"
+    },
+    {
+      "id": "V4",
+      "requirement": "Symbol map with latitude/longitude points colored by churn_rate (aggregated per 0.5° grid) sized by total_population",
+      "reason": "More feasible in Vega-Lite than hexbins while maintaining geographic analysis capabilities"
+    },
+    {
+      "id": "V5",
+      "requirement": "Line chart showing churn rate by tenure bins (0-6mo, 7-12mo etc) with selectable reference lines for different age cohorts",
+      "reason": "Better represents sequential tenure progression while maintaining cohort analysis capabilities"
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I5",
+      "requirement": "Range slider for filtering tenure bins in the line chart",
+      "reason": "More appropriate than time slider for duration-based analysis of customer tenure"
+    }
+  ]
+}

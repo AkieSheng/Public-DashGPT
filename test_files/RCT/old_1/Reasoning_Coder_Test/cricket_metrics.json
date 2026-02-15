@@ -1,0 +1,52 @@
+{
+  "database": "cricket",
+  "description": "The dataset contains four tables: batter_player_stats (batting statistics for individual players), bowler_player_stats (bowling statistics for individual players), detailed_player_data (per-match player performance data), and match_summary (match-level details including toss results, match outcome, player of the match, and venue information).",
+  "goal_metrics": [
+    {
+      "format_accuracy": 1.0,
+      "sql_success_rate": 1,
+      "vl_success_rate": 0,
+      "average_steps": 10,
+      "average_tokens": {
+        "input": 229.0,
+        "output": 1442.4
+      },
+      "goal_idx": 0,
+      "goal": "Analyze the consistency of individual player performances, focusing on how batters and bowlers vary in their runs, balls faced, wickets taken, and other statistics across different matches."
+    },
+    {
+      "format_accuracy": 0.0,
+      "sql_success_rate": 0,
+      "vl_success_rate": 0,
+      "average_steps": 0,
+      "average_tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "goal_idx": 1,
+      "goal": "Study the impact of different venues on match outcomes, analyzing the win rates for home and away teams and their relationship with individual player performances."
+    },
+    {
+      "format_accuracy": 0.8,
+      "sql_success_rate": 1,
+      "vl_success_rate": 0,
+      "average_steps": 10,
+      "average_tokens": {
+        "input": 223.0,
+        "output": 1350.0
+      },
+      "goal_idx": 2,
+      "goal": "Analyze which individual player performances contribute most to match victories, focusing on the best players' batting and bowling statistics and their impact on the match outcome."
+    }
+  ],
+  "average_metrics": {
+    "format_accuracy": 0.6,
+    "sql_success_rate": 0.6666666666666666,
+    "vl_success_rate": 0.0,
+    "average_steps": 6.666666666666667,
+    "average_tokens": {
+      "input": 150.66666666666666,
+      "output": 930.8000000000001
+    }
+  }
+}

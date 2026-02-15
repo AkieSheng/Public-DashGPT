@@ -1,0 +1,184 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "crop_production_data.Yield (quintals)",
+      "water_usage_data.Water Consumption (liters/hectare)",
+      "water_usage_data.Irrigation Method"
+    ],
+    "task": [
+      1,
+      5
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        {
+          "x": "water_usage_data.Water Consumption (liters/hectare)"
+        },
+        {
+          "y": "crop_production_data.Yield (quintals)"
+        },
+        {
+          "color": "water_usage_data.Irrigation Method"
+        },
+        {
+          "size": "water_usage_data.Water Consumption (liters/hectare)"
+        }
+      ],
+      "description": "Scatter plot visualizing the relationship between water consumption and crop yield, differentiated by irrigation methods. Data points represent individual values."
+    },
+    "usingParams": [],
+    "interactions": [
+      {
+        "object": "the scatter plot in this view",
+        "verb": "brushing",
+        "effect": {
+          "description": "Data points selected through brushing will filter relevant data in subsequent detailed and exploration views.",
+          "params": [
+            {
+              "name": "selection",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "water_usage_data.Water Consumption (liters/hectare)",
+      "crop_production_data.Yield (quintals)",
+      "water_usage_data.Irrigation Method",
+      "water_usage_data.District"
+    ],
+    "task": [
+      2,
+      4
+    ],
+    "visualization": {
+      "markType": "boxPlot",
+      "encodings": [
+        {
+          "x": "water_usage_data.Irrigation Method"
+        },
+        {
+          "y": "water_usage_data.Water Consumption (liters/hectare)"
+        },
+        {
+          "color": "water_usage_data.District"
+        }
+      ],
+      "description": "Box Plot grouped by irrigation method and district to analyze distribution and detect outliers in water consumption."
+    },
+    "usingParams": [
+      "selection"
+    ],
+    "components": "Dropdown filters for district and crop to enhance exploration.",
+    "interactions": [
+      {
+        "object": "dropdown filters",
+        "verb": "toggle",
+        "effect": {
+          "description": "Filters will narrow down the box plots to display data for specific districts or crops.",
+          "params": []
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "detail",
+    "fields": [
+      "crop_production_data.Yield (quintals)",
+      "water_usage_data.Water Consumption (liters/hectare)"
+    ],
+    "task": [
+      3,
+      8
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        {
+          "x": "water_usage_data.District"
+        },
+        {
+          "y": "water_usage_data.Crop"
+        },
+        {
+          "color": {
+            "field": "computed_Water_Usage_Efficiency",
+            "type": "quantitative"
+          }
+        }
+      ],
+      "description": "Heatmap showing derived water usage efficiency across districts and crop types. Efficiency ranges are color-encoded."
+    },
+    "usingParams": [
+      "selection"
+    ],
+    "interactions": [
+      {
+        "object": "rect in the heatmap",
+        "verb": "hover",
+        "effect": {
+          "description": "Hovering displays precise efficiency value for the selected district and crop type.",
+          "params": []
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "level": "insight",
+    "fields": [
+      "crop_production_data.Yield (quintals)",
+      "water_usage_data.Water Consumption (liters/hectare)",
+      "water_usage_data.District",
+      "water_usage_data.Crop",
+      "water_usage_data.Irrigation Method"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        {
+          "x": "water_usage_data.Crop"
+        },
+        {
+          "y": "computed_Water_Usage_Efficiency"
+        },
+        {
+          "color": "water_usage_data.District"
+        }
+      ],
+      "description": "Bar chart sorted by water usage efficiency, highlighting extreme values to detect anomalies."
+    },
+    "usingParams": [
+      "selection"
+    ],
+    "components": "Toggle button to switch between aggregate and detailed views for crop types and districts.",
+    "interactions": [
+      {
+        "object": "toggle button",
+        "verb": "toggle",
+        "effect": {
+          "description": "Switching the toggle adjusts the chart to display aggregated or detailed water usage efficiency data.",
+          "params": []
+        }
+      }
+    ]
+  }
+]

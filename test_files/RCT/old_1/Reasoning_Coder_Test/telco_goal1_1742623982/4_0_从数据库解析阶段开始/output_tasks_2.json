@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "type": "characterizing distributions",
+    "data": [
+      "Customer_Info.age",
+      "Status_Analysis.churn_score",
+      "Customer_Info.gender"
+    ],
+    "method": "Visualize using stratified box plots with age binned into 10-year groups (x-axis), churn_score (y-axis), and gender distinction via color. Overlay swarm plots to show density distribution.",
+    "objective": "Compare churn propensity distributions across age groups and genders to identify high-risk demographics",
+    "corrReq": [
+      "V3"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "correlating",
+    "data": [
+      "Customer_Info.married",
+      "Customer_Info.partner",
+      "Customer_Info.dependents",
+      "Status_Analysis.churn_label"
+    ],
+    "method": "Grouped bar charts with marital/partner status combinations as primary groups (x-axis), dependents status as sub-groups (color), and churn rate % (y-axis). Include statistical significance annotations.",
+    "objective": "Identify interaction effects between family structure attributes on churn likelihood",
+    "corrReq": [
+      "V4"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 3,
+    "type": "clustering",
+    "data": [
+      "Location_Data.city",
+      "Location_Data.latitude",
+      "Location_Data.longitude",
+      "Status_Analysis.churn_value"
+    ],
+    "method": "Chloropleth map using city-level churn rates (color intensity) overlaid with kernel density estimation for spatial pattern analysis. Integrate population data via circle size encoding.",
+    "objective": "Detect geographic clusters of high churn activity and assess urban/rural disparities",
+    "corrReq": [],
+    "priority": 3
+  },
+  {
+    "id": 4,
+    "type": "determining ranges",
+    "data": [
+      "Customer_Info.senior_citizen",
+      "Status_Analysis.churn_value"
+    ],
+    "method": "Back-to-back histogram with senior/non-senior churn counts. Add density curves and Cohen's d effect size measurement in annotations.",
+    "objective": "Quantify disproportionate churn impact on elderly customer segment",
+    "corrReq": [],
+    "priority": 4
+  },
+  {
+    "id": 5,
+    "type": "filtering",
+    "data": [
+      "Customer_Info.gender",
+      "Customer_Info.partner",
+      "Status_Analysis.churn_category"
+    ],
+    "method": "Interactive matrix of small multiples: heatmaps showing churn category frequencies filtered by gender (rows) and partner status (columns). Enable cross-filtering via brush selection.",
+    "objective": "Explore nuanced relationships between gender-specific social factors and churn reasons",
+    "corrReq": [],
+    "priority": 3
+  }
+]

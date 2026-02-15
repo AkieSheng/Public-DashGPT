@@ -1,0 +1,140 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "Customer_Info.gender",
+      "Status_Analysis.churn_label"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x=Customer_Info.gender:N",
+        "y=count():Q",
+        "color=Status_Analysis.churn_label:N"
+      ],
+      "description": "Stacked bar chart showing churn distribution by gender. Churn status (Yes/No) is color-encoded."
+    },
+    "usingParams": [],
+    "components": "Drop-down selector for switching between demographic attributes (gender/age/senior_citizen)",
+    "interactions": [
+      {
+        "object": "gender bars",
+        "verb": "click",
+        "effect": {
+          "description": "Filters all subsequent views to show data for selected gender category",
+          "params": [
+            {
+              "name": "selected_gender",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "Customer_Info.age",
+      "Status_Analysis.churn_label",
+      "Status_Analysis.cltv"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x=Customer_Info.age:Q",
+        "y=Status_Analysis.cltv:Q",
+        "color=Status_Analysis.churn_label:N"
+      ],
+      "description": "Scatter plot comparing age vs CLTV index, color-coded by churn status"
+    },
+    "usingParams": [
+      "selected_gender"
+    ],
+    "interactions": [
+      {
+        "object": "plot area",
+        "verb": "interval selection",
+        "effect": {
+          "description": "Filters detail view to customers within selected age/CLTV range",
+          "params": [
+            {
+              "name": "age_cltv_brush",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "Customer_Info.married",
+      "Customer_Info.dependents",
+      "Status_Analysis.churn_value"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x=Customer_Info.married:N",
+        "y=Customer_Info.dependents:N",
+        "color=mean(Status_Analysis.churn_value):Q"
+      ],
+      "description": "Heatmap showing churn probability matrix across marital status and dependents"
+    },
+    "usingParams": [
+      "selected_gender"
+    ],
+    "components": "Slider threshold control for highlight cells above specific churn rates"
+  },
+  {
+    "id": 4,
+    "level": "detail",
+    "fields": [
+      "Customer_Info.customer_id",
+      "Customer_Info.age",
+      "Customer_Info.gender",
+      "Status_Analysis.cltv",
+      "Status_Analysis.churn_category"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "text",
+      "encodings": [
+        "text=customer_id:N"
+      ],
+      "description": "Detail table showing individual customer IDs with key metrics for selected cohort"
+    },
+    "usingParams": [
+      "selected_gender",
+      "age_cltv_brush"
+    ],
+    "components": "Sortable columns in table view"
+  }
+]

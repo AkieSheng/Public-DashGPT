@@ -1,0 +1,322 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "columns": 2,
+  "concat": [
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/view_3_intermediate.csv"
+      },
+      "description": "Overview: Scatter plot of CLTV vs Satisfaction Score, colored by customer status",
+      "mark": "circle",
+      "encoding": {
+        "x": {
+          "field": "cltv",
+          "type": "quantitative",
+          "title": "Customer Lifetime Value (CLTV)"
+        },
+        "y": {
+          "field": "satisfaction_score",
+          "type": "quantitative",
+          "title": "Satisfaction Score"
+        },
+        "color": {
+          "field": "customer_status",
+          "type": "nominal",
+          "title": "Customer Status",
+          "scale": {
+            "domain": [
+              "Churned",
+              "Retained",
+              "Joined"
+            ],
+            "range": [
+              "red",
+              "green",
+              "blue"
+            ]
+          }
+        },
+        "opacity": {
+          "value": 0.3,
+          "condition": {
+            "param": "customer_select",
+            "value": 1
+          }
+        }
+      },
+      "params": [
+        {
+          "name": "customer_select",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        {
+          "name": "metric_filter",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ],
+      "interactive": true,
+      "click": {
+        "param": "selected_point",
+        "transform": [
+          {
+            "filter": {
+              "param": "selected_point"
+            }
+          }
+        ]
+      },
+      "brush": {
+        "param": "selected_brush",
+        "transform": [
+          {
+            "filter": {
+              "param": "selected_brush"
+            }
+          }
+        ]
+      },
+      "tooltip": [
+        {
+          "field": "customer_id",
+          "type": "nominal"
+        },
+        {
+          "field": "cltv",
+          "type": "quantitative"
+        },
+        {
+          "field": "satisfaction_score",
+          "type": "quantitative"
+        },
+        {
+          "field": "customer_status",
+          "type": "nominal"
+        }
+      ],
+      "title": "Overview"
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/view_2_intermediate.csv"
+      },
+      "description": "Exploration: Bar chart showing average churn scores by service type and age",
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "customer_status",
+          "type": "nominal",
+          "title": "Customer Status"
+        },
+        "y": {
+          "aggregate": "mean",
+          "field": "churn_score",
+          "type": "quantitative",
+          "title": "Average Churn Score"
+        },
+        "column": {
+          "field": "internet_type",
+          "type": "nominal",
+          "title": "Internet Type"
+        },
+        "color": {
+          "field": "age_group",
+          "type": "ordinal",
+          "title": "Age Group",
+          "bins": {
+            "maxbins": 10
+          }
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/view_1_intermediate.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "satisfaction_score",
+              "customer_status"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "metric_filter"
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "service_age_filter",
+          "select": "point",
+          "encodings": [
+            "column",
+            "color"
+          ]
+        },
+        {
+          "name": "age_group",
+          "select": "interval",
+          "encodings": [
+            "color"
+          ]
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/view_3_intermediate.csv"
+      },
+      "description": "Detail: Heatmap showing churn rates by contract length and tenure duration, split by gender",
+      "mark": "rect",
+      "encoding": {
+        "x": {
+          "field": "contract",
+          "type": "nominal",
+          "title": "Contract Type"
+        },
+        "y": {
+          "field": "tenure_bins",
+          "type": "ordinal",
+          "title": "Tenure Bins"
+        },
+        "color": {
+          "aggregate": "mean",
+          "field": "churn_rate",
+          "type": "quantitative",
+          "title": "Churn Rate (%)",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ]
+          }
+        },
+        "row": {
+          "field": "gender",
+          "type": "nominal",
+          "title": "Gender"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/view_2_intermediate.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "service_age_filter"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "service_age_filter"
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "service_age_filter",
+          "select": "point",
+          "encodings": [
+            "column",
+            "color"
+          ]
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/view_4_intermediate.csv"
+      },
+      "description": "Insight: Radial chart combining churn reasons, payment methods, and active promotions",
+      "mark": "arc",
+      "encoding": {
+        "theta": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "title": "Count"
+        },
+        "color": {
+          "field": "churn_category",
+          "type": "nominal",
+          "title": "Churn Category"
+        },
+        "radius": {
+          "field": "payment_method",
+          "type": "nominal",
+          "title": "Payment Method"
+        },
+        "tooltip": {
+          "field": "offer",
+          "type": "nominal",
+          "title": "Promotional Offer"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/view_3_intermediate.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "service_age_filter"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "service_age_filter"
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "customer_select",
+          "select": "point",
+          "encodings": [
+            "x",
+            "y"
+          ]
+        }
+      ],
+      "click": {
+        "param": "selected_point",
+        "transform": [
+          {
+            "filter": {
+              "param": "selected_point"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

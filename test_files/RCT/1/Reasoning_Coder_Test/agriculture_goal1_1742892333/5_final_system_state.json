@@ -1,0 +1,979 @@
+{
+  "created": 1742892486,
+  "dataset": {
+    "description": "This dataset provides comprehensive agricultural data for Rajasthan, India from 2018 to 2019. It contains four tabless: Crop_Production_Data, Water_Usage_Data, Soil_Analysis_Data, and Crop_Price_Data. This dataset will be a valuable resource for researchers and data scientists working in the agricultural sector, enabling them to analyze and model various aspects of agricultural practices and market dynamics in Rajasthan.",
+    "tables": [
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "Administrative district in Rajasthan where crop prices were recorded",
+            "dtype": "TEXT",
+            "name": "District",
+            "stats": {
+              "count": 4819,
+              "freq": 542,
+              "samples": [
+                "Kota",
+                "Alwar",
+                "Ajmer",
+                "Jaipur",
+                "Nagaur"
+              ],
+              "top": "Kota",
+              "unique": 10
+            }
+          },
+          {
+            "column": "Crop",
+            "description": "Type of agricultural crop being traded",
+            "dtype": "TEXT",
+            "name": "Crop",
+            "stats": {
+              "count": 4819,
+              "freq": 246,
+              "samples": [
+                "Pomegranate",
+                "Maize",
+                "Opium",
+                "Cumin",
+                "Oilseeds"
+              ],
+              "top": "Pomegranate",
+              "unique": 23
+            }
+          },
+          {
+            "column": "Market",
+            "description": "Name of the Agricultural Produce Market Committee (APMC) mandi where trading occurred",
+            "dtype": "TEXT",
+            "name": "Market",
+            "stats": {
+              "count": 4819,
+              "freq": 278,
+              "samples": [
+                "Alwar APMC Mandi",
+                "Ramganj Mandi",
+                "Kota APMC Mandi",
+                "Kishangarh Mandi",
+                "Udaipur APMC Mandi"
+              ],
+              "top": "Alwar APMC Mandi",
+              "unique": 24
+            }
+          },
+          {
+            "column": "Date",
+            "description": "Date of price recording in YYYY-MM-DD format",
+            "dtype": "TEXT",
+            "name": "Date",
+            "stats": {
+              "count": 4819,
+              "freq": 23,
+              "samples": [
+                "2019-01-28",
+                "2019-03-01",
+                "2018-06-11",
+                "2018-12-19",
+                "2019-03-29"
+              ],
+              "top": "2019-01-28",
+              "unique": 424
+            }
+          },
+          {
+            "column": "Price (INR/quintal)",
+            "description": "Market price per quintal (100 kg) of crop in Indian Rupees",
+            "dtype": "REAL",
+            "name": "Price (INR/quintal)",
+            "stats": {
+              "25%": 2303.968087039464,
+              "50%": 2497.697780894649,
+              "75%": 2694.7361658186883,
+              "count": 4819.0,
+              "max": 3513.3304723868087,
+              "mean": 2498.7153596293347,
+              "min": 1323.2799245144972,
+              "samples": [
+                2161.4945987467668,
+                2490.092420884132,
+                2348.904921887321,
+                2448.2875127639013,
+                2714.41951825531
+              ],
+              "std": 295.65109413541575
+            }
+          }
+        ],
+        "table": "crop_price_data"
+      },
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "Agricultural district in Rajasthan where cultivation occurred",
+            "dtype": "TEXT",
+            "name": "District",
+            "stats": {
+              "count": 1000,
+              "freq": 114,
+              "samples": [
+                "Nagaur",
+                "Udaipur",
+                "Bhilwara",
+                "Alwar",
+                "Ajmer"
+              ],
+              "top": "Nagaur",
+              "unique": 10
+            }
+          },
+          {
+            "column": "Crop",
+            "description": "Type of crop cultivated",
+            "dtype": "TEXT",
+            "name": "Crop",
+            "stats": {
+              "count": 1000,
+              "freq": 52,
+              "samples": [
+                "Citrus",
+                "Pulses",
+                "Mustard",
+                "Maize",
+                "Tomato"
+              ],
+              "top": "Citrus",
+              "unique": 23
+            }
+          },
+          {
+            "column": "Season",
+            "description": "Agricultural season (Kharif/Rabi) when crop was grown",
+            "dtype": "TEXT",
+            "name": "Season",
+            "stats": {
+              "count": 1000,
+              "freq": 503,
+              "samples": [
+                "Kharif",
+                "Rabi"
+              ],
+              "top": "Kharif",
+              "unique": 2
+            }
+          },
+          {
+            "column": "Area (hectares)",
+            "description": "Total cultivated land area allocated for the crop",
+            "dtype": "REAL",
+            "name": "Area (hectares)",
+            "stats": {
+              "25%": 13165.258125089153,
+              "50%": 15108.13041964114,
+              "75%": 16944.950094195556,
+              "count": 1000.0,
+              "max": 20000.0,
+              "mean": 15046.881838853737,
+              "min": 5276.197979792782,
+              "samples": [
+                20000.0,
+                14959.5083257862,
+                17467.634736309567,
+                15626.590785014268,
+                11015.441853304708
+              ],
+              "std": 2775.3598030166822
+            }
+          },
+          {
+            "column": "Yield (quintals)",
+            "description": "Agricultural output per unit area measured in quintals",
+            "dtype": "REAL",
+            "name": "Yield (quintals)",
+            "stats": {
+              "25%": 31.105149570151486,
+              "50%": 37.22705041986063,
+              "75%": 43.71120529710103,
+              "count": 1000.0,
+              "max": 60.42919242071256,
+              "mean": 37.618327668334935,
+              "min": 20.27293597251623,
+              "samples": [
+                42.67334364354665,
+                30.69198608958731,
+                45.81823176835924,
+                29.752628902482016,
+                42.02651077850936
+              ],
+              "std": 8.21858736773909
+            }
+          },
+          {
+            "column": "Production (metric tons)",
+            "description": "Total crop production quantity in metric tons",
+            "dtype": "REAL",
+            "name": "Production (metric tons)",
+            "stats": {
+              "25%": 4438.67158158548,
+              "50%": 5561.468280565365,
+              "75%": 6769.7716915726705,
+              "count": 1000.0,
+              "max": 10834.530833886172,
+              "mean": 5662.518484668158,
+              "min": 1728.4459558148258,
+              "samples": [
+                6192.243168853535,
+                5061.152229679753,
+                7763.013071826106,
+                4253.893981440086,
+                8295.040749150847
+              ],
+              "std": 1629.9225050593145
+            }
+          }
+        ],
+        "table": "crop_production_data"
+      },
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "Geographical district in Rajasthan where soil samples were taken",
+            "dtype": "TEXT",
+            "name": "District",
+            "stats": {
+              "count": 1000,
+              "freq": 128,
+              "samples": [
+                "Jodhpur",
+                "Kota",
+                "Ajmer",
+                "Jaipur",
+                "Udaipur"
+              ],
+              "top": "Jodhpur",
+              "unique": 10
+            }
+          },
+          {
+            "column": "Soil Type",
+            "description": "Classification of soil based on physical/chemical characteristics",
+            "dtype": "TEXT",
+            "name": "Soil Type",
+            "stats": {
+              "count": 1000,
+              "freq": 144,
+              "samples": [
+                "Black lava soil",
+                "Saline",
+                "Clay",
+                "Alkaline",
+                "Nitrogenous"
+              ],
+              "top": "Black lava soil",
+              "unique": 8
+            }
+          },
+          {
+            "column": "pH Level",
+            "description": "Measurement of soil acidity/alkalinity on pH scale",
+            "dtype": "REAL",
+            "name": "pH Level",
+            "stats": {
+              "25%": 7.157880924513207,
+              "50%": 7.500129367123334,
+              "75%": 7.846939580508737,
+              "count": 1000.0,
+              "max": 9.038430185090252,
+              "mean": 7.495453084850306,
+              "min": 5.889491822007143,
+              "samples": [
+                8.604927832874232,
+                6.546096221061305,
+                6.832259215450055,
+                7.453181905630415,
+                8.019189425509659
+              ],
+              "std": 0.5171550691492046
+            }
+          },
+          {
+            "column": "Organic Matter (%)",
+            "description": "Percentage of organic material in soil composition",
+            "dtype": "REAL",
+            "name": "Organic Matter (%)",
+            "stats": {
+              "25%": 1.6389108548905387,
+              "50%": 1.981462328785918,
+              "75%": 2.3456877380031798,
+              "count": 1000.0,
+              "max": 3.764527593785242,
+              "mean": 1.9935921803358339,
+              "min": 0.1558173542857779,
+              "samples": [
+                2.1634972566350488,
+                1.5698074946102492,
+                2.2430181447088184,
+                2.662898323771095,
+                1.240326962261579
+              ],
+              "std": 0.5153401517562567
+            }
+          },
+          {
+            "column": "Nitrogen Content (kg/ha)",
+            "description": "Available nitrogen content per hectare for plant nutrition",
+            "dtype": "REAL",
+            "name": "Nitrogen Content (kg/ha)",
+            "stats": {
+              "25%": 26.217325301986918,
+              "50%": 29.822796920009235,
+              "75%": 33.232056328033025,
+              "count": 1000.0,
+              "max": 45.760283672560426,
+              "mean": 29.883357828791514,
+              "min": 11.994574477702413,
+              "samples": [
+                25.824377480138825,
+                27.931972332891775,
+                22.26348005530817,
+                23.56418215707875,
+                15.839222009447155
+              ],
+              "std": 5.202697054149519
+            }
+          },
+          {
+            "column": "Phosphorus Content (kg/ha)",
+            "description": "Available phosphorus content per hectare for plant nutrition",
+            "dtype": "REAL",
+            "name": "Phosphorus Content (kg/ha)",
+            "stats": {
+              "25%": 16.21647147627612,
+              "50%": 19.913736701664355,
+              "75%": 23.122284640501974,
+              "count": 1000.0,
+              "max": 35.58840564604024,
+              "mean": 19.729932448873114,
+              "min": 4.961838301531214,
+              "samples": [
+                28.26456525615211,
+                29.43843828670095,
+                25.413455269435367,
+                13.014409074435044,
+                17.744205707955008
+              ],
+              "std": 5.067004785298072
+            }
+          },
+          {
+            "column": "Potassium Content (kg/ha)",
+            "description": "Available potassium content per hectare for plant nutrition",
+            "dtype": "REAL",
+            "name": "Potassium Content (kg/ha)",
+            "stats": {
+              "25%": 36.703916917600125,
+              "50%": 39.796016092839736,
+              "75%": 43.38203941212181,
+              "count": 1000.0,
+              "max": 54.678289511638894,
+              "mean": 39.87790741158031,
+              "min": 24.11648093402,
+              "samples": [
+                50.38888792599222,
+                42.78276562266879,
+                37.64437674091061,
+                37.08200336826997,
+                42.758703999554605
+              ],
+              "std": 4.874751034236264
+            }
+          }
+        ],
+        "table": "soil_analysis_data"
+      },
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "Administrative district in Rajasthan where water usage was measured",
+            "dtype": "TEXT",
+            "name": "District",
+            "stats": {
+              "count": 1000,
+              "freq": 116,
+              "samples": [
+                "Nagaur",
+                "Udaipur",
+                "Alwar",
+                "Bhilwara",
+                "Hanumangarh"
+              ],
+              "top": "Nagaur",
+              "unique": 10
+            }
+          },
+          {
+            "column": "Crop",
+            "description": "Crop type associated with water usage measurements",
+            "dtype": "TEXT",
+            "name": "Crop",
+            "stats": {
+              "count": 1000,
+              "freq": 56,
+              "samples": [
+                "Onion",
+                "Pulses",
+                "Citrus",
+                "Cotton",
+                "Tomato"
+              ],
+              "top": "Onion",
+              "unique": 23
+            }
+          },
+          {
+            "column": "Irrigation Method",
+            "description": "Technique used for agricultural water application (e.g., drip, sprinkler)",
+            "dtype": "TEXT",
+            "name": "Irrigation Method",
+            "stats": {
+              "count": 1000,
+              "freq": 284,
+              "samples": [
+                "Sprinkler Irrigation",
+                "Tube Well",
+                "Drip Irrigation",
+                "Canal Irrigation"
+              ],
+              "top": "Sprinkler Irrigation",
+              "unique": 4
+            }
+          },
+          {
+            "column": "Water Consumption (liters/hectare)",
+            "description": "Actual water usage per hectare for crop cultivation",
+            "dtype": "REAL",
+            "name": "Water Consumption (liters/hectare)",
+            "stats": {
+              "25%": 8238.226671880226,
+              "50%": 10422.656935236373,
+              "75%": 12808.359360840997,
+              "count": 1000.0,
+              "max": 18631.09132663682,
+              "mean": 10557.110758629942,
+              "min": 4673.530139030418,
+              "samples": [
+                7011.556633995436,
+                11609.330885810616,
+                12648.406038302792,
+                10063.162447916591,
+                10110.539993326256
+              ],
+              "std": 2835.083840963408
+            }
+          },
+          {
+            "column": "Water Availability (liters/hectare)",
+            "description": "Available water resources per hectare for agricultural use",
+            "dtype": "REAL",
+            "name": "Water Availability (liters/hectare)",
+            "stats": {
+              "25%": 8142.359044089602,
+              "50%": 10524.479417099716,
+              "75%": 12879.89393404674,
+              "count": 1000.0,
+              "max": 18489.171266347672,
+              "mean": 10543.621287289907,
+              "min": 4505.257189045351,
+              "samples": [
+                6140.081508774301,
+                11335.919980150127,
+                12091.900253943171,
+                9810.943168837392,
+                10754.217313163708
+              ],
+              "std": 2905.372578181591
+            }
+          }
+        ],
+        "table": "water_usage_data"
+      }
+    ]
+  },
+  "desc": "This dataset provides comprehensive agricultural data for Rajasthan, India from 2018 to 2019. It contains four tabless: Crop_Production_Data, Water_Usage_Data, Soil_Analysis_Data, and Crop_Price_Data. This dataset will be a valuable resource for researchers and data scientists working in the agricultural sector, enabling them to analyze and model various aspects of agricultural practices and market dynamics in Rajasthan.",
+  "evaluation": {
+    "failed_format_following": 0,
+    "total_error_sql": 6,
+    "total_error_vl": 5,
+    "total_sql": 6,
+    "total_steps": 0,
+    "total_vl": 0
+  },
+  "goal": "Analyze the impact of different irrigation methods and water usage efficiency on crop yield, identify areas and crop types with the most efficient use of water resources, and provide recommendations for optimizing water management and sustainable agriculture practices.",
+  "id": "agriculture_goal1_1742892333",
+  "name": "Visual Analytics System agriculture_goal1_1742892333",
+  "plan": {
+    "graph": "linear",
+    "path": "sequential",
+    "views": [
+      {
+        "components": "Legend for irrigation method color coding",
+        "fields": [
+          "water_usage_data.Irrigation Method",
+          "water_usage_data.Water Consumption (liters/hectare)",
+          "crop_production_data.Yield (quintals)",
+          "crop_production_data.Crop"
+        ],
+        "id": 1,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Multi-select irrigation methods to filter subsequent views",
+              "params": [
+                {
+                  "name": "selected_methods",
+                  "select": {
+                    "encodings": [
+                      "color"
+                    ],
+                    "type": "point"
+                  }
+                }
+              ]
+            },
+            "object": "scatter plot",
+            "verb": "click"
+          },
+          {
+            "effect": {
+              "description": "Select data range for water consumption and yield",
+              "params": [
+                {
+                  "name": "water_yield_range",
+                  "select": {
+                    "encodings": [
+                      "x",
+                      "y"
+                    ],
+                    "type": "interval"
+                  }
+                }
+              ]
+            },
+            "object": "scatter plot",
+            "verb": "interval drag"
+          }
+        ],
+        "level": "overview",
+        "task": [
+          1
+        ],
+        "usingParams": [],
+        "visualization": {
+          "description": "Scatter plot showing relationship between water consumption and crop yields across irrigation methods, with crops as discrete entries",
+          "encodings": [
+            "x:Water Consumption (liters/hectare)",
+            "y:Yield (quintals)",
+            "color:Irrigation Method",
+            "tooltip:Crop"
+          ],
+          "markType": "circle"
+        }
+      },
+      {
+        "fields": [
+          "water_usage_data.District",
+          "crop_production_data.Yield (quintals)",
+          "water_usage_data.Water Consumption (liters/hectare)",
+          "crop_production_data.Crop"
+        ],
+        "id": 2,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Select specific district(s) for detail analysis",
+              "params": [
+                {
+                  "name": "selected_districts",
+                  "select": {
+                    "encodings": [
+                      "x"
+                    ],
+                    "type": "point"
+                  }
+                }
+              ]
+            },
+            "object": "bar chart",
+            "verb": "click"
+          }
+        ],
+        "level": "exploration",
+        "task": [
+          2
+        ],
+        "usingParams": [
+          "selected_methods",
+          "water_yield_range"
+        ],
+        "visualization": {
+          "description": "Stacked bar chart showing water efficiency (yield per liter) by district and crop type",
+          "encodings": [
+            "x:District",
+            "y:Yield (quintals)/Water Consumption (liters/hectare) (derived)",
+            "color:Crop",
+            "tooltip:Crop"
+          ],
+          "markType": "bar"
+        }
+      },
+      {
+        "components": "Slider for pH Level range filtering",
+        "fields": [
+          "soil_analysis_data.Soil Type",
+          "soil_analysis_data.pH Level",
+          "soil_analysis_data.Organic Matter (%)",
+          "water_usage_data.Irrigation Method"
+        ],
+        "id": 3,
+        "level": "detail",
+        "task": [
+          3
+        ],
+        "usingParams": [
+          "selected_districts"
+        ],
+        "visualization": {
+          "description": "Heatmap showing soil characteristics distribution across irrigation methods",
+          "encodings": [
+            "x:Soil Type",
+            "y:Irrigation Method",
+            "color:avg(Organic Matter (%)",
+            "tooltip:pH Level"
+          ],
+          "markType": "rect"
+        }
+      },
+      {
+        "fields": [
+          "water_usage_data.Water Consumption (liters/hectare)",
+          "crop_price_data.Price (INR/quintal)",
+          "crop_production_data.Crop"
+        ],
+        "id": 4,
+        "level": "insight",
+        "task": [
+          4
+        ],
+        "usingParams": [
+          "selected_districts"
+        ],
+        "visualization": {
+          "description": "Multi-line chart showing price trends with water consumption patterns",
+          "encodings": [
+            "x:Date (month extracted)",
+            "y:Price (INR/quintal)",
+            "color:Crop",
+            "strokeDash:Water Consumption quartile"
+          ],
+          "markType": "line"
+        }
+      }
+    ]
+  },
+  "requirements": {
+    "data": [
+      {
+        "id": "D1",
+        "reason": "Each view should use a single intermediate table, avoiding data duplication and confusion.",
+        "requirement": "Use separate tables for different views"
+      }
+    ],
+    "interaction": [
+      {
+        "data": "view_3",
+        "encoding": "x",
+        "target": "SpatialBounds",
+        "type": "point_selection"
+      }
+    ],
+    "visualization": [
+      {
+        "data": {
+          "fields": [
+            "Crop",
+            "Water Consumption"
+          ],
+          "table": "view_1"
+        },
+        "title": "Water Consumption by Crop",
+        "type": "bar chart"
+      },
+      {
+        "data": {
+          "fields": [
+            "Irrigation Method",
+            "Water Consumption"
+          ],
+          "table": "view_2"
+        },
+        "title": "Water Consumption Efficiency by Irrigation Method",
+        "type": "bar chart"
+      },
+      {
+        "data": {
+          "fields": [
+            "Irrigation Method",
+            "Water Consumption"
+          ],
+          "table": "view_3"
+        },
+        "title": "Scatter plot of Water Consumption by Irrigation Method",
+        "type": "scatter plot"
+      },
+      {
+        "data": {
+          "fields": [
+            "Date",
+            "Water Consumption"
+          ],
+          "table": "view_4"
+        },
+        "title": "Track Changes in Water Efficiency Over Time",
+        "type": "line chart"
+      },
+      {
+        "data": {
+          "fields": [
+            "District",
+            "Water Consumption"
+          ],
+          "table": "view_5"
+        },
+        "title": "Water Consumption by District",
+        "type": "bar chart"
+      }
+    ]
+  },
+  "sqls": [
+    {
+      "SQL": "CREATE VIEW view_1 AS SELECT water_usage_data.Irrigation, water_usage_data.Water_Consumption, crop_production_data.Yield, crop_production_data.Crop FROM water_usage_data JOIN crop_production_data ON water_usage_data.District = crop_production_data.District AND water_usage_data.Crop = crop_production_data.Crop;",
+      "corrView": "1",
+      "fk": [],
+      "id": 1,
+      "name": "view_1",
+      "pk": "Irrigation, District, Crop"
+    },
+    {
+      "SQL": "CREATE VIEW view_2 AS SELECT water_usage_data.District, water_usage_data.Water_Consumption, crop_production_data.Yield, water_usage_data.Water_Availability, crop_production_data.Crop FROM water_usage_data JOIN crop_production_data ON water_usage_data.District = crop_production_data.District AND water_usage_data.Crop = crop_production_data.Crop;",
+      "corrView": "2",
+      "fk": [
+        "view_1"
+      ],
+      "id": 2,
+      "name": "view_2",
+      "pk": "District, Crop"
+    },
+    {
+      "SQL": "CREATE VIEW view_3 AS SELECT soil_analysis_data.Soil_Type, soil_analysis_data.pH_Level, soil_analysis_data.Organic_Matter, water_usage_data.Irrigation FROM soil_analysis_data JOIN water_usage_data ON soil_analysis_data.District = water_usage_data.District;",
+      "corrView": "3",
+      "fk": [],
+      "id": 3,
+      "name": "view_3",
+      "pk": "Soil_Type, District, Irrigation"
+    },
+    {
+      "SQL": "CREATE VIEW view_4 AS SELECT date_part('month', crop_price_data.Date) AS Date_Month, crop_price_data.Price, water_usage_data.Water_Consumption, crop_production_data.Crop FROM crop_price_data JOIN water_usage_data ON crop_price_data.District = water_usage_data.District AND crop_price_data.Crop = water_usage_data.Crop JOIN crop_production_data ON crop_price_data.District = crop_production_data.District AND crop_price_data.Crop = crop_production_data.Crop;",
+      "corrView": "4",
+      "fk": [
+        "view_2"
+      ],
+      "id": 4,
+      "name": "view_4",
+      "pk": "Date_Month, Crop, District"
+    }
+  ],
+  "tasks": [
+    {
+      "data": [
+        "view_1.Crop",
+        "view_3.Irrigation Method"
+      ],
+      "method": "bar chart",
+      "objective": "Explore the relationship between crop types and water usage",
+      "priority": 1,
+      "type": "relationship"
+    },
+    {
+      "data": [
+        "view_2.Irrigation Method",
+        "view_2.Water Consumption"
+      ],
+      "method": "box plot",
+      "objective": "Compare water consumption efficiency across different irrigation methods",
+      "priority": 2,
+      "type": "comparison"
+    },
+    {
+      "data": [
+        "view_3.Irrigation Method",
+        "view_3.Water Consumption"
+      ],
+      "method": "scatter plot",
+      "objective": "Analyze the correlation between water efficiency and irrigation method",
+      "priority": 3,
+      "type": "comparison"
+    },
+    {
+      "data": [
+        "view_4.Date",
+        "view_4.Water Consumption"
+      ],
+      "method": "line chart",
+      "objective": "Track changes in water efficiency over time",
+      "priority": 4,
+      "type": "summary"
+    },
+    {
+      "data": [
+        "view_5.District",
+        "view_5.Water Consumption"
+      ],
+      "method": "bar chart",
+      "objective": "Compare water efficiency by district",
+      "priority": 5,
+      "type": "comparison"
+    }
+  ],
+  "vlcodes": {
+    "Exploration": {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": {
+        "name": "view_2"
+      },
+      "encoding": {
+        "x": {
+          "axis": {
+            "title": "Irrigation Method"
+          },
+          "field": "Irrigation_Method",
+          "type": "nominal"
+        },
+        "y": {
+          "axis": {
+            "title": "Water Consumption (liters/hectare)"
+          },
+          "field": "Water_Consumption",
+          "type": "quantitative"
+        }
+      },
+      "mark": "bar",
+      "title": "Water Consumption Efficiency by Irrigation Method"
+    },
+    "Insight": {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": {
+        "name": "view_5"
+      },
+      "encoding": {
+        "x": {
+          "axis": {
+            "title": "District"
+          },
+          "field": "District",
+          "type": "nominal"
+        },
+        "y": {
+          "axis": {
+            "title": "Water Consumption (liters/hectare)"
+          },
+          "field": "Water_Consumption",
+          "type": "quantitative"
+        }
+      },
+      "mark": "bar",
+      "title": "Water Consumption by District"
+    },
+    "Line Chart": {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": {
+        "name": "view_4"
+      },
+      "encoding": {
+        "x": {
+          "axis": {
+            "title": "Date"
+          },
+          "field": "Date",
+          "type": "temporal"
+        },
+        "y": {
+          "axis": {
+            "title": "Water Consumption (liters/hectare)"
+          },
+          "field": "Water_Consumption",
+          "type": "quantitative"
+        }
+      },
+      "mark": "line",
+      "title": "Track Changes in Water Efficiency Over Time"
+    },
+    "Overview": {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": {
+        "name": "view_1"
+      },
+      "encoding": {
+        "x": {
+          "axis": {
+            "title": "Crop"
+          },
+          "field": "Crop",
+          "type": "nominal"
+        },
+        "y": {
+          "axis": {
+            "title": "Water Consumption (liters/hectare)"
+          },
+          "field": "Water_Consumption",
+          "type": "quantitative"
+        }
+      },
+      "mark": "bar",
+      "title": "Water Consumption by Crop"
+    },
+    "Scatter Plot": {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": {
+        "name": "view_3"
+      },
+      "encoding": {
+        "color": {
+          "axis": {
+            "title": "Irrigation Method"
+          },
+          "field": "Irrigation_Method",
+          "type": "nominal"
+        },
+        "x": {
+          "axis": {
+            "title": "Irrigation Method"
+          },
+          "field": "Irrigation_Method",
+          "type": "nominal"
+        },
+        "y": {
+          "axis": {
+            "title": "Water Consumption (liters/hectare)"
+          },
+          "field": "Water_Consumption",
+          "type": "quantitative"
+        }
+      },
+      "mark": "point",
+      "title": "Scatter plot of Water Consumption by Irrigation Method"
+    }
+  }
+}

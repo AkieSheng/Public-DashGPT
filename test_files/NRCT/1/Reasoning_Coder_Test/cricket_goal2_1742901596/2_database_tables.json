@@ -1,0 +1,322 @@
+[
+  {
+    "columns": [
+      {
+        "column": "player_name",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "role",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "total_runs",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "strike_rate",
+        "dtype": "REAL"
+      },
+      {
+        "column": "total_balls_faced",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "total_wickets_taken",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "total_runs_conceded",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "total_overs_bowled",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "total_matches_played",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "matches_played_as_batter",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "matches_played_as_bowler",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "matches_won",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "matches_lost",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "player_of_match_awards",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "team",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "average",
+        "dtype": "REAL"
+      }
+    ],
+    "table": "batter_player_stats"
+  },
+  {
+    "columns": [
+      {
+        "column": "player_name",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "role",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "total_runs",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "strike_rate",
+        "dtype": "REAL"
+      },
+      {
+        "column": "total_balls_faced",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "total_wickets_taken",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "total_runs_conceded",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "total_overs_bowled",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "total_matches_played",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "matches_played_as_batter",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "matches_played_as_bowler",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "matches_won",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "matches_lost",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "player_of_match_awards",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "team",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "economy_rate",
+        "dtype": "REAL"
+      },
+      {
+        "column": "average",
+        "dtype": "REAL"
+      }
+    ],
+    "table": "bowler_player_stats"
+  },
+  {
+    "columns": [
+      {
+        "column": "match_id",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "player",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "team",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "runs",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "balls_faced",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "fours",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "sixes",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "wickets",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "overs_bowled",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "balls_bowled",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "runs_conceded",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "catches",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "run_outs",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "maiden",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "stumps",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "match_outcome",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "opposition_team",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "strike_rate",
+        "dtype": "REAL"
+      },
+      {
+        "column": "economy",
+        "dtype": "REAL"
+      },
+      {
+        "column": "fantasy_points",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "venue",
+        "dtype": "TEXT"
+      }
+    ],
+    "table": "detailed_player_data"
+  },
+  {
+    "columns": [
+      {
+        "column": "match_id",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "created",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "city",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "dates",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "event_name",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "match_number",
+        "dtype": "REAL"
+      },
+      {
+        "column": "gender",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "match_type",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "match_type_number",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "toss_winner",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "toss_decision",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "outcome_winner",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "outcome_by_runs",
+        "dtype": "REAL"
+      },
+      {
+        "column": "outcome_by_wickets",
+        "dtype": "REAL"
+      },
+      {
+        "column": "overs",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "player_of_match",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "season",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "teams",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "venue",
+        "dtype": "TEXT"
+      },
+      {
+        "column": "total_fours",
+        "dtype": "INTEGER"
+      },
+      {
+        "column": "total_sixes",
+        "dtype": "INTEGER"
+      }
+    ],
+    "table": "match_summary"
+  }
+]

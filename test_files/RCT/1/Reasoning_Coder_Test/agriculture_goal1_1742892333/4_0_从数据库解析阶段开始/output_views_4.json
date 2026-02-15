@@ -1,0 +1,165 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "water_usage_data.Irrigation Method",
+      "water_usage_data.Water Consumption (liters/hectare)",
+      "crop_production_data.Yield (quintals)",
+      "crop_production_data.Crop"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x:Water Consumption (liters/hectare)",
+        "y:Yield (quintals)",
+        "color:Irrigation Method",
+        "tooltip:Crop"
+      ],
+      "description": "Scatter plot showing relationship between water consumption and crop yields across irrigation methods, with crops as discrete entries"
+    },
+    "usingParams": [],
+    "components": "Legend for irrigation method color coding",
+    "interactions": [
+      {
+        "object": "scatter plot",
+        "verb": "click",
+        "effect": {
+          "description": "Multi-select irrigation methods to filter subsequent views",
+          "params": [
+            {
+              "name": "selected_methods",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "color"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "object": "scatter plot",
+        "verb": "interval drag",
+        "effect": {
+          "description": "Select data range for water consumption and yield",
+          "params": [
+            {
+              "name": "water_yield_range",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "water_usage_data.District",
+      "crop_production_data.Yield (quintals)",
+      "water_usage_data.Water Consumption (liters/hectare)",
+      "crop_production_data.Crop"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x:District",
+        "y:Yield (quintals)/Water Consumption (liters/hectare) (derived)",
+        "color:Crop",
+        "tooltip:Crop"
+      ],
+      "description": "Stacked bar chart showing water efficiency (yield per liter) by district and crop type"
+    },
+    "usingParams": [
+      "selected_methods",
+      "water_yield_range"
+    ],
+    "interactions": [
+      {
+        "object": "bar chart",
+        "verb": "click",
+        "effect": {
+          "description": "Select specific district(s) for detail analysis",
+          "params": [
+            {
+              "name": "selected_districts",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "detail",
+    "fields": [
+      "soil_analysis_data.Soil Type",
+      "soil_analysis_data.pH Level",
+      "soil_analysis_data.Organic Matter (%)",
+      "water_usage_data.Irrigation Method"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x:Soil Type",
+        "y:Irrigation Method",
+        "color:avg(Organic Matter (%)",
+        "tooltip:pH Level"
+      ],
+      "description": "Heatmap showing soil characteristics distribution across irrigation methods"
+    },
+    "usingParams": [
+      "selected_districts"
+    ],
+    "components": "Slider for pH Level range filtering"
+  },
+  {
+    "id": 4,
+    "level": "insight",
+    "fields": [
+      "water_usage_data.Water Consumption (liters/hectare)",
+      "crop_price_data.Price (INR/quintal)",
+      "crop_production_data.Crop"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "line",
+      "encodings": [
+        "x:Date (month extracted)",
+        "y:Price (INR/quintal)",
+        "color:Crop",
+        "strokeDash:Water Consumption quartile"
+      ],
+      "description": "Multi-line chart showing price trends with water consumption patterns"
+    },
+    "usingParams": [
+      "selected_districts"
+    ]
+  }
+]

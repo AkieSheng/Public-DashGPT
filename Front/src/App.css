@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+  display: flex;
+  background-color:#F9F9F9;
+  width: 1920px;
+  height: 1080px;
+  font-family: 'Inter', sans-serif;
+}
+

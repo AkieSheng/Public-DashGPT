@@ -1,0 +1,163 @@
+  
+  li {
+    cursor: pointer;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .popup {
+    position: absolute;
+    left: 260px;
+    top: -15px;
+    z-index: 1000;
+  }
+  
+  .popup button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0;
+    text-align: left;
+  }
+
+.today-panel{
+    width: 274px;
+    height: 1059px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.va-list{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    width: 460px;
+    height: 78%;
+    border-radius: 15px;
+    margin-left: 8px;
+    overflow-y: auto;
+}
+.va-list::-webkit-scrollbar {
+  width: 10px; /* 滚动条宽度 */
+}
+
+.va-list::-webkit-scrollbar-thumb {
+  background-color: transparent; /* 滚动条滑块颜色 */
+}
+
+.va-list  ::-webkit-scrollbar-track {
+  background-color: transparent; /* 滚动条轨道颜色 */
+}
+
+.va-list-temp{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  width: 260px;
+  height: 100%;
+  background-color: #F3F3F3;
+  border-radius: 15px;
+  margin-left: 8px;
+}
+
+
+.bottom-va1{
+    padding: 18px;
+    width: 219px;
+    border-radius: 10px;
+    height: 68px;
+    font-size: 20px;
+    font-weight: semibold;
+    border: 2px dashed black;
+    margin-top: 23px;
+    display: flex;
+    margin-left: 20px;
+    position: absolute;
+    bottom: 120px;
+}
+
+.bottom-va2{
+  padding: 18px;
+  width: 219px;
+  border-radius: 10px;
+  height: 68px;
+  font-size: 20px;
+  font-weight: semibold;
+  border: none;
+  margin-top: 23px;
+  margin-bottom: 20px;
+  display: flex;
+  margin-left: 20px;
+  background-color: #9FA8DA;
+  color: white;
+  position: absolute;
+  bottom: 10px;
+}
+
+.bottom-text{
+  margin-top: 4px;
+  margin-left: 30px;
+}
+
+.va-list-item{
+  display: flex;
+  position: relative;
+  flex-direction: colum;
+  height: 32px;
+  width: 240px;
+  margin-left: 0px;
+  border-radius: 6px;
+  padding-top : 6px;
+}
+
+.va-list-item-text{
+    margin-left: 18px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: regular;
+    white-space: nowrap; /* 让文字不换行 */
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis; /* 超出部分显示省略号 */
+}
+
+.genVa{
+  margin-top: 6px;
+  margin-left: 30px;
+}
+
+.va-list-item-button{
+  background: none;
+  border: none;
+  height: 30px;
+  margin-left: auto;
+  width: 40px;
+  display: flex;
+  margin-top: 10px;
+}
+
+.va-list-item:active {
+    background-color: #e0e0e0; /* 点击时的背景颜色 */
+}
+
+.va-list-item:focus {
+    text-decoration: none; /* 确保点击和聚焦时没有下划线 */
+    outline: none; /* 确保点击和聚焦时没有焦点框 */
+}
+
+.va-list-title{
+    margin-left: 18px;
+    text-align: left;
+    font-size: 13px;
+    height: 24px;
+    margin-top: 20px;
+    width: 255px;
+    font-weight: bold;
+}
+
+.va-list-item-dot{
+  width: 4px;
+  border-radius: 2px;
+  height: 4px;
+  background-color: black;
+  margin-left: 5px;
+}

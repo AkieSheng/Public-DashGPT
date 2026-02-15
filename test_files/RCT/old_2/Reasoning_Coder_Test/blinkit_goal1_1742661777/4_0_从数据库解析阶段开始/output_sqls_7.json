@@ -1,0 +1,52 @@
+[
+  {
+    "name": "daily_sales",
+    "SQL": "CREATE VIEW daily_sales AS SELECT blinkit_orders.order_date, SUM(blinkit_orders.order_total) AS total_sales FROM blinkit_orders GROUP BY blinkit_orders.order_date ORDER BY blinkit_orders.order_date",
+    "corrView": "1",
+    "pk": "order_date",
+    "fk": []
+  },
+  {
+    "name": "campaign_timeline",
+    "SQL": "CREATE VIEW campaign_timeline AS SELECT blinkit_marketing_performance.date, blinkit_marketing_performance.campaign_name, SUM(blinkit_orders.order_total) AS salesしゃtooltip",
+    "corrView": "2",
+    "pk": "date",
+    "fk": [
+      {
+        "key": "campaign_name",
+        "table": "daily_sales"
+      }
+    ]
+  },
+  {
+    "name": "weekly_category",
+    "SQL": "CREATE VIEW weekly_category AS SELECT DATE_TRUNC('week', blinkit_orders.order_date) AS week_start, blinkit_products.category, SUM(blinkit_order_items.quantity) AS total_quantity FROM blinkit_orders JOIN blinkit_order_items ON blinkit_orders.order_id = blinkit_order_items.order_id JOIN blinkit_products ON blinkit_order_items.product_id = blinkit_products.product_id GROUP BY DATE_TRUNC('week', blinkit_orders.order_date), blinkit_products.category ORDER BY week_start, blinkit_products.category",
+    "corrView": "3",
+    "pk": "week_start",
+    "fk": [
+      {
+        "key": "category",
+        "table": "daily_sales"
+      }
+    ]
+  },
+  {
+    "name": "category_revenue",
+    "SQL": "CREATE VIEW category_revenue AS SELECT DATE_TRUNC('day', blinkit_orders.order_date) AS order_date, blinkit_products.category, blinkit_order_items.unit_price * blinkit_order_items.quantity AS revenue FROM blinkit_orders JOIN blinkit_order_items ON blinkit_orders.order_id = blinkit_order_items.order_id JOIN blinkit_products ON blinkit_order_items.product_id = blinkit_products.product_id ORDER BY order_date, category",
+    "corrView": "4",
+    "pk": "order_date",
+    "fk": [
+      {
+        "key": "category",
+        "table": "daily_sales"
+      }
+    ]
+  },
+  {
+    "name": "stl_decomposition",
+    "SQL": "CREATE VIEW stl_decomposition AS SELECT blinkit_orders.order_date, SUM(blinkit_orders.order_total) AS total_sales FROM blinkit_orders GROUP BY blinkit_orders.order_date ORDER BY blinkit_orders.order_date",
+    "corrView": "5",
+    "pk": "order_date",
+    "fk": []
+  }
+]

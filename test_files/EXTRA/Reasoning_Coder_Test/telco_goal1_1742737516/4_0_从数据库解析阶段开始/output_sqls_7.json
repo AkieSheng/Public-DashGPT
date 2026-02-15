@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "overview_view",
+    "SQL": "CREATE VIEW overview_view AS SELECT Status_Analysis.churn_label, Status_Analysis.churn_category, Customer_Info.gender, Customer_Info.age, Customer_Info.senior_citizen FROM Status_Analysis JOIN Customer_Info ON Status_Analysis.customer_id = Customer_Info.customer_id;",
+    "corrView": "1",
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "id": 2,
+    "name": "exploration_view",
+    "SQL": "CREATE VIEW exploration_view AS SELECT Customer_Info.age, Status_Analysis.churn_label, Status_Analysis.satisfaction_score, Customer_Info.number_of_dependents FROM Status_Analysis JOIN Customer_Info ON Status_Analysis.customer_id = Customer_Info.customer_id;",
+    "corrView": "2",
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "id": 3,
+    "name": "detail_view",
+    "SQL": "CREATE VIEW detail_view AS SELECT Status_Analysis.cltv, Service_Options.contract, Payment_Info.monthly_charges, Status_Analysis.churn_score FROM Status_Analysis JOIN Service_Options ON Status_Analysis.customer_id = Service_Options.customer_id JOIN Payment_Info ON Status_Analysis.customer_id = Payment_Info.customer_id;",
+    "corrView": "3",
+    "pk": "customer_id",
+    "fk": []
+  }
+]

@@ -1,0 +1,1 @@
+"Execution failed on sql 'SELECT * FROM view_3': ambiguous column name: customer_id"

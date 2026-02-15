@@ -1,0 +1,17 @@
+{
+  "id": "college_goal3_1742634361",
+  "desc": "The database offers a comprehensive view of an educational institution’s academic ecosystem, covering details about courses, departments, enrollment, faculty, students, and related administrative information.",
+  "goal": "Conduct a comprehensive analysis of students’ major subjects, minor selections, and organizational memberships, thereby exploring overall patterns and potential correlations between academic profiles and extracurricular engagement.",
+  "initialStage": 0,
+  "maxSteps": 10,
+  "useReflect": true,
+  "useRag": false,
+  "models": {
+    "database": "deepseek-r1-api",
+    "requirements": "deepseek-r1-api",
+    "tasks": "deepseek-r1-api",
+    "plan": "deepseek-r1-api",
+    "sql": "qwen-coder",
+    "vega": "qwen-coder"
+  }
+}

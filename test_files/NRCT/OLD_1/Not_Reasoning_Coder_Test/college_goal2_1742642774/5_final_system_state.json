@@ -1,0 +1,1400 @@
+{
+  "created": 1742642774,
+  "dataset": {
+    "description": "The database offers a comprehensive view of an educational institution’s academic ecosystem, covering details about courses, departments, enrollment, faculty, students, and related administrative information.",
+    "tables": [
+      {
+        "columns": [
+          {
+            "column": "StuID",
+            "description": "Unique identifier for each student.",
+            "dtype": "INTEGER",
+            "name": "StuID",
+            "stats": {
+              "25%": 1009.25,
+              "50%": 1018.5,
+              "75%": 1026.75,
+              "count": 34.0,
+              "max": 1035.0,
+              "mean": 1018.1470588235294,
+              "min": 1001.0,
+              "samples": [
+                1001,
+                1002,
+                1003,
+                1004,
+                1005
+              ],
+              "std": 10.363491727420529
+            }
+          },
+          {
+            "column": "LName",
+            "description": "Last name of the student.",
+            "dtype": "VARCHAR(12)",
+            "name": "LName",
+            "stats": {
+              "count": 34,
+              "freq": 2,
+              "samples": [
+                "Smith",
+                "Lee",
+                "Pang",
+                "Kumar",
+                "Gompers"
+              ],
+              "top": "Smith",
+              "unique": 31
+            }
+          },
+          {
+            "column": "Fname",
+            "description": "First name of the student.",
+            "dtype": "VARCHAR(12)",
+            "name": "Fname",
+            "stats": {
+              "count": 34,
+              "freq": 5,
+              "samples": [
+                "Eric",
+                "Lisa",
+                "David",
+                "Paul",
+                "Michael"
+              ],
+              "top": "Eric",
+              "unique": 24
+            }
+          },
+          {
+            "column": "Age",
+            "description": "Age of the student in years.",
+            "dtype": "INTEGER",
+            "name": "Age",
+            "stats": {
+              "25%": 18.0,
+              "50%": 19.0,
+              "75%": 20.0,
+              "count": 34.0,
+              "max": 27.0,
+              "mean": 19.558823529411764,
+              "min": 16.0,
+              "samples": [
+                18,
+                20,
+                19,
+                17,
+                21
+              ],
+              "std": 2.584231630374799
+            }
+          },
+          {
+            "column": "Sex",
+            "description": "Gender of the student ('M' for Male, 'F' for Female).",
+            "dtype": "VARCHAR(1)",
+            "name": "Sex",
+            "stats": {
+              "count": 34,
+              "freq": 24,
+              "samples": [
+                "M",
+                "F"
+              ],
+              "top": "M",
+              "unique": 2
+            }
+          },
+          {
+            "column": "Major",
+            "description": "Department number representing the student's major program.",
+            "dtype": "INTEGER",
+            "name": "Major",
+            "stats": {
+              "25%": 525.0,
+              "50%": 600.0,
+              "75%": 600.0,
+              "count": 34.0,
+              "max": 600.0,
+              "mean": 527.9411764705883,
+              "min": 50.0,
+              "samples": [
+                600,
+                520,
+                550,
+                540,
+                50
+              ],
+              "std": 149.39837757759085
+            }
+          },
+          {
+            "column": "Advisor",
+            "description": "Faculty identifier representing the student's academic advisor.",
+            "dtype": "INTEGER",
+            "name": "Advisor",
+            "stats": {
+              "25%": 2192.0,
+              "50%": 7202.5,
+              "75%": 8722.0,
+              "count": 34.0,
+              "max": 9172.0,
+              "mean": 5622.382352941177,
+              "min": 1121.0,
+              "samples": [
+                2192,
+                1121,
+                8772,
+                1148,
+                2311
+              ],
+              "std": 3224.6798855898282
+            }
+          },
+          {
+            "column": "city_code",
+            "description": "Code representing the city where the student is from.",
+            "dtype": "VARCHAR(3)",
+            "name": "city_code",
+            "stats": {
+              "count": 34,
+              "freq": 4,
+              "samples": [
+                "BAL",
+                "PIT",
+                "HKG",
+                "WAS",
+                "PHL"
+              ],
+              "top": "BAL",
+              "unique": 19
+            }
+          }
+        ],
+        "table": "Student"
+      },
+      {
+        "columns": [
+          {
+            "column": "FacID",
+            "description": "Unique identifier for each faculty member.",
+            "dtype": "INTEGER",
+            "name": "FacID",
+            "stats": {
+              "25%": 3650.25,
+              "50%": 7609.0,
+              "75%": 8886.25,
+              "count": 58.0,
+              "max": 9922.0,
+              "mean": 6473.3448275862065,
+              "min": 1082.0,
+              "samples": [
+                1082,
+                1121,
+                1148,
+                1172,
+                1177
+              ],
+              "std": 3008.5165403807746
+            }
+          },
+          {
+            "column": "Lname",
+            "description": "Last name of the faculty member.",
+            "dtype": "VARCHAR(15)",
+            "name": "Lname",
+            "stats": {
+              "count": 58,
+              "freq": 1,
+              "samples": [
+                "Giuliano",
+                "Goodrich",
+                "Masson",
+                "Runolfsson",
+                "Naiman"
+              ],
+              "top": "Giuliano",
+              "unique": 58
+            }
+          },
+          {
+            "column": "Fname",
+            "description": "First name of the faculty member.",
+            "dtype": "VARCHAR(15)",
+            "name": "Fname",
+            "stats": {
+              "count": 58,
+              "freq": 3,
+              "samples": [
+                "Michael",
+                "Robert",
+                "William",
+                "John",
+                "Mark"
+              ],
+              "top": "Michael",
+              "unique": 53
+            }
+          },
+          {
+            "column": "Rank",
+            "description": "Academic rank or title of the faculty member (e.g., Professor, AsstProf).",
+            "dtype": "VARCHAR(15)",
+            "name": "Rank",
+            "stats": {
+              "count": 58,
+              "freq": 27,
+              "samples": [
+                "Professor",
+                "AsstProf",
+                "Instructor",
+                "AssocProf"
+              ],
+              "top": "Professor",
+              "unique": 4
+            }
+          },
+          {
+            "column": "Sex",
+            "description": "Gender of the faculty member ('M' for Male, 'F' for Female).",
+            "dtype": "VARCHAR(1)",
+            "name": "Sex",
+            "stats": {
+              "count": 58,
+              "freq": 51,
+              "samples": [
+                "M",
+                "F"
+              ],
+              "top": "M",
+              "unique": 2
+            }
+          },
+          {
+            "column": "Phone",
+            "description": "Personal or office phone number of the faculty member.",
+            "dtype": "INTEGER",
+            "name": "Phone",
+            "stats": {
+              "25%": 2080.25,
+              "50%": 2880.0,
+              "75%": 4928.5,
+              "count": 58.0,
+              "max": 9373.0,
+              "mean": 3616.9137931034484,
+              "min": 1035.0,
+              "samples": [
+                2424,
+                3593,
+                3402,
+                3121,
+                3571
+              ],
+              "std": 2149.3704446249985
+            }
+          },
+          {
+            "column": "Room",
+            "description": "Room number where the faculty member works.",
+            "dtype": "VARCHAR(5)",
+            "name": "Room",
+            "stats": {
+              "count": 58,
+              "freq": 20,
+              "samples": [
+                "288",
+                "119",
+                "316",
+                "224",
+                "219"
+              ],
+              "top": "288",
+              "unique": 18
+            }
+          },
+          {
+            "column": "Building",
+            "description": "Name of the building where the faculty member's office is located.",
+            "dtype": "VARCHAR(13)",
+            "name": "Building",
+            "stats": {
+              "count": 58,
+              "freq": 20,
+              "samples": [
+                "Barton",
+                "Krieger",
+                "NEB"
+              ],
+              "top": "Barton",
+              "unique": 3
+            }
+          }
+        ],
+        "table": "Faculty"
+      },
+      {
+        "columns": [
+          {
+            "column": "DNO",
+            "description": "Unique identifier for each department.",
+            "dtype": "INTEGER",
+            "name": "DNO",
+            "stats": {
+              "25%": 75.0,
+              "50%": 160.0,
+              "75%": 477.5,
+              "count": 26.0,
+              "max": 600.0,
+              "mean": 242.69230769230768,
+              "min": 10.0,
+              "samples": [
+                10,
+                20,
+                30,
+                40,
+                50
+              ],
+              "std": 210.02014555385284
+            }
+          },
+          {
+            "column": "Division",
+            "description": "Division code indicating the department's faculty or school (e.g., AS for Arts & Sciences).",
+            "dtype": "VARCHAR(2)",
+            "name": "Division",
+            "stats": {
+              "count": 26,
+              "freq": 19,
+              "samples": [
+                "AS",
+                "EN"
+              ],
+              "top": "AS",
+              "unique": 2
+            }
+          },
+          {
+            "column": "DName",
+            "description": "Name of the department.",
+            "dtype": "VARCHAR(25)",
+            "name": "DName",
+            "stats": {
+              "count": 26,
+              "freq": 1,
+              "samples": [
+                "History of Art",
+                "Biology",
+                "Chemistry",
+                "Classics",
+                "Cognitive Science"
+              ],
+              "top": "History of Art",
+              "unique": 26
+            }
+          },
+          {
+            "column": "Room",
+            "description": "Room number of the department's administrative office.",
+            "dtype": "VARCHAR(5)",
+            "name": "Room",
+            "stats": {
+              "count": 26,
+              "freq": 2,
+              "samples": [
+                "144",
+                "221",
+                "113",
+                "268",
+                "381"
+              ],
+              "top": "144",
+              "unique": 24
+            }
+          },
+          {
+            "column": "Building",
+            "description": "Name of the building housing the department office.",
+            "dtype": "VARCHAR(13)",
+            "name": "Building",
+            "stats": {
+              "count": 26,
+              "freq": 9,
+              "samples": [
+                "Gilman",
+                "Mergenthaler",
+                "NEB",
+                "Krieger",
+                "Latrobe"
+              ],
+              "top": "Gilman",
+              "unique": 12
+            }
+          },
+          {
+            "column": "DPhone",
+            "description": "Phone number associated with the department office.",
+            "dtype": "INTEGER",
+            "name": "DPhone",
+            "stats": {
+              "25%": 7202.75,
+              "50%": 7414.0,
+              "75%": 7543.0,
+              "count": 26.0,
+              "max": 8680.0,
+              "mean": 7486.076923076923,
+              "min": 7033.0,
+              "samples": [
+                7117,
+                7330,
+                7429,
+                7556,
+                7119
+              ],
+              "std": 440.4182487660495
+            }
+          }
+        ],
+        "table": "Department"
+      },
+      {
+        "columns": [
+          {
+            "column": "FacID",
+            "description": "Faculty identifier of the faculty member belonging to a department.",
+            "dtype": "INTEGER",
+            "name": "FacID",
+            "stats": {
+              "25%": 4331.0,
+              "50%": 7712.0,
+              "75%": 8854.5,
+              "count": 63.0,
+              "max": 9922.0,
+              "mean": 6610.269841269841,
+              "min": 1082.0,
+              "samples": [
+                7271,
+                8741,
+                8721,
+                8989,
+                9379
+              ],
+              "std": 2930.7350184880092
+            }
+          },
+          {
+            "column": "DNO",
+            "description": "Department number indicating the department the faculty member belongs to.",
+            "dtype": "INTEGER",
+            "name": "DNO",
+            "stats": {
+              "25%": 520.0,
+              "50%": 550.0,
+              "75%": 600.0,
+              "count": 63.0,
+              "max": 600.0,
+              "mean": 484.44444444444446,
+              "min": 50.0,
+              "samples": [
+                520,
+                600,
+                550,
+                50
+              ],
+              "std": 181.75468914195756
+            }
+          },
+          {
+            "column": "Appt_Type",
+            "description": "Type of appointment for the faculty member in the department (e.g., Primary or Secondary).",
+            "dtype": "VARCHAR(15)",
+            "name": "Appt_Type",
+            "stats": {
+              "count": 63,
+              "freq": 58,
+              "samples": [
+                "Primary",
+                "Secondary"
+              ],
+              "top": "Primary",
+              "unique": 2
+            }
+          }
+        ],
+        "table": "Member_of"
+      },
+      {
+        "columns": [
+          {
+            "column": "CID",
+            "description": "Unique identifier for each course.",
+            "dtype": "VARCHAR(7)",
+            "name": "CID",
+            "stats": {
+              "count": 76,
+              "freq": 1,
+              "samples": [
+                "600.101",
+                "600.103",
+                "600.107",
+                "600.109",
+                "600.113"
+              ],
+              "top": "600.101",
+              "unique": 76
+            }
+          },
+          {
+            "column": "CName",
+            "description": "Name or title of the course.",
+            "dtype": "VARCHAR(40)",
+            "name": "CName",
+            "stats": {
+              "count": 76,
+              "freq": 2,
+              "samples": [
+                "FORMAL METHODS IN COGNITIVE SCIENCE",
+                "COMBINATORIAL ANALYSIS",
+                "DISTRIBUTED SYSTEMS",
+                "DATABASE SYSTEMS",
+                "COMPUTER LITERACY"
+              ],
+              "top": "FORMAL METHODS IN COGNITIVE SCIENCE",
+              "unique": 72
+            }
+          },
+          {
+            "column": "Credits",
+            "description": "Number of credits assigned to the course.",
+            "dtype": "INTEGER",
+            "name": "Credits",
+            "stats": {
+              "25%": 3.0,
+              "50%": 3.0,
+              "75%": 3.0,
+              "count": 76.0,
+              "max": 4.0,
+              "mean": 3.039473684210526,
+              "min": 1.0,
+              "samples": [
+                3,
+                4,
+                1,
+                2
+              ],
+              "std": 0.6205543644985874
+            }
+          },
+          {
+            "column": "Instructor",
+            "description": "Faculty identifier for the instructor teaching the course.",
+            "dtype": "INTEGER",
+            "name": "Instructor",
+            "stats": {
+              "25%": 4432.0,
+              "50%": 7029.5,
+              "75%": 8822.75,
+              "count": 76.0,
+              "max": 9922.0,
+              "mean": 6472.526315789473,
+              "min": 1121.0,
+              "samples": [
+                6112,
+                4432,
+                6191,
+                1121,
+                9823
+              ],
+              "std": 2838.180207920487
+            }
+          },
+          {
+            "column": "Days",
+            "description": "Days of the week the course is conducted (e.g., MTW for Monday-Tuesday-Wednesday).",
+            "dtype": "VARCHAR(5)",
+            "name": "Days",
+            "stats": {
+              "count": 76,
+              "freq": 37,
+              "samples": [
+                "MTW",
+                "ThF",
+                "Th",
+                "M",
+                "MW"
+              ],
+              "top": "MTW",
+              "unique": 11
+            }
+          },
+          {
+            "column": "Hours",
+            "description": "Hours during which the course is conducted.",
+            "dtype": "VARCHAR(11)",
+            "name": "Hours",
+            "stats": {
+              "count": 76,
+              "freq": 7,
+              "samples": [
+                "3",
+                "1",
+                "9",
+                "2",
+                "11"
+              ],
+              "top": "3",
+              "unique": 29
+            }
+          },
+          {
+            "column": "DNO",
+            "description": "Department number indicating the department offering the course.",
+            "dtype": "INTEGER",
+            "name": "DNO",
+            "stats": {
+              "25%": 520.0,
+              "50%": 550.0,
+              "75%": 600.0,
+              "count": 76.0,
+              "max": 600.0,
+              "mean": 493.8157894736842,
+              "min": 50.0,
+              "samples": [
+                600,
+                550,
+                520,
+                50
+              ],
+              "std": 176.7179832785421
+            }
+          }
+        ],
+        "table": "Course"
+      },
+      {
+        "columns": [
+          {
+            "column": "StuID",
+            "description": "Student identifier for students pursuing a minor.",
+            "dtype": "INTEGER",
+            "name": "StuID",
+            "stats": {
+              "25%": 1006.25,
+              "50%": 1011.0,
+              "75%": 1015.75,
+              "count": 10.0,
+              "max": 1031.0,
+              "mean": 1013.3,
+              "min": 1004.0,
+              "samples": [
+                1004,
+                1005,
+                1006,
+                1007,
+                1008
+              ],
+              "std": 9.357706271660094
+            }
+          },
+          {
+            "column": "DNO",
+            "description": "Department number representing the student's minor program.",
+            "dtype": "INTEGER",
+            "name": "DNO",
+            "stats": {
+              "25%": 152.5,
+              "50%": 520.0,
+              "75%": 537.5,
+              "count": 10.0,
+              "max": 550.0,
+              "mean": 368.0,
+              "min": 50.0,
+              "samples": [
+                520,
+                550,
+                50,
+                90,
+                140
+              ],
+              "std": 218.67276414262884
+            }
+          }
+        ],
+        "table": "Minor_in"
+      },
+      {
+        "columns": [
+          {
+            "column": "StuID",
+            "description": "Student identifier for students enrolled in courses.",
+            "dtype": "INTEGER",
+            "name": "StuID",
+            "stats": {
+              "25%": 1009.0,
+              "50%": 1019.0,
+              "75%": 1026.0,
+              "count": 210.0,
+              "max": 1035.0,
+              "mean": 1018.1190476190476,
+              "min": 1001.0,
+              "samples": [
+                1021,
+                1022,
+                1024,
+                1023,
+                1009
+              ],
+              "std": 9.89369907493054
+            }
+          },
+          {
+            "column": "CID",
+            "description": "Course identifier indicating the courses the student is enrolled in.",
+            "dtype": "VARCHAR(7)",
+            "name": "CID",
+            "stats": {
+              "count": 210,
+              "freq": 14,
+              "samples": [
+                "600.303",
+                "600.315",
+                "550.420",
+                "600.107",
+                "600.463"
+              ],
+              "top": "600.303",
+              "unique": 42
+            }
+          },
+          {
+            "column": "Grade",
+            "description": "Grade received by the student in the course.",
+            "dtype": "VARCHAR(2)",
+            "name": "Grade",
+            "stats": {
+              "count": 210,
+              "freq": 62,
+              "samples": [
+                "B",
+                "A",
+                "A-",
+                "B-",
+                "B+"
+              ],
+              "top": "B",
+              "unique": 12
+            }
+          }
+        ],
+        "table": "Enrolled_in"
+      },
+      {
+        "columns": [
+          {
+            "column": "lettergrade",
+            "description": "Letter grade representation (e.g., A+, A, B).",
+            "dtype": "VARCHAR(2)",
+            "name": "lettergrade",
+            "stats": {
+              "count": 13,
+              "freq": 1,
+              "samples": [
+                "A+",
+                "A",
+                "A-",
+                "B+",
+                "B"
+              ],
+              "top": "A+",
+              "unique": 13
+            }
+          },
+          {
+            "column": "gradepoint",
+            "description": "Grade point equivalent of the letter grade.",
+            "dtype": "FLOAT",
+            "name": "gradepoint",
+            "stats": {
+              "25%": 1.3,
+              "50%": 2.3,
+              "75%": 3.3,
+              "count": 13.0,
+              "max": 4.0,
+              "mean": 2.2846153846153845,
+              "min": 0.0,
+              "samples": [
+                4.0,
+                3.7,
+                3.3,
+                3.0,
+                2.7
+              ],
+              "std": 1.3031028060275687
+            }
+          }
+        ],
+        "table": "Gradeconversion"
+      }
+    ]
+  },
+  "desc": "The database offers a comprehensive view of an educational institution’s academic ecosystem, covering details about courses, departments, enrollment, faculty, students, and related administrative information.",
+  "goal": "Analyze the distribution of faculty across departments, understand the staffing characteristics of each department, and examine the relationship between faculty distribution, course offerings, and academic activities.",
+  "id": "college_goal2_1742642774",
+  "name": "Visual Analytics System college_goal2_1742642774",
+  "plan": {
+    "graph": [
+      {
+        "from": 1,
+        "to": 2
+      },
+      {
+        "from": 1,
+        "to": 3
+      },
+      {
+        "from": 2,
+        "to": 3
+      },
+      {
+        "from": 1,
+        "to": 4
+      }
+    ],
+    "path": "The user browses View 1 at the [Overview] level and examines the overall distribution of faculty across departments, segmented by appointment type. The user selects a department of interest in View 1, which filters data in View 2 (heatmap showing correlation between faculty and courses) and View 3 (box plot for faculty-to-course anomalies). Simultaneously, View 4 provides a scatter plot analysis of rank-credit relationships, with filters for department and rank.",
+    "views": [
+      {
+        "fields": [
+          "Member_of.FacID",
+          "Member_of.DNO",
+          "Member_of.Appt_Type"
+        ],
+        "id": 1,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Filters the data by department, passing the selected department to subsequent views.",
+              "params": [
+                {
+                  "name": "selectedDepartment",
+                  "select": {
+                    "encodings": [
+                      "x"
+                    ],
+                    "type": "point"
+                  }
+                }
+              ]
+            },
+            "object": "visualization",
+            "verb": "click"
+          }
+        ],
+        "level": "overview",
+        "task": [
+          1
+        ],
+        "usingParams": [],
+        "visualization": {
+          "description": "A segmented bar chart showing the number of faculty members in each department, segmented by appointment type (Primary vs. Secondary).",
+          "encodings": [
+            {
+              "channel": "x",
+              "field": "Member_of.DNO",
+              "type": "nominal"
+            },
+            {
+              "channel": "y",
+              "field": "count(Member_of.FacID)",
+              "type": "quantitative"
+            },
+            {
+              "channel": "color",
+              "field": "Member_of.Appt_Type",
+              "type": "nominal"
+            }
+          ],
+          "markType": "bar"
+        }
+      },
+      {
+        "fields": [
+          "Member_of.FacID",
+          "Course.DNO",
+          "Course.CID"
+        ],
+        "id": 2,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Displays detailed counts of faculty and courses for the hovered department.",
+              "params": []
+            },
+            "object": "visualization",
+            "verb": "hover"
+          }
+        ],
+        "level": "exploration",
+        "task": [
+          2
+        ],
+        "usingParams": [
+          "selectedDepartment"
+        ],
+        "visualization": {
+          "description": "A heatmap correlating the number of faculty members and the number of courses offered in each department. Higher color intensity indicates more academic activity.",
+          "encodings": [
+            {
+              "channel": "x",
+              "field": "Course.DNO",
+              "type": "nominal"
+            },
+            {
+              "channel": "y",
+              "field": "count(Member_of.FacID)",
+              "type": "quantitative"
+            },
+            {
+              "channel": "color",
+              "field": "count(Course.CID)",
+              "type": "quantitative"
+            }
+          ],
+          "markType": "rect"
+        }
+      },
+      {
+        "fields": [
+          "Member_of.FacID",
+          "Course.DNO"
+        ],
+        "id": 3,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Calculation of aggregated metrics such as median and IQR for the hovered department.",
+              "params": []
+            },
+            "object": "visualization",
+            "verb": "hover"
+          }
+        ],
+        "level": "detail",
+        "task": [
+          3
+        ],
+        "usingParams": [
+          "selectedDepartment"
+        ],
+        "visualization": {
+          "description": "A box plot visualizing anomalies in faculty-to-course ratios for each department, highlighting outliers.",
+          "encodings": [
+            {
+              "channel": "x",
+              "field": "Course.DNO",
+              "type": "nominal"
+            },
+            {
+              "channel": "y",
+              "field": "facToCourseRatio",
+              "type": "quantitative"
+            }
+          ],
+          "markType": "boxplot"
+        }
+      },
+      {
+        "components": {
+          "filterDropdown": [
+            {
+              "field": "Faculty.Rank",
+              "label": "Filter by Rank"
+            },
+            {
+              "field": "Course.DNO",
+              "label": "Filter by Department"
+            }
+          ]
+        },
+        "fields": [
+          "Course.DNO",
+          "Faculty.FacID",
+          "Faculty.Rank",
+          "Course.Credits"
+        ],
+        "id": 4,
+        "interactions": [],
+        "level": "exploration",
+        "task": [
+          4
+        ],
+        "usingParams": [
+          "selectedDepartment"
+        ],
+        "visualization": {
+          "description": "A scatter plot showing the relationship between faculty rank and course credits, colored by department.",
+          "encodings": [
+            {
+              "channel": "x",
+              "field": "Faculty.Rank",
+              "type": "ordinal"
+            },
+            {
+              "channel": "y",
+              "field": "Course.Credits",
+              "type": "quantitative"
+            },
+            {
+              "channel": "color",
+              "field": "Course.DNO",
+              "type": "nominal"
+            }
+          ],
+          "markType": "point"
+        }
+      }
+    ]
+  },
+  "requirements": {
+    "data": [
+      {
+        "id": "D1",
+        "reason": "Understanding the faculty assignments (via `Member_of.FacID` and `Member_of.DNO`) is key to analyzing the overall staffing characteristics.",
+        "requirement": "Retrieve the distribution of faculty across departments, focusing on both the primary and secondary appointments."
+      },
+      {
+        "id": "D2",
+        "reason": "Courses (`Course.CID`, `Course.CName`, `Course.Credits`, `Course.DNO`) reveal academic activities and connections between faculty and department offerings.",
+        "requirement": "Extract the list of courses offered by each department, including their instructors and number of credits."
+      },
+      {
+        "id": "D3",
+        "reason": "This creates a macro-level view of department staffing and activities by combining data from `Member_of`, `Course`, and `Faculty` tables.",
+        "requirement": "Aggregate department characteristics, including the number of faculty members (primary vs secondary), the number of courses offered, and academic ranks of instructors."
+      },
+      {
+        "id": "D4",
+        "reason": "Linking finer demographic data (`Faculty`) provides context for staffing characteristics within departments.",
+        "requirement": "Fetch detailed faculty-level data, such as faculty ranks, gender distribution, and office locations."
+      },
+      {
+        "id": "D5",
+        "reason": "Helps characterize relationships between faculty distribution and department activities by combining macro (`Department`, `Member_of`) and micro data (`Faculty`, `Course`).",
+        "requirement": "Correlate department size (number of faculty) with the number and type of courses offered, and staffing parameters like academic rank and gender composition."
+      },
+      {
+        "id": "D6",
+        "reason": "This provides insight into the structure of faculty assignments and staffing dynamics (`Member_of.Appt_Type`).",
+        "requirement": "Analyze patterns in appointment types, such as percentages of primary versus secondary appointments across departments."
+      },
+      {
+        "id": "D7",
+        "reason": "Such anomalies might suggest unusual staffing patterns or discrepancies in department resource allocation.",
+        "requirement": "Explore anomaly cases where faculty are assigned to multiple departments or departments have extreme faculty-to-course ratios."
+      },
+      {
+        "id": "D8",
+        "reason": "This adds a geographic perspective (`Faculty.Room`, `Faculty.Building`, `Department.Room`, `Department.Building`) to faculty and department staffing.",
+        "requirement": "Determine spatial characteristics like the distribution of office locations and buildings across departments."
+      }
+    ],
+    "interaction": [
+      {
+        "id": "I1",
+        "reason": "Allows users to drill down into specific departments (`Member_of.DNO`, `Course.DNO`, `Department.DNO`).",
+        "requirement": "Enable filtering by department to dynamically update all visualizations based on the selected department."
+      },
+      {
+        "id": "I2",
+        "reason": "Enables quick access to micro-level details without overwhelming the user (`Member_of.FacID`, `Course.Instructor`, `Faculty.FacID`).",
+        "requirement": "Add a hover interaction to retrieve detailed information about faculty, courses, and their relationships within visualizations."
+      },
+      {
+        "id": "I3",
+        "reason": "Supports comparative analysis across departments (`Member_of.DNO`, `Course.DNO`).",
+        "requirement": "Allow multi-select interactions to compare multiple departments side-by-side in terms of faculty distribution and course offerings."
+      },
+      {
+        "id": "I4",
+        "reason": "Facilitates querying subsets of data based on academic activities (`Course.Credits`).",
+        "requirement": "Provide slider-based control or dropdown menus to filter courses based on number of credits or instructor ranks."
+      },
+      {
+        "id": "I5",
+        "reason": "Deepens analysis by linking demographic patterns (`Faculty.Sex`, `Member_of.DNO`, `Course.Instructor`).",
+        "requirement": "Enable drill-down interactions to connect faculty gender distributions with their course and department assignments."
+      },
+      {
+        "id": "I6",
+        "reason": "Improves readability for large data sets or charts (`Faculty.Rank`, `Course.CName`).",
+        "requirement": "Enable zoom interactions to scale charts dynamically, particularly for visualizing distributions with large categorical dimensions."
+      },
+      {
+        "id": "I7",
+        "reason": "Simplifies data exploration and highlights department rankings (`Member_of`, `Course`, `Faculty`).",
+        "requirement": "Allow click-to-sort interactions on bar charts and scatter plots for ascending or descending ranking of departments or faculty metrics."
+      },
+      {
+        "id": "I8",
+        "reason": "Provides useful summaries without requiring separate views (`Course.Credits`, `Member_of.FacID`).",
+        "requirement": "Enable tooltip-based calculations on hover interactions to show aggregated metrics like average course credits or faculty-to-course ratios."
+      }
+    ],
+    "visualization": [
+      {
+        "id": "V1",
+        "reason": "Bar charts provide a clear representation for categorical comparisons (`Member_of.DNO` and `Member_of.Appt_Type`).",
+        "requirement": "Display faculty distribution across departments using a bar chart segmented by appointment type (primary vs secondary)."
+      },
+      {
+        "id": "V2",
+        "reason": "Heat maps can efficiently visualize correlations and density of relationships between dimensions (`Member_of.FacID` and `Course.DNO`).",
+        "requirement": "Use a heat map to correlate department size (number of faculty) to the number of courses offered."
+      },
+      {
+        "id": "V3",
+        "reason": "Scatter plots highlight potential correlations between categorical (`Faculty.Rank`) and numerical values (`Course.Credits`).",
+        "requirement": "Create scatter plots to analyze relationships between faculty ranks (e.g., Professor vs AsstProf) and course credits."
+      },
+      {
+        "id": "V4",
+        "reason": "Grouped bar charts work well for comparing categorical variables (`Faculty.Sex`, `Faculty.Rank`, `Member_of.DNO`).",
+        "requirement": "Visualize distributions of faculty genders within departments and across ranks using grouped bar charts."
+      },
+      {
+        "id": "V5",
+        "reason": "Box plots are ideal for identifying department-level anomalies (`Member_of.FacID` vs `Course.DNO`).",
+        "requirement": "Show anomalies using a box plot to detect outliers in faculty-to-course ratios across departments."
+      },
+      {
+        "id": "V6",
+        "reason": "Pie charts provide intuitive insights into percentage breakdowns (`Member_of.Appt_Type`).",
+        "requirement": "Use a pie chart to represent the proportional distribution of appointment types across all departments."
+      },
+      {
+        "id": "V7",
+        "reason": "Bar charts are effective for visualizing distribution data (`Faculty.Building`).",
+        "requirement": "Display spatial distribution of faculty across buildings using a bar chart to compare counts by building."
+      },
+      {
+        "id": "V8",
+        "reason": "Layered area charts reveal trends and time-series comparisons (‘Member_of’, ‘Course’) across dimensions.",
+        "requirement": "Apply a layered area chart to compare trends in department size and courses over time if historical data is available."
+      }
+    ]
+  },
+  "sqls": [
+    {
+      "SQL": "CREATE VIEW faculty_by_department AS SELECT FacID, DNO FROM Member_of;",
+      "corrView": "1",
+      "fk": [
+        {
+          "key": "DNO",
+          "table": "department"
+        }
+      ],
+      "name": "faculty_by_department",
+      "pk": "FacID"
+    },
+    {
+      "SQL": "CREATE VIEW course_enrollment AS SELECT CID, DNO FROM Course;",
+      "corrView": "2",
+      "fk": [
+        {
+          "key": "DNO",
+          "table": "department"
+        }
+      ],
+      "name": "course_enrollment",
+      "pk": "CID"
+    },
+    {
+      "SQL": "CREATE VIEW faculty_course_ratio AS SELECT DNO, COUNT(FacID) / COUNT(DISTINCT CID) as FACtoCourseRatio FROM Member_of JOIN Course ON Member_of.FacID = Course.Instructor GROUP BY DNO;",
+      "corrView": "3",
+      "fk": [
+        {
+          "key": "DNO",
+          "table": "department"
+        }
+      ],
+      "name": "faculty_course_ratio",
+      "pk": "DNO"
+    },
+    {
+      "SQL": "CREATE VIEW faculty_rank AS SELECT FacID, Rank FROM Faculty;",
+      "corrView": "4",
+      "fk": [],
+      "name": "faculty_rank",
+      "pk": "FacID"
+    }
+  ],
+  "tasks": [
+    {
+      "corrReq": [
+        "D1",
+        "V1",
+        "I1"
+      ],
+      "data": [
+        "Member_of.FacID",
+        "Member_of.DNO",
+        "Member_of.Appt_Type"
+      ],
+      "id": 1,
+      "method": "Use a segmented bar chart (V1) to display faculty distribution by department, segmented by appointment type (primary vs secondary). Include interactivity (I1) to filter by department.",
+      "objective": "To retrieve and visualize the distribution of faculty across departments and differentiate between primary and secondary appointments.",
+      "priority": 5,
+      "type": "characterizing distributions"
+    },
+    {
+      "corrReq": [
+        "D2",
+        "D5",
+        "V2",
+        "I2"
+      ],
+      "data": [
+        "Member_of.FacID",
+        "Course.DNO",
+        "Course.CID"
+      ],
+      "id": 2,
+      "method": "Create a heat map (V2) to correlate department size (number of faculty) with the number of courses offered in each department. Include hover interactivity (I2) for detailed values.",
+      "objective": "To uncover relationships between faculty distribution and academic activity levels across departments.",
+      "priority": 5,
+      "type": "correlating"
+    },
+    {
+      "corrReq": [
+        "D7",
+        "V5",
+        "I8"
+      ],
+      "data": [
+        "Member_of.FacID",
+        "Course.DNO"
+      ],
+      "id": 3,
+      "method": "Visualize department-level anomalies in faculty-to-course ratios using a box plot (V5). Enable tooltip-based calculation (I8) for aggregated metrics on hover.",
+      "objective": "To detect departments with unusually high or low faculty-to-course ratios, highlighting potential anomalies in resource allocation.",
+      "priority": 4,
+      "type": "finding anomalies"
+    },
+    {
+      "corrReq": [
+        "D3",
+        "D5",
+        "V3",
+        "I1",
+        "I4"
+      ],
+      "data": [
+        "Course.DNO",
+        "Faculty.FacID",
+        "Faculty.Rank",
+        "Course.Credits"
+      ],
+      "id": 4,
+      "method": "Use scatter plots (V3) to analyze the relationship between faculty ranks and course credits. Include filtering based on department (I1) and instructor ranks using dropdown menus (I4).",
+      "objective": "To understand how faculty ranks influence course offerings, particularly in terms of credit distribution.",
+      "priority": 4,
+      "type": "retrieving values"
+    },
+    {
+      "corrReq": [
+        "D4",
+        "V4",
+        "I3"
+      ],
+      "data": [
+        "Faculty.Sex",
+        "Faculty.Rank",
+        "Member_of.DNO"
+      ],
+      "id": 5,
+      "method": "Visualize faculty gender distribution across departments and ranks using grouped bar charts (V4). Enable multi-select interaction (I3) to compare departments side-by-side.",
+      "objective": "To explore how gender distribution varies among faculty across different departments and ranks.",
+      "priority": 3,
+      "type": "retrieving values"
+    },
+    {
+      "corrReq": [
+        "D6",
+        "V6"
+      ],
+      "data": [
+        "Member_of.Appt_Type"
+      ],
+      "id": 6,
+      "method": "Create a pie chart (V6) to represent the proportional distribution of primary versus secondary appointments.",
+      "objective": "To analyze the overall breakdown of appointment types across the institution.",
+      "priority": 3,
+      "type": "characterizing distributions"
+    },
+    {
+      "corrReq": [
+        "D8",
+        "V7",
+        "I7"
+      ],
+      "data": [
+        "Faculty.Building",
+        "Faculty.Room",
+        "Department.Building",
+        "Department.Room"
+      ],
+      "id": 7,
+      "method": "Use bar charts (V7) for visualizing faculty distribution across buildings and compare against department office locations. Enable sorting functionality (I7) for ranking buildings by distribution.",
+      "objective": "To analyze the spatial distribution of faculty and departmental offices across campus.",
+      "priority": 2,
+      "type": "retrieving values"
+    },
+    {
+      "corrReq": [
+        "D3",
+        "D5",
+        "I2"
+      ],
+      "data": [
+        "Faculty.FacID",
+        "Member_of.DNO",
+        "Course.CID",
+        "Faculty.Rank"
+      ],
+      "id": 8,
+      "method": "Cluster data based on faculty department assignments, ranks, and course offering patterns. Use interactive tooltips (I2) to display cluster-level summaries.",
+      "objective": "To group departments with similar staffing profiles and academic activities for macro-level insights.",
+      "priority": 2,
+      "type": "clustering"
+    },
+    {
+      "corrReq": [
+        "V8"
+      ],
+      "data": [
+        "Member_of.FacID",
+        "Course.CID",
+        "Course.DNO"
+      ],
+      "id": 9,
+      "method": "Use a layered area chart (V8) to compare trends in department size and course offerings over time if historical data is available.",
+      "objective": "To analyze temporal trends in staffing and academic activities and identify growth or decline patterns at the department level.",
+      "priority": 1,
+      "type": "computing derived values"
+    },
+    {
+      "corrReq": [
+        "D7",
+        "I7"
+      ],
+      "data": [
+        "Member_of.DNO",
+        "Faculty.FacID",
+        "Course.CID"
+      ],
+      "id": 10,
+      "method": "Identify and highlight extreme cases, such as departments with the highest or lowest number of faculty or courses. Use sorting interaction (I7) to rank departments and display metrics visually using bar charts.",
+      "objective": "To pinpoint departments with particularly high or low metrics for targeted examination.",
+      "priority": 1,
+      "type": "finding extrema"
+    }
+  ]
+}

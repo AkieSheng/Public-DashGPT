@@ -1,0 +1,83 @@
+{
+  "data": [
+    {
+      "id": "D1",
+      "requirement": "Aggregate and group customers by their 'customer_status' (Churned, Stayed, Joined), and compute summary statistics for metrics like 'satisfaction_score', 'churn_score', and 'cltv' for each group.",
+      "reason": "Customer status is the primary focus of the analysis, and summarizing key metrics for each group will allow identifying behavioral differences between churned, retained, and newly joined customers."
+    },
+    {
+      "id": "D2",
+      "requirement": "Retrieve and segment demographic attributes like 'age', 'gender', 'senior_citizen', 'under_30', 'partner', and 'dependents' based on 'customer_status' to understand if specific customer types have a higher propensity to churn or retain.",
+      "reason": "Analyzing demographic characteristics can provide insights into the customer profiles most likely to churn or stay, aiding in retention strategy development."
+    },
+    {
+      "id": "D3",
+      "requirement": "Integrate geographic data (e.g., 'city', 'zip_code') with 'customer_status' to identify potential location-based trends in churn and retention.",
+      "reason": "Geographic insights can uncover regional trends or clusters where customer churn is more likely, suggesting location-specific issues or opportunities."
+    },
+    {
+      "id": "D4",
+      "requirement": "Correlate features like 'internet_service', 'phone_service', 'contract type', 'payment_method', and 'monthly_charges' with 'customer_status' to identify service-based factors influencing churn or retention.",
+      "reason": "Understanding the role of service offerings and billing methods in customer retention can help customize offerings for at-risk groups."
+    },
+    {
+      "id": "D5",
+      "requirement": "Drill down into micro-level details, such as extreme values in 'satisfaction_score', 'churn_score', or 'cltv' within each 'customer_status' group to identify anomalies or outliers.",
+      "reason": "Outlier analysis can uncover insights about special cases, such as exceptionally dissatisfied customers who retained or high-value customers who churned."
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V1",
+      "requirement": "Use bar charts to compare the average 'satisfaction_score', 'churn_score', and 'cltv' across different 'customer_status' groups.",
+      "reason": "Bar charts are effective for group-wise comparison of numerical metrics like averages, making differences in customer behavior easy to spot."
+    },
+    {
+      "id": "V2",
+      "requirement": "Use stacked bar charts to show demographic proportions (e.g., 'gender', 'senior_citizen', 'under_30') within each 'customer_status' group.",
+      "reason": "Stacked bar charts make it intuitive to see proportions of demographic categories within each status group for relative comparisons."
+    },
+    {
+      "id": "V3",
+      "requirement": "Use scatter plots to explore correlations between 'churn_score', 'satisfaction_score', and 'cltv', and color-code the points by 'customer_status'.",
+      "reason": "Scatter plots are effective for visualizing relationships between two numerical variables, and color coding the status adds clarity to group patterns."
+    },
+    {
+      "id": "V4",
+      "requirement": "Use heat maps to show the distribution of 'customer_status' across geographic regions ('city' and 'zip_code').",
+      "reason": "Heat maps are useful for spatial analysis of data, providing insights into location-based patterns in churn or retention."
+    },
+    {
+      "id": "V5",
+      "requirement": "Use a box plot to show the distribution of 'satisfaction_score' and 'churn_score' for each 'customer_status' group.",
+      "reason": "Box plots are effective at showing data distribution and highlighting outliers within each group."
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I1",
+      "requirement": "Allow users to select a 'customer_status' group (Churned, Stayed, Joined) from a dropdown menu to filter the visualizations.",
+      "reason": "Filtering by customer status enables users to focus on specific groups for deeper analysis."
+    },
+    {
+      "id": "I2",
+      "requirement": "Enable tooltips on scatter plots to display detailed customer information (e.g., 'customer_id', 'satisfaction_score', 'churn_score', 'cltv') when hovering over data points.",
+      "reason": "Providing detailed information on hover enhances the ability to examine individual cases without overcrowding the visualization."
+    },
+    {
+      "id": "I3",
+      "requirement": "Allow users to zoom and pan on the heat map to explore different geographic areas more closely.",
+      "reason": "Zooming and panning are essential for spatial data exploration, providing greater granularity in location-based trends."
+    },
+    {
+      "id": "I4",
+      "requirement": "Provide a slider to filter data by 'tenure' (e.g., customers with tenure < 12 months) and dynamically update all visualizations.",
+      "reason": "Filtering by tenure offers an innovative perspective, helping to analyze the behavior of long-term versus recent customers."
+    },
+    {
+      "id": "I5",
+      "requirement": "Enable user-clicked highlighting in stacked bar charts to dynamically filter associated visualizations based on selected demographic categories (e.g., selecting 'Senior Citizen' updates all charts to only include senior customers).",
+      "reason": "Interactive highlighting creates a flexible analysis pipeline, enabling focused exploration of specific demographics."
+    }
+  ]
+}

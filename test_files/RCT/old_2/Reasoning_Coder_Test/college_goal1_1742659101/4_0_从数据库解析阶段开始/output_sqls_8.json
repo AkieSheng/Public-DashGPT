@@ -1,0 +1,38 @@
+[
+  {
+    "name": "enrollment_view",
+    "SQL": "CREATE VIEW enrollment_view AS SELECT CID, CName, Division FROM Course JOIN Enrolled_in ON Course.CID = Enrolled_in.CID JOIN Department ON Course.DNO = Department.DNO;",
+    "corrView": "1",
+    "pk": "CID",
+    "fk": [
+      {
+        "key": "DNO",
+        "table": "Department"
+      }
+    ]
+  },
+  {
+    "name": "enrollment_hours_view",
+    "SQL": "CREATE VIEW enrollment_hours_view AS SELECT Hours, Days, CID FROM Course;",
+    "corrView": "2",
+    "pk": "CID",
+    "fk": [
+      {
+        "key": "CID",
+        "table": "enrollment_view"
+      }
+    ]
+  },
+  {
+    "name": "student_age_view",
+    "SQL": "CREATE VIEW student_age_view AS SELECT StuID, Age, Division FROM Student JOIN Enrolled_in ON Student.StuID = Enrolled_in.StuID JOIN.Department ON Student.Major = Department.DNO;",
+    "corrView": "3",
+    "pk": "StuID",
+    "fk": [
+      {
+        "key": "Major",
+        "table": "Department"
+      }
+    ]
+  }
+]

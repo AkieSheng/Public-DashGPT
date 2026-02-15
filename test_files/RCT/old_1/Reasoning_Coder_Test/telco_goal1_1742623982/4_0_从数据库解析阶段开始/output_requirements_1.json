@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "id": "D3",
+      "requirement": "REMOVE - Service adoption metrics from Service_Options/Online_Services are not demographics",
+      "reason": "Original requirement introduces non-demographic factors conflicting with the stated analysis goal of demographic impact analysis"
+    },
+    {
+      "id": "D4",
+      "requirement": "REMOVE - Text aggregation of churn_reason overcomplicates the demographic focus",
+      "reason": "Free-text churn reasons analysis requires NLP capabilities not aligned with structured demographic factor analysis"
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V3",
+      "requirement": "Replace with box plot showing churn_score distribution across age groups with gender stratification",
+      "reason": "Original CLTV focus deviates from churn analysis goal. Box plots better show probability distributions by demographic groups"
+    },
+    {
+      "id": "V4",
+      "requirement": "Replace with grouped bar charts showing churn rates by dependents status across marital/partner status combinations",
+      "reason": "Service adoption metrics not relevant to demographics. Family structure analysis better serves the stated goal"
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I4",
+      "requirement": "REMOVE - Payment method filters introduce non-demographic variables",
+      "reason": "Payment method analysis belongs to financial behavior patterns, not demographic factors as specified in the goal"
+    }
+  ]
+}

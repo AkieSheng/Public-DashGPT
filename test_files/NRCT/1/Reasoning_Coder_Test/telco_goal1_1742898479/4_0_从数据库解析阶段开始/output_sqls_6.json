@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "getView1",
+    "SQL": "CREATE VIEW getView1 AS SELECT Customer_Info.age, Customer_Info.gender, Customer_Info.senior_citizen, Customer_Info.under_30, Customer_Info.partner, Customer_Info.number_of_dependents, Customer_Info.married FROM Customer_Info",
+    "corrView": "1",
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "id": 2,
+    "name": "getView2",
+    "SQL": "CREATE VIEW getView2 AS SELECT Status_Analysis.churn_score, Customer_Info.age, Customer_Info.senior_citizen FROM Status_Analysis JOIN Customer_Info ON Status_Analysis.customer_id = Customer_Info.customer_id",
+    "corrView": "2",
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "getView1"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "getView3",
+    "SQL": "CREATE VIEW getView3 AS SELECT Status_Analysis.churn_category, Customer_Info.age FROM Status_Analysis JOIN Customer_Info ON Status_Analysis.customer_id = Customer_Info.customer_id",
+    "corrView": "3",
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "getView1"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "getView4",
+    "SQL": "CREATE VIEW getView4 AS SELECT Status_Analysis.churn_score, Customer_Info.number_of_dependents FROM Status_Analysis JOIN Customer_Info ON Status_Analysis.customer_id = Customer_Info.customer_id",
+    "corrView": "4",
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "getView1"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "getView5",
+    "SQL": "CREATE VIEW getView5 AS SELECT Customer_Info.gender, Customer_Info.age, Status_Analysis.churn_value FROM Customer_Info JOIN Status_Analysis ON Customer_Info.customer_id = Status_Analysis.customer_id",
+    "corrView": "5",
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "getView1"
+      }
+    ]
+  }
+]

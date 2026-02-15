@@ -1,0 +1,138 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "crop_production_data.District",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x=District (nominal)",
+        "y=mean(Yield) (quantitative)"
+      ],
+      "description": "Bar chart showing average crop yield per district. Provides initial performance comparison across districts."
+    },
+    "usingParams": [],
+    "components": "District selector dropdown (optional)",
+    "interactions": [
+      {
+        "object": "bar marks",
+        "verb": "click",
+        "effect": {
+          "description": "Filters subsequent views to show data from selected district",
+          "params": [
+            {
+              "name": "selected_district",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "soil_analysis_data.Organic Matter (%)",
+      "crop_production_data.Yield (quintals)",
+      "soil_analysis_data.Soil Type"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x=Organic Matter (%) (quantitative)",
+        "y=Yield (quantitative)",
+        "color=Soil Type (nominal)"
+      ],
+      "description": "Scatter plot showing relationship between organic matter content and crop yield, colored by soil type"
+    },
+    "usingParams": [
+      "selected_district"
+    ],
+    "interactions": [
+      {
+        "object": "plot area",
+        "verb": "interval drag",
+        "effect": {
+          "description": "Filters data points within brushed area",
+          "params": [
+            {
+              "name": "nutrient_yield_selection",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "detail",
+    "fields": [
+      "soil_analysis_data.Soil Type",
+      "soil_analysis_data.Nitrogen Content (kg/ha)",
+      "soil_analysis_data.Phosphorus Content (kg/ha)",
+      "soil_analysis_data.Potassium Content (kg/ha)"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "boxplot",
+      "encodings": [
+        "x=Soil Type (nominal)",
+        "y=Nutrient Content (boxplot quartiles)"
+      ],
+      "description": "Box plots showing distribution of nitrogen, phosphorus, and potassium levels across different soil types"
+    },
+    "usingParams": [
+      "selected_district"
+    ],
+    "components": "Nutrient type switch (N/P/K)"
+  },
+  {
+    "id": 4,
+    "level": "insight",
+    "fields": [
+      "soil_analysis_data.Soil Type",
+      "crop_production_data.Crop",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x=Soil Type (nominal)",
+        "y=Crop (nominal)",
+        "color=mean(Yield) (quantitative)"
+      ],
+      "description": "Heatmap showing crop yield performance across different soil types"
+    },
+    "usingParams": [
+      "selected_district",
+      "nutrient_yield_selection"
+    ]
+  }
+]

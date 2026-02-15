@@ -1,0 +1,160 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "crop_production_data.Season",
+      "crop_production_data.Yield (quintals)",
+      "crop_production_data.Production (metric tons)"
+    ],
+    "task": [
+      1,
+      4
+    ],
+    "visualization": {
+      "markType": "line",
+      "encodings": [
+        "x:T~Season",
+        "y:Q~average(Yield (quintals))",
+        "color:N~Season",
+        "strokeDash:N~forecast_flag"
+      ],
+      "description": "Multi-line chart showing seasonal yield trends with ARIMA forecast overlay. Kharif/Rabi seasons form x-axis. Solid lines represent historical data; dashed lines show predictions."
+    },
+    "usingParams": [],
+    "components": "Range slider for forecast horizon (1-5 years)",
+    "interactions": [
+      {
+        "object": "forecast slider component",
+        "verb": "drag",
+        "effect": {
+          "description": "Updates ARIMA model horizon and confidence bands",
+          "params": [
+            {
+              "name": "horizon_param",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "crop_production_data.District",
+      "crop_production_data.Crop",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "y:N~District",
+        "x:Q~average(Yield (quintals))",
+        "row:N~Crop"
+      ],
+      "description": "Small multiples of horizontal bar charts sorted by district yield averages with ±1σ error bars"
+    },
+    "usingParams": [
+      "selectedSeason"
+    ],
+    "interactions": [
+      {
+        "object": "chart bars",
+        "verb": "click",
+        "effect": {
+          "description": "Filters subsequent views to selected district-crop pairs",
+          "params": [
+            {
+              "name": "district_filter",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "crop_production_data.Yield (quintals)",
+      "water_usage_data.Water Consumption (liters/hectare)",
+      "soil_analysis_data.Soil Type"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x:Q~Water Consumption (liters/hectare)",
+        "y:Q~Yield (quintals)",
+        "color:N~Soil Type"
+      ],
+      "description": "Scatter plot showing water-use efficiency with soil type-based coloring"
+    },
+    "usingParams": [
+      "district_filter"
+    ],
+    "interactions": [
+      {
+        "object": "plot area",
+        "verb": "brush",
+        "effect": {
+          "description": "Highlights districts meeting selected efficiency criteria",
+          "params": [
+            {
+              "name": "efficiency_brush",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "level": "insight",
+    "fields": [
+      "crop_production_data.Area (hectares)",
+      "crop_production_data.Yield (quintals)",
+      "crop_production_data.District"
+    ],
+    "task": [
+      6
+    ],
+    "visualization": {
+      "markType": "line",
+      "encodings": [
+        "x:Q~Area (hectares)",
+        "y:Q~Yield (quintals)",
+        "color:N~cluster_id"
+      ],
+      "description": "Parallel coordinates plot showing production efficiency clusters"
+    },
+    "usingParams": [
+      "efficiency_brush"
+    ]
+  }
+]

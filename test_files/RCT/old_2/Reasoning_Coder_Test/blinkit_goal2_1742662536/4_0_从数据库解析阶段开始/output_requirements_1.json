@@ -1,0 +1,16 @@
+{
+  "visualization": [
+    {
+      "id": "V4",
+      "requirement": "Treemap visualization showing category -> product hierarchy with size encoding purchase frequency and color encoding average margin percentage.",
+      "reason": "Replaces complex sunburst diagram with allowed visualization type while maintaining hierarchical exploration of categories/products using size and color encodings."
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I2",
+      "requirement": "Click-driven drill-down in treemap to navigate from categories to individual products, with breadcrumb trail display for hierarchy context.",
+      "reason": "Adapts interaction to treemap's capabilities while maintaining hierarchical exploration and contextual awareness."
+    }
+  ]
+}

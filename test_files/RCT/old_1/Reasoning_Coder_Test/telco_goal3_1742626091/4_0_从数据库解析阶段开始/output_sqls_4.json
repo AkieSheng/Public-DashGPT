@@ -1,0 +1,45 @@
+[
+  {
+    "name": "view_1_intermediate",
+    "SQL": "CREATE VIEW view_1_intermediate AS SELECT Status_Analysis.customer_id, Status_Analysis.cltv, Status_Analysis.satisfaction_score, Status_Analysis.customer_status FROM Status_Analysis;",
+    "corrView": "1",
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "name": "view_2_intermediate",
+    "SQL": "CREATE VIEW view_2_intermediate AS SELECT Status_Analysis.customer_id, Status_Analysis.churn_score, Online_Services.internet_type, Customer_Info.age FROM Status_Analysis, Online_Services, Customer_Info WHERE Status_Analysis.customer_id = Online_Services.customer_id AND Status_Analysis.customer_id = Customer_Info.customer_id;",
+    "corrView": "2",
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "view_1_intermediate"
+      }
+    ]
+  },
+  {
+    "name": "view_3_intermediate",
+    "SQL": "CREATE VIEW view_3_intermediate AS SELECT Payment_Info.customer_id, Payment_Info.contract, Service_Options.tenure, Customer_Info.gender FROM Payment_Info, Service_Options, Customer_Info WHERE Payment_Info.customer_id = Service_Options.customer_id AND Payment_Info.customer_id = Customer_Info.customer_id;",
+    "corrView": "3",
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "view_2_intermediate"
+      }
+    ]
+  },
+  {
+    "name": "view_4_intermediate",
+    "SQL": "CREATE VIEW view_4_intermediate AS SELECT Status_Analysis.customer_id, Status_Analysis.churn_category, Payment_Info.payment_method, Service_Options.offer FROM Status_Analysis, Payment_Info, Service_Options WHERE Status_Analysis.customer_id = Payment_Info.customer_id AND Status_Analysis.customer_id = Service_Options.customer_id;",
+    "corrView": "4",
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "view_3_intermediate"
+      }
+    ]
+  }
+]

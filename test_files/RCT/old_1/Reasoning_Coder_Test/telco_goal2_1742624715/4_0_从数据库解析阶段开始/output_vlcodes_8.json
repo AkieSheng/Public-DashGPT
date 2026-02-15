@@ -1,0 +1,264 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "columns": 2,
+  "concat": [
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/vw_overview.csv"
+      },
+      "description": "Grouped bar chart showing churn rates by contract types and internet service technologies",
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "contract",
+          "type": "nominal",
+          "title": "Contract Type",
+          "sort": "average(cltv, churn_value)",
+          "axis": {
+            "titleColor": "blue"
+          }
+        },
+        "y": {
+          "aggregate": "average",
+          "field": "churn_value",
+          "type": "quantitative",
+          "title": "Churn Rate",
+          "axis": {
+            "titleColor": "green"
+          }
+        },
+        "color": {
+          "field": "internet_type",
+          "type": "nominal",
+          "title": "Internet Type",
+          "legend": {
+            "titleColor": "red"
+          }
+        }
+      },
+      "params": [
+        {
+          "name": "service_config",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x",
+              "color"
+            ]
+          }
+        }
+      ],
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "churn_value",
+              "as": "churn_value"
+            }
+          ],
+          "groupby": [
+            "contract",
+            "internet_type"
+          ]
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "description": "Exploration View 1",
+      "data": {
+        "url": "http://localhost:8888/vw_exploration_2.csv"
+      },
+      "mark": "circle",
+      "encoding": {
+        "x": {
+          "field": "churn_score",
+          "type": "quantitative",
+          "title": "Churn Score",
+          "axis": {
+            "titleColor": "blue"
+          }
+        },
+        "y": {
+          "field": "cltv",
+          "type": "quantitative",
+          "title": "CLTV",
+          "axis": {
+            "titleColor": "green"
+          }
+        },
+        "color": {
+          "field": "satisfaction_score",
+          "type": "nominal",
+          "title": "Satisfaction Score",
+          "legend": null
+        }
+      },
+      "interactions": [
+        {
+          "object": "chart",
+          "verb": "brush",
+          "effect": {
+            "description": "Selects high-risk clusters for detailed analysis",
+            "params": [
+              {
+                "name": "risk_cluster",
+                "select": {
+                  "type": "interval",
+                  "encodings": [
+                    "x",
+                    "y"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "components": "Legend toggle for satisfaction scores"
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "description": "Multi-line chart showing CLTV trajectories by churn reason",
+      "data": {
+        "url": "http://localhost:8888/vw_exploration_3.csv"
+      },
+      "mark": "line",
+      "encoding": {
+        "x": {
+          "field": "tenure",
+          "type": "quantitative",
+          "title": "Tenure",
+          "axis": {
+            "titleColor": "blue"
+          }
+        },
+        "y": {
+          "aggregate": "average",
+          "field": "cltv",
+          "type": "quantitative",
+          "title": "Average CLTV",
+          "axis": {
+            "titleColor": "green"
+          }
+        },
+        "color": {
+          "field": "churn_category",
+          "type": "nominal",
+          "title": "Churn Category",
+          "legend": null
+        }
+      },
+      "transform": [
+        {
+          "filter": {
+            "param": "service_config"
+          }
+        },
+        {
+          "filter": {
+            "param": "risk_cluster"
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "description": "Heatmap revealing satisfaction patterns across demographics",
+      "data": {
+        "url": "http://localhost:8888/vw_detail_4.csv"
+      },
+      "mark": "rect",
+      "encoding": {
+        "row": {
+          "field": "age",
+          "type": "quantitative",
+          "bin": {
+            "maxbins": 10
+          },
+          "title": "Age Bins",
+          "axis": {
+            "titleColor": "blue"
+          }
+        },
+        "column": {
+          "field": "number_of_dependents",
+          "type": "quantitative",
+          "bin": {
+            "maxbins": 10
+          },
+          "title": "Dependents Bins",
+          "axis": {
+            "titleColor": "green"
+          }
+        },
+        "color": {
+          "aggregate": "mean",
+          "field": "satisfaction_score",
+          "type": "quantitative",
+          "title": "Average Satisfaction Score",
+          "axis": {
+            "titleColor": "red"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": {
+            "param": "risk_cluster"
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "description": "Hexbin plot with DBSCAN clusters showing churn/revenue patterns",
+      "data": {
+        "url": "http://localhost:8888/vw_insight_5.csv"
+      },
+      "mark": "point",
+      "encoding": {
+        "x": {
+          "field": "monthly_charges",
+          "type": "quantitative",
+          "title": "Monthly Charges",
+          "axis": {
+            "titleColor": "blue"
+          }
+        },
+        "y": {
+          "field": "total_revenue",
+          "type": "quantitative",
+          "title": "Total Revenue",
+          "axis": {
+            "titleColor": "green"
+          }
+        },
+        "color": {
+          "aggregate": "average",
+          "field": "churn_value",
+          "type": "quantitative",
+          "title": "Cluster Density",
+          "axis": {
+            "titleColor": "red"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": {
+            "param": "service_config"
+          }
+        }
+      ],
+      "components": "None"
+    }
+  ]
+}

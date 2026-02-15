@@ -1,0 +1,346 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "columns": 2,
+  "concat": [
+    {
+      "height": 200,
+      "width": 200,
+      "data": {
+        "url": "http://localhost:8888/vw_overview.csv"
+      },
+      "description": "View 1",
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "contract",
+          "type": "nominal",
+          "title": "Service Contract Type"
+        },
+        "y": {
+          "field": "churn_rate",
+          "type": "quantitative",
+          "title": "Churn Rate Percentage"
+        },
+        "color": {
+          "field": "internet_type",
+          "type": "nominal",
+          "title": "Internet Service Technology"
+        },
+        "opacity": {
+          "value": 0.3,
+          "condition": {
+            "param": "service_config",
+            "value": 1
+          }
+        }
+      },
+      "params": [
+        {
+          "name": "service_config",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x",
+              "color"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "description": "View 2",
+      "data": {
+        "url": "http://localhost:8888/vw_exploration_2.csv"
+      },
+      "mark": "circle",
+      "encoding": {
+        "x": {
+          "field": "churn_score",
+          "type": "quantitative",
+          "title": "Churn Score",
+          "scale": {
+            "zero": false,
+            "nice": true
+          }
+        },
+        "y": {
+          "field": "cltv",
+          "type": "quantitative",
+          "title": "Customer Lifetime Value",
+          "scale": {
+            "zero": false,
+            "nice": true
+          }
+        },
+        "color": {
+          "field": "satisfaction_score",
+          "type": "quantitative",
+          "title": "Customer Satisfaction Score",
+          "scale": {
+            "domain": [
+              1,
+              5
+            ],
+            "scheme": "redgreen"
+          }
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/vw_overview.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "contract",
+              "internet_type"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "service_config"
+          }
+        },
+        {
+          "sample": 150
+        }
+      ],
+      "params": [
+        {
+          "name": "risk_cluster",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "description": "View 3",
+      "data": {
+        "url": "http://localhost:8888/vw_exploration_3.csv"
+      },
+      "mark": "line",
+      "encoding": {
+        "x": {
+          "field": "tenure",
+          "type": "temporal",
+          "title": "Tenure Cohorts"
+        },
+        "y": {
+          "aggregate": "mean",
+          "field": "cltv",
+          "type": "quantitative",
+          "title": "Average Customer Lifetime Value"
+        },
+        "color": {
+          "field": "churn_category",
+          "type": "nominal",
+          "title": "Churn Reason Category"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/vw_overview.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "contract",
+              "internet_type"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "service_config"
+          }
+        },
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/vw_exploration_2.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "churn_score",
+              "cltv"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "risk_cluster"
+          }
+        },
+        {
+          "window": [
+            {
+              "op": "loess",
+              "as": "loess_cltv",
+              "frame": [
+                null,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "components": {
+        "legend": {
+          "title": "Churn Reason Category"
+        }
+      }
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "description": "View 4",
+      "data": {
+        "url": "http://localhost:8888/vw_detail_4.csv"
+      },
+      "mark": "rect",
+      "encoding": {
+        "row": {
+          "bin": true,
+          "field": "age",
+          "type": "quantitative",
+          "title": "Age Bins"
+        },
+        "column": {
+          "bin": true,
+          "field": "number_of_dependents",
+          "type": "quantitative",
+          "title": "Dependents Bins"
+        },
+        "color": {
+          "aggregate": "mean",
+          "field": "satisfaction_score",
+          "type": "quantitative",
+          "title": "Average Customer Satisfaction Score"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/vw_overview.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "contract",
+              "internet_type"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "service_config"
+          }
+        },
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/vw_exploration_2.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "churn_score",
+              "cltv"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "risk_cluster"
+          }
+        }
+      ]
+    },
+    {
+      "description": "View 5: An example of displaying a table; do NOT specify width & height for tables",
+      "data": {
+        "url": "http://localhost:8888/vw_insight_5.csv"
+      },
+      "title": "High-Churn Risk Customer Analysis",
+      "transform": [
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "row_number"
+            }
+          ]
+        },
+        {
+          "filter": {
+            "field": "row_number",
+            "lte": 10
+          }
+        }
+      ],
+      "hconcat": [
+        {
+          "title": "Monthly Charges",
+          "mark": "text",
+          "encoding": {
+            "text": {
+              "field": "monthly_charges",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "row_number",
+              "type": "ordinal",
+              "axis": null
+            }
+          }
+        },
+        {
+          "title": "Total Revenue",
+          "mark": "text",
+          "encoding": {
+            "text": {
+              "field": "total_revenue",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "row_number",
+              "type": "ordinal",
+              "axis": null
+            }
+          }
+        },
+        {
+          "title": "Churn Value",
+          "mark": "text",
+          "encoding": {
+            "text": {
+              "field": "churn_value",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "row_number",
+              "type": "ordinal",
+              "axis": null
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

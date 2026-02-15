@@ -1,0 +1,178 @@
+{
+  "Overview": {
+    "view": "Overview",
+    "data": "Overview_View",
+    "description": "Overview View",
+    "mark": "point",
+    "encoding": {
+      "x": {
+        "field": "churn_score",
+        "type": "quantitative",
+        "title": "Churn Score"
+      },
+      "y": {
+        "field": "satisfaction_score",
+        "type": "quantitative",
+        "title": "Satisfaction Score"
+      },
+      "size": {
+        "field": "cltv",
+        "type": "quantitative",
+        "title": "Customer Lifetime Value",
+        "scale": {
+          "type": "log",
+          "zero": false
+        }
+      },
+      "color": {
+        "field": "customer_status",
+        "type": "nominal",
+        "title": "Customer Status",
+        "scale": {
+          "scheme": "category10"
+        }
+      }
+    },
+    "params": [
+      {
+        "name": "selectedRiskCategories",
+        "select": {
+          "type": "interval",
+          "encodings": [
+            "x",
+            "y"
+          ]
+        }
+      }
+    ]
+  },
+  "Exploration": {
+    "view": "Exploration",
+    "data": "Exploration_View",
+    "description": "Exploration View",
+    "mark": "boxplot",
+    "encoding": {
+      "y": {
+        "field": "churn_score",
+        "type": "quantitative",
+        "title": "Churn Score"
+      },
+      "x": {
+        "field": "gender",
+        "type": "nominal",
+        "title": "Gender",
+        "axis": {
+          "titleColor": "black"
+        }
+      }
+    },
+    "transform": [
+      {
+        "lookup": "customer_id",
+        "from": {
+          "data": "Overview_View",
+          "key": "customer_id",
+          "fields": [
+            "selectedRiskCategories"
+          ]
+        }
+      },
+      {
+        "filter": "param(selectedRiskCategories)"
+      }
+    ],
+    "params": [
+      {
+        "name": "selectedDemographics",
+        "select": {
+          "type": "point",
+          "encodings": [
+            "x"
+          ]
+        }
+      }
+    ]
+  },
+  "Detail": {
+    "view": "Detail",
+    "data": "Detail_View",
+    "description": "Detail View",
+    "mark": "line",
+    "encoding": {
+      "x": {
+        "field": "age",
+        "type": "quantitative",
+        "title": "Age"
+      },
+      "y": {
+        "field": "churn_score",
+        "type": "quantitative",
+        "title": "Churn Score"
+      },
+      "color": {
+        "field": "cltv",
+        "type": "quantitative",
+        "title": "Customer Lifetime Value",
+        "scale": {
+          "type": "log",
+          "zero": false
+        }
+      }
+    },
+    "transform": [
+      {
+        "lookup": "customer_id",
+        "from": {
+          "data": "Exploration_View",
+          "key": "customer_id",
+          "fields": [
+            "selectedDemographics"
+          ]
+        }
+      },
+      {
+        "filter": "param(selectedDemographics)"
+      }
+    ]
+  },
+  "Insight": {
+    "view": "Insight",
+    "data": "Insight_View",
+    "description": "Insight View",
+    "mark": "rect",
+    "encoding": {
+      "x": {
+        "field": "churn_score",
+        "type": "quantitative",
+        "title": "Churn Score"
+      },
+      "y": {
+        "field": "satisfaction_score",
+        "type": "quantitative",
+        "title": "Satisfaction Score",
+        "axis": {
+          "titleColor": "black"
+        }
+      },
+      "color": {
+        "field": "customer_status",
+        "type": "nominal",
+        "title": "Customer Status",
+        "scale": {
+          "scheme": "category10"
+        }
+      }
+    },
+    "params": [
+      {
+        "name": "selectedDemographics",
+        "select": {
+          "type": "point",
+          "encodings": [
+            "x"
+          ]
+        }
+      }
+    ]
+  }
+}

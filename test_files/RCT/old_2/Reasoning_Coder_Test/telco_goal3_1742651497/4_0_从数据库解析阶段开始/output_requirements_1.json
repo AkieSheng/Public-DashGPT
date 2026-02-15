@@ -1,0 +1,38 @@
+{
+  "data": [
+    {
+      "id": "D1",
+      "requirement": "Combine all tables (Status_Analysis, Customer_Info, Payment_Info, Service_Options, Online_Services, Location_Data) using customer_id to create a unified customer profile dataset",
+      "reason": "Original requirement missed critical service/geographic tables needed for visualizations V2/V4 and interactions I1/I3/I4. Full join enables complete analysis of service patterns impacting churn."
+    },
+    {
+      "id": "D2",
+      "requirement": "Calculate normalized metrics: CLTV/tenure ratio and monthly_charges/avg_monthly_gb_download (require joining Service_Options)",
+      "reason": "Original metric calculation was impossible without Service_Options data. Revised requirement ensures access to avg_monthly_gb_download from Service_Options table."
+    },
+    {
+      "id": "D4",
+      "requirement": "Enrich geospatial analysis with city-level population data and service adoption rates",
+      "reason": "Original latitude/longitude bins alone lack business context. Adding population and service metrics enables meaningful geographic pattern analysis."
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V2",
+      "requirement": "Small multiples heat maps showing service-churn patterns per customer_status group",
+      "reason": "Single heat map would overcrowd categories (6 churn_categories x 3 internet_types x 3 contracts). Small multiples improve readability across segments."
+    },
+    {
+      "id": "V3",
+      "requirement": "Vertical box plots showing CLTV distribution by customer_status with age overlay using color gradient",
+      "reason": "Original small multiples with age deciles would create 30+ charts. Continuous color encoding preserves age relationship more effectively."
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I1",
+      "requirement": "Dynamic query sliders for CLTV/tenure ratio ranges with live histogram previews",
+      "reason": "Original tenure-only filter ignored the normalized metric that's more relevant to CLTV analysis"
+    }
+  ]
+}

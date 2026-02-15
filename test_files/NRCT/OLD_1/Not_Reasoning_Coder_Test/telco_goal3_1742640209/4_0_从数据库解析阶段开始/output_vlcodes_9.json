@@ -1,0 +1,30 @@
+{
+  "V1": {
+    "description": "Bar charts to compare mean satisfaction_score, churn_score, and CLTV for different customer groups.",
+    "code": "..."
+  },
+  "V2": {
+    "description": "Box plots to observe the spread and central tendency of satisfaction_score, churn_score, and CLTV for different customer groups.",
+    "code": "..."
+  },
+  "V3": {
+    "description": "Heat maps to visualize correlations between service usage and customer_status.",
+    "code": "..."
+  },
+  "V4": {
+    "description": "Stacked bar charts to show proportions of demographic features within each customer status group.",
+    "code": "..."
+  },
+  "V5": {
+    "description": "Scatter plots to investigate correlations between churn_score and CLTV, color-coded by customer_status.",
+    "code": "..."
+  },
+  "V6": {
+    "description": "Line charts or area charts to trend satisfaction_score or churn_score over tenure for different customer groups.",
+    "code": "..."
+  },
+  "V7": {
+    "description": "Custom bubble charts or stacked bar charts to cluster churn reasons and promotional offers.",
+    "code": "..."
+  }
+}

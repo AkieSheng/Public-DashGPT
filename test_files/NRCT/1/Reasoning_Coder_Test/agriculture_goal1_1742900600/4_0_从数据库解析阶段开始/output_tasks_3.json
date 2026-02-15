@@ -1,0 +1,147 @@
+[
+  {
+    "id": 1,
+    "type": "retrieving values | determining ranges | computing derived values",
+    "data": [
+      "water_usage_data.District",
+      "water_usage_data.Crop",
+      "water_usage_data.Irrigation Method",
+      "water_usage_data.Water Consumption (liters/hectare)",
+      "water_usage_data.Water Availability (liters/hectare)",
+      "crop_production_data.District",
+      "crop_production_data.Crop",
+      "crop_production_data.Area (hectares)",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "method": "Extract data from the specified tables and calculate Water Usage Efficiency as Yield per liter of Water Consumption for each combination of District, Crop, and Irrigation Method. Use Python or SQL for derived metric computation.",
+    "objective": "Lay the foundation for evaluating water usage efficiency across different crops, irrigation methods, and districts, establishing relationships between water consumption and crop yield.",
+    "corrReq": [
+      "D1",
+      "D2"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "characterizing distributions | comparing | determining ranges",
+    "data": [
+      "water_usage_data.Irrigation Method",
+      "crop_production_data.Crop",
+      "water_usage_data.Water Consumption (liters/hectare)",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "method": "Create a bar chart comparing average Water Usage Efficiency across various irrigation methods for different crop types. Use categorical encodings for crop types and irrigation methods.",
+    "objective": "Identify irrigation methods and crop types with the highest average efficiency to recommend effective practices for water management and sustainability.",
+    "corrReq": [
+      "D2",
+      "D3",
+      "V2"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 3,
+    "type": "retrieving values | correlating | clustering | visualizing trends",
+    "data": [
+      "soil_analysis_data.pH Level",
+      "soil_analysis_data.Organic Matter (%)",
+      "crop_production_data.Crop",
+      "water_usage_data.Water Consumption (liters/hectare)",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "method": "Generate a scatter plot to investigate correlations between Water Usage Efficiency and soil properties like pH Level and Organic Matter. Encode Efficiency on the y-axis, soil metrics on the x-axis, and color points by crop type.",
+    "objective": "Explore how soil properties influence water efficiency and crop yield, providing actionable insights about soil conditions and sustainable practices.",
+    "corrReq": [
+      "D4",
+      "V1"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 4,
+    "type": "retrieving values | filtering | aggregating",
+    "data": [
+      "crop_production_data.Season",
+      "water_usage_data.District",
+      "water_usage_data.Crop",
+      "water_usage_data.Irrigation Method"
+    ],
+    "method": "Filter data based on agricultural seasons (Kharif/Rabi) using dropdowns or checkboxes. Aggregate data by season to compare Water Usage Efficiency across districts, irrigation methods, and crop types. Visualize this with comparative bar charts or heatmaps.",
+    "objective": "Segregate data by agricultural season to reveal how water efficiency varies seasonally, optimizing crop-water strategies specific to each season.",
+    "corrReq": [
+      "D5",
+      "V3",
+      "I1"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 5,
+    "type": "finding anomalies | characterizing distributions | filtering",
+    "data": [
+      "water_usage_data.Water Consumption (liters/hectare)",
+      "crop_production_data.Yield (quintals)",
+      "water_usage_data.Irrigation Method"
+    ],
+    "method": "Generate box plots to visualize distributions of Water Usage Efficiency across irrigation methods. Highlight outliers and group by method for better comparison. Include filtering interactions to narrow down focus on specific crops or districts.",
+    "objective": "Pinpoint irrigation methods with consistent performance or anomalies to refine recommendations for water and irrigation efficiencies.",
+    "corrReq": [
+      "V4",
+      "I1"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 6,
+    "type": "finding anomalies | clustering | correlating | visualizing trends",
+    "data": [
+      "water_usage_data.District",
+      "water_usage_data.Water Consumption (liters/hectare)",
+      "water_usage_data.Water Availability (liters/hectare)",
+      "water_usage_data.Irrigation Method"
+    ],
+    "method": "Visualize trends in Water Consumption and Availability using line charts segmented by district and irrigation method with temporal filters. Encode time on the x-axis and water metrics on the y-axis.",
+    "objective": "Detect patterns or trends in water resource availability and usage over time to suggest adaptive strategies for irrigation and crop planning.",
+    "corrReq": [
+      "V5",
+      "I3"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 7,
+    "type": "aggregating | comparing | visualizing distributions",
+    "data": [
+      "water_usage_data.District",
+      "crop_production_data.Crop",
+      "water_usage_data.Water Consumption (liters/hectare)",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "method": "Create a heatmap with districts as rows and crop types as columns, color-coded by average Water Usage Efficiency. Enable heatmap interactivity to update other views on selection.",
+    "objective": "Identify top-performing crops and districts in terms of water efficiency for actionable insights on water management optimization.",
+    "corrReq": [
+      "D3",
+      "V3",
+      "I4"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 8,
+    "type": "correlating | clustering | filtering",
+    "data": [
+      "soil_analysis_data.pH Level",
+      "soil_analysis_data.Organic Matter (%)",
+      "water_usage_data.Water Consumption (liters/hectare)",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "method": "Provide a toggle interaction to include soil data in scatter plots evaluating Water Usage Efficiency. Allow filter adjustments to visualize correlations specific to soil metrics and efficiency.",
+    "objective": "Empower users to explore how soil properties correlate to water usage efficiency for hypothesis testing and sustainable recommendations.",
+    "corrReq": [
+      "D4",
+      "V1",
+      "I5"
+    ],
+    "priority": 3
+  }
+]

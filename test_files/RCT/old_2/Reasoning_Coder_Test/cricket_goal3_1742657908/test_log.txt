@@ -1,0 +1,76 @@
+开始测试，数据库: cricket, 会话ID: cricket_goal3_1742657908，时间: 1742657908
+数据库描述: The dataset contains four tables: batter_player_stats (batting statistics for individual players), bowler_player_stats (bowling statistics for individual players), detailed_player_data (per-match player performance data), and match_summary (match-level details including toss results, match outcome, player of the match, and venue information).
+分析目标: Analyze which individual player performances contribute most to match victories, focusing on the best players' batting and bowling statistics and their impact on the match outcome.
+使用自定义模型配置: {'requirements': 'deepseek-r1-api', 'tasks': 'deepseek-r1-api', 'plan': 'deepseek-r1-api', 'sql': 'qwen-2.5-coder-instruct-32b', 'vega': 'qwen-2.5-coder-instruct-32b'}
+
+1. 测试创建新VA系统
+成功创建VA系统，ID: va_1742657908, 名称: Visual Analytics System va_1742657908
+
+2. 上传数据库
+### DATABASE读取处 ###
+读取数据库文件: cricket.db
+数据库上传成功，包含 4 个表
+  表 1: batter_player_stats - 16 列
+  表 2: bowler_player_stats - 17 列
+  表 3: detailed_player_data - 21 列
+  ... (共 4 个表)
+### DATABASE读取结束 ###
+
+3. 获取VA系统信息
+成功获取VA系统信息: Visual Analytics System cricket_goal3_1742657908
+数据库描述: 数据库包含以下表: batter_player_stats, bowler_player_stats, detailed_player_data, match_summary...
+包含表: batter_player_stats, bowler_player_stats, detailed_player_data, match_summary 
+
+使用配置: 使用反思，不使用RAG
+
+4. 测试生成流程 (从数据库解析阶段开始)
+### ANALYSIS GOAL输入处 ###
+分析目标: Analyze which individual player performances contribute most to match victories, focusing on the best players' batting and bowling statistics and their impact on the match outcome.
+### ANALYSIS GOAL输入结束 ###
+
+接收来自initialStage=0的流式响应 (使用反思，不使用RAG):
+步骤 0: 阶段 'DATABASE UNDERSTANDING' - 收到 23196 字符
+步骤 1: 阶段 'REQUIREMENT GENERATION' - 收到 1676 字符
+  ✓ 完成 requirements 阶段输出
+步骤 2: 阶段 'TASK GENERATION' - 收到 3307 字符
+  ✓ 完成 tasks 阶段输出
+步骤 3: 阶段 'PLAN GENERATION' - 收到 4166 字符
+  ✓ 完成 views 阶段输出
+步骤 4: 阶段 'SQL GENERATION' - 收到 1761 字符
+  ✓ 完成 sqls 阶段输出
+步骤 5: 阶段 'SQL GENERATION' - 收到 1761 字符
+步骤 6: 阶段 'SQL GENERATION' - 收到 1761 字符
+步骤 7: 阶段 'SQL GENERATION' - 收到 1761 字符
+步骤 8: 阶段 'SQL GENERATION' - 收到 1761 字符
+步骤 9: 阶段 'SQL GENERATION' - 收到 1761 字符
+
+总共从initialStage=0接收到 10 个步骤响应
+完成了 4 个主要阶段
+SQL回溯: 否
+Vega-Lite回溯: 否
+
+5. 获取最终VA系统状态
+VA系统最终状态:
+- ID: cricket_goal3_1742657908
+- 名称: Visual Analytics System cricket_goal3_1742657908
+- 描述: The dataset contains four tables: batter_player_st...
+- 目标: Analyze which individual player performances contr...
+- 包含需求: True
+- 包含任务: True
+- 包含计划: True
+- 包含SQL查询: True
+- 包含Vega-Lite规范: True
+
+=== Vega-Lite详情 ===
+单视图可视化
+
+6. 测试获取VA系统列表
+找到 48 个VA系统:
+  1. Visual Analytics System agriculture_goal1_1742640752 (ID: agriculture_goal1_1742640752)
+  2. Visual Analytics System agriculture_goal1_1742652398 (ID: agriculture_goal1_1742652398)
+  3. Visual Analytics System agriculture_goal2_1742640988 (ID: agriculture_goal2_1742640988)
+  4. Visual Analytics System agriculture_goal2_1742653097 (ID: agriculture_goal2_1742653097)
+  5. Visual Analytics System agriculture_goal3_1742641208 (ID: agriculture_goal3_1742641208)
+  ... (共 48 个系统)
+
+测试完成，结果保存在: Reasoning_Coder_Test\cricket_goal3_1742657908

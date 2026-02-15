@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "id": "D1",
+      "requirement": "Derive home team using venue-city association from match_summary's 'venue' and 'teams' columns by string matching (e.g., 'Sydney' matches 'Australia') instead of geolocation mapping.",
+      "reason": "Original approach required external geodata not present in schema. This revision uses existing venue naming patterns to infer home teams."
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V1",
+      "requirement": "Heat matrix (not geospatial) with venues as rows, home/away win rate ratios as columns, color encoding dominance levels.",
+      "reason": "Geospatial coordinates unavailable in data. Matrix maintains venue comparison while avoiding inaccurate geocoding."
+    },
+    {
+      "id": "V5",
+      "requirement": "Parallel coordinates plot instead of radar chart for team-venue profiles, with axes for normalized win_rate, runs, fours/sixes ratio.",
+      "reason": "Radar charts become unreadable with many teams/venues. Parallel coordinates better handle multivariate comparisons."
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I1",
+      "requirement": "Clicking a venue row in the heat matrix filters other views to that location.",
+      "reason": "Adapted to new matrix visualization while maintaining drill-down capability."
+    },
+    {
+      "id": "I5",
+      "requirement": "REMOVED - No capacity data exists in schema",
+      "reason": "External venue capacity data not available in provided tables"
+    }
+  ]
+}

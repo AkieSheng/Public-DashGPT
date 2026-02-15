@@ -1,0 +1,45 @@
+[
+  {
+    "name": "faculty_by_department",
+    "SQL": "CREATE VIEW faculty_by_department AS SELECT FacID, DNO FROM Member_of;",
+    "corrView": "1",
+    "pk": "FacID",
+    "fk": [
+      {
+        "key": "DNO",
+        "table": "department"
+      }
+    ]
+  },
+  {
+    "name": "course_enrollment",
+    "SQL": "CREATE VIEW course_enrollment AS SELECT CID, DNO FROM Course;",
+    "corrView": "2",
+    "pk": "CID",
+    "fk": [
+      {
+        "key": "DNO",
+        "table": "department"
+      }
+    ]
+  },
+  {
+    "name": "faculty_course_ratio",
+    "SQL": "CREATE VIEW faculty_course_ratio AS SELECT DNO, COUNT(FacID) / COUNT(DISTINCT CID) as FACtoCourseRatio FROM Member_of JOIN Course ON Member_of.FacID = Course.Instructor GROUP BY DNO;",
+    "corrView": "3",
+    "pk": "DNO",
+    "fk": [
+      {
+        "key": "DNO",
+        "table": "department"
+      }
+    ]
+  },
+  {
+    "name": "faculty_rank",
+    "SQL": "CREATE VIEW faculty_rank AS SELECT FacID, Rank FROM Faculty;",
+    "corrView": "4",
+    "pk": "FacID",
+    "fk": []
+  }
+]

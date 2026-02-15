@@ -1,0 +1,16 @@
+{
+  "format_accuracy": 0.0,
+  "average_steps": 0,
+  "average_tokens": {
+    "input": 271.0,
+    "output": 1665.25
+  },
+  "failed_format_following": 0,
+  "total_sql": 0,
+  "total_error_sql": 0,
+  "total_vl": 0,
+  "total_error_vl": 0,
+  "total_steps": 0,
+  "sql_success_rate": 0,
+  "vl_success_rate": 0
+}

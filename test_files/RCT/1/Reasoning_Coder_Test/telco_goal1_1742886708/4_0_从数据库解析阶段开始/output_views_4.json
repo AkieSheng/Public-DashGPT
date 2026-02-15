@@ -1,0 +1,130 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "Customer_Info.age",
+      "Customer_Info.gender",
+      "Status_Analysis.churn_label"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: Gender (Nominal)",
+        "y: Count of Churn Status (Quantitative)",
+        "color: Churn Label (Nominal)"
+      ],
+      "description": "Stacked bar chart showing churn distribution by gender and age groups (binned 10-year intervals). Age groups are displayed through faceted columns."
+    },
+    "components": "Age group bin size selector (10/20yr)",
+    "interactions": [
+      {
+        "object": "gender/age group bars",
+        "verb": "click",
+        "effect": {
+          "description": "Filters subsequent views to show data for selected demographic segment",
+          "params": [
+            {
+              "name": "selectedGenderAge",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x",
+                  "column"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "Status_Analysis.cltv",
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.churn_label"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x: CLTV (Quantitative)",
+        "y: Satisfaction Score (Quantitative)",
+        "color: Churn Label (Nominal)",
+        "size: Count aggregation (Quantitative)"
+      ],
+      "description": "Bubble chart showing relationship between customer lifetime value, satisfaction, and churn status"
+    },
+    "usingParams": [
+      "selectedGenderAge"
+    ],
+    "interactions": [
+      {
+        "object": "data points",
+        "verb": "hover",
+        "effect": {
+          "description": "Shows detailed tooltip with individual customer attributes",
+          "params": []
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "insight",
+    "fields": [
+      "Service_Options.tenure",
+      "Status_Analysis.churn_value",
+      "Customer_Info.senior_citizen"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "line",
+      "encodings": [
+        "x: Tenure Months (Temporal)",
+        "y: Churn Rate % (Quantitative)",
+        "color: Senior Citizen Status (Nominal)",
+        "strokeDash: Statistical Significance (Nominal)"
+      ],
+      "description": "Multi-line chart comparing churn rate trends over time between senior/non-senior customers"
+    },
+    "usingParams": [
+      "selectedGenderAge"
+    ],
+    "components": "Confidence Interval Toggle"
+  },
+  {
+    "id": 4,
+    "level": "detail",
+    "fields": [
+      "Customer_Info.customer_id",
+      "Payment_Info.monthly_charges",
+      "Status_Analysis.churn_reason"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "text",
+      "encodings": [
+        "row: Customer ID (Nominal)",
+        "text: Churn Reason (Nominal)",
+        "color: Monthly Charges → Red-blue diverging scale"
+      ],
+      "description": "Detailed table view showing individual customer financials and churn details"
+    },
+    "usingParams": [
+      "selectedGenderAge"
+    ]
+  }
+]

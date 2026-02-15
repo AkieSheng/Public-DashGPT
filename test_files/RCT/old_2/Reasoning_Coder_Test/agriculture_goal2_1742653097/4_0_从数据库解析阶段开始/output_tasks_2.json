@@ -1,0 +1,87 @@
+[
+  {
+    "id": 1,
+    "type": "trend analysis",
+    "data": [
+      "Season",
+      "Yield (quintals)",
+      "Production (metric tons)"
+    ],
+    "method": "Multi-line chart grouped by season (Kharif/Rabi) showing annual yield trends. Temporal aggregation uses season cycles instead of exact dates. Compute growth rates between seasons using production data. Enable faceting by crop type.",
+    "objective": "Identify cyclical productivity patterns and quantify growth trends aligned with Rajasthan's agricultural calendar",
+    "corrReq": [
+      "D2"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "characterizing distributions",
+    "data": [
+      "District",
+      "Crop",
+      "Yield (quintals)"
+    ],
+    "method": "Small multiples of horizontal bar charts (one per crop) with district sorting. Encode average yield as bar length, error bars showing ±1σ. Enable click-to-drill into district-level time series.",
+    "objective": "Compare baseline yields and variability across districts for strategic crop allocation",
+    "corrReq": [
+      "V2"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 3,
+    "type": "correlating",
+    "data": [
+      "Yield (quintals)",
+      "Water Consumption (liters/hectare)",
+      "Soil Type"
+    ],
+    "method": "Scatter plot with yield-water ratio on X-axis, absolute yield on Y-axis, soil type as color. Overlay trend lines per soil category. Brush selection syncs with Task 2's bar charts via district filtering.",
+    "objective": "Analyze water-use efficiency relationships in different soil conditions",
+    "corrReq": [
+      "V4",
+      "I2"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 4,
+    "type": "predicting future trends",
+    "data": [
+      "Season",
+      "Yield (quintals)"
+    ],
+    "method": "ARIMA-based forecast line overlaid on Task 1's trend chart. Slider (1-5 years) controls forecast horizon. Confidence bands updated via parametric backend query on slider interaction.",
+    "objective": "Support long-term agricultural planning through yield predictions",
+    "corrReq": [
+      "I3"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 5,
+    "type": "finding anomalies",
+    "data": [
+      "Yield (quintals)",
+      "Season"
+    ],
+    "method": "Connected scatter plot showing yield deviations (z-scores) vs district averages. Anomalies highlighted via dynamic threshold (2σ). Click anomalies to populate comparison views with normal cases.",
+    "objective": "Detect districts needing intervention due to abnormal productivity patterns",
+    "corrReq": [],
+    "priority": 3
+  },
+  {
+    "id": 6,
+    "type": "clustering",
+    "data": [
+      "Area (hectares)",
+      "Yield (quintals)",
+      "District"
+    ],
+    "method": "Parallel coordinates plot linking normalized production metrics. Implement k-means clustering (k=3) to color-code districts by production efficiency archetypes.",
+    "objective": "Identify district groups for targeted resource allocation strategies",
+    "corrReq": [],
+    "priority": 2
+  }
+]

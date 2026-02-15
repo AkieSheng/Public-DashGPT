@@ -1,0 +1,245 @@
+{
+  "created": 1742632415,
+  "dataset": {
+    "description": "数据库包含以下表: Student, Faculty, Department, Member_of, Course, Minor_in, Enrolled_in, Gradeconversion",
+    "tables": [
+      {
+        "columns": [
+          {
+            "column": "StuID",
+            "description": "字段 StuID，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "LName",
+            "description": "字段 LName，类型为 VARCHAR(12)",
+            "dtype": "VARCHAR(12)"
+          },
+          {
+            "column": "Fname",
+            "description": "字段 Fname，类型为 VARCHAR(12)",
+            "dtype": "VARCHAR(12)"
+          },
+          {
+            "column": "Age",
+            "description": "字段 Age，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "Sex",
+            "description": "字段 Sex，类型为 VARCHAR(1)",
+            "dtype": "VARCHAR(1)"
+          },
+          {
+            "column": "Major",
+            "description": "字段 Major，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "Advisor",
+            "description": "字段 Advisor，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "city_code",
+            "description": "字段 city_code，类型为 VARCHAR(3)",
+            "dtype": "VARCHAR(3)"
+          }
+        ],
+        "table": "Student"
+      },
+      {
+        "columns": [
+          {
+            "column": "FacID",
+            "description": "字段 FacID，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "Lname",
+            "description": "字段 Lname，类型为 VARCHAR(15)",
+            "dtype": "VARCHAR(15)"
+          },
+          {
+            "column": "Fname",
+            "description": "字段 Fname，类型为 VARCHAR(15)",
+            "dtype": "VARCHAR(15)"
+          },
+          {
+            "column": "Rank",
+            "description": "字段 Rank，类型为 VARCHAR(15)",
+            "dtype": "VARCHAR(15)"
+          },
+          {
+            "column": "Sex",
+            "description": "字段 Sex，类型为 VARCHAR(1)",
+            "dtype": "VARCHAR(1)"
+          },
+          {
+            "column": "Phone",
+            "description": "字段 Phone，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "Room",
+            "description": "字段 Room，类型为 VARCHAR(5)",
+            "dtype": "VARCHAR(5)"
+          },
+          {
+            "column": "Building",
+            "description": "字段 Building，类型为 VARCHAR(13)",
+            "dtype": "VARCHAR(13)"
+          }
+        ],
+        "table": "Faculty"
+      },
+      {
+        "columns": [
+          {
+            "column": "DNO",
+            "description": "字段 DNO，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "Division",
+            "description": "字段 Division，类型为 VARCHAR(2)",
+            "dtype": "VARCHAR(2)"
+          },
+          {
+            "column": "DName",
+            "description": "字段 DName，类型为 VARCHAR(25)",
+            "dtype": "VARCHAR(25)"
+          },
+          {
+            "column": "Room",
+            "description": "字段 Room，类型为 VARCHAR(5)",
+            "dtype": "VARCHAR(5)"
+          },
+          {
+            "column": "Building",
+            "description": "字段 Building，类型为 VARCHAR(13)",
+            "dtype": "VARCHAR(13)"
+          },
+          {
+            "column": "DPhone",
+            "description": "字段 DPhone，类型为 INTEGER",
+            "dtype": "INTEGER"
+          }
+        ],
+        "table": "Department"
+      },
+      {
+        "columns": [
+          {
+            "column": "FacID",
+            "description": "字段 FacID，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "DNO",
+            "description": "字段 DNO，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "Appt_Type",
+            "description": "字段 Appt_Type，类型为 VARCHAR(15)",
+            "dtype": "VARCHAR(15)"
+          }
+        ],
+        "table": "Member_of"
+      },
+      {
+        "columns": [
+          {
+            "column": "CID",
+            "description": "字段 CID，类型为 VARCHAR(7)",
+            "dtype": "VARCHAR(7)"
+          },
+          {
+            "column": "CName",
+            "description": "字段 CName，类型为 VARCHAR(40)",
+            "dtype": "VARCHAR(40)"
+          },
+          {
+            "column": "Credits",
+            "description": "字段 Credits，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "Instructor",
+            "description": "字段 Instructor，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "Days",
+            "description": "字段 Days，类型为 VARCHAR(5)",
+            "dtype": "VARCHAR(5)"
+          },
+          {
+            "column": "Hours",
+            "description": "字段 Hours，类型为 VARCHAR(11)",
+            "dtype": "VARCHAR(11)"
+          },
+          {
+            "column": "DNO",
+            "description": "字段 DNO，类型为 INTEGER",
+            "dtype": "INTEGER"
+          }
+        ],
+        "table": "Course"
+      },
+      {
+        "columns": [
+          {
+            "column": "StuID",
+            "description": "字段 StuID，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "DNO",
+            "description": "字段 DNO，类型为 INTEGER",
+            "dtype": "INTEGER"
+          }
+        ],
+        "table": "Minor_in"
+      },
+      {
+        "columns": [
+          {
+            "column": "StuID",
+            "description": "字段 StuID，类型为 INTEGER",
+            "dtype": "INTEGER"
+          },
+          {
+            "column": "CID",
+            "description": "字段 CID，类型为 VARCHAR(7)",
+            "dtype": "VARCHAR(7)"
+          },
+          {
+            "column": "Grade",
+            "description": "字段 Grade，类型为 VARCHAR(2)",
+            "dtype": "VARCHAR(2)"
+          }
+        ],
+        "table": "Enrolled_in"
+      },
+      {
+        "columns": [
+          {
+            "column": "lettergrade",
+            "description": "字段 lettergrade，类型为 VARCHAR(2)",
+            "dtype": "VARCHAR(2)"
+          },
+          {
+            "column": "gradepoint",
+            "description": "字段 gradepoint，类型为 FLOAT",
+            "dtype": "FLOAT"
+          }
+        ],
+        "table": "Gradeconversion"
+      }
+    ]
+  },
+  "id": "college_goal1_1742632415",
+  "name": "Visual Analytics System college_goal1_1742632415"
+}

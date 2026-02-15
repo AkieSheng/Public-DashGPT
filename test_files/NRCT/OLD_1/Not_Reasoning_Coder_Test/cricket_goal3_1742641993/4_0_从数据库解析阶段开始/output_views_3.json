@@ -1,0 +1,175 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "detailed_player_data.player",
+      "detailed_player_data.fantasy_points",
+      "detailed_player_data.match_outcome"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x: detailed_player_data.fantasy_points (quantitative)",
+        "y: detailed_player_data.match_outcome (nominal)",
+        "color: detailed_player_data.match_outcome (nominal)",
+        "size: detailed_player_data.runs (quantitative)"
+      ],
+      "description": "Scatter plot showcasing all players from the dataset. The x-axis represents fantasy points achieved, and the y-axis denotes match outcomes. Points are color-coded by outcome and sized by runs scored."
+    },
+    "usingParams": [],
+    "interactions": [
+      {
+        "object": "visualization in View 1",
+        "verb": "drag",
+        "effect": {
+          "description": "Filter range of fantasy points selected on the x-axis to narrow down player data in exploration views.",
+          "params": [
+            {
+              "name": "filteredPoints",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "detailed_player_data.player",
+      "detailed_player_data.match_outcome",
+      "batter_player_stats.total_runs",
+      "bowler_player_stats.total_wickets_taken"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: batter_player_stats.total_runs (quantitative)",
+        "y: detailed_player_data.player (nominal)",
+        "color: detailed_player_data.match_outcome (nominal)"
+      ],
+      "description": "Bar chart displaying combined batting and bowling metrics for players. Bar segments are color-coded to denote match outcomes."
+    },
+    "usingParams": [
+      "filteredPoints"
+    ],
+    "components": "Add dropdown menus to toggle between runs and wickets metrics for sorting and filtering.",
+    "interactions": [
+      {
+        "object": "dropdown menu in View 2",
+        "verb": "toggle",
+        "effect": {
+          "description": "Switch visibility between batting and bowling statistics.",
+          "params": [
+            {
+              "name": "metricType",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "color"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "detail",
+    "fields": [
+      "detailed_player_data.match_id",
+      "detailed_player_data.runs",
+      "detailed_player_data.wickets",
+      "detailed_player_data.match_outcome"
+    ],
+    "task": [
+      5
+    ],
+    "visualization": {
+      "markType": "tick",
+      "encodings": [
+        "x: detailed_player_data.runs (quantitative)",
+        "y: detailed_player_data.wickets (quantitative)",
+        "color: detailed_player_data.match_outcome (nominal)"
+      ],
+      "description": "Tick chart showcasing individual matches with extreme performances for runs scored or wickets taken."
+    },
+    "usingParams": [
+      "metricType"
+    ],
+    "interactions": [
+      {
+        "object": "visualization in View 3",
+        "verb": "click",
+        "effect": {
+          "description": "Highlight match IDs for selected extreme performances to pass as context to insight views.",
+          "params": [
+            {
+              "name": "highlightedMatches",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "level": "insight",
+    "fields": [
+      "match_summary.match_id",
+      "match_summary.outcome_winner",
+      "match_summary.player_of_match",
+      "match_summary.total_fours",
+      "match_summary.total_sixes"
+    ],
+    "task": [
+      1,
+      6
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x: match_summary.outcome_winner (nominal)",
+        "y: match_summary.total_fours (quantitative)",
+        "color: match_summary.player_of_match (nominal)"
+      ],
+      "description": "Bar chart ranking match winners by total boundaries scored and identifying the impact of player-of-match awards."
+    },
+    "usingParams": [
+      "highlightedMatches"
+    ],
+    "components": "Add hover functionality to display details of player-of-match contributing to the victory.",
+    "interactions": [
+      {
+        "object": "visualization in View 4",
+        "verb": "hover",
+        "effect": {
+          "description": "Show contextual details for the player of the match and match impact metrics.",
+          "params": []
+        }
+      }
+    ]
+  }
+]

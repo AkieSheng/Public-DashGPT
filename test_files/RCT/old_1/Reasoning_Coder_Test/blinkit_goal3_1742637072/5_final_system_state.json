@@ -1,0 +1,1900 @@
+{
+  "created": 1742637073,
+  "dataset": {
+    "description": "This dataset contains sales transaction data from Blinkit, an online grocery delivery platform. It contains sales data from Blinkit, including product details, order quantities, revenue, and timestamps.",
+    "tables": [
+      {
+        "columns": [
+          {
+            "column": "customer_id",
+            "description": "Unique identifier for each customer",
+            "dtype": "INTEGER",
+            "name": "customer_id",
+            "stats": {
+              "25%": 24024434.0,
+              "50%": 50000439.5,
+              "75%": 75954591.75,
+              "count": 2500.0,
+              "max": 99893898.0,
+              "mean": 49899613.2232,
+              "min": 31813.0,
+              "samples": [
+                78738569,
+                97475543,
+                22077605,
+                47822591,
+                46023497
+              ],
+              "std": 29192657.92612657
+            }
+          },
+          {
+            "column": "customer_name",
+            "description": "Full name of the customer",
+            "dtype": "TEXT",
+            "name": "customer_name",
+            "stats": {
+              "count": 2500,
+              "freq": 2,
+              "samples": [
+                "Tanmayi Vyas",
+                "Gaurang Grewal",
+                "Rehaan Borde",
+                "Anmol Koshy",
+                "Dalaja Choudhury"
+              ],
+              "top": "Tanmayi Vyas",
+              "unique": 2491
+            }
+          },
+          {
+            "column": "email",
+            "description": "Customer's email address for communication",
+            "dtype": "TEXT",
+            "name": "email",
+            "stats": {
+              "count": 2500,
+              "freq": 2,
+              "samples": [
+                "wvora@example.org",
+                "ilad@example.net",
+                "yashoda79@example.net",
+                "ydevan@example.net",
+                "abhiram84@example.org"
+              ],
+              "top": "wvora@example.org",
+              "unique": 2496
+            }
+          },
+          {
+            "column": "phone",
+            "description": "Customer's contact number stored as integer (12-digit format)",
+            "dtype": "INTEGER",
+            "name": "phone",
+            "stats": {
+              "25%": 912594625640.25,
+              "50%": 915023611542.5,
+              "75%": 917625557773.25,
+              "count": 2500.0,
+              "max": 919998768162.0,
+              "mean": 915053179773.034,
+              "min": 910013225561.0,
+              "samples": [
+                914320353753,
+                912987579691,
+                915123179717,
+                910034076149,
+                917679715905
+              ],
+              "std": 2882835272.448148
+            }
+          },
+          {
+            "column": "address",
+            "description": "Multi-line physical address including street details",
+            "dtype": "TEXT",
+            "name": "address",
+            "stats": {
+              "count": 2500,
+              "freq": 1,
+              "samples": [
+                "H.No. 791, Sur Path\nBally 982559",
+                "23, Nayar Path, Bihar Sharif-154625",
+                "51/302, Buch Chowk\nSrinagar-570271",
+                "941\nAnne Street, Darbhanga 186125",
+                "863\nSarkar Road, Bokaro-229992"
+              ],
+              "top": "H.No. 791, Sur Path\nBally 982559",
+              "unique": 2500
+            }
+          },
+          {
+            "column": "area",
+            "description": "Geographical service area/city for delivery",
+            "dtype": "TEXT",
+            "name": "area",
+            "stats": {
+              "count": 2500,
+              "freq": 18,
+              "samples": [
+                "Jalna",
+                "Orai",
+                "Bathinda",
+                "Deoghar",
+                "Ratlam"
+              ],
+              "top": "Jalna",
+              "unique": 316
+            }
+          },
+          {
+            "column": "pincode",
+            "description": "Postal code for customer's location",
+            "dtype": "INTEGER",
+            "name": "pincode",
+            "stats": {
+              "25%": 257079.75,
+              "50%": 498662.0,
+              "75%": 740668.0,
+              "count": 2500.0,
+              "max": 999631.0,
+              "mean": 497653.1832,
+              "min": 666.0,
+              "samples": [
+                546301,
+                112691,
+                819570,
+                375546,
+                664697
+              ],
+              "std": 281167.2932486073
+            }
+          },
+          {
+            "column": "registration_date",
+            "description": "Date when customer joined platform (YYYY-MM-DD)",
+            "dtype": "TEXT",
+            "name": "registration_date",
+            "stats": {
+              "count": 2500,
+              "freq": 10,
+              "samples": [
+                "2024-03-10",
+                "2024-10-03",
+                "2024-06-23",
+                "2024-03-18",
+                "2024-04-22"
+              ],
+              "top": "2024-03-10",
+              "unique": 589
+            }
+          },
+          {
+            "column": "customer_segment",
+            "description": "Categorization indicating engagement level (Regular/Premium/New/Inactive)",
+            "dtype": "TEXT",
+            "name": "customer_segment",
+            "stats": {
+              "count": 2500,
+              "freq": 639,
+              "samples": [
+                "Regular",
+                "Premium",
+                "New",
+                "Inactive"
+              ],
+              "top": "Regular",
+              "unique": 4
+            }
+          },
+          {
+            "column": "total_orders",
+            "description": "Lifetime count of orders placed by customer (range:1-20)",
+            "dtype": "INTEGER",
+            "name": "total_orders",
+            "stats": {
+              "25%": 6.0,
+              "50%": 10.0,
+              "75%": 16.0,
+              "count": 2500.0,
+              "max": 20.0,
+              "mean": 10.4916,
+              "min": 1.0,
+              "samples": [
+                10,
+                1,
+                19,
+                6,
+                18
+              ],
+              "std": 5.8055328028054225
+            }
+          },
+          {
+            "column": "avg_order_value",
+            "description": "Average spending per order (₹)",
+            "dtype": "REAL",
+            "name": "avg_order_value",
+            "stats": {
+              "25%": 631.8175,
+              "50%": 1118.65,
+              "75%": 1565.4,
+              "count": 2500.0,
+              "max": 1999.83,
+              "mean": 1102.3758360000002,
+              "min": 200.43,
+              "samples": [
+                1226.1,
+                206.87,
+                1515.8,
+                607.46,
+                1651.18
+              ],
+              "std": 523.0431825921102
+            }
+          }
+        ],
+        "table": "blinkit_customers"
+      },
+      {
+        "columns": [
+          {
+            "column": "feedback_id",
+            "description": "Unique identifier for feedback records",
+            "dtype": "INTEGER",
+            "name": "feedback_id",
+            "stats": {
+              "25%": 2576690.0,
+              "50%": 5005833.0,
+              "75%": 7486478.25,
+              "count": 5000.0,
+              "max": 9999293.0,
+              "mean": 5013616.037,
+              "min": 947.0,
+              "samples": [
+                6578433,
+                2234710,
+                5450964,
+                482108,
+                4823104
+              ],
+              "std": 2857340.6750146495
+            }
+          },
+          {
+            "column": "order_id",
+            "description": "Foreign key linking to orders table",
+            "dtype": "INTEGER",
+            "name": "order_id",
+            "stats": {
+              "25%": 2531420519.25,
+              "50%": 5074377551.0,
+              "75%": 7488578761.0,
+              "count": 5000.0,
+              "max": 9998297778.0,
+              "mean": 5029129224.1876,
+              "min": 60465.0,
+              "samples": [
+                2494813730,
+                1961864118,
+                1549769649,
+                9185164487,
+                9644738826
+              ],
+              "std": 2863532520.894328
+            }
+          },
+          {
+            "column": "customer_id",
+            "description": "Foreign key linking to customers table",
+            "dtype": "INTEGER",
+            "name": "customer_id",
+            "stats": {
+              "25%": 24043135.0,
+              "50%": 49978078.5,
+              "75%": 76212152.0,
+              "count": 5000.0,
+              "max": 99893898.0,
+              "mean": 50096845.2234,
+              "min": 31813.0,
+              "samples": [
+                77869660,
+                8791577,
+                17805991,
+                93018527,
+                10562528
+              ],
+              "std": 29190820.3146593
+            }
+          },
+          {
+            "column": "rating",
+            "description": "Numerical rating (1-5 stars)",
+            "dtype": "INTEGER",
+            "name": "rating",
+            "stats": {
+              "25%": 3.0,
+              "50%": 4.0,
+              "75%": 4.0,
+              "count": 5000.0,
+              "max": 5.0,
+              "mean": 3.3444,
+              "min": 1.0,
+              "samples": [
+                4,
+                3,
+                5,
+                1,
+                2
+              ],
+              "std": 1.1898200596539257
+            }
+          },
+          {
+            "column": "feedback_text",
+            "description": "Customer's written feedback comments",
+            "dtype": "TEXT",
+            "name": "feedback_text",
+            "stats": {
+              "count": 5000,
+              "freq": 386,
+              "samples": [
+                "The product met my expectations.",
+                "Nothing to complain about, but nothing exceptional.",
+                "Average experience, could improve.",
+                "It was okay, nothing special.",
+                "Delivery was fine, but the product could be better."
+              ],
+              "top": "The product met my expectations.",
+              "unique": 25
+            }
+          },
+          {
+            "column": "feedback_category",
+            "description": "Categorization of feedback type (Delivery/Product Quality/etc.)",
+            "dtype": "TEXT",
+            "name": "feedback_category",
+            "stats": {
+              "count": 5000,
+              "freq": 1271,
+              "samples": [
+                "Delivery",
+                "Customer Service",
+                "Product Quality",
+                "App Experience"
+              ],
+              "top": "Delivery",
+              "unique": 4
+            }
+          },
+          {
+            "column": "sentiment",
+            "description": "Automated sentiment classification (Positive/Neutral/Negative)",
+            "dtype": "TEXT",
+            "name": "sentiment",
+            "stats": {
+              "count": 5000,
+              "freq": 1738,
+              "samples": [
+                "Neutral",
+                "Negative",
+                "Positive"
+              ],
+              "top": "Neutral",
+              "unique": 3
+            }
+          },
+          {
+            "column": "feedback_date",
+            "description": "Date when feedback was submitted",
+            "dtype": "TEXT",
+            "name": "feedback_date",
+            "stats": {
+              "count": 5000,
+              "freq": 17,
+              "samples": [
+                "2024-03-31",
+                "2024-09-10",
+                "2024-07-10",
+                "2024-07-19",
+                "2024-02-10"
+              ],
+              "top": "2024-03-31",
+              "unique": 600
+            }
+          }
+        ],
+        "table": "blinkit_customer_feedback"
+      },
+      {
+        "columns": [
+          {
+            "column": "order_id",
+            "description": "Foreign key linking to orders",
+            "dtype": "INTEGER",
+            "name": "order_id",
+            "stats": {
+              "25%": 2531420519.25,
+              "50%": 5074377551.0,
+              "75%": 7488578761.0,
+              "count": 5000.0,
+              "max": 9998297778.0,
+              "mean": 5029129224.1876,
+              "min": 60465.0,
+              "samples": [
+                2494813730,
+                1961864118,
+                1549769649,
+                9185164487,
+                9644738826
+              ],
+              "std": 2863532520.894328
+            }
+          },
+          {
+            "column": "delivery_partner_id",
+            "description": "Identifier for delivery personnel",
+            "dtype": "INTEGER",
+            "name": "delivery_partner_id",
+            "stats": {
+              "25%": 24928.5,
+              "50%": 50262.5,
+              "75%": 74478.25,
+              "count": 5000.0,
+              "max": 99968.0,
+              "mean": 50050.3182,
+              "min": 43.0,
+              "samples": [
+                32851,
+                63230,
+                14983,
+                39859,
+                61497
+              ],
+              "std": 28802.27692193321
+            }
+          },
+          {
+            "column": "promised_time",
+            "description": "Original delivery time commitment (YYYY-MM-DD HH:MM:SS)",
+            "dtype": "TEXT",
+            "name": "promised_time",
+            "stats": {
+              "count": 5000,
+              "freq": 2,
+              "samples": [
+                "2024-10-13 14:06:50",
+                "2024-09-23 13:25:12",
+                "2023-11-24 16:34:56",
+                "2023-11-20 05:17:39",
+                "2023-03-18 16:49:51"
+              ],
+              "top": "2024-10-13 14:06:50",
+              "unique": 4999
+            }
+          },
+          {
+            "column": "actual_time",
+            "description": "Timestamp of actual delivery completion",
+            "dtype": "TEXT",
+            "name": "actual_time",
+            "stats": {
+              "count": 5000,
+              "freq": 1,
+              "samples": [
+                "2023-08-23 12:21:18",
+                "2024-07-17 08:47:01",
+                "2024-05-28 13:27:29",
+                "2024-09-23 13:29:12",
+                "2023-11-24 16:33:56"
+              ],
+              "top": "2023-08-23 12:21:18",
+              "unique": 5000
+            }
+          },
+          {
+            "column": "delivery_time_minutes",
+            "description": "Difference between promised and actual delivery time (may be negative for early deliveries)",
+            "dtype": "REAL",
+            "name": "delivery_time_minutes",
+            "stats": {
+              "25%": -1.0,
+              "50%": 2.0,
+              "75%": 8.0,
+              "count": 5000.0,
+              "max": 30.0,
+              "mean": 4.443,
+              "min": -5.0,
+              "samples": [
+                0.0,
+                5.0,
+                -1.0,
+                -4.0,
+                3.0
+              ],
+              "std": 8.063929339427414
+            }
+          },
+          {
+            "column": "distance_km",
+            "description": "Total travel distance for delivery",
+            "dtype": "REAL",
+            "name": "distance_km",
+            "stats": {
+              "25%": 1.59,
+              "50%": 2.69,
+              "75%": 3.85,
+              "count": 5000.0,
+              "max": 5.0,
+              "mean": 2.7180480000000005,
+              "min": 0.5,
+              "samples": [
+                3.92,
+                1.4,
+                1.18,
+                1.33,
+                1.16
+              ],
+              "std": 1.2903055790755456
+            }
+          },
+          {
+            "column": "delivery_status",
+            "description": "Performance classification (On Time/Slightly Delayed/etc.)",
+            "dtype": "TEXT",
+            "name": "delivery_status",
+            "stats": {
+              "count": 5000,
+              "freq": 3470,
+              "samples": [
+                "On Time",
+                "Slightly Delayed",
+                "Significantly Delayed"
+              ],
+              "top": "On Time",
+              "unique": 3
+            }
+          },
+          {
+            "column": "reasons_if_delayed",
+            "description": "Causal factor for delays (currently only 'Traffic' in samples)",
+            "dtype": "TEXT",
+            "name": "reasons_if_delayed",
+            "stats": {
+              "count": 3098,
+              "freq": 3098,
+              "samples": [
+                "Traffic"
+              ],
+              "top": "Traffic",
+              "unique": 1
+            }
+          }
+        ],
+        "table": "blinkit_delivery_performance"
+      },
+      {
+        "columns": [
+          {
+            "column": "product_id",
+            "description": "Foreign key linking to products table",
+            "dtype": "INTEGER",
+            "name": "product_id",
+            "stats": {
+              "25%": 272170.0,
+              "50%": 542300.0,
+              "75%": 753354.0,
+              "count": 75172.0,
+              "max": 993331.0,
+              "mean": 514290.3530968978,
+              "min": 4452.0,
+              "samples": [
+                677542,
+                697683,
+                604184,
+                490602,
+                760684
+              ],
+              "std": 291277.9718749534
+            }
+          },
+          {
+            "column": "date",
+            "description": "Daily inventory check date (DD-MM-YYYY)",
+            "dtype": "TEXT",
+            "name": "date",
+            "stats": {
+              "count": 75172,
+              "freq": 150,
+              "samples": [
+                "04-06-2023",
+                "22-12-2023",
+                "24-03-2023",
+                "15-06-2023",
+                "04-10-2024"
+              ],
+              "top": "04-06-2023",
+              "unique": 600
+            }
+          },
+          {
+            "column": "stock_received",
+            "description": "New inventory received (0-4 units)",
+            "dtype": "INTEGER",
+            "name": "stock_received",
+            "stats": {
+              "25%": 0.0,
+              "50%": 3.0,
+              "75%": 3.0,
+              "count": 75172.0,
+              "max": 4.0,
+              "mean": 1.962512637684244,
+              "min": 0.0,
+              "samples": [
+                3,
+                0,
+                4,
+                1
+              ],
+              "std": 1.6399612221531572
+            }
+          },
+          {
+            "column": "damaged_stock",
+            "description": "Count of defective/wasted items",
+            "dtype": "INTEGER",
+            "name": "damaged_stock",
+            "stats": {
+              "25%": 0.0,
+              "50%": 2.0,
+              "75%": 2.0,
+              "count": 75172.0,
+              "max": 2.0,
+              "mean": 1.067791198850636,
+              "min": 0.0,
+              "samples": [
+                2,
+                0
+              ],
+              "std": 0.9977061667770638
+            }
+          }
+        ],
+        "table": "blinkit_inventory"
+      },
+      {
+        "columns": [
+          {
+            "column": "product_id",
+            "description": "Foreign key linking to products table",
+            "dtype": "INTEGER",
+            "name": "product_id",
+            "stats": {
+              "25%": 274207.0,
+              "50%": 540618.0,
+              "75%": 753354.0,
+              "count": 18105.0,
+              "max": 993331.0,
+              "mean": 514273.4101629384,
+              "min": 4452.0,
+              "samples": [
+                490602,
+                131136,
+                945635,
+                876139,
+                937542
+              ],
+              "std": 290295.86849754595
+            }
+          },
+          {
+            "column": "date",
+            "description": "Monthly inventory period (MMM-YY format)",
+            "dtype": "TEXT",
+            "name": "date",
+            "stats": {
+              "count": 18105,
+              "freq": 1076,
+              "samples": [
+                "Jul-23",
+                "Jun-23",
+                "Sep-23",
+                "Apr-23",
+                "May-23"
+              ],
+              "top": "Jul-23",
+              "unique": 21
+            }
+          },
+          {
+            "column": "stock_received",
+            "description": "Aggregate monthly stock intake",
+            "dtype": "INTEGER",
+            "name": "stock_received",
+            "stats": {
+              "25%": 1.0,
+              "50%": 1.0,
+              "75%": 2.0,
+              "count": 18105.0,
+              "max": 4.0,
+              "mean": 1.5895608947804474,
+              "min": 1.0,
+              "samples": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "std": 0.7979421101791575
+            }
+          },
+          {
+            "column": "damaged_stock",
+            "description": "Monthly total of damaged items (mostly 0 with rare exceptions)",
+            "dtype": "INTEGER",
+            "name": "damaged_stock",
+            "stats": {
+              "25%": 0.0,
+              "50%": 0.0,
+              "75%": 0.0,
+              "count": 18105.0,
+              "max": 7.0,
+              "mean": 0.06125379729356532,
+              "min": 0.0,
+              "samples": [
+                0,
+                1,
+                2,
+                4,
+                6
+              ],
+              "std": 0.2653870120659651
+            }
+          }
+        ],
+        "table": "blinkit_inventoryNew"
+      },
+      {
+        "columns": [
+          {
+            "column": "campaign_id",
+            "description": "Unique identifier for marketing initiatives",
+            "dtype": "INTEGER",
+            "name": "campaign_id",
+            "stats": {
+              "25%": 249200.0,
+              "50%": 505012.5,
+              "75%": 752219.25,
+              "count": 5400.0,
+              "max": 999950.0,
+              "mean": 501315.21907407406,
+              "min": 243.0,
+              "samples": [
+                282514,
+                548299,
+                390914,
+                834385,
+                241523
+              ],
+              "std": 287611.52425832883
+            }
+          },
+          {
+            "column": "campaign_name",
+            "description": "Marketing campaign title (e.g., 'Festival Offer')",
+            "dtype": "TEXT",
+            "name": "campaign_name",
+            "stats": {
+              "count": 5400,
+              "freq": 600,
+              "samples": [
+                "New User Discount",
+                "Weekend Special",
+                "Festival Offer",
+                "Flash Sale",
+                "Membership Drive"
+              ],
+              "top": "New User Discount",
+              "unique": 9
+            }
+          },
+          {
+            "column": "date",
+            "description": "Campaign execution date",
+            "dtype": "TEXT",
+            "name": "date",
+            "stats": {
+              "count": 5400,
+              "freq": 9,
+              "samples": [
+                "2023-03-17",
+                "2024-11-05",
+                "2024-11-04",
+                "2024-11-03",
+                "2024-11-02"
+              ],
+              "top": "2023-03-17",
+              "unique": 600
+            }
+          },
+          {
+            "column": "target_audience",
+            "description": "Segment focus (New Users/Premium/etc.)",
+            "dtype": "TEXT",
+            "name": "target_audience",
+            "stats": {
+              "count": 5400,
+              "freq": 1356,
+              "samples": [
+                "New Users",
+                "Premium",
+                "Inactive",
+                "All"
+              ],
+              "top": "New Users",
+              "unique": 4
+            }
+          },
+          {
+            "column": "channel",
+            "description": "Marketing medium (App/Email/Social/SMS)",
+            "dtype": "TEXT",
+            "name": "channel",
+            "stats": {
+              "count": 5400,
+              "freq": 1374,
+              "samples": [
+                "App",
+                "Email",
+                "Social Media",
+                "SMS"
+              ],
+              "top": "App",
+              "unique": 4
+            }
+          },
+          {
+            "column": "impressions",
+            "description": "Number of times campaign was displayed",
+            "dtype": "INTEGER",
+            "name": "impressions",
+            "stats": {
+              "25%": 3231.5,
+              "50%": 5457.5,
+              "75%": 7676.25,
+              "count": 5400.0,
+              "max": 9999.0,
+              "mean": 5460.668518518519,
+              "min": 1002.0,
+              "samples": [
+                7977,
+                4746,
+                1197,
+                8770,
+                9581
+              ],
+              "std": 2571.779820225813
+            }
+          },
+          {
+            "column": "clicks",
+            "description": "User interactions with campaign",
+            "dtype": "INTEGER",
+            "name": "clicks",
+            "stats": {
+              "25%": 322.0,
+              "50%": 555.0,
+              "75%": 772.0,
+              "count": 5400.0,
+              "max": 1000.0,
+              "mean": 550.7675925925926,
+              "min": 100.0,
+              "samples": [
+                489,
+                151,
+                665,
+                407,
+                727
+              ],
+              "std": 260.08005140933506
+            }
+          },
+          {
+            "column": "conversions",
+            "description": "Resulting purchases/registrations",
+            "dtype": "INTEGER",
+            "name": "conversions",
+            "stats": {
+              "25%": 32.0,
+              "50%": 55.0,
+              "75%": 78.0,
+              "count": 5400.0,
+              "max": 100.0,
+              "mean": 55.19222222222222,
+              "min": 10.0,
+              "samples": [
+                78,
+                26,
+                46,
+                53,
+                19
+              ],
+              "std": 26.1501728089725
+            }
+          },
+          {
+            "column": "spend",
+            "description": "Campaign cost (₹)",
+            "dtype": "REAL",
+            "name": "spend",
+            "stats": {
+              "25%": 2029.0700000000002,
+              "50%": 3042.485,
+              "75%": 4011.5725,
+              "count": 5400.0,
+              "max": 4997.55,
+              "mean": 3022.192266666667,
+              "min": 1000.63,
+              "samples": [
+                2081.05,
+                1964.28,
+                3885.79,
+                3546.51,
+                4935.87
+              ],
+              "std": 1148.732680436121
+            }
+          },
+          {
+            "column": "revenue_generated",
+            "description": "Direct revenue attributed to campaign",
+            "dtype": "REAL",
+            "name": "revenue_generated",
+            "stats": {
+              "25%": 3907.24,
+              "50%": 5935.9400000000005,
+              "75%": 7973.7125,
+              "count": 5400.0,
+              "max": 9999.54,
+              "mean": 5961.742105555556,
+              "min": 2003.1,
+              "samples": [
+                8440.25,
+                8603.76,
+                8221.14,
+                3110.04,
+                9543.06
+              ],
+              "std": 2322.24291069808
+            }
+          },
+          {
+            "column": "roas",
+            "description": "Return on Ad Spend (revenue ÷ spend)",
+            "dtype": "REAL",
+            "name": "roas",
+            "stats": {
+              "25%": 2.12,
+              "50%": 2.725,
+              "75%": 3.37,
+              "count": 5400.0,
+              "max": 4.0,
+              "mean": 2.740711111111111,
+              "min": 1.5,
+              "samples": [
+                3.5,
+                1.59,
+                2.55,
+                1.94,
+                3.58
+              ],
+              "std": 0.7229857046973783
+            }
+          }
+        ],
+        "table": "blinkit_marketing_performance"
+      },
+      {
+        "columns": [
+          {
+            "column": "order_id",
+            "description": "Unique order identifier",
+            "dtype": "INTEGER",
+            "name": "order_id",
+            "stats": {
+              "25%": 2531420519.25,
+              "50%": 5074377551.0,
+              "75%": 7488578761.0,
+              "count": 5000.0,
+              "max": 9998297778.0,
+              "mean": 5029129224.1876,
+              "min": 60465.0,
+              "samples": [
+                2494813730,
+                1961864118,
+                1549769649,
+                9185164487,
+                9644738826
+              ],
+              "std": 2863532520.894328
+            }
+          },
+          {
+            "column": "customer_id",
+            "description": "Foreign key to customers table",
+            "dtype": "INTEGER",
+            "name": "customer_id",
+            "stats": {
+              "25%": 24043135.0,
+              "50%": 49978078.5,
+              "75%": 76212152.0,
+              "count": 5000.0,
+              "max": 99893898.0,
+              "mean": 50096845.2234,
+              "min": 31813.0,
+              "samples": [
+                77869660,
+                8791577,
+                17805991,
+                93018527,
+                10562528
+              ],
+              "std": 29190820.3146593
+            }
+          },
+          {
+            "column": "order_date",
+            "description": "Timestamp of order placement",
+            "dtype": "TEXT",
+            "name": "order_date",
+            "stats": {
+              "count": 5000,
+              "freq": 1,
+              "samples": [
+                "2023-08-23 12:04:18",
+                "2024-07-17 08:34:01",
+                "2024-05-28 13:14:29",
+                "2024-09-23 13:07:12",
+                "2023-11-24 16:16:56"
+              ],
+              "top": "2023-08-23 12:04:18",
+              "unique": 5000
+            }
+          },
+          {
+            "column": "promised_delivery_time",
+            "description": "Original delivery time commitment",
+            "dtype": "TEXT",
+            "name": "promised_delivery_time",
+            "stats": {
+              "count": 5000,
+              "freq": 2,
+              "samples": [
+                "2024-10-13 14:06:50",
+                "2024-09-23 13:25:12",
+                "2023-11-24 16:34:56",
+                "2023-11-20 05:17:39",
+                "2023-03-18 16:49:51"
+              ],
+              "top": "2024-10-13 14:06:50",
+              "unique": 4999
+            }
+          },
+          {
+            "column": "actual_delivery_time",
+            "description": "Actual delivery completion timestamp",
+            "dtype": "TEXT",
+            "name": "actual_delivery_time",
+            "stats": {
+              "count": 5000,
+              "freq": 1,
+              "samples": [
+                "2023-08-23 12:21:18",
+                "2024-07-17 08:47:01",
+                "2024-05-28 13:27:29",
+                "2024-09-23 13:29:12",
+                "2023-11-24 16:33:56"
+              ],
+              "top": "2023-08-23 12:21:18",
+              "unique": 5000
+            }
+          },
+          {
+            "column": "delivery_status",
+            "description": "Performance status matching delivery performance table",
+            "dtype": "TEXT",
+            "name": "delivery_status",
+            "stats": {
+              "count": 5000,
+              "freq": 3470,
+              "samples": [
+                "On Time",
+                "Slightly Delayed",
+                "Significantly Delayed"
+              ],
+              "top": "On Time",
+              "unique": 3
+            }
+          },
+          {
+            "column": "order_total",
+            "description": "Total order value (₹)",
+            "dtype": "REAL",
+            "name": "order_total",
+            "stats": {
+              "25%": 1086.215,
+              "50%": 2100.69,
+              "75%": 3156.8825,
+              "count": 5000.0,
+              "max": 6721.46,
+              "mean": 2201.8617,
+              "min": 13.25,
+              "samples": [
+                786.85,
+                169.88,
+                329.79,
+                530.85,
+                951.43
+              ],
+              "std": 1303.0243798289562
+            }
+          },
+          {
+            "column": "payment_method",
+            "description": "Transaction type (Card/Cash/Wallet/UPI)",
+            "dtype": "TEXT",
+            "name": "payment_method",
+            "stats": {
+              "count": 5000,
+              "freq": 1285,
+              "samples": [
+                "Card",
+                "Cash",
+                "Wallet",
+                "UPI"
+              ],
+              "top": "Card",
+              "unique": 4
+            }
+          },
+          {
+            "column": "delivery_partner_id",
+            "description": "Foreign key to delivery partners",
+            "dtype": "INTEGER",
+            "name": "delivery_partner_id",
+            "stats": {
+              "25%": 24928.5,
+              "50%": 50262.5,
+              "75%": 74478.25,
+              "count": 5000.0,
+              "max": 99968.0,
+              "mean": 50050.3182,
+              "min": 43.0,
+              "samples": [
+                32851,
+                63230,
+                14983,
+                39859,
+                61497
+              ],
+              "std": 28802.27692193321
+            }
+          },
+          {
+            "column": "store_id",
+            "description": "Identifier for fulfillment center/store",
+            "dtype": "INTEGER",
+            "name": "store_id",
+            "stats": {
+              "25%": 2509.25,
+              "50%": 4987.0,
+              "75%": 7500.75,
+              "count": 5000.0,
+              "max": 9995.0,
+              "mean": 4999.689,
+              "min": 1.0,
+              "samples": [
+                5588,
+                4771,
+                7534,
+                9886,
+                7917
+              ],
+              "std": 2886.0892424355247
+            }
+          }
+        ],
+        "table": "blinkit_orders"
+      },
+      {
+        "columns": [
+          {
+            "column": "order_id",
+            "description": "Foreign key linking to orders table",
+            "dtype": "INTEGER",
+            "name": "order_id",
+            "stats": {
+              "25%": 2531420519.25,
+              "50%": 5074377551.0,
+              "75%": 7488578761.0,
+              "count": 5000.0,
+              "max": 9998297778.0,
+              "mean": 5029129224.1876,
+              "min": 60465.0,
+              "samples": [
+                2494813730,
+                1961864118,
+                1549769649,
+                9185164487,
+                9644738826
+              ],
+              "std": 2863532520.894328
+            }
+          },
+          {
+            "column": "product_id",
+            "description": "Foreign key linking to products table",
+            "dtype": "INTEGER",
+            "name": "product_id",
+            "stats": {
+              "25%": 257719.0,
+              "50%": 540618.0,
+              "75%": 747801.0,
+              "count": 5000.0,
+              "max": 993331.0,
+              "mean": 509974.9396,
+              "min": 4452.0,
+              "samples": [
+                51036,
+                820973,
+                34186,
+                992178,
+                131748
+              ],
+              "std": 293678.3074748045
+            }
+          },
+          {
+            "column": "quantity",
+            "description": "Number of units purchased (1-3)",
+            "dtype": "INTEGER",
+            "name": "quantity",
+            "stats": {
+              "25%": 1.0,
+              "50%": 2.0,
+              "75%": 3.0,
+              "count": 5000.0,
+              "max": 3.0,
+              "mean": 2.0068,
+              "min": 1.0,
+              "samples": [
+                3,
+                1,
+                2
+              ],
+              "std": 0.8205415392797226
+            }
+          },
+          {
+            "column": "unit_price",
+            "description": "Price per unit at time of purchase",
+            "dtype": "REAL",
+            "name": "unit_price",
+            "stats": {
+              "25%": 227.22,
+              "50%": 448.16,
+              "75%": 781.08,
+              "count": 5000.0,
+              "max": 995.98,
+              "mean": 493.1579,
+              "min": 12.32,
+              "samples": [
+                826.21,
+                931.61,
+                114.52,
+                925.65,
+                632.43
+              ],
+              "std": 298.07564722084095
+            }
+          }
+        ],
+        "table": "blinkit_order_items"
+      },
+      {
+        "columns": [
+          {
+            "column": "product_id",
+            "description": "Unique product identifier",
+            "dtype": "INTEGER",
+            "name": "product_id",
+            "stats": {
+              "25%": 273697.75,
+              "50%": 541459.0,
+              "75%": 754334.0,
+              "count": 268.0,
+              "max": 993331.0,
+              "mean": 514855.94029850746,
+              "min": 4452.0,
+              "samples": [
+                114414,
+                153019,
+                11422,
+                669378,
+                848226
+              ],
+              "std": 291391.5298200564
+            }
+          },
+          {
+            "column": "product_name",
+            "description": "Commercial product name",
+            "dtype": "TEXT",
+            "name": "product_name",
+            "stats": {
+              "count": 268,
+              "freq": 12,
+              "samples": [
+                "Pet Treats",
+                "Toilet Cleaner",
+                "Dish Soap",
+                "Lotion",
+                "Vitamins"
+              ],
+              "top": "Pet Treats",
+              "unique": 51
+            }
+          },
+          {
+            "column": "category",
+            "description": "Product classification (Dairy/Fruits/etc.)",
+            "dtype": "TEXT",
+            "name": "category",
+            "stats": {
+              "count": 268,
+              "freq": 30,
+              "samples": [
+                "Dairy & Breakfast",
+                "Fruits & Vegetables",
+                "Snacks & Munchies",
+                "Household Care",
+                "Pharmacy"
+              ],
+              "top": "Dairy & Breakfast",
+              "unique": 11
+            }
+          },
+          {
+            "column": "brand",
+            "description": "Manufacturer/distributor details",
+            "dtype": "TEXT",
+            "name": "brand",
+            "stats": {
+              "count": 268,
+              "freq": 2,
+              "samples": [
+                "Jha Group",
+                "Ramaswamy-Tata",
+                "Chadha and Sons",
+                "Barad and Sons",
+                "Sangha, Nagar and Varty"
+              ],
+              "top": "Jha Group",
+              "unique": 267
+            }
+          },
+          {
+            "column": "price",
+            "description": "Current selling price (₹)",
+            "dtype": "REAL",
+            "name": "price",
+            "stats": {
+              "25%": 226.7175,
+              "50%": 442.185,
+              "75%": 779.4449999999999,
+              "count": 268.0,
+              "max": 995.98,
+              "mean": 488.356828358209,
+              "min": 12.32,
+              "samples": [
+                826.21,
+                212.14,
+                209.59,
+                354.52,
+                532.57
+              ],
+              "std": 298.487199586296
+            }
+          },
+          {
+            "column": "mrp",
+            "description": "Maximum Retail Price (₹)",
+            "dtype": "REAL",
+            "name": "mrp",
+            "stats": {
+              "25%": 325.15000000000003,
+              "50%": 616.97,
+              "75%": 1056.6200000000001,
+              "count": 268.0,
+              "max": 1633.32,
+              "mean": 680.4347388059701,
+              "min": 17.6,
+              "samples": [
+                1040.07,
+                1263.93,
+                169.55,
+                282.85,
+                279.45
+              ],
+              "std": 419.7722240182584
+            }
+          },
+          {
+            "column": "margin_percentage",
+            "description": "Profit margin percentage (15-40%)",
+            "dtype": "REAL",
+            "name": "margin_percentage",
+            "stats": {
+              "25%": 20.0,
+              "50%": 30.0,
+              "75%": 35.0,
+              "count": 268.0,
+              "max": 40.0,
+              "mean": 27.779850746268657,
+              "min": 15.0,
+              "samples": [
+                35.0,
+                20.0,
+                25.0,
+                30.0,
+                15.0
+              ],
+              "std": 7.458753295739413
+            }
+          },
+          {
+            "column": "shelf_life_days",
+            "description": "Expiration period (3-365 days)",
+            "dtype": "INTEGER",
+            "name": "shelf_life_days",
+            "stats": {
+              "25%": 90.0,
+              "50%": 365.0,
+              "75%": 365.0,
+              "count": 268.0,
+              "max": 365.0,
+              "mean": 231.75746268656715,
+              "min": 3.0,
+              "samples": [
+                365,
+                180,
+                7,
+                3,
+                90
+              ],
+              "std": 151.2058303360698
+            }
+          },
+          {
+            "column": "min_stock_level",
+            "description": "Inventory replenishment threshold",
+            "dtype": "INTEGER",
+            "name": "min_stock_level",
+            "stats": {
+              "25%": 15.0,
+              "50%": 21.0,
+              "75%": 25.25,
+              "count": 268.0,
+              "max": 30.0,
+              "mean": 20.388059701492537,
+              "min": 10.0,
+              "samples": [
+                20,
+                27,
+                25,
+                22,
+                28
+              ],
+              "std": 5.958546498178412
+            }
+          },
+          {
+            "column": "max_stock_level",
+            "description": "Maximum storage capacity per product",
+            "dtype": "INTEGER",
+            "name": "max_stock_level",
+            "stats": {
+              "25%": 63.75,
+              "50%": 73.0,
+              "75%": 88.0,
+              "count": 268.0,
+              "max": 100.0,
+              "mean": 74.75373134328358,
+              "min": 50.0,
+              "samples": [
+                71,
+                98,
+                64,
+                95,
+                90
+              ],
+              "std": 14.591535470033513
+            }
+          }
+        ],
+        "table": "blinkit_products"
+      }
+    ]
+  },
+  "desc": "This dataset contains sales transaction data from Blinkit, an online grocery delivery platform. It contains sales data from Blinkit, including product details, order quantities, revenue, and timestamps.",
+  "goal": "Perform a statistical analysis of sales volumes, revenue contributions, and price sensitivity across different products or product categories. This descriptive approach identifies key revenue drivers and top-selling items, using visual tools such as bar charts and pie charts to highlight performance differences, which in turn supports decisions related to pricing strategies, inventory management, and promotional activities.",
+  "id": "blinkit_goal3_1742637072",
+  "name": "Visual Analytics System blinkit_goal3_1742637072",
+  "plan": {
+    "graph": [
+      {
+        "from": 1,
+        "to": 2
+      },
+      {
+        "from": 1,
+        "to": 3
+      },
+      {
+        "from": 1,
+        "to": 4
+      },
+      {
+        "from": 1,
+        "to": 5
+      }
+    ],
+    "path": "The user starts with View 1 at the Overview level to see sales patterns across product categories and time segments. Category selection triggers updates in Views 2-5. View 2 (Exploration) reveals price-quantity relationships, View 3 (Exploration) compares revenue metrics, View 4 (Insight) shows inventory-sales alignment, and View 5 (Insight) detects pricing anomalies. Interactions flow from category selection to all subordinate views, enabling progressive refinement from patterns to actionable insights.",
+    "views": [
+      {
+        "components": "Time segment legend",
+        "fields": [
+          "blinkit_products.category",
+          "blinkit_order_items.quantity",
+          "blinkit_orders.order_date"
+        ],
+        "id": 1,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Filters subsequent views by selected product categories",
+              "params": [
+                {
+                  "name": "I1",
+                  "select": {
+                    "encodings": [
+                      "x"
+                    ],
+                    "type": "point"
+                  }
+                }
+              ]
+            },
+            "object": "category bars",
+            "verb": "click"
+          }
+        ],
+        "level": "overview",
+        "task": [
+          1
+        ],
+        "usingParams": [],
+        "visualization": {
+          "description": "Stacked bar chart showing total sales quantity per category with time-of-day segments",
+          "encodings": [
+            "x: blinkit_products.category",
+            "y: sum(blinkit_order_items.quantity)",
+            "color: hours(order_date) (Morning: 6-12, Afternoon: 12-18, Evening: 18-24)"
+          ],
+          "markType": "bar"
+        }
+      },
+      {
+        "fields": [
+          "blinkit_order_items.unit_price",
+          "blinkit_order_items.quantity",
+          "blinkit_products.category"
+        ],
+        "id": 2,
+        "interactions": [],
+        "level": "exploration",
+        "task": [
+          3
+        ],
+        "usingParams": [
+          "I1"
+        ],
+        "visualization": {
+          "description": "Faceted scatterplots showing price-quantity relationships per category with revenue bubbles",
+          "encodings": [
+            "x: unit_price",
+            "y: quantity",
+            "size: sum(unit_price*quantity)",
+            "row: category"
+          ],
+          "markType": "circle"
+        }
+      },
+      {
+        "components": "Metric toggle switch (Revenue/Margin-Weighted)",
+        "fields": [
+          "blinkit_orders.order_total",
+          "blinkit_products.margin_percentage",
+          "blinkit_products.category"
+        ],
+        "id": 3,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Changes encoding calculation between sum(order_total) and sum(order_total*margin_percentage)",
+              "params": [
+                {
+                  "name": "I2",
+                  "select": {
+                    "type": "interval"
+                  }
+                }
+              ]
+            },
+            "object": "toggle switch",
+            "verb": "toggle"
+          }
+        ],
+        "level": "exploration",
+        "task": [
+          2
+        ],
+        "usingParams": [
+          "I1"
+        ],
+        "visualization": {
+          "description": "Toggleable bar chart showing raw revenue vs margin-weighted revenue",
+          "encodings": [
+            "x: category",
+            "y: toggleableMetric",
+            "color: performance_quartile"
+          ],
+          "markType": "bar"
+        }
+      },
+      {
+        "fields": [
+          "blinkit_inventory.stock_received",
+          "blinkit_order_items.quantity",
+          "blinkit_products.category"
+        ],
+        "id": 4,
+        "interactions": [],
+        "level": "insight",
+        "task": [
+          5
+        ],
+        "usingParams": [
+          "I1"
+        ],
+        "visualization": {
+          "description": "Dual-axis temporal alignment of inventory vs sales",
+          "encodings": [
+            "x: time (month)",
+            "y: stock_received (left axis)",
+            "y2: sum(quantity) (right axis)",
+            "color: category"
+          ],
+          "markType": "line"
+        }
+      },
+      {
+        "fields": [
+          "blinkit_products.price",
+          "blinkit_products.mrp",
+          "blinkit_order_items.unit_price"
+        ],
+        "id": 5,
+        "interactions": [],
+        "level": "insight",
+        "task": [
+          6
+        ],
+        "usingParams": [
+          "I1"
+        ],
+        "visualization": {
+          "description": "Histogram of price ratios with anomaly thresholds marked",
+          "encodings": [
+            "x: unit_price/mrp (binned)",
+            "y: count()",
+            "color: category"
+          ],
+          "markType": "bar"
+        }
+      }
+    ]
+  },
+  "requirements": {
+    "data": [
+      {
+        "id": "D1",
+        "reason": "Current I1 interaction requires propagating product categories to customer segment analysis but original task 4 only joins customers+orders",
+        "requirement": "Ensure all joined tables explicitly include product_category in customer segmentation views through orders->order_items->products relationships"
+      }
+    ],
+    "interaction": [
+      {
+        "id": "I1",
+        "reason": "blinkit_inventory.date format (DD-MM-YYYY) mismatches orders' timestamps, risking misleading correlations without first harmonizing time dimensions",
+        "requirement": "Category brush propagates EXCEPT to inventory views until temporal alignment achieved"
+      }
+    ],
+    "visualization": [
+      {
+        "id": "V3",
+        "reason": "Original stacked time segments (morning/afternoon/evening) don't align with timestamp format in blinkit_orders.order_date (full datetime). Time slider maintains temporal context without overloading categories.",
+        "requirement": "Bar chart showing sales frequency by product category with time-slider-based temporal filtering (instead of stacking)"
+      },
+      {
+        "id": "V4",
+        "reason": "Original grouped bar + IQR error bars misrepresent continuous distribution. Box plots better show spread despite non-interactivity constraints when paired with pre-calculated quartiles in SQL",
+        "requirement": "Box plot with visible quartiles for order_total distribution per customer_segment"
+      }
+    ]
+  },
+  "sqls": [
+    {
+      "SQL": "SELECT category, quantity, order_date FROM blinkit_products JOIN blinkit_order_items ON blinkit_products.product_id = blinkit_order_items.product_id JOIN blinkit_orders ON blinkit_order_items.order_id = blinkit_orders.order_id",
+      "corrView": "1",
+      "fk": [
+        {
+          "key": "order_id",
+          "table": "blinkit_orders"
+        }
+      ],
+      "name": "sales_summary",
+      "pk": "quantity"
+    },
+    {
+      "SQL": "SELECT category, quantity, unit_price FROM blinkit_products JOIN blinkit_order_items ON blinkit_products.product_id = blinkit_order_items.product_id",
+      "corrView": "2",
+      "fk": [
+        {
+          "key": "product_id",
+          "table": "blinkit_products"
+        }
+      ],
+      "name": "price_quantity_analysis",
+      "pk": "quantity"
+    },
+    {
+      "SQL": "SELECT category, order_total, margin_percentage FROM blinkit_products JOIN blinkit_orders ON blinkit_products.product_id = blinkit_orders.product_id",
+      "corrView": "3",
+      "fk": [
+        {
+          "key": "product_id",
+          "table": "blinkit_products"
+        }
+      ],
+      "name": "revenue_analysis",
+      "pk": "order_total"
+    },
+    {
+      "SQL": "SELECT stock_received, quantity, order_date FROM blinkit_inventory JOIN blinkit_order_items ON blinkit_inventory.product_id = blinkit_order_items.product_id JOIN blinkit_orders ON blinkit_order_items.order_id = blinkit_orders.order_id",
+      "corrView": "4",
+      "fk": [
+        {
+          "key": "product_id",
+          "table": "blinkit_products"
+        }
+      ],
+      "name": "inventory_sales_alignment",
+      "pk": "quantity"
+    },
+    {
+      "SQL": "SELECT unit_price, mrp, category FROM blinkit_products",
+      "corrView": "5",
+      "fk": [
+        {
+          "key": "product_id",
+          "table": "blinkit_products"
+        }
+      ],
+      "name": "price_ratio_analysis",
+      "pk": "unit_price"
+    }
+  ],
+  "tasks": [
+    {
+      "corrReq": [
+        "V3",
+        "I1"
+      ],
+      "data": [
+        "blinkit_products.category",
+        "blinkit_order_items.quantity",
+        "blinkit_orders.order_date"
+      ],
+      "id": 1,
+      "method": "Stacked bar chart with product categories on X-axis and total sales quantity on Y-axis. Time-of-day patterns represented as color-stacked segments (e.g., morning/afternoon/evening) derived from order_date timestamps. Linked to I1 for category brushing.",
+      "objective": "Identify top-selling categories and their temporal sales patterns to optimize inventory allocation and delivery scheduling",
+      "priority": 5,
+      "type": "characterizing distributions"
+    },
+    {
+      "corrReq": [
+        "I2"
+      ],
+      "data": [
+        "blinkit_orders.order_total",
+        "blinkit_products.margin_percentage",
+        "blinkit_products.category"
+      ],
+      "id": 2,
+      "method": "Toggleable bar chart (per I2) showing category-level revenue sum (primary mode) vs margin-weighted revenue calculated as ∑(order_total × margin_percentage). Color encodes performance quartiles relative to selected metric.",
+      "objective": "Compare raw revenue contribution vs profitability-adjusted performance across product categories",
+      "priority": 4,
+      "type": "computing derived values"
+    },
+    {
+      "corrReq": [
+        "I1"
+      ],
+      "data": [
+        "blinkit_order_items.unit_price",
+        "blinkit_order_items.quantity",
+        "blinkit_products.category"
+      ],
+      "id": 3,
+      "method": "Scatterplot matrix with price-quantity pairs per category, trend lines showing elasticity. Bubble size represents total revenue (price×quantity). Category brush (I1) filters matrix subplots.",
+      "objective": "Analyze price sensitivity and demand elasticity patterns across product categories",
+      "priority": 5,
+      "type": "correlating"
+    },
+    {
+      "corrReq": [
+        "V4"
+      ],
+      "data": [
+        "blinkit_customers.customer_segment",
+        "blinkit_orders.order_total"
+      ],
+      "id": 4,
+      "method": "Grouped bar chart (V4) with customer segments on X-axis and error bars showing ±1.5 IQR ranges. Bar height represents mean order value. Click interactions filter co-occurring views via shared segment parameter.",
+      "objective": "Compare spending patterns across customer segments to inform loyalty program adjustments",
+      "priority": 3,
+      "type": "determining ranges"
+    },
+    {
+      "corrReq": [
+        "I1"
+      ],
+      "data": [
+        "blinkit_inventory.stock_received",
+        "blinkit_order_items.quantity",
+        "blinkit_products.category"
+      ],
+      "id": 5,
+      "method": "Line chart overlay: x-axis=time, y1=stock received (inventory), y2=sales quantity (orders). Category brush (I1) highlights corresponding lines. Anomalies detected via stock-out events (y2 > y1).",
+      "objective": "Identify inventory replenishment needs through temporal alignment of stock levels and sales volume",
+      "priority": 4,
+      "type": "clustering"
+    },
+    {
+      "corrReq": [
+        "I1"
+      ],
+      "data": [
+        "blinkit_products.price",
+        "blinkit_products.mrp",
+        "blinkit_order_items.unit_price"
+      ],
+      "id": 6,
+      "method": "Histogram with price ratios (unit_price/mrp) across categories. Anomaly thresholds marked at <0.85 and >1.0 ratios. Category brush (I1) enables focused outlier inspection.",
+      "objective": "Detect pricing irregularities and potential MAP policy violations",
+      "priority": 3,
+      "type": "finding anomalies"
+    }
+  ]
+}

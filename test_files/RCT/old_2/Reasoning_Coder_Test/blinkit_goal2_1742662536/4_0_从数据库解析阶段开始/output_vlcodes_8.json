@@ -1,0 +1,275 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Interactive Customer Purchase Analysis",
+  "columns": 3,
+  "concat": [
+    {
+      "height": 200,
+      "width": 200,
+      "title": "Customer Order Frequency Distribution",
+      "description": "Customer order frequency distribution segmented by customer category",
+      "data": {
+        "url": "http://localhost:8888/customer_orders_view.csv"
+      },
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "total_orders",
+          "type": "quantitative",
+          "title": "Total Orders",
+          "axis": {
+            "titleColor": "blue"
+          }
+        },
+        "y": {
+          "field": "customer_segment",
+          "type": "nominal",
+          "title": "Customer Segment",
+          "axis": {
+            "titleColor": "green"
+          }
+        },
+        "color": {
+          "field": "customer_segment",
+          "type": "nominal",
+          "title": "Customer Segment",
+          "scale": {
+            "domain": [
+              "Regular",
+              "Premium",
+              "New",
+              "Inactive"
+            ],
+            "range": [
+              "#FF6600",
+              "#6600FF",
+              "#00FF66",
+              "#FF0066"
+            ]
+          }
+        }
+      },
+      "params": [
+        {
+          "name": "selected_segment",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "y"
+            ]
+          }
+        }
+      ],
+      "interactions": [
+        {
+          "object": "total_orders bars",
+          "verb": "click",
+          "effect": {
+            "description": "Filters subsequent views to selected customer segments",
+            "params": [
+              {
+                "name": "selected_segment",
+                "select": {
+                  "type": "point",
+                  "encodings": [
+                    "y"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "title": "Product Category Frequency Analysis",
+      "description": "Product category frequency analysis highlighted by selected customer segments",
+      "data": {
+        "url": "http://localhost:8888/category_orders_view.csv"
+      },
+      "mark": "rect",
+      "encoding": {
+        "x": {
+          "field": "category",
+          "type": "nominal",
+          "title": "Product Category",
+          "axis": {
+            "titleColor": "blue"
+          }
+        },
+        "y": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "title": "Number of Orders",
+          "axis": {
+            "titleColor": "green"
+          }
+        },
+        "color": {
+          "field": "selected_segment",
+          "type": "nominal",
+          "title": "Customer Segment",
+          "scale": {
+            "domain": [
+              "Regular",
+              "Premium",
+              "New",
+              "Inactive"
+            ],
+            "range": [
+              "#FF6600",
+              "#6600FF",
+              "#00FF66",
+              "#FF0066"
+            ]
+          }
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/customer_orders_view.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "customer_segment"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "selected_segment"
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "title": "Co-Occurrence Matrix of Frequently Bought Products",
+      "description": "Co-occurrence matrix showing product pairs frequently bought together",
+      "data": {
+        "url": "http://localhost:8888/order_items_view.csv"
+      },
+      "mark": "circle",
+      "encoding": {
+        "x": {
+          "field": "product_id",
+          "type": "nominal",
+          "title": "Product A",
+          "axis": {
+            "titleColor": "blue"
+          }
+        },
+        "y": {
+          "field": "product_id",
+          "type": "nominal",
+          "title": "Product B",
+          "axis": {
+            "titleColor": "green"
+          }
+        },
+        "size": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "title": "Co-occurrence count",
+          "axis": {
+            "titleColor": "red"
+          }
+        },
+        "color": {
+          "field": "selected_segment",
+          "type": "nominal",
+          "title": "Customer Segment",
+          "scale": {
+            "domain": [
+              "Regular",
+              "Premium",
+              "New",
+              "Inactive"
+            ],
+            "range": [
+              "#FF6600",
+              "#6600FF",
+              "#00FF66",
+              "#FF0066"
+            ]
+          }
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/customer_orders_view.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "customer_segment"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "selected_segment"
+          }
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "count",
+              "as": "co_occurrence_count"
+            }
+          ]
+        }
+      ],
+      "params": [
+        {
+          "name": "selected_segment",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "y"
+            ]
+          }
+        },
+        {
+          "name": "selected_products",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ],
+      "interactions": [
+        {
+          "object": "co_occurrence_matrix cells",
+          "verb": "click",
+          "effect": {
+            "description": "Drills down to customer purchase sequences for selected product pair",
+            "params": [
+              {
+                "name": "selected_products",
+                "select": {
+                  "type": "interval",
+                  "encodings": [
+                    "x",
+                    "y"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

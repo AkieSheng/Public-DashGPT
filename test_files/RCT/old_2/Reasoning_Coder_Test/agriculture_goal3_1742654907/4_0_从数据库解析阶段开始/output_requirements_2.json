@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "id": "D1",
+      "requirement": "Join soil_analysis_data with crop_production_data on District field only since soil data isn't crop-specific",
+      "reason": "Original join on Crop is invalid - soil analysis doesn't contain crop information. District-level alignment maintains geographic relevance for soil-yield correlations"
+    },
+    {
+      "id": "D2",
+      "requirement": "Remove temporal aggregation requirement as soil analysis data lacks time dimension",
+      "reason": "Soil_analysis_data contains no date/season column, making temporal analysis impossible. Focus instead on spatial nutrient patterns"
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V2",
+      "requirement": "Replace small multiple heat maps with vertical grouped bar charts showing soil type distribution per district with yield efficiency overlay",
+      "reason": "District names as text categories work better in bar charts than heat map axes. Enables direct comparison of soil prevalence vs productivity"
+    },
+    {
+      "id": "V3",
+      "requirement": "Change to box plots showing distributions of organic matter (%) within each soil type category",
+      "reason": "Original stacked bars required unavailable irrigation data. Box plots better show soil composition variability while using only soil table data"
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I2",
+      "requirement": "Replace time filter with season filter using crop_production_data's Season field",
+      "reason": "Enables analysis of Rabi/Kharif season impacts on yield-soil relationships through parametric filtering"
+    }
+  ]
+}

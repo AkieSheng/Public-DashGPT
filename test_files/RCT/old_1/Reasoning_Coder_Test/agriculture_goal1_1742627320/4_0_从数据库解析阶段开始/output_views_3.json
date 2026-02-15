@@ -1,0 +1,131 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "water_usage_data.Irrigation Method",
+      "crop_production_data.Yield (quintals)",
+      "water_usage_data.Water Consumption (liters/hectare)"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "boxplot",
+      "encodings": [
+        "x=Irrigation Method (categorical)",
+        "y=Yield (quantitative)",
+        "color=District (categorical)",
+        "rule=Average Water Consumption (horizontal line)"
+      ],
+      "description": "Faceted box plots showing yield distributions by irrigation method with horizontal reference lines indicating average water consumption per method"
+    },
+    "components": "Legend for district colors, toggle switch for consumption line visibility",
+    "interactions": [
+      {
+        "object": "plot",
+        "verb": "click",
+        "effect": {
+          "description": "Highlight selected irrigation method across all views",
+          "params": [
+            {
+              "name": "selected_method",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "water_usage_data.Water Consumption (liters/hectare)",
+      "crop_production_data.Yield (quintals)",
+      "crop_production_data.Crop"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x=Water Consumption (quantitative)",
+        "y=Yield (quantitative)",
+        "color=Crop (categorical)",
+        "row=Crop (facet)"
+      ],
+      "description": "Scatter plot matrix with regression lines showing water-yield relationships per crop type"
+    },
+    "usingParams": [
+      "selected_method"
+    ],
+    "interactions": [
+      {
+        "object": "plot",
+        "verb": "hover",
+        "effect": {
+          "description": "Show tooltip with detailed stats",
+          "params": []
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "insight",
+    "fields": [
+      "water_usage_data.District",
+      "water_usage_data.Crop",
+      "water_usage_data.Water Consumption (liters/hectare)",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x=District (categorical)",
+        "y=Crop (categorical)",
+        "color=Yield/Water Consumption (quantitative)"
+      ],
+      "description": "Heatmap showing water efficiency ratio (yield per liter) with adjacent bar chart of top performers"
+    },
+    "usingParams": [
+      "selected_method"
+    ],
+    "components": "Sidebar with efficiency threshold slider"
+  },
+  {
+    "id": 4,
+    "level": "detail",
+    "fields": [
+      "soil_analysis_data.Soil Type",
+      "water_usage_data.Irrigation Method",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x=Soil Type (categorical)",
+        "y=count()",
+        "color=Irrigation Method (categorical)",
+        "tooltip=Yield range"
+      ],
+      "description": "Stacked bar chart showing preferred irrigation methods per soil type with error bars indicating yield ranges"
+    },
+    "usingParams": [
+      "selected_method"
+    ]
+  }
+]

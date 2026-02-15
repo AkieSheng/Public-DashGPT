@@ -1,0 +1,1 @@
+"Execution failed on sql 'SELECT * FROM view_1_venue_win_rate': ambiguous column name: venue"

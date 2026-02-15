@@ -1,0 +1,2147 @@
+{
+  "created": 1742641477,
+  "dataset": {
+    "description": "The dataset contains four tables: batter_player_stats (batting statistics for individual players), bowler_player_stats (bowling statistics for individual players), detailed_player_data (per-match player performance data), and match_summary (match-level details including toss results, match outcome, player of the match, and venue information).",
+    "tables": [
+      {
+        "columns": [
+          {
+            "column": "player_name",
+            "description": "Name of the player; unique for all rows.",
+            "dtype": "TEXT",
+            "name": "player_name",
+            "stats": {
+              "count": 1540,
+              "freq": 1,
+              "samples": [
+                "Syeda Aroob Shah",
+                "V Kohli",
+                "KC Sangakkara",
+                "RG Sharma",
+                "D Foxcroft"
+              ],
+              "top": "Syeda Aroob Shah",
+              "unique": 1540
+            }
+          },
+          {
+            "column": "role",
+            "description": "Role of the player in the team (always 'Batter').",
+            "dtype": "TEXT",
+            "name": "role",
+            "stats": {
+              "count": 1540,
+              "freq": 1540,
+              "samples": [
+                "Batter"
+              ],
+              "top": "Batter",
+              "unique": 1
+            }
+          },
+          {
+            "column": "total_runs",
+            "description": "Total runs scored by the player across matches.",
+            "dtype": "INTEGER",
+            "name": "total_runs",
+            "stats": {
+              "25%": 28.0,
+              "50%": 136.0,
+              "75%": 586.0,
+              "count": 1540.0,
+              "max": 13784.0,
+              "mean": 632.3785714285714,
+              "min": 0.0,
+              "samples": [
+                0,
+                2,
+                4,
+                1,
+                3
+              ],
+              "std": 1319.0245441531897
+            }
+          },
+          {
+            "column": "strike_rate",
+            "description": "Player's strike rate, representing runs scored per 100 balls faced.",
+            "dtype": "REAL",
+            "name": "strike_rate",
+            "stats": {
+              "25%": 50.0,
+              "50%": 66.79373568695505,
+              "75%": 81.44300180655873,
+              "count": 1540.0,
+              "max": 328.57142857142856,
+              "mean": 65.5287568849723,
+              "min": 0.0,
+              "samples": [
+                0.0,
+                50.0,
+                33.33333333333333,
+                100.0,
+                66.66666666666666
+              ],
+              "std": 27.388033424414836
+            }
+          },
+          {
+            "column": "total_balls_faced",
+            "description": "Total number of balls faced by the player across matches.",
+            "dtype": "INTEGER",
+            "name": "total_balls_faced",
+            "stats": {
+              "25%": 54.0,
+              "50%": 211.0,
+              "75%": 770.0,
+              "count": 1540.0,
+              "max": 15031.0,
+              "mean": 811.6753246753246,
+              "min": 1.0,
+              "samples": [
+                3,
+                2,
+                9,
+                16,
+                11
+              ],
+              "std": 1582.382449600803
+            }
+          },
+          {
+            "column": "total_wickets_taken",
+            "description": "Total number of wickets taken by the player (likely 0 for batters).",
+            "dtype": "INTEGER",
+            "name": "total_wickets_taken",
+            "stats": {
+              "25%": 0.0,
+              "50%": 0.0,
+              "75%": 7.0,
+              "count": 1540.0,
+              "max": 343.0,
+              "mean": 10.916883116883117,
+              "min": 0.0,
+              "samples": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "std": 27.927542015262816
+            }
+          },
+          {
+            "column": "total_runs_conceded",
+            "description": "Total runs conceded by the player while bowling (likely 0 for batters).",
+            "dtype": "INTEGER",
+            "name": "total_runs_conceded",
+            "stats": {
+              "25%": 0.0,
+              "50%": 22.5,
+              "75%": 240.75,
+              "count": 1540.0,
+              "max": 9518.0,
+              "mean": 338.89935064935065,
+              "min": 0.0,
+              "samples": [
+                0,
+                20,
+                17,
+                9,
+                12
+              ],
+              "std": 818.5522407823257
+            }
+          },
+          {
+            "column": "total_overs_bowled",
+            "description": "Total number of overs bowled by the player (likely 0 for batters).",
+            "dtype": "INTEGER",
+            "name": "total_overs_bowled",
+            "stats": {
+              "25%": 0.0,
+              "50%": 24.0,
+              "75%": 288.25,
+              "count": 1540.0,
+              "max": 10803.0,
+              "mean": 411.7668831168831,
+              "min": 0.0,
+              "samples": [
+                0,
+                6,
+                12,
+                18,
+                24
+              ],
+              "std": 994.9898093949985
+            }
+          },
+          {
+            "column": "total_matches_played",
+            "description": "Total number of matches played by the player.",
+            "dtype": "INTEGER",
+            "name": "total_matches_played",
+            "stats": {
+              "25%": 79.0,
+              "50%": 329.0,
+              "75%": 463.0,
+              "count": 1540.0,
+              "max": 580.0,
+              "mean": 289.49545454545455,
+              "min": 1.0,
+              "samples": [
+                49,
+                428,
+                65,
+                463,
+                85
+              ],
+              "std": 190.89788691388995
+            }
+          },
+          {
+            "column": "matches_played_as_batter",
+            "description": "Number of matches the player participated as a batter (equal to total matches played for this table).",
+            "dtype": "INTEGER",
+            "name": "matches_played_as_batter",
+            "stats": {
+              "25%": 79.0,
+              "50%": 329.0,
+              "75%": 463.0,
+              "count": 1540.0,
+              "max": 580.0,
+              "mean": 289.49545454545455,
+              "min": 1.0,
+              "samples": [
+                49,
+                428,
+                65,
+                463,
+                85
+              ],
+              "std": 190.89788691388995
+            }
+          },
+          {
+            "column": "matches_played_as_bowler",
+            "description": "Number of matches the player participated as a bowler (always 0 for batters).",
+            "dtype": "INTEGER",
+            "name": "matches_played_as_bowler",
+            "stats": {
+              "25%": 0.0,
+              "50%": 0.0,
+              "75%": 0.0,
+              "count": 1540.0,
+              "max": 0.0,
+              "mean": 0.0,
+              "min": 0.0,
+              "samples": [
+                0
+              ],
+              "std": 0.0
+            }
+          },
+          {
+            "column": "matches_won",
+            "description": "Number of matches won by the player's team when they participated.",
+            "dtype": "INTEGER",
+            "name": "matches_won",
+            "stats": {
+              "25%": 30.75,
+              "50%": 137.5,
+              "75%": 236.0,
+              "count": 1540.0,
+              "max": 381.0,
+              "mean": 148.4525974025974,
+              "min": 0.0,
+              "samples": [
+                27,
+                165,
+                25,
+                33,
+                231
+              ],
+              "std": 118.57929723750298
+            }
+          },
+          {
+            "column": "matches_lost",
+            "description": "Number of matches lost by the player's team when they participated.",
+            "dtype": "INTEGER",
+            "name": "matches_lost",
+            "stats": {
+              "25%": 47.0,
+              "50%": 162.5,
+              "75%": 212.0,
+              "count": 1540.0,
+              "max": 275.0,
+              "mean": 141.04285714285714,
+              "min": 0.0,
+              "samples": [
+                211,
+                217,
+                208,
+                33,
+                32
+              ],
+              "std": 85.97609551659389
+            }
+          },
+          {
+            "column": "player_of_match_awards",
+            "description": "Number of Player of the Match awards won by the player.",
+            "dtype": "INTEGER",
+            "name": "player_of_match_awards",
+            "stats": {
+              "25%": 0.0,
+              "50%": 0.0,
+              "75%": 1.0,
+              "count": 1540.0,
+              "max": 41.0,
+              "mean": 1.2311688311688311,
+              "min": 0.0,
+              "samples": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "std": 3.0613930306180492
+            }
+          },
+          {
+            "column": "team",
+            "description": "The team the player belongs to (e.g., India, Pakistan).",
+            "dtype": "TEXT",
+            "name": "team",
+            "stats": {
+              "count": 1540,
+              "freq": 119,
+              "samples": [
+                "India",
+                "West Indies",
+                "Sri Lanka",
+                "Pakistan",
+                "England"
+              ],
+              "top": "India",
+              "unique": 25
+            }
+          },
+          {
+            "column": "average",
+            "description": "Batting average of the player (total runs divided by dismissals, if applicable).",
+            "dtype": "REAL",
+            "name": "average",
+            "stats": {
+              "25%": 3.727272727272727,
+              "50%": 11.6,
+              "75%": 65.58536585365853,
+              "count": 721.0,
+              "max": 10274.0,
+              "mean": 157.86686231298617,
+              "min": 0.0,
+              "samples": [
+                1.0,
+                2.0,
+                0.0,
+                5.0,
+                0.5
+              ],
+              "std": 597.0902165524998
+            }
+          }
+        ],
+        "table": "batter_player_stats"
+      },
+      {
+        "columns": [
+          {
+            "column": "player_name",
+            "description": "Name of the player; unique for all rows.",
+            "dtype": "TEXT",
+            "name": "player_name",
+            "stats": {
+              "count": 929,
+              "freq": 1,
+              "samples": [
+                "M Shezi",
+                "SIP Fernando",
+                "Aamir Kaleem",
+                "C Raack",
+                "RM West"
+              ],
+              "top": "M Shezi",
+              "unique": 929
+            }
+          },
+          {
+            "column": "role",
+            "description": "Role of the player in the team (always 'Bowler').",
+            "dtype": "TEXT",
+            "name": "role",
+            "stats": {
+              "count": 929,
+              "freq": 929,
+              "samples": [
+                "Bowler"
+              ],
+              "top": "Bowler",
+              "unique": 1
+            }
+          },
+          {
+            "column": "total_runs",
+            "description": "Total runs scored by the player across matches.",
+            "dtype": "INTEGER",
+            "name": "total_runs",
+            "stats": {
+              "25%": 7.0,
+              "50%": 40.0,
+              "75%": 185.0,
+              "count": 929.0,
+              "max": 6699.0,
+              "mean": 228.42841765339074,
+              "min": 0.0,
+              "samples": [
+                0,
+                1,
+                11,
+                4,
+                2
+              ],
+              "std": 641.6414073069762
+            }
+          },
+          {
+            "column": "strike_rate",
+            "description": "Player's batting strike rate, representing runs scored per 100 balls faced.",
+            "dtype": "REAL",
+            "name": "strike_rate",
+            "stats": {
+              "25%": 37.1900826446281,
+              "50%": 60.0,
+              "75%": 80.0,
+              "count": 929.0,
+              "max": 300.0,
+              "mean": 57.54700968733509,
+              "min": 0.0,
+              "samples": [
+                0.0,
+                50.0,
+                100.0,
+                66.66666666666666,
+                33.33333333333333
+              ],
+              "std": 36.18819506493667
+            }
+          },
+          {
+            "column": "total_balls_faced",
+            "description": "Total number of balls faced by the player while batting.",
+            "dtype": "INTEGER",
+            "name": "total_balls_faced",
+            "stats": {
+              "25%": 13.0,
+              "50%": 72.0,
+              "75%": 249.0,
+              "count": 929.0,
+              "max": 8333.0,
+              "mean": 299.1550053821313,
+              "min": 0.0,
+              "samples": [
+                0,
+                3,
+                2,
+                6,
+                12
+              ],
+              "std": 780.1702964511544
+            }
+          },
+          {
+            "column": "total_wickets_taken",
+            "description": "Total number of wickets taken by the player as a bowler.",
+            "dtype": "INTEGER",
+            "name": "total_wickets_taken",
+            "stats": {
+              "25%": 2.0,
+              "50%": 8.0,
+              "75%": 30.0,
+              "count": 929.0,
+              "max": 281.0,
+              "mean": 26.796555435952637,
+              "min": 0.0,
+              "samples": [
+                1,
+                0,
+                2,
+                4,
+                5
+              ],
+              "std": 43.43927277426126
+            }
+          },
+          {
+            "column": "total_runs_conceded",
+            "description": "Total number of runs conceded by the player while bowling.",
+            "dtype": "INTEGER",
+            "name": "total_runs_conceded",
+            "stats": {
+              "25%": 99.0,
+              "50%": 285.0,
+              "75%": 943.0,
+              "count": 929.0,
+              "max": 8249.0,
+              "mean": 795.6533907427341,
+              "min": 1.0,
+              "samples": [
+                75,
+                123,
+                69,
+                27,
+                67
+              ],
+              "std": 1217.5030882173444
+            }
+          },
+          {
+            "column": "total_overs_bowled",
+            "description": "Total number of overs bowled by the player.",
+            "dtype": "INTEGER",
+            "name": "total_overs_bowled",
+            "stats": {
+              "25%": 114.0,
+              "50%": 340.0,
+              "75%": 1139.0,
+              "count": 929.0,
+              "max": 10754.0,
+              "mean": 962.0818083961249,
+              "min": 4.0,
+              "samples": [
+                61,
+                62,
+                84,
+                18,
+                24
+              ],
+              "std": 1488.7478972243184
+            }
+          },
+          {
+            "column": "total_matches_played",
+            "description": "Total number of matches played by the player.",
+            "dtype": "INTEGER",
+            "name": "total_matches_played",
+            "stats": {
+              "25%": 114.0,
+              "50%": 347.0,
+              "75%": 469.0,
+              "count": 929.0,
+              "max": 580.0,
+              "mean": 314.7771797631862,
+              "min": 1.0,
+              "samples": [
+                65,
+                469,
+                510,
+                38,
+                467
+              ],
+              "std": 181.99968879109363
+            }
+          },
+          {
+            "column": "matches_played_as_batter",
+            "description": "Number of matches the player participated as a batter (usually 0 for bowlers).",
+            "dtype": "INTEGER",
+            "name": "matches_played_as_batter",
+            "stats": {
+              "25%": 0.0,
+              "50%": 0.0,
+              "75%": 0.0,
+              "count": 929.0,
+              "max": 0.0,
+              "mean": 0.0,
+              "min": 0.0,
+              "samples": [
+                0
+              ],
+              "std": 0.0
+            }
+          },
+          {
+            "column": "matches_played_as_bowler",
+            "description": "Number of matches the player participated as a bowler (equal to total matches played for this table).",
+            "dtype": "INTEGER",
+            "name": "matches_played_as_bowler",
+            "stats": {
+              "25%": 114.0,
+              "50%": 347.0,
+              "75%": 469.0,
+              "count": 929.0,
+              "max": 580.0,
+              "mean": 314.7771797631862,
+              "min": 1.0,
+              "samples": [
+                65,
+                469,
+                510,
+                38,
+                467
+              ],
+              "std": 181.99968879109363
+            }
+          },
+          {
+            "column": "matches_won",
+            "description": "Number of matches won by the player's team when they participated.",
+            "dtype": "INTEGER",
+            "name": "matches_won",
+            "stats": {
+              "25%": 53.0,
+              "50%": 162.0,
+              "75%": 262.0,
+              "count": 929.0,
+              "max": 381.0,
+              "mean": 164.48116254036597,
+              "min": 1.0,
+              "samples": [
+                66,
+                60,
+                25,
+                356,
+                360
+              ],
+              "std": 118.70033408005223
+            }
+          },
+          {
+            "column": "matches_lost",
+            "description": "Number of matches lost by the player's team when they participated.",
+            "dtype": "INTEGER",
+            "name": "matches_lost",
+            "stats": {
+              "25%": 64.0,
+              "50%": 173.0,
+              "75%": 212.0,
+              "count": 929.0,
+              "max": 275.0,
+              "mean": 150.29601722282024,
+              "min": 0.0,
+              "samples": [
+                217,
+                180,
+                61,
+                47,
+                162
+              ],
+              "std": 79.18296138820902
+            }
+          },
+          {
+            "column": "player_of_match_awards",
+            "description": "Number of Player of the Match awards won by the player.",
+            "dtype": "INTEGER",
+            "name": "player_of_match_awards",
+            "stats": {
+              "25%": 0.0,
+              "50%": 0.0,
+              "75%": 1.0,
+              "count": 929.0,
+              "max": 22.0,
+              "mean": 0.8406889128094726,
+              "min": 0.0,
+              "samples": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "std": 2.0226151237150436
+            }
+          },
+          {
+            "column": "team",
+            "description": "The team the player belongs to (e.g., India, South Africa).",
+            "dtype": "TEXT",
+            "name": "team",
+            "stats": {
+              "count": 929,
+              "freq": 93,
+              "samples": [
+                "India",
+                "South Africa",
+                "Zimbabwe",
+                "Sri Lanka",
+                "Pakistan"
+              ],
+              "top": "India",
+              "unique": 25
+            }
+          },
+          {
+            "column": "economy_rate",
+            "description": "Bowler's average runs conceded per over.",
+            "dtype": "REAL",
+            "name": "economy_rate",
+            "stats": {
+              "25%": 0.7595552466990966,
+              "50%": 0.8529411764705882,
+              "75%": 0.9567901234567902,
+              "count": 929.0,
+              "max": 2.25,
+              "mean": 0.8748016741113371,
+              "min": 0.2162162162162162,
+              "samples": [
+                1.0,
+                1.1666666666666667,
+                1.0909090909090908,
+                1.3333333333333333,
+                0.75
+              ],
+              "std": 0.2085291135386056
+            }
+          },
+          {
+            "column": "average",
+            "description": "Bowler's average runs per wicket taken.",
+            "dtype": "REAL",
+            "name": "average",
+            "stats": {
+              "25%": 25.0,
+              "50%": 31.75,
+              "75%": 41.8,
+              "count": 853.0,
+              "max": 250.0,
+              "mean": 38.17756717219121,
+              "min": 4.666666666666667,
+              "samples": [
+                31.0,
+                56.0,
+                41.0,
+                33.0,
+                25.0
+              ],
+              "std": 24.508968956166783
+            }
+          }
+        ],
+        "table": "bowler_player_stats"
+      },
+      {
+        "columns": [
+          {
+            "column": "match_id",
+            "description": "Unique identifier for the match.",
+            "dtype": "INTEGER",
+            "name": "match_id",
+            "stats": {
+              "25%": 335356.0,
+              "50%": 656443.0,
+              "75%": 1168245.0,
+              "count": 52031.0,
+              "max": 1457469.0,
+              "mean": 737239.5219388441,
+              "min": 64814.0,
+              "samples": [
+                1339613,
+                1243393,
+                235831,
+                237568,
+                1144496
+              ],
+              "std": 450090.35756489506
+            }
+          },
+          {
+            "column": "player",
+            "description": "Name of the player who participated in the match.",
+            "dtype": "TEXT",
+            "name": "player",
+            "stats": {
+              "count": 52031,
+              "freq": 323,
+              "samples": [
+                "MS Dhoni",
+                "KC Sangakkara",
+                "V Kohli",
+                "TM Dilshan",
+                "DPMD Jayawardene"
+              ],
+              "top": "MS Dhoni",
+              "unique": 1872
+            }
+          },
+          {
+            "column": "team",
+            "description": "The team the player represented during the match.",
+            "dtype": "TEXT",
+            "name": "team",
+            "stats": {
+              "count": 52031,
+              "freq": 5461,
+              "samples": [
+                "India",
+                "Sri Lanka",
+                "Australia",
+                "England",
+                "Pakistan"
+              ],
+              "top": "India",
+              "unique": 27
+            }
+          },
+          {
+            "column": "runs",
+            "description": "Number of runs scored by the player in the match.",
+            "dtype": "INTEGER",
+            "name": "runs",
+            "stats": {
+              "25%": 0.0,
+              "50%": 8.0,
+              "75%": 28.0,
+              "count": 52031.0,
+              "max": 264.0,
+              "mean": 19.414483673194827,
+              "min": 0.0,
+              "samples": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "std": 26.86086947152253
+            }
+          },
+          {
+            "column": "balls_faced",
+            "description": "Number of balls faced by the player in the match.",
+            "dtype": "INTEGER",
+            "name": "balls_faced",
+            "stats": {
+              "25%": 2.0,
+              "50%": 13.0,
+              "75%": 36.0,
+              "count": 52031.0,
+              "max": 176.0,
+              "mean": 24.443158886048703,
+              "min": 0.0,
+              "samples": [
+                0,
+                1,
+                2,
+                4,
+                3
+              ],
+              "std": 29.620684072068293
+            }
+          },
+          {
+            "column": "fours",
+            "description": "Number of boundary fours hit by the player during the match.",
+            "dtype": "INTEGER",
+            "name": "fours",
+            "stats": {
+              "25%": 0.0,
+              "50%": 1.0,
+              "75%": 3.0,
+              "count": 52031.0,
+              "max": 33.0,
+              "mean": 1.7860121850435318,
+              "min": 0.0,
+              "samples": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "std": 2.7586059831676817
+            }
+          },
+          {
+            "column": "sixes",
+            "description": "Number of boundary sixes hit by the player during the match.",
+            "dtype": "INTEGER",
+            "name": "sixes",
+            "stats": {
+              "25%": 0.0,
+              "50%": 0.0,
+              "75%": 0.0,
+              "count": 52031.0,
+              "max": 16.0,
+              "mean": 0.33547308335415427,
+              "min": 0.0,
+              "samples": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "std": 0.9173757511970543
+            }
+          },
+          {
+            "column": "wickets",
+            "description": "Number of wickets taken by the player in the match.",
+            "dtype": "INTEGER",
+            "name": "wickets",
+            "stats": {
+              "25%": 0.0,
+              "50%": 0.0,
+              "75%": 1.0,
+              "count": 52031.0,
+              "max": 7.0,
+              "mean": 0.5991043800811054,
+              "min": 0.0,
+              "samples": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "std": 1.0218515702575122
+            }
+          },
+          {
+            "column": "overs_bowled",
+            "description": "Number of overs the player bowled in the match.",
+            "dtype": "INTEGER",
+            "name": "overs_bowled",
+            "stats": {
+              "25%": 0.0,
+              "50%": 3.0,
+              "75%": 8.0,
+              "count": 52031.0,
+              "max": 12.0,
+              "mean": 3.96092713958986,
+              "min": 0.0,
+              "samples": [
+                0,
+                10,
+                9,
+                8,
+                7
+              ],
+              "std": 4.131063362686487
+            }
+          },
+          {
+            "column": "balls_bowled",
+            "description": "Number of balls the player bowled in the match.",
+            "dtype": "INTEGER",
+            "name": "balls_bowled",
+            "stats": {
+              "25%": 0.0,
+              "50%": 18.0,
+              "75%": 51.0,
+              "count": 52031.0,
+              "max": 75.0,
+              "mean": 24.443158886048703,
+              "min": 0.0,
+              "samples": [
+                0,
+                60,
+                61,
+                62,
+                48
+              ],
+              "std": 25.420470866634332
+            }
+          },
+          {
+            "column": "runs_conceded",
+            "description": "Number of runs conceded by the player while bowling in the match.",
+            "dtype": "INTEGER",
+            "name": "runs_conceded",
+            "stats": {
+              "25%": 0.0,
+              "50%": 13.0,
+              "75%": 37.0,
+              "count": 52031.0,
+              "max": 113.0,
+              "mean": 19.414483673194827,
+              "min": 0.0,
+              "samples": [
+                0,
+                31,
+                37,
+                35,
+                34
+              ],
+              "std": 21.442354746457237
+            }
+          },
+          {
+            "column": "catches",
+            "description": "Number of catches taken by the player in the match.",
+            "dtype": "INTEGER",
+            "name": "catches",
+            "stats": {
+              "25%": 0.0,
+              "50%": 0.0,
+              "75%": 1.0,
+              "count": 52031.0,
+              "max": 6.0,
+              "mean": 0.3803117372335723,
+              "min": 0.0,
+              "samples": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "std": 0.6789777528353351
+            }
+          },
+          {
+            "column": "run_outs",
+            "description": "Number of players run out by the player in the match.",
+            "dtype": "INTEGER",
+            "name": "run_outs",
+            "stats": {
+              "25%": 0.0,
+              "50%": 0.0,
+              "75%": 0.0,
+              "count": 52031.0,
+              "max": 4.0,
+              "mean": 0.06111741077434606,
+              "min": 0.0,
+              "samples": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "std": 0.25971963452778496
+            }
+          },
+          {
+            "column": "maiden",
+            "description": "Number of maiden overs bowled by the player in the match.",
+            "dtype": "INTEGER",
+            "name": "maiden",
+            "stats": {
+              "25%": 0.0,
+              "50%": 0.0,
+              "75%": 0.0,
+              "count": 52031.0,
+              "max": 6.0,
+              "mean": 0.23730083988391537,
+              "min": 0.0,
+              "samples": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "std": 0.6022420556225787
+            }
+          },
+          {
+            "column": "stumps",
+            "description": "Number of stump dismissals made by the player in the match.",
+            "dtype": "INTEGER",
+            "name": "stumps",
+            "stats": {
+              "25%": 0.0,
+              "50%": 0.0,
+              "75%": 0.0,
+              "count": 52031.0,
+              "max": 3.0,
+              "mean": 0.016125002402413945,
+              "min": 0.0,
+              "samples": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "std": 0.13915198005568835
+            }
+          },
+          {
+            "column": "match_outcome",
+            "description": "Outcome of the match for the player's team (win/loss).",
+            "dtype": "TEXT",
+            "name": "match_outcome",
+            "stats": {
+              "count": 52031,
+              "freq": 27200,
+              "samples": [
+                "loss",
+                "win"
+              ],
+              "top": "loss",
+              "unique": 2
+            }
+          },
+          {
+            "column": "opposition_team",
+            "description": "The opposing team in the match.",
+            "dtype": "TEXT",
+            "name": "opposition_team",
+            "stats": {
+              "count": 52031,
+              "freq": 5485,
+              "samples": [
+                "India",
+                "Sri Lanka",
+                "Australia",
+                "England",
+                "Pakistan"
+              ],
+              "top": "India",
+              "unique": 27
+            }
+          },
+          {
+            "column": "strike_rate",
+            "description": "Player's batting strike rate during the match.",
+            "dtype": "REAL",
+            "name": "strike_rate",
+            "stats": {
+              "25%": 0.0,
+              "50%": 56.52,
+              "75%": 87.5,
+              "count": 52031.0,
+              "max": 600.0,
+              "mean": 57.06979512213873,
+              "min": 0.0,
+              "samples": [
+                0.0,
+                100.0,
+                50.0,
+                66.67,
+                33.33
+              ],
+              "std": 51.15618094847819
+            }
+          },
+          {
+            "column": "economy",
+            "description": "Player's economy rate (bowling) for the match.",
+            "dtype": "REAL",
+            "name": "economy",
+            "stats": {
+              "25%": 0.0,
+              "50%": 2.8,
+              "75%": 5.0,
+              "count": 52031.0,
+              "max": 36.0,
+              "mean": 2.757775172493321,
+              "min": 0.0,
+              "samples": [
+                0.0,
+                6.0,
+                4.0,
+                5.0,
+                3.0
+              ],
+              "std": 2.8949205851275157
+            }
+          },
+          {
+            "column": "fantasy_points",
+            "description": "Fantasy cricket points scored by the player in the match.",
+            "dtype": "INTEGER",
+            "name": "fantasy_points",
+            "stats": {
+              "25%": 20.0,
+              "50%": 48.0,
+              "75%": 84.0,
+              "count": 52031.0,
+              "max": 540.0,
+              "mean": 60.11866002959774,
+              "min": -5.0,
+              "samples": [
+                8,
+                -3,
+                16,
+                5,
+                45
+              ],
+              "std": 52.83002516165547
+            }
+          },
+          {
+            "column": "venue",
+            "description": "The venue where the match was played.",
+            "dtype": "TEXT",
+            "name": "venue",
+            "stats": {
+              "count": 52031,
+              "freq": 2284,
+              "samples": [
+                "Harare Sports Club",
+                "Shere Bangla National Stadium",
+                "Dubai International Cricket Stadium",
+                "Sydney Cricket Ground",
+                "R Premadasa Stadium"
+              ],
+              "top": "Harare Sports Club",
+              "unique": 303
+            }
+          }
+        ],
+        "table": "detailed_player_data"
+      },
+      {
+        "columns": [
+          {
+            "column": "match_id",
+            "description": "Unique identifier for the match.",
+            "dtype": "INTEGER",
+            "name": "match_id",
+            "stats": {
+              "25%": 335354.75,
+              "50%": 656436.0,
+              "75%": 1168242.25,
+              "count": 2400.0,
+              "max": 1457469.0,
+              "mean": 736115.3245833333,
+              "min": 64814.0,
+              "samples": [
+                792293,
+                433567,
+                1322359,
+                760795,
+                1168512
+              ],
+              "std": 450077.5428333021
+            }
+          },
+          {
+            "column": "created",
+            "description": "Date the match data was created or logged.",
+            "dtype": "TEXT",
+            "name": "created",
+            "stats": {
+              "count": 2400,
+              "freq": 78,
+              "samples": [
+                "2021-03-08",
+                "2012-07-08",
+                "2023-01-15",
+                "2020-12-04",
+                "2011-04-25"
+              ],
+              "top": "2021-03-08",
+              "unique": 847
+            }
+          },
+          {
+            "column": "city",
+            "description": "City where the match was played.",
+            "dtype": "TEXT",
+            "name": "city",
+            "stats": {
+              "count": 2119,
+              "freq": 92,
+              "samples": [
+                "Colombo",
+                "Mirpur",
+                "London",
+                "Bulawayo",
+                "Harare"
+              ],
+              "top": "Colombo",
+              "unique": 146
+            }
+          },
+          {
+            "column": "dates",
+            "description": "Dates on which the match took place.",
+            "dtype": "TEXT",
+            "name": "dates",
+            "stats": {
+              "count": 2400,
+              "freq": 4,
+              "samples": [
+                "2007-02-04",
+                "2023-09-15",
+                "2007-02-11",
+                "2008-06-25",
+                "2003-02-19"
+              ],
+              "top": "2007-02-04",
+              "unique": 2064
+            }
+          },
+          {
+            "column": "event_name",
+            "description": "Name of the event or tournament the match was part of.",
+            "dtype": "TEXT",
+            "name": "event_name",
+            "stats": {
+              "count": 2386,
+              "freq": 163,
+              "samples": [
+                "ICC Men's Cricket World Cup League 2",
+                "ICC Cricket World Cup",
+                "ICC World Cup",
+                "NatWest Series",
+                "ICC Champions Trophy"
+              ],
+              "top": "ICC Men's Cricket World Cup League 2",
+              "unique": 277
+            }
+          },
+          {
+            "column": "match_number",
+            "description": "Match number within the event/tournament.",
+            "dtype": "REAL",
+            "name": "match_number",
+            "stats": {
+              "25%": 2.0,
+              "50%": 3.0,
+              "75%": 6.0,
+              "count": 2290.0,
+              "max": 140.0,
+              "mean": 9.640174672489083,
+              "min": 1.0,
+              "samples": [
+                1.0,
+                2.0,
+                3.0,
+                4.0,
+                5.0
+              ],
+              "std": 19.816871338818775
+            }
+          },
+          {
+            "column": "gender",
+            "description": "Gender category of the match (e.g., male, female).",
+            "dtype": "TEXT",
+            "name": "gender",
+            "stats": {
+              "count": 2400,
+              "freq": 2400,
+              "samples": [
+                "male"
+              ],
+              "top": "male",
+              "unique": 1
+            }
+          },
+          {
+            "column": "match_type",
+            "description": "Type of match (e.g., ODI, T20, Test).",
+            "dtype": "TEXT",
+            "name": "match_type",
+            "stats": {
+              "count": 2400,
+              "freq": 2400,
+              "samples": [
+                "ODI"
+              ],
+              "top": "ODI",
+              "unique": 1
+            }
+          },
+          {
+            "column": "match_type_number",
+            "description": "Running number for the type of match played across history.",
+            "dtype": "INTEGER",
+            "name": "match_type_number",
+            "stats": {
+              "25%": 2733.75,
+              "50%": 3449.5,
+              "75%": 4157.25,
+              "count": 2400.0,
+              "max": 4824.0,
+              "mean": 3435.37375,
+              "min": 1927.0,
+              "samples": [
+                4714,
+                3780,
+                4109,
+                2803,
+                3330
+              ],
+              "std": 824.4809752769829
+            }
+          },
+          {
+            "column": "toss_winner",
+            "description": "The team that won the toss in the match.",
+            "dtype": "TEXT",
+            "name": "toss_winner",
+            "stats": {
+              "count": 2400,
+              "freq": 246,
+              "samples": [
+                "India",
+                "Sri Lanka",
+                "Australia",
+                "England",
+                "Pakistan"
+              ],
+              "top": "India",
+              "unique": 26
+            }
+          },
+          {
+            "column": "toss_decision",
+            "description": "The decision made by the toss-winning team ('bat' or 'field').",
+            "dtype": "TEXT",
+            "name": "toss_decision",
+            "stats": {
+              "count": 2400,
+              "freq": 1216,
+              "samples": [
+                "field",
+                "bat"
+              ],
+              "top": "field",
+              "unique": 2
+            }
+          },
+          {
+            "column": "outcome_winner",
+            "description": "The team that won the match.",
+            "dtype": "TEXT",
+            "name": "outcome_winner",
+            "stats": {
+              "count": 2277,
+              "freq": 299,
+              "samples": [
+                "India",
+                "Australia",
+                "South Africa",
+                "Sri Lanka",
+                "England"
+              ],
+              "top": "India",
+              "unique": 26
+            }
+          },
+          {
+            "column": "outcome_by_runs",
+            "description": "Margin of victory in terms of runs (if applicable).",
+            "dtype": "REAL",
+            "name": "outcome_by_runs",
+            "stats": {
+              "25%": 26.0,
+              "50%": 63.0,
+              "75%": 110.0,
+              "count": 1107.0,
+              "max": 317.0,
+              "mean": 75.09936766034328,
+              "min": 1.0,
+              "samples": [
+                5.0,
+                21.0,
+                26.0,
+                1.0,
+                20.0
+              ],
+              "std": 58.56344660349831
+            }
+          },
+          {
+            "column": "outcome_by_wickets",
+            "description": "Margin of victory in terms of wickets (if applicable).",
+            "dtype": "REAL",
+            "name": "outcome_by_wickets",
+            "stats": {
+              "25%": 4.0,
+              "50%": 6.0,
+              "75%": 7.0,
+              "count": 1170.0,
+              "max": 10.0,
+              "mean": 5.730769230769231,
+              "min": 1.0,
+              "samples": [
+                7.0,
+                6.0,
+                5.0,
+                8.0,
+                4.0
+              ],
+              "std": 2.2109054514042485
+            }
+          },
+          {
+            "column": "overs",
+            "description": "Number of overs per innings in the match (usually fixed, like 50 for ODIs).",
+            "dtype": "INTEGER",
+            "name": "overs",
+            "stats": {
+              "25%": 50.0,
+              "50%": 50.0,
+              "75%": 50.0,
+              "count": 2400.0,
+              "max": 50.0,
+              "mean": 50.0,
+              "min": 50.0,
+              "samples": [
+                50
+              ],
+              "std": 0.0
+            }
+          },
+          {
+            "column": "player_of_match",
+            "description": "Player awarded as the Player of the Match.",
+            "dtype": "TEXT",
+            "name": "player_of_match",
+            "stats": {
+              "count": 2258,
+              "freq": 41,
+              "samples": [
+                "V Kohli",
+                "KC Sangakkara",
+                "AB de Villiers",
+                "TM Dilshan",
+                "RG Sharma"
+              ],
+              "top": "V Kohli",
+              "unique": 662
+            }
+          },
+          {
+            "column": "season",
+            "description": "The season during which the match was played (e.g., 2023/24).",
+            "dtype": "TEXT",
+            "name": "season",
+            "stats": {
+              "count": 2400,
+              "freq": 131,
+              "samples": [
+                "2006/07",
+                "2014/15",
+                "2010/11",
+                "2023",
+                "2023/24"
+              ],
+              "top": "2006/07",
+              "unique": 45
+            }
+          },
+          {
+            "column": "teams",
+            "description": "Comma-separated names of both teams playing the match.",
+            "dtype": "TEXT",
+            "name": "teams",
+            "stats": {
+              "count": 2400,
+              "freq": 50,
+              "samples": [
+                "India, Sri Lanka",
+                "England, Australia",
+                "Australia, England",
+                "India, Australia",
+                "Sri Lanka, India"
+              ],
+              "top": "India, Sri Lanka",
+              "unique": 303
+            }
+          },
+          {
+            "column": "venue",
+            "description": "Venue where the match was played.",
+            "dtype": "TEXT",
+            "name": "venue",
+            "stats": {
+              "count": 2400,
+              "freq": 105,
+              "samples": [
+                "Harare Sports Club",
+                "Shere Bangla National Stadium",
+                "Dubai International Cricket Stadium",
+                "R Premadasa Stadium",
+                "Sydney Cricket Ground"
+              ],
+              "top": "Harare Sports Club",
+              "unique": 303
+            }
+          },
+          {
+            "column": "total_fours",
+            "description": "Total number of boundary fours hit during the match.",
+            "dtype": "INTEGER",
+            "name": "total_fours",
+            "stats": {
+              "25%": 30.0,
+              "50%": 38.5,
+              "75%": 47.0,
+              "count": 2400.0,
+              "max": 87.0,
+              "mean": 38.72,
+              "min": 0.0,
+              "samples": [
+                36,
+                35,
+                39,
+                37,
+                33
+              ],
+              "std": 12.918022218623497
+            }
+          },
+          {
+            "column": "total_sixes",
+            "description": "Total number of boundary sixes hit during the match.",
+            "dtype": "INTEGER",
+            "name": "total_sixes",
+            "stats": {
+              "25%": 3.0,
+              "50%": 6.0,
+              "75%": 10.0,
+              "count": 2400.0,
+              "max": 46.0,
+              "mean": 7.272916666666666,
+              "min": 0.0,
+              "samples": [
+                4,
+                3,
+                5,
+                6,
+                2
+              ],
+              "std": 5.478680479942784
+            }
+          }
+        ],
+        "table": "match_summary"
+      }
+    ]
+  },
+  "desc": "The dataset contains four tables: batter_player_stats (batting statistics for individual players), bowler_player_stats (bowling statistics for individual players), detailed_player_data (per-match player performance data), and match_summary (match-level details including toss results, match outcome, player of the match, and venue information).",
+  "goal": "Analyze the consistency of individual player performances, focusing on how batters and bowlers vary in their runs, balls faced, wickets taken, and other statistics across different matches.",
+  "id": "cricket_goal1_1742641476",
+  "name": "Visual Analytics System cricket_goal1_1742641476",
+  "plan": {
+    "graph": [
+      {
+        "from": 1,
+        "to": 2
+      },
+      {
+        "from": 1,
+        "to": 3
+      },
+      {
+        "from": 1,
+        "to": 4
+      },
+      {
+        "from": 2,
+        "to": 5
+      },
+      {
+        "from": 3,
+        "to": 5
+      }
+    ],
+    "path": "The user browses View 1 at the [Overview] level, observing the overall trends of strike rate and economy metrics across matches. After brushing to select a range of match IDs in View 1, this filters data for [View 2, View 3, and View 4] in the [Exploration] level to delve deeper into distributions, correlations, and contextual performance patterns. Finally, in View 5 at the [Insight] level, the user evaluates aggregated trends and compares player roles over seasons and events.",
+    "views": [
+      {
+        "fields": [
+          "detailed_player_data.match_id",
+          "detailed_player_data.runs",
+          "detailed_player_data.balls_faced",
+          "detailed_player_data.wickets",
+          "detailed_player_data.overs_bowled"
+        ],
+        "id": 1,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Filters matches by interaction range on match_id axis, updating subsequent views to focus on filtered matches.",
+              "params": [
+                {
+                  "name": "match_filter",
+                  "select": {
+                    "encodings": [
+                      "x"
+                    ],
+                    "type": "interval"
+                  }
+                }
+              ]
+            },
+            "object": "line chart",
+            "verb": "brush"
+          }
+        ],
+        "level": "overview",
+        "task": [
+          1
+        ],
+        "usingParams": [],
+        "visualization": {
+          "description": "Line chart showing per-match metrics trends (strike rate, economy) over match ID.",
+          "encodings": [
+            "x: detailed_player_data.match_id",
+            "y: derived metric values (e.g., batting strike rate, bowling economy)",
+            "color: role (Batter/Bowler)",
+            "detail: player name"
+          ],
+          "markType": "line"
+        }
+      },
+      {
+        "components": null,
+        "fields": [
+          "detailed_player_data.runs",
+          "detailed_player_data.balls_faced",
+          "detailed_player_data.wickets",
+          "detailed_player_data.overs_bowled",
+          "detailed_player_data.role"
+        ],
+        "id": 2,
+        "interactions": [],
+        "level": "exploration",
+        "task": [
+          2
+        ],
+        "usingParams": [
+          "match_filter"
+        ],
+        "visualization": {
+          "description": "Box plot comparing distributions of batting and bowling statistics between roles.",
+          "encodings": [
+            "x: role (categorical)",
+            "y: statistics values (e.g., runs, balls faced, wickets)",
+            "color: role"
+          ],
+          "markType": "boxPlot"
+        }
+      },
+      {
+        "components": null,
+        "fields": [
+          "detailed_player_data.runs",
+          "detailed_player_data.balls_faced",
+          "detailed_player_data.wickets",
+          "detailed_player_data.overs_bowled",
+          "detailed_player_data.role"
+        ],
+        "id": 3,
+        "interactions": [],
+        "level": "exploration",
+        "task": [
+          3
+        ],
+        "usingParams": [
+          "match_filter"
+        ],
+        "visualization": {
+          "description": "Scatter plot correlating performance metrics (e.g., runs vs balls faced) with efficiency derived metrics.",
+          "encodings": [
+            "x: detailed_player_data.runs or wickets",
+            "y: detailed_player_data.balls_faced or overs_bowled",
+            "color: role",
+            "size: derived metric (e.g., strike rate, economy)"
+          ],
+          "markType": "point"
+        }
+      },
+      {
+        "components": null,
+        "fields": [
+          "detailed_player_data.opposition_team",
+          "detailed_player_data.venue",
+          "detailed_player_data.runs",
+          "detailed_player_data.wickets"
+        ],
+        "id": 4,
+        "interactions": [],
+        "level": "detail",
+        "task": [
+          4
+        ],
+        "usingParams": [
+          "match_filter"
+        ],
+        "visualization": {
+          "description": "Heatmap detailing individual performance metrics across venues and opposition teams.",
+          "encodings": [
+            "x: opposition_team",
+            "y: venue",
+            "color: derived metric values (e.g., runs scored, wickets taken)",
+            "tooltip: detailed_player_data.player"
+          ],
+          "markType": "rect"
+        }
+      },
+      {
+        "components": null,
+        "fields": [
+          "batter_player_stats.total_runs",
+          "bowler_player_stats.total_wickets",
+          "batter_player_stats.average",
+          "bowler_player_stats.average"
+        ],
+        "id": 5,
+        "interactions": [],
+        "level": "insight",
+        "task": [
+          10
+        ],
+        "usingParams": [
+          "match_filter"
+        ],
+        "visualization": {
+          "description": "Combined bar and line chart comparing aggregated performance metrics over time between batters and bowlers.",
+          "encodings": [
+            "x: time (season/event)",
+            "y: aggregated metrics (e.g., runs, wickets)",
+            "color: role",
+            "detail: batter_player_stats.average | bowler_player_stats.average"
+          ],
+          "markType": "bar"
+        }
+      }
+    ]
+  },
+  "requirements": {
+    "data": [
+      {
+        "id": "D1",
+        "reason": "Allows users to identify macro-level consistency and overall contribution of players to their teams.",
+        "requirement": "Aggregate individual player statistics like runs, balls faced, wickets, and economy over multiple matches to assess their overall performance trends."
+      },
+      {
+        "id": "D2",
+        "reason": "Provides insight into match-specific fluctuations and consistency in player performance.",
+        "requirement": "Extract per-match data from the 'detailed_player_data' table for players across multiple matches to analyze variations in runs scored, balls faced, wickets taken, and overs bowled at a micro-level."
+      },
+      {
+        "id": "D3",
+        "reason": "Allows users to compare performance differences based on roles and match contexts, adding depth to the consistency analysis.",
+        "requirement": "Filter data based on player role (batter/bowler) and match contexts such as opposition team and venue."
+      },
+      {
+        "id": "D4",
+        "reason": "Derived metrics help identify patterns such as high strike rates or low economy rates, providing actionable consistency insights.",
+        "requirement": "Compute derived metrics like player averages, strike rates, and economy rates for each match and aggregate them for trend analysis."
+      },
+      {
+        "id": "D5",
+        "reason": "Highlighting these outliers helps in understanding the influence of exceptional performances on overall consistency.",
+        "requirement": "Identify anomalies in individual performances (e.g., unusually high runs scored or wickets taken in a single match)."
+      },
+      {
+        "id": "D6",
+        "reason": "Supports multi-level abstraction, enabling users to investigate broader trends and zoom into specific matches for detailed analysis.",
+        "requirement": "Partition data into different levels of granularity: seasonal data, event-specific data, and match-level data."
+      }
+    ],
+    "interaction": [
+      {
+        "id": "I1",
+        "reason": "Filtering enables users to narrow their analysis to a particular player or specific conditions of interest.",
+        "requirement": "Allow users to filter the visualizations by player name, role (batter/bowler), team, or season."
+      },
+      {
+        "id": "I2",
+        "reason": "Zooming provides flexibility in analyzing micro-level trends while retaining macro-level context.",
+        "requirement": "Enable zoom and pan interactions in line charts and area charts to explore trends at varying levels of granularity."
+      },
+      {
+        "id": "I3",
+        "reason": "Facilitates detailed exploration of match-specific performance data, linking macro and micro-level views.",
+        "requirement": "Allow users to select a specific match or a range of matches from a timeline or heat map to view detailed per-match statistics for the selected period."
+      },
+      {
+        "id": "I4",
+        "reason": "Improves data clarity by revealing detailed metrics without cluttering the visualization.",
+        "requirement": "Enable hover details on scatter plots and heat maps to display specific data points such as the exact runs or wickets in a match."
+      },
+      {
+        "id": "I5",
+        "reason": "Sorting helps identify the highest or lowest performers based on various metrics, simplifying comparison.",
+        "requirement": "Provide sorting options for bar charts by total, average, or derived metrics (e.g., strike rate, economy rate)."
+      },
+      {
+        "id": "I6",
+        "reason": "Toggling between these perspectives helps in analyzing both consistency over time and overall efficiency.",
+        "requirement": "Allow users to toggle between aggregated statistics (e.g., cumulative runs over matches) and averages (e.g., per match strike rate) in area and line charts."
+      }
+    ],
+    "visualization": [
+      {
+        "id": "V1",
+        "reason": "Line charts are effective for time-series analysis and visualizing performance consistency trends.",
+        "requirement": "Use a line chart to show trends in runs, wickets, or strike rate for an individual player over multiple matches."
+      },
+      {
+        "id": "V2",
+        "reason": "Box plots effectively characterize distributions and reveal performance variance or consistency.",
+        "requirement": "Combine box plots for runs, balls faced, wickets, etc., to summarize and compare the distributions of these statistics for batters and bowlers."
+      },
+      {
+        "id": "V3",
+        "reason": "Scatter plots are intuitive for finding correlations between two quantitative variables and checking consistency.",
+        "requirement": "Adopt a scatter plot to correlate runs scored and balls faced by a batter, or wickets taken and overs bowled by a bowler."
+      },
+      {
+        "id": "V4",
+        "reason": "Area charts provide a clear representation of cumulative contributions over time.",
+        "requirement": "Use area charts to compare the cumulative performances (e.g., total runs or wickets) of a player across sequential matches or events."
+      },
+      {
+        "id": "V5",
+        "reason": "Heat maps are suitable for capturing large-scale comparisons and identifying patterns across categories.",
+        "requirement": "Employ a heat map to display player performance (metrics like runs, wickets, strike rates) by opposition team and venue."
+      },
+      {
+        "id": "V6",
+        "reason": "Bar charts are excellent for discrete categorical comparisons, such as seasonal or tournament-based performances.",
+        "requirement": "Use a bar chart to compare total player statistics (e.g., total runs, wickets) across seasons or events."
+      }
+    ]
+  },
+  "sqls": [
+    {
+      "SQL": "CREATE VIEW intermediate_view_1 AS SELECT detailed_player_data.match_id, detailed_player_data.player, detailed_player_data.role, detailed_player_data.runs, detailed_player_data.balls_faced, detailed_player_data.wickets, detailed_player_data.overs_bowled FROM detailed_player_data",
+      "corrView": "1",
+      "fk": [
+        {
+          "key": "player",
+          "table": "intermediate_view_2"
+        }
+      ],
+      "name": "intermediate_view_1",
+      "pk": "match_id"
+    },
+    {
+      "SQL": "CREATE VIEW intermediate_view_2 AS SELECT player, SUM(total_runs) AS total_runs, SUM(total_wickets) AS total_wickets, AVG(average) AS average FROM batter_player_stats GROUP BY player",
+      "corrView": "2",
+      "fk": [
+        {
+          "key": "player",
+          "table": "intermediate_view_3"
+        }
+      ],
+      "name": "intermediate_view_2",
+      "pk": "player"
+    },
+    {
+      "SQL": "CREATE VIEW intermediate_view_3 AS SELECT player, SUM(total_wickets) AS total_wickets, SUM(average) AS average FROM bowler_player_stats GROUP BY player",
+      "corrView": "3",
+      "fk": [
+        {
+          "key": "player",
+          "table": "intermediate_view_4"
+        }
+      ],
+      "name": "intermediate_view_3",
+      "pk": "player"
+    },
+    {
+      "SQL": "CREATE VIEW intermediate_view_4 AS SELECT player, SUM(total_runs) AS average FROM match_summary GROUP BY player",
+      "corrView": "4",
+      "fk": [],
+      "name": "intermediate_view_4",
+      "pk": "player"
+    },
+    {
+      "SQL": "CREATE VIEW intermediate_view_5 AS SELECT season, SUM(total_runs) AS total_batter_runs, SUM(total_wickets) AS total_bowler_wickets FROM match_summary GROUP BY season",
+      "corrView": "5",
+      "fk": [],
+      "name": "intermediate_view_5",
+      "pk": "season"
+    }
+  ],
+  "tasks": [
+    {
+      "corrReq": [
+        "D1",
+        "D4",
+        "V1",
+        "I6"
+      ],
+      "data": [
+        "detailed_player_data.runs",
+        "detailed_player_data.balls_faced",
+        "detailed_player_data.wickets",
+        "detailed_player_data.overs_bowled"
+      ],
+      "id": 1,
+      "method": "Compute per-match averages for strike rate, economy, and other derived metrics and visualize trends using line charts. Encodings include match id on the x-axis and metric values on the y-axis, with separate lines for batters and bowlers.",
+      "objective": "Identify trends and consistency in key metrics for batters and bowlers over matches.",
+      "priority": 5,
+      "type": "computing derived values | characterizing distributions"
+    },
+    {
+      "corrReq": [
+        "D2",
+        "D3",
+        "V2"
+      ],
+      "data": [
+        "detailed_player_data.runs",
+        "detailed_player_data.balls_faced",
+        "detailed_player_data.wickets",
+        "detailed_player_data.overs_bowled"
+      ],
+      "id": 2,
+      "method": "Generate box plots for batters and bowlers to summarize and compare distributions of these statistics. Encodings include role as categorical groups on the x-axis and statistics values plotted as box plot distributions on the y-axis.",
+      "objective": "Provide a comparative overview of performance variance and consistency for batters and bowlers.",
+      "priority": 4,
+      "type": "retrieving values | characterizing distributions"
+    },
+    {
+      "corrReq": [
+        "D4",
+        "V3",
+        "I4"
+      ],
+      "data": [
+        "detailed_player_data.runs",
+        "detailed_player_data.balls_faced",
+        "detailed_player_data.wickets",
+        "detailed_player_data.overs_bowled"
+      ],
+      "id": 3,
+      "method": "Use scatter plots to correlate runs scored with balls faced for batters and wickets taken with overs bowled for bowlers. Encodings include one metric on the x-axis and the other on the y-axis, with points colored based on player role.",
+      "objective": "Analyze efficiency and consistency in scoring and bowling relative to effort expended.",
+      "priority": 5,
+      "type": "correlating"
+    },
+    {
+      "corrReq": [
+        "D3",
+        "V5",
+        "I1",
+        "I4"
+      ],
+      "data": [
+        "detailed_player_data.team",
+        "detailed_player_data.venue",
+        "detailed_player_data.opposition_team",
+        "detailed_player_data.match_outcome"
+      ],
+      "id": 4,
+      "method": "Use heat maps to show player performance across opposition teams and venues. Encodings include opposition team on the x-axis, venue on the y-axis, and metrics like runs or wickets represented by cell color intensity.",
+      "objective": "Identify patterns in player performance based on match context and opposition conditions.",
+      "priority": 4,
+      "type": "filtering | clustering"
+    },
+    {
+      "corrReq": [
+        "D5",
+        "V3",
+        "V6",
+        "I5"
+      ],
+      "data": [
+        "detailed_player_data.runs",
+        "detailed_player_data.wickets",
+        "detailed_player_data.overs_bowled"
+      ],
+      "id": 5,
+      "method": "Detect outliers in individual performance using scatter plots or bar charts with sorting. Encodings include player name on the x-axis and metric values (e.g., runs or wickets) on the y-axis, sorted to highlight anomalies.",
+      "objective": "Highlight exceptional matches and their impact on overall performance consistency.",
+      "priority": 3,
+      "type": "finding anomalies"
+    },
+    {
+      "corrReq": [
+        "D6",
+        "V6",
+        "I1"
+      ],
+      "data": [
+        "match_summary.teams",
+        "match_summary.event_name",
+        "match_summary.season",
+        "match_summary.created"
+      ],
+      "id": 6,
+      "method": "Use bar charts to compare total runs, wickets, or averages across seasons and events. Encodings include season or event names on the x-axis and aggregated statistics on the y-axis, with bars representing players' roles or team contributions.",
+      "objective": "Assess long-term trends in player and team performances across different seasonal and event contexts.",
+      "priority": 3,
+      "type": "retrieving values | filtering | determining ranges"
+    },
+    {
+      "corrReq": [
+        "D1",
+        "D4",
+        "V4",
+        "I2",
+        "I6"
+      ],
+      "data": [
+        "detailed_player_data.runs",
+        "match_summary.total_fours",
+        "match_summary.total_sixes"
+      ],
+      "id": 7,
+      "method": "Generate area charts for cumulative runs and boundary metrics. Encodings include match id on the x-axis and cumulative statistics (runs, fours, sixes) on the y-axis, with separate areas for batters and bowlers.",
+      "objective": "Evaluate players’ cumulative contribution trends across matches and identify periods of peak performance.",
+      "priority": 4,
+      "type": "computing derived values | characterizing distributions | retrieving values"
+    },
+    {
+      "corrReq": [
+        "D2",
+        "V6",
+        "I3",
+        "I5"
+      ],
+      "data": [
+        "detailed_player_data.player",
+        "detailed_player_data.match_id",
+        "detailed_player_data.fantasy_points"
+      ],
+      "id": 8,
+      "method": "Allow users to select ranges of matches or timelines to sort and view player fantasy points. Encodings include match/season timelines on the x-axis and fantasy points on the y-axis with sorting capabilities.",
+      "objective": "Analyze how consistent individual players are in contributing to fantasy metrics, highlighting peak and low periods.",
+      "priority": 2,
+      "type": "filtering | sorting | determining ranges"
+    },
+    {
+      "corrReq": [
+        "D6",
+        "V5",
+        "I1"
+      ],
+      "data": [
+        "match_summary.toss_decision",
+        "match_summary.outcome_winner",
+        "match_summary.total_fours"
+      ],
+      "id": 9,
+      "method": "Use clustered heat maps to analyze relationships between toss decisions, winning outcomes, and performance metrics like fours. Encodings include clusters based on toss decisions and match outcomes, with color representing metrics.",
+      "objective": "Understand the impact of strategic decisions on match outcomes and player performance metrics in aggregated contexts.",
+      "priority": 3,
+      "type": "clustering | correlating | finding anomalies"
+    },
+    {
+      "corrReq": [
+        "D1",
+        "D4",
+        "V1",
+        "V6",
+        "I6"
+      ],
+      "data": [
+        "batter_player_stats.total_runs",
+        "bowler_player_stats.total_wickets",
+        "batter_player_stats.average",
+        "bowler_player_stats.average"
+      ],
+      "id": 10,
+      "method": "Use combined charts (bar and line) to compare aggregated performance metrics (e.g., runs and wickets) with averages over time for key players. Encodings include time (seasons/events) on the x-axis and metrics as stacked bars or overlaying lines.",
+      "objective": "Analyze aggregated efficiency and contribution trends for both batters and bowlers in a single visualization.",
+      "priority": 5,
+      "type": "retrieving values | computing derived values | filtering"
+    }
+  ]
+}

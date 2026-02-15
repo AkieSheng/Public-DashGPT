@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Overview_View",
+    "SQL": "CREATE VIEW Overview_View AS SELECT Status_Analysis.customer_id, Status_Analysis.satisfaction_score, Status_Analysis.churn_score, Status_Analysis.cltv, Status_Analysis.customer_status FROM Status_Analysis",
+    "corrView": 1,
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "id": 2,
+    "name": "Exploration_View",
+    "SQL": "CREATE VIEW Exploration_View AS SELECT Customer_Info.gender, Customer_Info.senior_citizen, Customer_Info.under_30, Customer_Info.partner, Customer_Info.dependents, Status_Analysis.churn_score, Status_Analysis.customer_id FROM Customer_Info JOIN Status_Analysis ON Customer_Info.customer_id = Status_Analysis.customer_id",
+    "corrView": 2,
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "id": 3,
+    "name": "Detail_View",
+    "SQL": "CREATE VIEW Detail_View AS SELECT Customer_Info.age, Customer_Info.gender, Status_Analysis.satisfaction_score, Status_Analysis.churn_score, Status_Analysis.cltv, Status_Analysis.customer_id FROM Customer_Info JOIN Status_Analysis ON Customer_Info.customer_id = Status_Analysis.customer_id",
+    "corrView": 3,
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "id": 4,
+    "name": "Insight_View",
+    "SQL": "CREATE VIEW Insight_View AS SELECT Status_Analysis.churn_score, Status_Analysis.satisfaction_score, Status_Analysis.cltv, Status_Analysis.customer_status, Status_Analysis.customer_id FROM Status_Analysis",
+    "corrView": 4,
+    "pk": "customer_id",
+    "fk": []
+  }
+]

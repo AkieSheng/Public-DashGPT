@@ -1,0 +1,23 @@
+[
+  {
+    "name": "view_1",
+    "SQL": "CREATE VIEW view_1 AS SELECT water_usage_data.Irrigation_Method, water_usage_data.Water_Consumption_liters_hectare, AVG(crop_production_data.Yield_quintals) AS Avg_Yield_quintals FROM water_usage_data JOIN crop_production_data ON water_usage_data.Crop = crop_production_data.Crop AND water_usage_data.District = crop_production_data.District GROUP BY water_usage_data.Irrigation_Method, water_usage_data.Water_Consumption_liters_hectare",
+    "corrView": "1",
+    "pk": "Irrigation_Method|Water_Consumption_liters_hectare",
+    "fk": []
+  },
+  {
+    "name": "view_2",
+    "SQL": "CREATE VIEW view_2 AS SELECT water_usage_data.Crop, water_usage_data.Water_Consumption_liters_hectare, MAX(crop_production_data.Yield_quintals) AS Max_Yield_quintals FROM water_usage_data JOIN crop_production_data ON water_usage_data.Crop = crop_production_data.Crop AND water_usage_data.District = crop_production_data.District GROUP BY water_usage_data.Crop, water_usage_data.Water_Consumption_liters_hectare",
+    "corrView": "2",
+    "pk": "Crop|Water_Consumption_liters_hectare",
+    "fk": []
+  },
+  {
+    "name": "view_3",
+    "SQL": "CREATE VIEW view_3 AS SELECT soil_analysis_data.Soil_Type, soil_analysis_data.Organic_Matter, water_usage_data.District, MAX(crop_price_data.Price_INR_quintal) AS Avg_Price_INR_quintal FROM soil_analysis_data JOIN water_usage_data ON soil_analysis_data.District = water_usage_data.District JOIN crop_price_data ON soil_analysis_data.District = crop_price_data.District AND water_usage_data.Crop = crop_price_data.Crop GROUP BY soil_analysis_data.Soil_Type, soil_analysis_data.Organic_Matter, water_usage_data.District",
+    "corrView": "3",
+    "pk": "Soil_Type|Organic_Matter|District",
+    "fk": []
+  }
+]

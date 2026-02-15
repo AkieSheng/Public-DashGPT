@@ -1,0 +1,102 @@
+[
+  {
+    "created": 1742892486,
+    "id": "agriculture_goal1_1742892333",
+    "name": "Visual Analytics System agriculture_goal1_1742892333"
+  },
+  {
+    "created": 1742894531,
+    "id": "agriculture_goal2_1742894443",
+    "name": "Visual Analytics System agriculture_goal2_1742894443"
+  },
+  {
+    "created": 1742895652,
+    "id": "agriculture_goal3_1742895584",
+    "name": "Visual Analytics System agriculture_goal3_1742895584"
+  },
+  {
+    "created": 1742897378,
+    "id": "college_goal1_1742897371",
+    "name": "Visual Analytics System college_goal1_1742897371"
+  },
+  {
+    "created": 1742897070,
+    "id": "cricket_goal1_1742896783",
+    "name": "Visual Analytics System cricket_goal1_1742896783"
+  },
+  {
+    "created": 1742897348,
+    "id": "cricket_goal2_1742897341",
+    "name": "Visual Analytics System cricket_goal2_1742897341"
+  },
+  {
+    "created": 1742897363,
+    "id": "cricket_goal3_1742897356",
+    "name": "Visual Analytics System cricket_goal3_1742897356"
+  },
+  {
+    "created": 1742886849,
+    "id": "telco_goal1_1742886708",
+    "name": "Visual Analytics System telco_goal1_1742886708"
+  },
+  {
+    "created": 1742888301,
+    "id": "telco_goal2_1742888123",
+    "name": "Visual Analytics System telco_goal2_1742888123"
+  },
+  {
+    "created": 1742890281,
+    "id": "telco_goal3_1742890168",
+    "name": "Visual Analytics System telco_goal3_1742890168"
+  },
+  {
+    "created": 1742886708,
+    "id": "va_1742886708",
+    "name": "Visual Analytics System va_1742886708"
+  },
+  {
+    "created": 1742888123,
+    "id": "va_1742888123",
+    "name": "Visual Analytics System va_1742888123"
+  },
+  {
+    "created": 1742890168,
+    "id": "va_1742890168",
+    "name": "Visual Analytics System va_1742890168"
+  },
+  {
+    "created": 1742892333,
+    "id": "va_1742892333",
+    "name": "Visual Analytics System va_1742892333"
+  },
+  {
+    "created": 1742894443,
+    "id": "va_1742894443",
+    "name": "Visual Analytics System va_1742894443"
+  },
+  {
+    "created": 1742895584,
+    "id": "va_1742895584",
+    "name": "Visual Analytics System va_1742895584"
+  },
+  {
+    "created": 1742896783,
+    "id": "va_1742896783",
+    "name": "Visual Analytics System va_1742896783"
+  },
+  {
+    "created": 1742897341,
+    "id": "va_1742897341",
+    "name": "Visual Analytics System va_1742897341"
+  },
+  {
+    "created": 1742897356,
+    "id": "va_1742897356",
+    "name": "Visual Analytics System va_1742897356"
+  },
+  {
+    "created": 1742897371,
+    "id": "va_1742897371",
+    "name": "Visual Analytics System va_1742897371"
+  }
+]

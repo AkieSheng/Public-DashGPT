@@ -1,0 +1,930 @@
+{
+  "created": 1742628132,
+  "dataset": {
+    "description": "This dataset provides comprehensive agricultural data for Rajasthan, India from 2018 to 2019. It contains four tabless: Crop_Production_Data, Water_Usage_Data, Soil_Analysis_Data, and Crop_Price_Data. This dataset will be a valuable resource for researchers and data scientists working in the agricultural sector, enabling them to analyze and model various aspects of agricultural practices and market dynamics in Rajasthan.",
+    "tables": [
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "Administrative district in Rajasthan where crop price was recorded",
+            "dtype": "TEXT",
+            "name": "District",
+            "stats": {
+              "count": 4819,
+              "freq": 542,
+              "samples": [
+                "Kota",
+                "Alwar",
+                "Ajmer",
+                "Jaipur",
+                "Nagaur"
+              ],
+              "top": "Kota",
+              "unique": 10
+            }
+          },
+          {
+            "column": "Crop",
+            "description": "Type of agricultural crop being traded",
+            "dtype": "TEXT",
+            "name": "Crop",
+            "stats": {
+              "count": 4819,
+              "freq": 246,
+              "samples": [
+                "Pomegranate",
+                "Maize",
+                "Opium",
+                "Cumin",
+                "Oilseeds"
+              ],
+              "top": "Pomegranate",
+              "unique": 23
+            }
+          },
+          {
+            "column": "Market",
+            "description": "Name of the Agricultural Produce Market Committee (APMC) mandi where transactions occurred",
+            "dtype": "TEXT",
+            "name": "Market",
+            "stats": {
+              "count": 4819,
+              "freq": 278,
+              "samples": [
+                "Alwar APMC Mandi",
+                "Ramganj Mandi",
+                "Kota APMC Mandi",
+                "Kishangarh Mandi",
+                "Udaipur APMC Mandi"
+              ],
+              "top": "Alwar APMC Mandi",
+              "unique": 24
+            }
+          },
+          {
+            "column": "Date",
+            "description": "Transaction date in YYYY-MM-DD format",
+            "dtype": "TEXT",
+            "name": "Date",
+            "stats": {
+              "count": 4819,
+              "freq": 23,
+              "samples": [
+                "2019-01-28",
+                "2019-03-01",
+                "2018-06-11",
+                "2018-12-19",
+                "2019-03-29"
+              ],
+              "top": "2019-01-28",
+              "unique": 424
+            }
+          },
+          {
+            "column": "Price (INR/quintal)",
+            "description": "Market rate per quintal (100kg) of crop in Indian Rupees",
+            "dtype": "REAL",
+            "name": "Price (INR/quintal)",
+            "stats": {
+              "25%": 2303.968087039464,
+              "50%": 2497.697780894649,
+              "75%": 2694.7361658186883,
+              "count": 4819.0,
+              "max": 3513.3304723868087,
+              "mean": 2498.7153596293347,
+              "min": 1323.2799245144972,
+              "samples": [
+                2161.4945987467668,
+                2490.092420884132,
+                2348.904921887321,
+                2448.2875127639013,
+                2714.41951825531
+              ],
+              "std": 295.65109413541575
+            }
+          }
+        ],
+        "table": "crop_price_data"
+      },
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "Administrative district in Rajasthan where cultivation occurred",
+            "dtype": "TEXT",
+            "name": "District",
+            "stats": {
+              "count": 1000,
+              "freq": 114,
+              "samples": [
+                "Nagaur",
+                "Udaipur",
+                "Bhilwara",
+                "Alwar",
+                "Ajmer"
+              ],
+              "top": "Nagaur",
+              "unique": 10
+            }
+          },
+          {
+            "column": "Crop",
+            "description": "Type of cultivated crop",
+            "dtype": "TEXT",
+            "name": "Crop",
+            "stats": {
+              "count": 1000,
+              "freq": 52,
+              "samples": [
+                "Citrus",
+                "Pulses",
+                "Mustard",
+                "Maize",
+                "Tomato"
+              ],
+              "top": "Citrus",
+              "unique": 23
+            }
+          },
+          {
+            "column": "Season",
+            "description": "Growing season (Kharif = monsoon season, Rabi = winter season)",
+            "dtype": "TEXT",
+            "name": "Season",
+            "stats": {
+              "count": 1000,
+              "freq": 503,
+              "samples": [
+                "Kharif",
+                "Rabi"
+              ],
+              "top": "Kharif",
+              "unique": 2
+            }
+          },
+          {
+            "column": "Area (hectares)",
+            "description": "Total cultivated land area measured in hectares",
+            "dtype": "REAL",
+            "name": "Area (hectares)",
+            "stats": {
+              "25%": 13165.258125089153,
+              "50%": 15108.13041964114,
+              "75%": 16944.950094195556,
+              "count": 1000.0,
+              "max": 20000.0,
+              "mean": 15046.881838853737,
+              "min": 5276.197979792782,
+              "samples": [
+                20000.0,
+                14959.5083257862,
+                17467.634736309567,
+                15626.590785014268,
+                11015.441853304708
+              ],
+              "std": 2775.3598030166822
+            }
+          },
+          {
+            "column": "Yield (quintals)",
+            "description": "Agricultural output per hectare measured in quintals",
+            "dtype": "REAL",
+            "name": "Yield (quintals)",
+            "stats": {
+              "25%": 31.105149570151486,
+              "50%": 37.22705041986063,
+              "75%": 43.71120529710103,
+              "count": 1000.0,
+              "max": 60.42919242071256,
+              "mean": 37.618327668334935,
+              "min": 20.27293597251623,
+              "samples": [
+                42.67334364354665,
+                30.69198608958731,
+                45.81823176835924,
+                29.752628902482016,
+                42.02651077850936
+              ],
+              "std": 8.21858736773909
+            }
+          },
+          {
+            "column": "Production (metric tons)",
+            "description": "Total crop production converted to metric tons (1MT = 10 quintals)",
+            "dtype": "REAL",
+            "name": "Production (metric tons)",
+            "stats": {
+              "25%": 4438.67158158548,
+              "50%": 5561.468280565365,
+              "75%": 6769.7716915726705,
+              "count": 1000.0,
+              "max": 10834.530833886172,
+              "mean": 5662.518484668158,
+              "min": 1728.4459558148258,
+              "samples": [
+                6192.243168853535,
+                5061.152229679753,
+                7763.013071826106,
+                4253.893981440086,
+                8295.040749150847
+              ],
+              "std": 1629.9225050593145
+            }
+          }
+        ],
+        "table": "crop_production_data"
+      },
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "Administrative district in Rajasthan where soil sample was collected",
+            "dtype": "TEXT",
+            "name": "District",
+            "stats": {
+              "count": 1000,
+              "freq": 128,
+              "samples": [
+                "Jodhpur",
+                "Kota",
+                "Ajmer",
+                "Jaipur",
+                "Udaipur"
+              ],
+              "top": "Jodhpur",
+              "unique": 10
+            }
+          },
+          {
+            "column": "Soil Type",
+            "description": "Classification of soil composition (e.g., Black lava soil, Clay, Saline)",
+            "dtype": "TEXT",
+            "name": "Soil Type",
+            "stats": {
+              "count": 1000,
+              "freq": 144,
+              "samples": [
+                "Black lava soil",
+                "Saline",
+                "Clay",
+                "Alkaline",
+                "Nitrogenous"
+              ],
+              "top": "Black lava soil",
+              "unique": 8
+            }
+          },
+          {
+            "column": "pH Level",
+            "description": "Acidity/alkalinity measurement on 0-14 scale",
+            "dtype": "REAL",
+            "name": "pH Level",
+            "stats": {
+              "25%": 7.157880924513207,
+              "50%": 7.500129367123334,
+              "75%": 7.846939580508737,
+              "count": 1000.0,
+              "max": 9.038430185090252,
+              "mean": 7.495453084850306,
+              "min": 5.889491822007143,
+              "samples": [
+                8.604927832874232,
+                6.546096221061305,
+                6.832259215450055,
+                7.453181905630415,
+                8.019189425509659
+              ],
+              "std": 0.5171550691492046
+            }
+          },
+          {
+            "column": "Organic Matter (%)",
+            "description": "Percentage of organic material in soil composition",
+            "dtype": "REAL",
+            "name": "Organic Matter (%)",
+            "stats": {
+              "25%": 1.6389108548905387,
+              "50%": 1.981462328785918,
+              "75%": 2.3456877380031798,
+              "count": 1000.0,
+              "max": 3.764527593785242,
+              "mean": 1.9935921803358339,
+              "min": 0.1558173542857779,
+              "samples": [
+                2.1634972566350488,
+                1.5698074946102492,
+                2.2430181447088184,
+                2.662898323771095,
+                1.240326962261579
+              ],
+              "std": 0.5153401517562567
+            }
+          },
+          {
+            "column": "Nitrogen Content (kg/ha)",
+            "description": "Available nitrogen per hectare for plant growth",
+            "dtype": "REAL",
+            "name": "Nitrogen Content (kg/ha)",
+            "stats": {
+              "25%": 26.217325301986918,
+              "50%": 29.822796920009235,
+              "75%": 33.232056328033025,
+              "count": 1000.0,
+              "max": 45.760283672560426,
+              "mean": 29.883357828791514,
+              "min": 11.994574477702413,
+              "samples": [
+                25.824377480138825,
+                27.931972332891775,
+                22.26348005530817,
+                23.56418215707875,
+                15.839222009447155
+              ],
+              "std": 5.202697054149519
+            }
+          },
+          {
+            "column": "Phosphorus Content (kg/ha)",
+            "description": "Available phosphorus per hectare for plant growth",
+            "dtype": "REAL",
+            "name": "Phosphorus Content (kg/ha)",
+            "stats": {
+              "25%": 16.21647147627612,
+              "50%": 19.913736701664355,
+              "75%": 23.122284640501974,
+              "count": 1000.0,
+              "max": 35.58840564604024,
+              "mean": 19.729932448873114,
+              "min": 4.961838301531214,
+              "samples": [
+                28.26456525615211,
+                29.43843828670095,
+                25.413455269435367,
+                13.014409074435044,
+                17.744205707955008
+              ],
+              "std": 5.067004785298072
+            }
+          },
+          {
+            "column": "Potassium Content (kg/ha)",
+            "description": "Available potassium per hectare for plant growth",
+            "dtype": "REAL",
+            "name": "Potassium Content (kg/ha)",
+            "stats": {
+              "25%": 36.703916917600125,
+              "50%": 39.796016092839736,
+              "75%": 43.38203941212181,
+              "count": 1000.0,
+              "max": 54.678289511638894,
+              "mean": 39.87790741158031,
+              "min": 24.11648093402,
+              "samples": [
+                50.38888792599222,
+                42.78276562266879,
+                37.64437674091061,
+                37.08200336826997,
+                42.758703999554605
+              ],
+              "std": 4.874751034236264
+            }
+          }
+        ],
+        "table": "soil_analysis_data"
+      },
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "Administrative district in Rajasthan where water usage was measured",
+            "dtype": "TEXT",
+            "name": "District",
+            "stats": {
+              "count": 1000,
+              "freq": 116,
+              "samples": [
+                "Nagaur",
+                "Udaipur",
+                "Alwar",
+                "Bhilwara",
+                "Hanumangarh"
+              ],
+              "top": "Nagaur",
+              "unique": 10
+            }
+          },
+          {
+            "column": "Crop",
+            "description": "Type of crop being irrigated",
+            "dtype": "TEXT",
+            "name": "Crop",
+            "stats": {
+              "count": 1000,
+              "freq": 56,
+              "samples": [
+                "Onion",
+                "Pulses",
+                "Citrus",
+                "Cotton",
+                "Tomato"
+              ],
+              "top": "Onion",
+              "unique": 23
+            }
+          },
+          {
+            "column": "Irrigation Method",
+            "description": "Water application technique (e.g., Drip, Sprinkler, Canal)",
+            "dtype": "TEXT",
+            "name": "Irrigation Method",
+            "stats": {
+              "count": 1000,
+              "freq": 284,
+              "samples": [
+                "Sprinkler Irrigation",
+                "Tube Well",
+                "Drip Irrigation",
+                "Canal Irrigation"
+              ],
+              "top": "Sprinkler Irrigation",
+              "unique": 4
+            }
+          },
+          {
+            "column": "Water Consumption (liters/hectare)",
+            "description": "Actual water used per hectare for irrigation",
+            "dtype": "REAL",
+            "name": "Water Consumption (liters/hectare)",
+            "stats": {
+              "25%": 8238.226671880226,
+              "50%": 10422.656935236373,
+              "75%": 12808.359360840997,
+              "count": 1000.0,
+              "max": 18631.09132663682,
+              "mean": 10557.110758629942,
+              "min": 4673.530139030418,
+              "samples": [
+                7011.556633995436,
+                11609.330885810616,
+                12648.406038302792,
+                10063.162447916591,
+                10110.539993326256
+              ],
+              "std": 2835.083840963408
+            }
+          },
+          {
+            "column": "Water Availability (liters/hectare)",
+            "description": "Accessible water resources per hectare for agricultural use",
+            "dtype": "REAL",
+            "name": "Water Availability (liters/hectare)",
+            "stats": {
+              "25%": 8142.359044089602,
+              "50%": 10524.479417099716,
+              "75%": 12879.89393404674,
+              "count": 1000.0,
+              "max": 18489.171266347672,
+              "mean": 10543.621287289907,
+              "min": 4505.257189045351,
+              "samples": [
+                6140.081508774301,
+                11335.919980150127,
+                12091.900253943171,
+                9810.943168837392,
+                10754.217313163708
+              ],
+              "std": 2905.372578181591
+            }
+          }
+        ],
+        "table": "water_usage_data"
+      }
+    ]
+  },
+  "desc": "This dataset provides comprehensive agricultural data for Rajasthan, India from 2018 to 2019. It contains four tabless: Crop_Production_Data, Water_Usage_Data, Soil_Analysis_Data, and Crop_Price_Data. This dataset will be a valuable resource for researchers and data scientists working in the agricultural sector, enabling them to analyze and model various aspects of agricultural practices and market dynamics in Rajasthan.",
+  "goal": "Use crop production data (including crop type, season, area, yield) to analyze crop productivity in different districts and seasons, predict future yield trends, and support decision-making in agricultural production.",
+  "id": "agriculture_goal2_1742628132",
+  "name": "Visual Analytics System agriculture_goal2_1742628132",
+  "plan": {
+    "graph": [
+      {
+        "from": 1,
+        "to": 2
+      },
+      {
+        "from": 1,
+        "to": 3
+      },
+      {
+        "from": 1,
+        "to": 4
+      },
+      {
+        "from": 2,
+        "to": 3
+      },
+      {
+        "from": 2,
+        "to": 5
+      },
+      {
+        "from": 3,
+        "to": 5
+      },
+      {
+        "from": 5,
+        "to": 6
+      }
+    ],
+    "path": "The user starts with View 1 (Overview) analyzing seasonal yields across districts through grouped bar charts. By clicking crops of interest, View 2 (Exploration) updates to show extreme performers via lollipop charts. Interactions in View 2 filter View 3's boxplots to highlight anomalies. Simultaneously, View 4 provides water efficiency insights through heatmaps. Selections propagate to View 5 showing soil-yield correlations in scatterplots. Finally, View 6 synthesizes findings via radar charts showing production clusters.",
+    "views": [
+      {
+        "fields": [
+          "crop_production_data.District",
+          "crop_production_data.Season",
+          "crop_production_data.Yield (quintals)"
+        ],
+        "id": 1,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Selects specific crop(s) to filter subsequent views",
+              "params": [
+                {
+                  "name": "crop_selection",
+                  "select": {
+                    "encodings": [
+                      "column"
+                    ],
+                    "type": "point"
+                  }
+                }
+              ]
+            },
+            "object": "chart",
+            "verb": "click"
+          }
+        ],
+        "level": "overview",
+        "task": [
+          1
+        ],
+        "visualization": {
+          "description": "Small multiples grouped bar charts showing seasonal yield distributions across districts, grouped by crop. Each vertical column represents a different crop type.",
+          "encodings": [
+            "x=District (nominal)",
+            "y=Yield (quintals) (quantitative)",
+            "color=Season (nominal)",
+            "column=Crop (nominal)"
+          ],
+          "markType": "bar"
+        }
+      },
+      {
+        "components": "Sortable legend for crop types",
+        "fields": [
+          "crop_production_data.District",
+          "crop_production_data.Crop",
+          "crop_production_data.Yield (quintals)"
+        ],
+        "id": 2,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Filters view 3 by selected district-crop combinations",
+              "params": [
+                {
+                  "name": "district_crop_filter",
+                  "select": {
+                    "encodings": [
+                      "x",
+                      "y"
+                    ],
+                    "type": "interval"
+                  }
+                }
+              ]
+            },
+            "object": "chart",
+            "verb": "click"
+          }
+        ],
+        "level": "exploration",
+        "task": [
+          2
+        ],
+        "usingParams": [
+          "crop_selection"
+        ],
+        "visualization": {
+          "description": "Lollipop chart variant showing top/bottom yielding districts. Size encodes yield magnitude, color shows crop type.",
+          "encodings": [
+            "x=District (nominal)",
+            "y=Yield (quintals) (quantitative)",
+            "color=Crop (nominal)",
+            "size=Yield (quintals) (quantitative)"
+          ],
+          "markType": "circle"
+        }
+      },
+      {
+        "fields": [
+          "crop_production_data.Yield (quintals)",
+          "crop_production_data.Area (hectares)"
+        ],
+        "id": 3,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Shows parallel coordinates sparklines in tooltip linking yield outliers with cultivation area metrics"
+            },
+            "object": "outlier_points",
+            "verb": "hover"
+          }
+        ],
+        "level": "exploration",
+        "task": [
+          4
+        ],
+        "usingParams": [
+          "district_crop_filter"
+        ],
+        "visualization": {
+          "description": "Horizontal boxplots with outlier indicators showing yield distributions per district. Red markers highlight values beyond 3σ.",
+          "encodings": [
+            "x=District (nominal)",
+            "y=Yield (quintals) (quantitative)",
+            "color=MAD_outlier_status (nominal)"
+          ],
+          "markType": "boxplot"
+        }
+      },
+      {
+        "components": "Slider for selecting top-N crops by yield",
+        "fields": [
+          "water_usage_data.Water Consumption (liters/hectare)",
+          "crop_production_data.Yield (quintals)"
+        ],
+        "id": 4,
+        "level": "insight",
+        "task": [
+          6
+        ],
+        "usingParams": [
+          "crop_selection"
+        ],
+        "visualization": {
+          "description": "Heatmap showing water efficiency ratios. Darker cells indicate higher yields per liter consumed.",
+          "encodings": [
+            "x=Irrigation Method (nominal)",
+            "y=Crop (nominal)",
+            "color=Yield per liter (quantitative)"
+          ],
+          "markType": "rect"
+        }
+      },
+      {
+        "fields": [
+          "soil_analysis_data.Nitrogen Content (kg/ha)",
+          "soil_analysis_data.Phosphorus Content (kg/ha)",
+          "crop_production_data.Yield (quintals)"
+        ],
+        "id": 5,
+        "level": "insight",
+        "task": [
+          3
+        ],
+        "usingParams": [
+          "district_crop_filter"
+        ],
+        "visualization": {
+          "description": "Bubble chart matrix showing relationships between soil nutrients and yields. Larger bubbles indicate higher yields.",
+          "encodings": [
+            "x=Nitrogen (quantitative)",
+            "y=Phosphorus (quantitative)",
+            "size=Yield (quantitative)",
+            "color=District (nominal)"
+          ],
+          "markType": "point"
+        }
+      },
+      {
+        "fields": [
+          "crop_production_data.Production (metric tons)",
+          "crop_production_data.Yield (quintals)",
+          "crop_production_data.Season"
+        ],
+        "id": 6,
+        "level": "insight",
+        "task": [
+          5
+        ],
+        "visualization": {
+          "description": "Radar chart showing seasonal production patterns and yield correlations. Cluster boundaries are highlighted with translucent overlays.",
+          "encodings": [
+            "theta=Season (nominal)",
+            "radius=Production (quantitative)",
+            "color=Yield (quantitive)"
+          ],
+          "markType": "line"
+        }
+      }
+    ]
+  },
+  "requirements": {
+    "visualization": [
+      {
+        "id": "V4-update",
+        "reason": "Original box plot interactions violate system constraints - scatterplot brushing maintains detection capability while respecting technical limits",
+        "requirement": "Use interactive brushing instead of hover for anomaly detection"
+      }
+    ]
+  },
+  "sqls": [
+    {
+      "SQL": "CREATE VIEW view_1 AS SELECT crop_production_data.District, crop_production_data.Season, crop_production_data.Yield (quintals), crop_production_data.Year, water_usage_data.Irrigation_Method, water_usage_data.Water_Consumption per_hectare, soil_analysis_data.Nitrogen_Content_per_ha, soil_analysis_data.Phosphorus_Content_per_ha FROM crop_production_data JOIN water_usage_data ON crop_production_data.District = water_usage_data.District AND crop_production_data.Crop = water_usage_data.Crop JOIN soil_analysis_data ON crop_production_data.District = soil_analysis_data.District AND crop_production_data.Crop = soil_analysis_data.Crop",
+      "corrView": "1",
+      "fk": [
+        {
+          "key": "District",
+          "table": "crop_production_data"
+        },
+        {
+          "key": "Crop",
+          "table": "crop_production_data"
+        }
+      ],
+      "name": "view_1",
+      "pk": "id"
+    },
+    {
+      "SQL": "CREATE VIEW view_2 AS SELECT view_1.District, view_1.Crop, view_1.Yield (quintals), view_1.Irrigation_Method, view_1.Water_Consumption_per_hectare, view_1.Nitrogen_Content_per_ha, view_1.Phosphorus_Content_per_ha FROM view_1 JOIN crop_production_data ON view_1.District = crop_production_data.District AND view_1.Crop = crop_production_data.Crop",
+      "corrView": "2",
+      "fk": [
+        {
+          "key": "District",
+          "table": "crop_production_data"
+        },
+        {
+          "key": "Crop",
+          "table": "crop_production_data"
+        }
+      ],
+      "name": "view_2",
+      "pk": "id"
+    },
+    {
+      "SQL": "CREATE VIEW view_3 AS SELECT view_1.Yield (quintals), view_1.Area (hectares), view_1.Irrigation_Method, view_1.Water_Consumption_per_hectare, view_1.Nitrogen_Content_per_ha, view_1.Phosphorus_Content_per_ha FROM view_1 JOIN crop_production_data ON view_1.District = crop_production_data.District AND view_1.Crop = crop_production_data.Crop",
+      "corrView": "3",
+      "fk": [
+        {
+          "key": "District",
+          "table": "crop_production_data"
+        },
+        {
+          "key": "Crop",
+          "table": "crop_production_data"
+        }
+      ],
+      "name": "view_3",
+      "pk": "id"
+    },
+    {
+      "SQL": "CREATE VIEW view_4 AS SELECT view_1.Water-Consumption_per_hectare, view_1.Yield (quintals) FROM view_1 JOIN crop_production_data ON view_1.District = crop_production_data.District AND view_1.Crop = crop_production_data.Crop",
+      "corrView": "4",
+      "fk": [
+        {
+          "key": "District",
+          "table": "crop_production_data"
+        },
+        {
+          "key": "Crop",
+          "table": "crop_production_data"
+        }
+      ],
+      "name": "view_4",
+      "pk": "id"
+    },
+    {
+      "SQL": "CREATE VIEW view_5 AS SELECT view_1.Nitrogen_Content_per_ha, view_1.Phosphorus_Content_per_ha, view_1.Yield (quintals) FROM view_1 JOIN crop_production_data ON view_1.District = crop_production_data.District AND view_1.Crop = crop_production_data.Crop",
+      "corrView": "5",
+      "fk": [
+        {
+          "key": "District",
+          "table": "crop_production_data"
+        },
+        {
+          "key": "Crop",
+          "table": "crop_production_data"
+        }
+      ],
+      "name": "view_5",
+      "pk": "id"
+    },
+    {
+      "SQL": "CREATE VIEW view_6 AS SELECT view_1.Production (metric tons), view_1.Yield (quintals), view_1.Season FROM view_1 JOIN crop_production_data ON view_1.District = crop_production_data.District AND view_1.Crop = crop_production_data.Crop",
+      "corrView": "6",
+      "fk": [
+        {
+          "key": "District",
+          "table": "crop_production_data"
+        },
+        {
+          "key": "Crop",
+          "table": "crop_production_data"
+        },
+        {
+          "key": "Season",
+          "table": "crop_production_data"
+        }
+      ],
+      "name": "view_6",
+      "pk": "id"
+    }
+  ],
+  "tasks": [
+    {
+      "corrReq": [
+        "V2"
+      ],
+      "data": [
+        "crop_production_data.District",
+        "crop_production_data.Season",
+        "crop_production_data.Yield (quintals)"
+      ],
+      "id": 1,
+      "method": "Use small multiples bar charts with districts on x-axis and yield on y-axis, grouped by season (Kharif/Rabi). Include interactive filters for crops. Coordinated tooltips show production metrics. Color encoding distinguishes seasons.",
+      "objective": "Compare seasonal productivity patterns across districts to identify high/low performance regions",
+      "priority": 5,
+      "type": "characterizing distributions"
+    },
+    {
+      "corrReq": [],
+      "data": [
+        "crop_production_data.District",
+        "crop_production_data.Crop",
+        "crop_production_data.Yield (quintals)"
+      ],
+      "id": 2,
+      "method": "Create a sortable table with lollipop charts showing top/bottom 5 districts per crop. Columns: District, Crop, Yield. Interactive sorting triggers animated transitions. Highlight extremes using diverging color scales.",
+      "objective": "Identify districts with maximum/minimum yields for specific crops to inform best practices replication",
+      "priority": 4,
+      "type": "finding extrema"
+    },
+    {
+      "corrReq": [
+        "D3"
+      ],
+      "data": [
+        "soil_analysis_data.Nitrogen Content (kg/ha)",
+        "soil_analysis_data.Phosphorus Content (kg/ha)",
+        "crop_production_data.Yield (quintals)"
+      ],
+      "id": 3,
+      "method": "Scatterplot matrix combining district-aggregated soil nutrients (D3) and yields. Brush selections update maps showing spatial distribution. Trend lines show polynomial regression relationships.",
+      "objective": "Analyze relationships between soil composition and crop productivity at district level",
+      "priority": 3,
+      "type": "correlating"
+    },
+    {
+      "corrReq": [],
+      "data": [
+        "crop_production_data.Yield (quintals)",
+        "crop_production_data.Area (hectares)"
+      ],
+      "id": 4,
+      "method": "Box plots showing yield distributions per district with hover details. Integrated MAD-based outlier detection marks points beyond 3σ. Parallel coordinates plot links outliers with cultivation area metrics.",
+      "objective": "Detect anomalous yield patterns requiring investigation into cultivation practices or data quality",
+      "priority": 4,
+      "type": "finding anomalies"
+    },
+    {
+      "corrReq": [],
+      "data": [
+        "crop_production_data.Season",
+        "crop_production_data.Yield (quintals)",
+        "crop_production_data.Production (metric tons)"
+      ],
+      "id": 5,
+      "method": "Apply k-means clustering to group districts by yield/production metrics across seasons. Radial visualization encodes cluster characteristics. Dynamic PCA projection aids cluster interpretation.",
+      "objective": "Discover groups of districts with similar production profiles to enable regional policy planning",
+      "priority": 3,
+      "type": "clustering"
+    },
+    {
+      "corrReq": [
+        "V4"
+      ],
+      "data": [
+        "water_usage_data.Water Consumption (liters/hectare)",
+        "crop_production_data.Yield (quintals)"
+      ],
+      "id": 6,
+      "method": "Scrollable heatmap (V4) showing water-yield ratios for top-10 crops. Columns: Irrigation methods, rows: Crops. Color intensity represents yield per liter consumed. Linked histograms show distribution details.",
+      "objective": "Optimize irrigation strategies by identifying water-efficient crops and methods",
+      "priority": 2,
+      "type": "correlating"
+    }
+  ]
+}

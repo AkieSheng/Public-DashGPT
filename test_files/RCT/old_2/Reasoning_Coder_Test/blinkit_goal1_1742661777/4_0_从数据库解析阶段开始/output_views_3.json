@@ -1,0 +1,186 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "blinkit_orders.order_date",
+      "blinkit_orders.order_total",
+      "blinkit_marketing_performance.campaign_name",
+      "blinkit_marketing_performance.channel"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "line",
+      "encodings": [
+        "x:Temporal(order_date)",
+        "y:Quantitative(order_total aggregate='sum')",
+        "color:Nominal(campaign_name)",
+        "strokeDash:Nominal(channel)"
+      ],
+      "description": "Line chart showing daily sales trends with overlaid marketing campaign events as vertical bars. LOESS smoothing line shows underlying trend"
+    },
+    "usingParams": [],
+    "interactions": [
+      {
+        "object": "chart",
+        "verb": "interval",
+        "effect": {
+          "description": "Brushing selects time range and propagates to other views",
+          "params": [
+            {
+              "name": "time_brush",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "blinkit_marketing_performance.date",
+      "blinkit_marketing_performance.campaign_name",
+      "blinkit_orders.order_total"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "rule",
+      "encodings": [
+        "x:Temporal(start_date)",
+        "x2:Temporal(end_date)",
+        "y:Ordinal(campaign_name)",
+        "color:Quantitative(order_total)"
+      ],
+      "description": "Gantt-style campaign timeline bars with line chart showing corresponding sales spikes below"
+    },
+    "usingParams": [
+      "time_brush"
+    ],
+    "interactions": [
+      {
+        "object": "campaign_bars",
+        "verb": "click",
+        "effect": {
+          "description": "Selects campaign for impact analysis",
+          "params": [
+            {
+              "name": "campaign_select",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "blinkit_orders.order_date",
+      "blinkit_order_items.quantity",
+      "blinkit_products.category"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "area",
+      "encodings": [
+        "x:Temporal(order_date timeUnit='week')",
+        "y:Quantitative(quantity aggregate='sum')",
+        "color:Nominal(category)",
+        "opacity:Condition(category_anomaly)"
+      ],
+      "description": "Stacked weekly area chart showing category proportions with MAD-based anomaly highlights"
+    },
+    "usingParams": [
+      "time_brush"
+    ],
+    "components": "MAD threshold slider for anomaly sensitivity"
+  },
+  {
+    "id": 4,
+    "level": "exploration",
+    "fields": [
+      "blinkit_products.category",
+      "blinkit_order_items.unit_price",
+      "blinkit_orders.order_date"
+    ],
+    "task": [
+      7
+    ],
+    "visualization": {
+      "markType": "area",
+      "encodings": [
+        "x:Temporal(order_date)",
+        "y:Quantitative(unit_price*quantity aggregate='sum')",
+        "color:Nominal(category)",
+        "order:Nominal(category)"
+      ],
+      "description": "Streamgraph showing temporal shifts in category revenue contribution with dynamic aggregation controls"
+    },
+    "usingParams": [
+      "time_brush"
+    ]
+  },
+  {
+    "id": 5,
+    "level": "insight",
+    "fields": [
+      "blinkit_orders.order_date",
+      "blinkit_orders.order_total"
+    ],
+    "task": [
+      6
+    ],
+    "visualization": {
+      "markType": "line",
+      "encodings": [
+        "x:Temporal(order_date)",
+        "y:Quantitative(order_total aggregate='sum')",
+        "row:Nominal(component)",
+        "color:Nominal(component)"
+      ],
+      "description": "STL decomposition showing trend, seasonal, and residual components in vertical facets"
+    },
+    "usingParams": [
+      "time_brush"
+    ],
+    "interactions": [
+      {
+        "object": "chart",
+        "verb": "brush",
+        "effect": {
+          "description": "Cycle selection for zooming into periodic patterns",
+          "params": [
+            {
+              "name": "cycle_brush",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

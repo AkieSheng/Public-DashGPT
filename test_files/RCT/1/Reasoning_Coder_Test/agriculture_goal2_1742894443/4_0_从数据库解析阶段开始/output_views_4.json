@@ -1,0 +1,113 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "crop_production_data.District",
+      "crop_production_data.Season",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "task": [
+      0
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x:District (nominal)",
+        "y:average Yield (quintals) (quantitative)",
+        "color:Season (nominal)"
+      ],
+      "description": "Vertical grouped bar chart comparing average crop yield across districts and seasons. Districts on X-axis, average yield on Y-axis, grouped by season (Kharif/Rabi) with color encoding."
+    },
+    "usingParams": [],
+    "components": "Season legend for color decoding",
+    "interactions": [
+      {
+        "object": "bar marks",
+        "verb": "click",
+        "effect": {
+          "description": "Select a district to filter subsequent views. Triggers data filtering based on district.",
+          "params": [
+            {
+              "name": "district_selection",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "crop_production_data.District",
+      "crop_production_data.Area (hectares)",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x:Area (hectares) (quantitative, binned)",
+        "y:Yield (quintals) (quantitative)",
+        "color:District (nominal)"
+      ],
+      "description": "Scatter plot of land-use efficiency, showing relationship between cultivated area and yield per district. Binned X-axis improves clarity."
+    },
+    "usingParams": [
+      "district_selection"
+    ],
+    "interactions": [
+      {
+        "object": "plot area",
+        "verb": "hover",
+        "effect": {
+          "description": "Highlight data points on hover with tooltips showing exact area/yield values."
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "crop_production_data.District",
+      "crop_production_data.Crop",
+      "crop_production_data.Season",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x:Crop (nominal)",
+        "y:District (nominal)",
+        "color:average Yield (quintals) (quantitative)"
+      ],
+      "description": "Heatmap showing average yield by crop and district. Interactive season toggles update the data context."
+    },
+    "usingParams": [
+      "district_selection"
+    ],
+    "components": "Toggle switch for Season (Kharif/Rabi)",
+    "interactions": [
+      {
+        "object": "rect marks",
+        "verb": "click",
+        "effect": {
+          "description": "Highlight optimal crop-district combinations for selected district(s)."
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "vw_water_production",
+    "SQL": "CREATE VIEW vw_water_production AS SELECT wp.Irrigation_Method, cp.Yield, wp.Water_Consumption, wp.District, wp.Crop FROM water_usage_data wp JOIN crop_production_data cp ON wp.Crop = cp.Crop AND wp.District = cp.District;",
+    "corrView": "1",
+    "pk": "Irrigation_Method, District, Crop",
+    "fk": [
+      {
+        "key": "District",
+        "table": "vw_soil_analysis"
+      }
+    ]
+  },
+  {
+    "name": "vw_soil_analysis",
+    "SQL": "CREATE VIEW vw_soil_analysis AS SELECT sa.District, sa.Soil_Type, sa.pH_Level, sa.Organic_Matter, sa.Nitrogen_Content, sa.Phosphorus_Content, sa.Potassium_Content FROM soil_analysis_data sa JOIN vw_water_production pw ON sa.District = pw.District;",
+    "corrView": "3",
+    "pk": "District, Soil_Type",
+    "fk": [
+      {
+        "key": "District",
+        "table": "vw_water_production"
+      }
+    ]
+  }
+]

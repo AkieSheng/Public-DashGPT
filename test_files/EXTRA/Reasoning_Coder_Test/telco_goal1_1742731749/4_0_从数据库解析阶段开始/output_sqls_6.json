@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "name": "view_customer_age_churn",
+    "SQL": "CREATE VIEW view_customer_age_churn AS SELECT Customer_Info.age, Status_Analysis.churn_label, Status_Analysis.churn_value FROM Customer_Info JOIN Status_Analysis ON Customer_Info.customer_id = Status_Analysis.customer_id;",
+    "corrView": "1",
+    "pk": "customer_id",
+    "fk": []
+  },
+  {
+    "id": 2,
+    "name": "view_customer_demo_churn",
+    "SQL": "CREATE VIEW view_customer_demo_churn AS SELECT Customer_Info.gender, Customer_Info.senior_citizen, Status_Analysis.churn_value FROM Customer_Info JOIN Status_Analysis ON Customer_Info.customer_id = Status_Analysis.customer_id;",
+    "corrView": "2",
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "view_customer_age_churn"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "view_service_contract_churn",
+    "SQL": "CREATE VIEW view_service_contract_churn AS SELECT Online_Services.internet_type, Payment_Info.contract, Status_Analysis.churn_value FROM Online_Services JOIN Payment_Info ON Online_Services.customer_id = Payment_Info.customer_id JOIN Status_Analysis ON Online_Services.customer_id = Status_Analysis.customer_id;",
+    "corrView": "3",
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "view_customer_demo_churn"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "view_churn_details",
+    "SQL": "CREATE VIEW view_churn_details AS SELECT Status_Analysis.cltv, Status_Analysis.satisfaction_score, Status_Analysis.churn_label, Payment_Info.total_revenue FROM Status_Analysis JOIN Payment_Info ON Status_Analysis.customer_id = Payment_Info.customer_id;",
+    "corrView": "4",
+    "pk": "customer_id",
+    "fk": [
+      {
+        "key": "customer_id",
+        "table": "view_customer_demo_churn"
+      }
+    ]
+  }
+]

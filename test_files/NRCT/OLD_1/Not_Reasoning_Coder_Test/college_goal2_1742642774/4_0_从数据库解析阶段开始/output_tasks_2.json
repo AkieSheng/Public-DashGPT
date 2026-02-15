@@ -1,0 +1,171 @@
+[
+  {
+    "id": 1,
+    "type": "characterizing distributions",
+    "data": [
+      "Member_of.FacID",
+      "Member_of.DNO",
+      "Member_of.Appt_Type"
+    ],
+    "method": "Use a segmented bar chart (V1) to display faculty distribution by department, segmented by appointment type (primary vs secondary). Include interactivity (I1) to filter by department.",
+    "objective": "To retrieve and visualize the distribution of faculty across departments and differentiate between primary and secondary appointments.",
+    "corrReq": [
+      "D1",
+      "V1",
+      "I1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "correlating",
+    "data": [
+      "Member_of.FacID",
+      "Course.DNO",
+      "Course.CID"
+    ],
+    "method": "Create a heat map (V2) to correlate department size (number of faculty) with the number of courses offered in each department. Include hover interactivity (I2) for detailed values.",
+    "objective": "To uncover relationships between faculty distribution and academic activity levels across departments.",
+    "corrReq": [
+      "D2",
+      "D5",
+      "V2",
+      "I2"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 3,
+    "type": "finding anomalies",
+    "data": [
+      "Member_of.FacID",
+      "Course.DNO"
+    ],
+    "method": "Visualize department-level anomalies in faculty-to-course ratios using a box plot (V5). Enable tooltip-based calculation (I8) for aggregated metrics on hover.",
+    "objective": "To detect departments with unusually high or low faculty-to-course ratios, highlighting potential anomalies in resource allocation.",
+    "corrReq": [
+      "D7",
+      "V5",
+      "I8"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 4,
+    "type": "retrieving values",
+    "data": [
+      "Course.DNO",
+      "Faculty.FacID",
+      "Faculty.Rank",
+      "Course.Credits"
+    ],
+    "method": "Use scatter plots (V3) to analyze the relationship between faculty ranks and course credits. Include filtering based on department (I1) and instructor ranks using dropdown menus (I4).",
+    "objective": "To understand how faculty ranks influence course offerings, particularly in terms of credit distribution.",
+    "corrReq": [
+      "D3",
+      "D5",
+      "V3",
+      "I1",
+      "I4"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 5,
+    "type": "retrieving values",
+    "data": [
+      "Faculty.Sex",
+      "Faculty.Rank",
+      "Member_of.DNO"
+    ],
+    "method": "Visualize faculty gender distribution across departments and ranks using grouped bar charts (V4). Enable multi-select interaction (I3) to compare departments side-by-side.",
+    "objective": "To explore how gender distribution varies among faculty across different departments and ranks.",
+    "corrReq": [
+      "D4",
+      "V4",
+      "I3"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 6,
+    "type": "characterizing distributions",
+    "data": [
+      "Member_of.Appt_Type"
+    ],
+    "method": "Create a pie chart (V6) to represent the proportional distribution of primary versus secondary appointments.",
+    "objective": "To analyze the overall breakdown of appointment types across the institution.",
+    "corrReq": [
+      "D6",
+      "V6"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 7,
+    "type": "retrieving values",
+    "data": [
+      "Faculty.Building",
+      "Faculty.Room",
+      "Department.Building",
+      "Department.Room"
+    ],
+    "method": "Use bar charts (V7) for visualizing faculty distribution across buildings and compare against department office locations. Enable sorting functionality (I7) for ranking buildings by distribution.",
+    "objective": "To analyze the spatial distribution of faculty and departmental offices across campus.",
+    "corrReq": [
+      "D8",
+      "V7",
+      "I7"
+    ],
+    "priority": 2
+  },
+  {
+    "id": 8,
+    "type": "clustering",
+    "data": [
+      "Faculty.FacID",
+      "Member_of.DNO",
+      "Course.CID",
+      "Faculty.Rank"
+    ],
+    "method": "Cluster data based on faculty department assignments, ranks, and course offering patterns. Use interactive tooltips (I2) to display cluster-level summaries.",
+    "objective": "To group departments with similar staffing profiles and academic activities for macro-level insights.",
+    "corrReq": [
+      "D3",
+      "D5",
+      "I2"
+    ],
+    "priority": 2
+  },
+  {
+    "id": 9,
+    "type": "computing derived values",
+    "data": [
+      "Member_of.FacID",
+      "Course.CID",
+      "Course.DNO"
+    ],
+    "method": "Use a layered area chart (V8) to compare trends in department size and course offerings over time if historical data is available.",
+    "objective": "To analyze temporal trends in staffing and academic activities and identify growth or decline patterns at the department level.",
+    "corrReq": [
+      "V8"
+    ],
+    "priority": 1
+  },
+  {
+    "id": 10,
+    "type": "finding extrema",
+    "data": [
+      "Member_of.DNO",
+      "Faculty.FacID",
+      "Course.CID"
+    ],
+    "method": "Identify and highlight extreme cases, such as departments with the highest or lowest number of faculty or courses. Use sorting interaction (I7) to rank departments and display metrics visually using bar charts.",
+    "objective": "To pinpoint departments with particularly high or low metrics for targeted examination.",
+    "corrReq": [
+      "D7",
+      "I7"
+    ],
+    "priority": 1
+  }
+]

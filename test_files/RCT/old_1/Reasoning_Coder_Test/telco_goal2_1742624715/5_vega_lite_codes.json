@@ -1,0 +1,362 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "columns": 5,
+  "concat": [
+    {
+      "data": {
+        "url": "http://localhost:8888/vw_overview.csv"
+      },
+      "description": "Overview: Churn Rate by Contract and Internet Type",
+      "encoding": {
+        "color": {
+          "axis": {
+            "titleColor": "black"
+          },
+          "field": "internet_type",
+          "title": "Internet Type",
+          "type": "nominal"
+        },
+        "opacity": {
+          "condition": {
+            "param": "selected_config",
+            "value": 1
+          },
+          "value": 0.5
+        },
+        "x": {
+          "axis": {
+            "titleColor": "black"
+          },
+          "field": "contract",
+          "title": "Contract Type",
+          "type": "nominal"
+        },
+        "y": {
+          "aggregate": "mean",
+          "axis": {
+            "titleColor": "black"
+          },
+          "field": "churn_value",
+          "title": "Churn Rate",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "bar",
+      "params": [
+        {
+          "name": "selected_config",
+          "select": {
+            "encodings": [
+              "x",
+              "color"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/vw_exploration_2.csv"
+      },
+      "description": "Exploration: Churn Score vs CLTV with Satisfaction",
+      "encoding": {
+        "color": {
+          "axis": {
+            "titleColor": "black"
+          },
+          "field": "satisfaction_score",
+          "scale": {
+            "domain": [
+              1,
+              5
+            ]
+          },
+          "title": "Satisfaction Score",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "customer_id",
+            "type": "nominal"
+          }
+        ],
+        "x": {
+          "axis": {
+            "titleColor": "black"
+          },
+          "field": "churn_score",
+          "title": "Churn Score",
+          "type": "quantitative"
+        },
+        "y": {
+          "axis": {
+            "titleColor": "black"
+          },
+          "field": "cltv",
+          "title": "CLTV",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "circle",
+      "params": [
+        {
+          "name": "selected_config",
+          "select": {
+            "encodings": [
+              "x",
+              "color"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/vw_overview.csv"
+            },
+            "fields": [
+              "contract"
+            ],
+            "key": "customer_id"
+          },
+          "lookup": "customer_id"
+        },
+        {
+          "filter": {
+            "param": "selected_config"
+          }
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/vw_exploration_3.csv"
+      },
+      "description": "Exploration: Average CLTV by Tenure and Churn Category",
+      "encoding": {
+        "color": {
+          "axis": {
+            "titleColor": "black"
+          },
+          "field": "churn_category",
+          "title": "Churn Category",
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "customer_id",
+            "type": "nominal"
+          }
+        ],
+        "x": {
+          "axis": {
+            "titleColor": "black"
+          },
+          "field": "tenure",
+          "title": "Tenure (months)",
+          "type": "quantitative"
+        },
+        "y": {
+          "aggregate": "mean",
+          "axis": {
+            "titleColor": "black"
+          },
+          "field": "cltv",
+          "title": "Average CLTV",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": "line",
+      "params": [
+        {
+          "name": "selected_config",
+          "select": {
+            "encodings": [
+              "x",
+              "color"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/vw_overview.csv"
+            },
+            "fields": [
+              "contract",
+              "internet_type"
+            ],
+            "key": "customer_id"
+          },
+          "lookup": "customer_id"
+        },
+        {
+          "filter": {
+            "param": "selected_config"
+          }
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/vw_detail_4.csv"
+      },
+      "description": "Detail: Satisfaction Score by Age and Number of Dependents",
+      "encoding": {
+        "color": {
+          "aggregate": "mean",
+          "axis": {
+            "titleColor": "black"
+          },
+          "field": "satisfaction_score",
+          "title": "Average Satisfaction Score",
+          "type": "quantitative"
+        },
+        "column": {
+          "axis": {
+            "titleColor": "black"
+          },
+          "bin": {
+            "maxbins": 10
+          },
+          "field": "number_of_dependents",
+          "title": "Number of Dependents",
+          "type": "quantitative"
+        },
+        "row": {
+          "axis": {
+            "titleColor": "black"
+          },
+          "bin": {
+            "maxbins": 10
+          },
+          "field": "age",
+          "title": "Age",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "customer_id",
+            "type": "nominal"
+          }
+        ]
+      },
+      "height": 200,
+      "mark": "rect",
+      "params": [
+        {
+          "name": "risk_cluster",
+          "select": {
+            "encodings": [
+              "x",
+              "y"
+            ],
+            "type": "interval"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/vw_exploration_2.csv"
+            },
+            "fields": [
+              "churn_score"
+            ],
+            "key": "customer_id"
+          },
+          "lookup": "customer_id"
+        },
+        {
+          "filter": {
+            "param": "risk_cluster"
+          }
+        }
+      ],
+      "width": 200
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/vw_insight_5.csv"
+      },
+      "description": "Insight: Monthly Charges vs Total Revenue",
+      "encoding": {
+        "color": {
+          "aggregate": "count",
+          "axis": {
+            "titleColor": "black"
+          },
+          "title": "Cluster Density",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "customer_id",
+            "type": "nominal"
+          }
+        ],
+        "x": {
+          "axis": {
+            "titleColor": "black"
+          },
+          "field": "monthly_charges",
+          "title": "Monthly Charges",
+          "type": "quantitative"
+        },
+        "y": {
+          "axis": {
+            "titleColor": "black"
+          },
+          "field": "total_revenue",
+          "title": "Total Revenue",
+          "type": "quantitative"
+        }
+      },
+      "mark": "point",
+      "params": [
+        {
+          "name": "selected_config",
+          "select": {
+            "encodings": [
+              "x",
+              "color"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/vw_overview.csv"
+            },
+            "fields": [
+              "contract"
+            ],
+            "key": "customer_id"
+          },
+          "lookup": "customer_id"
+        },
+        {
+          "filter": {
+            "param": "selected_config"
+          }
+        }
+      ]
+    }
+  ]
+}

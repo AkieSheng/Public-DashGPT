@@ -1,0 +1,23 @@
+{
+  "V1": {
+    "data": {
+      "name": "overview_view"
+    },
+    "encoding": {
+      "color": {
+        "field": "service",
+        "type": "nominal"
+      },
+      "x": {
+        "field": "demographic",
+        "type": "nominal"
+      },
+      "y": {
+        "field": "churn_rate",
+        "type": "quantitative"
+      }
+    },
+    "mark": "bar",
+    "title": "Churn Rates Overview"
+  }
+}

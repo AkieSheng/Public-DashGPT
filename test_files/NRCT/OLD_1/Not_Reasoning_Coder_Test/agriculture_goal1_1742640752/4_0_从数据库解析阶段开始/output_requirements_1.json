@@ -1,0 +1,128 @@
+{
+  "data": [
+    {
+      "id": "D1",
+      "requirement": "Extract water usage efficiency by computing derived values such as 'Yield per unit of Water Usage' for each crop and district by joining relevant columns from the 'water_usage_data' (Water Consumption, Water Availability) and 'crop_production_data' (Yield, Area) tables.",
+      "reason": "Understanding water usage efficiency is critical for evaluating sustainable water management practices as per the analysis goal."
+    },
+    {
+      "id": "D2",
+      "requirement": "Highlight geographical variations by aggregating water efficiency, irrigation methods, and yield data by district.",
+      "reason": "Geographical trends can reveal location-specific behaviors and allow recommendations tailored to particular districts."
+    },
+    {
+      "id": "D3",
+      "requirement": "Filter the data to focus on specific irrigation methods and compute their median water consumption and efficiency metrics aggregated across districts and crop types.",
+      "reason": "Different irrigation methods may have varying impacts on water efficiency. Filtering and aggregating this data will support better decision-making."
+    },
+    {
+      "id": "D4",
+      "requirement": "Guide the user from macro to micro-level by providing an overview of water usage across crops, districts, and irrigation methods, with the ability to drill down into specific crop-district combinations.",
+      "reason": "This hierarchical approach ensures both breadth and depth of analysis, making it accessible and comprehensive."
+    },
+    {
+      "id": "D5",
+      "requirement": "Identify outliers or anomalies in water efficiency metrics to flag districts or crops that exhibit unusually high or low use of water relative to yield.",
+      "reason": "Highlighting anomalies can direct attention to inefficiencies or best practices worth emulating."
+    },
+    {
+      "id": "D6",
+      "requirement": "Correlate soil quality characteristics like pH Level, Organic Matter, and Nutrient Content (from 'soil_analysis_data') with water efficiency and yield metrics.",
+      "reason": "Soil properties may drive water efficiency and yield outcomes; including this correlation supports holistic recommendations for sustainable practices."
+    },
+    {
+      "id": "D7",
+      "requirement": "Determine seasonal trends in water efficiency by analyzing seasonal data from 'crop_production_data' and its interaction with irrigation methods.",
+      "reason": "Seasonal changes may provide actionable insights into optimizing water usage differently across the year."
+    },
+    {
+      "id": "D8",
+      "requirement": "Normalize numerical data such as Water Consumption, Water Availability, and Yield for direct comparison and better visualization.",
+      "reason": "Normalization ensures that scale differences do not bias the analysis, making comparisons clearer."
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V1",
+      "requirement": "Create a box plot to display the distribution of 'Yield per unit of Water Usage' across different irrigation methods.",
+      "reason": "This visualization helps characterize the range, median, and variability of water efficiency across irrigation techniques."
+    },
+    {
+      "id": "V2",
+      "requirement": "Use a scatter plot to explore correlations between soil quality (e.g., pH Level, Organic Matter) and 'Water Usage Efficiency'.",
+      "reason": "Scatter plots effectively represent relationships between numerical variables, aiding in identifying correlations."
+    },
+    {
+      "id": "V3",
+      "requirement": "Design a bar chart to compare average 'Yield per unit of Water Usage' and 'Water Consumption' across districts.",
+      "reason": "Bar charts are intuitive for comparing aggregated metrics across categorical variables like districts."
+    },
+    {
+      "id": "V4",
+      "requirement": "Implement a combined line chart and area chart to analyze seasonal trends in water efficiency and yield for specific crops.",
+      "reason": "Combined charts effectively show temporal trends while allowing comparison of two metrics over time."
+    },
+    {
+      "id": "V5",
+      "requirement": "Include a heat map to visualize the efficiency of water usage (e.g., Yield per liter) for different crop-district combinations.",
+      "reason": "Heat maps provide a compact and clear way to identify patterns or hotspots in water efficiency across multiple dimensions."
+    },
+    {
+      "id": "V6",
+      "requirement": "Use a pie chart to show the proportion of different irrigation methods used across all districts.",
+      "reason": "Pie charts simplify the representation of parts-to-whole relationships, such as the share of irrigation methods."
+    },
+    {
+      "id": "V7",
+      "requirement": "Visualize anomalies in water usage efficiency with a scatter plot overlaid with outlier markers.",
+      "reason": "This highlights deviations and informs corrective action or modeling practices."
+    },
+    {
+      "id": "V8",
+      "requirement": "Add a tick chart to indicate water availability vs. consumption balance for each irrigation method.",
+      "reason": "Tick charts are ideal for juxtaposing related numerical values in a visually clean manner."
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I1",
+      "requirement": "Allow users to filter the dataset by district, crop type, and irrigation method dynamically.",
+      "reason": "Interactive filters help users focus on specific subsets of the data for targeted analysis and retrieve relevant insights."
+    },
+    {
+      "id": "I2",
+      "requirement": "Enable tooltips on all visualizations to display detailed metrics like exact water usage, yield, and efficiency values on hover.",
+      "reason": "Tooltips provide micro-level insights without cluttering the visualization space."
+    },
+    {
+      "id": "I3",
+      "requirement": "Provide brushing and linking functionality between scatter plots and maps, allowing users to select districts or crops and see related data across visualizations.",
+      "reason": "This coordination across views allows users to see spatial and relational data simultaneously and enhances understanding."
+    },
+    {
+      "id": "I4",
+      "requirement": "Allow sorting of districts and irrigation methods based on derived efficiency metrics in bar and heat map visualizations.",
+      "reason": "Sorting facilitates quick identification of the most and least efficient entities, streamlining decision-making."
+    },
+    {
+      "id": "I5",
+      "requirement": "Support drill-down interactions in heat maps to view detailed time series data for selected crop-district pairs.",
+      "reason": "Drill-down functionality aids users in exploring specific instances in greater depth when patterns of interest are identified."
+    },
+    {
+      "id": "I6",
+      "requirement": "Enable the user to toggle between normalized and raw data views for water efficiency and yield metrics.",
+      "reason": "This flexibility helps users analyze the data more effectively based on the context of their investigations."
+    },
+    {
+      "id": "I7",
+      "requirement": "Provide a slider for temporal analysis to allow users to adjust the time window and observe seasonal trends interactively.",
+      "reason": "Temporal sliders make it easy to explore changes over time, which is particularly useful for season-dependent metrics."
+    },
+    {
+      "id": "I8",
+      "requirement": "Incorporate a comparison mode where users can select two districts or crops to visualize side-by-side differences in water usage efficiency and yield.",
+      "reason": "Comparative analysis enhances understanding of relative performance and highlights best practices or areas for improvement."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "id": "D1",
+      "requirement": "Link customer demographics (age, gender, senior status) with churn status (churn_label) and service attributes (contract type, internet type) through customer_id to enable multi-table analysis.",
+      "reason": "Original requirement mixes valid table linking with non-existent 'income' factor from user's goal. Database contains no income data - adjustment needed to focus on actual demographic columns (age/senior/gender)"
+    },
+    {
+      "id": "D2",
+      "requirement": "Calculate aggregated churn rates across demographic segments (age bins, gender groups) and service categories (contract types). Identify segments with churn rates statistically different from population mean using z-score >2.",
+      "reason": "Original 1.5x threshold is arbitrary. Statistical significance testing better serves outlier identification while removing inaccurate income references"
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V1",
+      "requirement": "Faceted bar charts showing churn rates across two dimensions at a time (e.g., age group x internet_type) with interactive dimension selector.",
+      "reason": "3D heatmaps would become unreadable with 20+ internet_type/contract combinations. Faceting maintains readability while enabling multi-factor analysis"
+    },
+    {
+      "id": "V4",
+      "requirement": "Stacked area charts showing churn distribution across tenure cohorts, with interactive time window selection.",
+      "reason": "Horizon charts are too specialized for general users. Stacked areas better show tenure-based patterns while aligning with allowed chart types"
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I3",
+      "requirement": "Click-driven bar chart sorting instead of hover, showing top 10 churn reasons for selected demographic/service segments.",
+      "reason": "Hover-based sorting creates unintended view changes. Explicit click interactions maintain user control and prevent visual distraction"
+    }
+  ]
+}

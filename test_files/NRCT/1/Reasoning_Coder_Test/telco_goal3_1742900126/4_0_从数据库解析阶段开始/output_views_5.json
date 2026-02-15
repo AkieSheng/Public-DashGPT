@@ -1,0 +1,257 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "Status_Analysis.customer_status",
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.churn_score",
+      "Status_Analysis.cltv"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        {
+          "x": "customer_status",
+          "type": "nominal"
+        },
+        {
+          "y": "metric_value",
+          "type": "quantitative"
+        },
+        {
+          "color": "customer_status",
+          "type": "nominal"
+        }
+      ],
+      "description": "Grouped bar chart showing average, median, and standard deviation values of satisfaction score, churn score, and CLTV for different customer statuses ('Stayed', 'Churned', 'Joined'). Color coding differentiates customer statuses."
+    },
+    "usingParams": [],
+    "interactions": [
+      {
+        "object": "bar",
+        "verb": "click",
+        "effect": {
+          "description": "Filter data by selected customer status to focus subsequent analyses.",
+          "params": [
+            {
+              "name": "selectedStatus",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "x"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "Status_Analysis.customer_status",
+      "Customer_Info.age",
+      "Customer_Info.gender",
+      "Customer_Info.senior_citizen",
+      "Customer_Info.under_30",
+      "Customer_Info.partner",
+      "Customer_Info.dependents"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        {
+          "x": "customer_status",
+          "type": "nominal"
+        },
+        {
+          "y": "count",
+          "type": "quantitative"
+        },
+        {
+          "color": "demographic_factor",
+          "type": "nominal"
+        }
+      ],
+      "description": "Stacked bar charts comparing demographic distributions like gender, age group, marital status, etc., for each customer status group."
+    },
+    "usingParams": [
+      "selectedStatus"
+    ],
+    "interactions": []
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "Status_Analysis.churn_score",
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.cltv",
+      "Status_Analysis.customer_status"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "point",
+      "encodings": [
+        {
+          "x": "satisfaction_score",
+          "type": "quantitative"
+        },
+        {
+          "y": "churn_score",
+          "type": "quantitative"
+        },
+        {
+          "size": "cltv",
+          "type": "quantitative"
+        },
+        {
+          "color": "customer_status",
+          "type": "nominal"
+        }
+      ],
+      "description": "Scatter plot visualizing the relationship between satisfaction score and churn score, distinguished by customer status. Circle size indicates Customer Lifetime Value (CLTV)."
+    },
+    "usingParams": [
+      "selectedStatus"
+    ],
+    "interactions": [
+      {
+        "object": "scatter",
+        "verb": "brush",
+        "effect": {
+          "description": "Select a range to highlight specific customer groups and update drill-down analysis view.",
+          "params": [
+            {
+              "name": "selectedScatterRange",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "level": "detail",
+    "fields": [
+      "Status_Analysis.customer_status",
+      "Location_Data.city",
+      "Location_Data.zip_code",
+      "Location_Data.latitude",
+      "Location_Data.longitude"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        {
+          "x": "city",
+          "type": "nominal"
+        },
+        {
+          "y": "zip_code",
+          "type": "ordinal"
+        },
+        {
+          "color": "customer_status",
+          "type": "nominal"
+        }
+      ],
+      "description": "Heatmap showing customer status distributions geographically by city and zip code. Allows exploration through zoom and pan."
+    },
+    "usingParams": [
+      "selectedStatus"
+    ],
+    "interactions": [
+      {
+        "object": "heatmap",
+        "verb": "zoom&pan",
+        "effect": {
+          "description": "Zoom into specific areas on the map to explore customer distributions.",
+          "params": []
+        }
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "level": "detail",
+    "fields": [
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.churn_score",
+      "Status_Analysis.customer_status"
+    ],
+    "task": [
+      5
+    ],
+    "visualization": {
+      "markType": "boxplot",
+      "encodings": [
+        {
+          "x": "customer_status",
+          "type": "nominal"
+        },
+        {
+          "y": "score_value",
+          "type": "quantitative"
+        },
+        {
+          "color": "customer_status",
+          "type": "nominal"
+        }
+      ],
+      "description": "Box plots showing distributions of satisfaction and churn scores for each customer status group, highlighting outliers explicitly."
+    },
+    "usingParams": [
+      "selectedScatterRange"
+    ],
+    "interactions": []
+  },
+  {
+    "id": 6,
+    "level": "insight",
+    "fields": [
+      "Status_Analysis.customer_status",
+      "Status_Analysis.churn_score",
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.cltv"
+    ],
+    "task": [
+      8
+    ],
+    "visualization": {
+      "markType": "text",
+      "encodings": [
+        {
+          "text": "insight",
+          "type": "nominal"
+        }
+      ],
+      "description": "Summarized text-based report highlighting anomalies or extreme cases identified, including detailed reasoning."
+    },
+    "usingParams": [
+      "selectedScatterRange"
+    ],
+    "interactions": []
+  }
+]

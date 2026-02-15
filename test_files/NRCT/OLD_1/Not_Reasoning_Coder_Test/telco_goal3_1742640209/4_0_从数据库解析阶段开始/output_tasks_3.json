@@ -1,0 +1,196 @@
+[
+  {
+    "id": 1,
+    "type": "characterizing distributions | retrieving values | computing derived values",
+    "data": [
+      "Status_Analysis.customer_status",
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.churn_score",
+      "Status_Analysis.cltv"
+    ],
+    "method": "Use bar charts (V1) to compare the mean satisfaction_score, churn_score, and CLTV for Stayed, Churned, and Joined groups. Implement customer_status filtering (I1).",
+    "objective": "Identify group-level differences in satisfaction, churn risk, and customer value to assess underlying patterns.",
+    "corrReq": [
+      "D1",
+      "D3",
+      "V1",
+      "I1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "finding extrema | characterizing distributions",
+    "data": [
+      "Status_Analysis.customer_status",
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.churn_score",
+      "Status_Analysis.cltv"
+    ],
+    "method": "Create box plots (V2) segmented by customer_status to observe the spread, central tendency, and outliers for satisfaction_score, churn_score, and CLTV. Enable brushing/selection (I2) to highlight specific ranges on the box plots.",
+    "objective": "Understand the distribution spread for key metrics and identify outliers or unusual patterns in each group.",
+    "corrReq": [
+      "D1",
+      "D3",
+      "D4",
+      "V2",
+      "I2"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 3,
+    "type": "retrieving values | correlating | clustering",
+    "data": [
+      "Service_Options.internet_service",
+      "Service_Options.phone_service",
+      "Service_Options.multiple_lines",
+      "Online_Services.online_security",
+      "Online_Services.premium_tech_support",
+      "Status_Analysis.customer_status"
+    ],
+    "method": "Use a heat map (V3) to visualize correlations between service usage (e.g., online_security, multiple_lines) and customer_status. Enable hover tooltips (I3) for customer details in each heat map cell.",
+    "objective": "Explore specific service usage patterns clustered with customer_status to identify behavioral factors influencing churn or retention.",
+    "corrReq": [
+      "D5",
+      "V3",
+      "I3"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 4,
+    "type": "characterizing distributions | retrieving values",
+    "data": [
+      "Customer_Info.gender",
+      "Customer_Info.senior_citizen",
+      "Customer_Info.dependents",
+      "Customer_Info.married",
+      "Status_Analysis.customer_status"
+    ],
+    "method": "Use stacked bar charts (V4) to show proportions of gender, senior_citizen, dependents, and married status within each customer_status group. Allow selection of demographic features (I5) to dynamically highlight or compare distributions.",
+    "objective": "Provide demographic insights into different customer groups, revealing contextual factors influencing churn or retention.",
+    "corrReq": [
+      "D2",
+      "V4",
+      "I5"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 5,
+    "type": "correlating | finding extrema",
+    "data": [
+      "Status_Analysis.cltv",
+      "Status_Analysis.churn_score",
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.customer_status"
+    ],
+    "method": "Create a scatter plot (V5) with churn_score vs. CLTV, color-coded by customer_status. Use satisfaction_score as point size. Enable zooming/panning (I6) and tooltips (I3).",
+    "objective": "Investigate correlations and trends among churn likelihood, customer value, and satisfaction scores for different groups.",
+    "corrReq": [
+      "D1",
+      "V5",
+      "I3",
+      "I6"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 6,
+    "type": "retrieving values | determining ranges | characterizing distributions",
+    "data": [
+      "Service_Options.tenure",
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.churn_score",
+      "Status_Analysis.customer_status"
+    ],
+    "method": "Use line charts or area charts (V6) to trend satisfaction_score or churn_score over tenure for Stayed, Churned, and Joined groups. Add filtering by customer_status (I1) and panning/zooming (I6).",
+    "objective": "Understand temporal changes in churn risk and customer satisfaction across differing customer lifecycles.",
+    "corrReq": [
+      "D1",
+      "V6",
+      "I1",
+      "I6"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 7,
+    "type": "clustering | correlating",
+    "data": [
+      "Status_Analysis.customer_status",
+      "Service_Options.unlimited_data",
+      "Online_Services.streaming_tv",
+      "Online_Services.streaming_movies",
+      "Online_Services.internet_type"
+    ],
+    "method": "Use a heat map (V3) to find correlations between entertainment service types (e.g., streaming_tv, internet_type) and customer_status. Enable hover tooltips (I3) and brushing (I2) for interactivity.",
+    "objective": "Identify entertainment-related services influencing customer churn or retention behaviors.",
+    "corrReq": [
+      "D5",
+      "V3",
+      "I3",
+      "I2"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 8,
+    "type": "retrieving values | filtering",
+    "data": [
+      "customer_id",
+      "Status_Analysis.satisfaction_score",
+      "Status_Analysis.churn_score",
+      "Service_Options.*",
+      "Online_Services.*",
+      "Customer_Info.*"
+    ],
+    "method": "Enable clickable drill-downs (I4) from group summaries to individual customer profiles, showing all associated data through a detailed table or panel.",
+    "objective": "Allow detailed inspection of individual customers and their demographics, service usage, and status metrics, enabling actionable insights.",
+    "corrReq": [
+      "D6",
+      "I4"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 9,
+    "type": "finding extrema | computing derived values",
+    "data": [
+      "Payment_Info.total_revenue",
+      "Payment_Info.monthly_charges",
+      "Payment_Info.total_charges",
+      "Status_Analysis.customer_status"
+    ],
+    "method": "Use bar charts (V1) or box plots (V2) to compare the revenue-related variables segmented by customer_status. Add customer_status filtering (I1).",
+    "objective": "Examine financial contributions of different groups, identifying anomalies or revenue patterns associated with churned customers.",
+    "corrReq": [
+      "D1",
+      "D3",
+      "V1",
+      "V2",
+      "I1"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 10,
+    "type": "retrieving values | clustering",
+    "data": [
+      "Status_Analysis.churn_reason",
+      "Service_Options.offer",
+      "Payment_Info.payment_method",
+      "Status_Analysis.customer_status"
+    ],
+    "method": "Cluster churn reasons and promotional offers using bubble charts or stacked bar charts (custom visualization). Use drill-down (I4) for more details.",
+    "objective": "Determine whether specific offers or payment methods correlate with common churn reasons, providing strategic promotional insights.",
+    "corrReq": [
+      "D1",
+      "D5",
+      "V4",
+      "I4"
+    ],
+    "priority": 3
+  }
+]

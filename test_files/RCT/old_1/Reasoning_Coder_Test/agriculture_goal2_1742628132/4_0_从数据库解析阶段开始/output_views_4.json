@@ -1,0 +1,193 @@
+[
+  {
+    "id": 1,
+    "level": "overview",
+    "fields": [
+      "crop_production_data.District",
+      "crop_production_data.Season",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "task": [
+      1
+    ],
+    "visualization": {
+      "markType": "bar",
+      "encodings": [
+        "x=District (nominal)",
+        "y=Yield (quintals) (quantitative)",
+        "color=Season (nominal)",
+        "column=Crop (nominal)"
+      ],
+      "description": "Small multiples grouped bar charts showing seasonal yield distributions across districts, grouped by crop. Each vertical column represents a different crop type."
+    },
+    "interactions": [
+      {
+        "object": "chart",
+        "verb": "click",
+        "effect": {
+          "description": "Selects specific crop(s) to filter subsequent views",
+          "params": [
+            {
+              "name": "crop_selection",
+              "select": {
+                "type": "point",
+                "encodings": [
+                  "column"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "level": "exploration",
+    "fields": [
+      "crop_production_data.District",
+      "crop_production_data.Crop",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "task": [
+      2
+    ],
+    "visualization": {
+      "markType": "circle",
+      "encodings": [
+        "x=District (nominal)",
+        "y=Yield (quintals) (quantitative)",
+        "color=Crop (nominal)",
+        "size=Yield (quintals) (quantitative)"
+      ],
+      "description": "Lollipop chart variant showing top/bottom yielding districts. Size encodes yield magnitude, color shows crop type."
+    },
+    "usingParams": [
+      "crop_selection"
+    ],
+    "components": "Sortable legend for crop types",
+    "interactions": [
+      {
+        "object": "chart",
+        "verb": "click",
+        "effect": {
+          "description": "Filters view 3 by selected district-crop combinations",
+          "params": [
+            {
+              "name": "district_crop_filter",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x",
+                  "y"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "level": "exploration",
+    "fields": [
+      "crop_production_data.Yield (quintals)",
+      "crop_production_data.Area (hectares)"
+    ],
+    "task": [
+      4
+    ],
+    "visualization": {
+      "markType": "boxplot",
+      "encodings": [
+        "x=District (nominal)",
+        "y=Yield (quintals) (quantitative)",
+        "color=MAD_outlier_status (nominal)"
+      ],
+      "description": "Horizontal boxplots with outlier indicators showing yield distributions per district. Red markers highlight values beyond 3σ."
+    },
+    "usingParams": [
+      "district_crop_filter"
+    ],
+    "interactions": [
+      {
+        "object": "outlier_points",
+        "verb": "hover",
+        "effect": {
+          "description": "Shows parallel coordinates sparklines in tooltip linking yield outliers with cultivation area metrics"
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "level": "insight",
+    "fields": [
+      "water_usage_data.Water Consumption (liters/hectare)",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "task": [
+      6
+    ],
+    "visualization": {
+      "markType": "rect",
+      "encodings": [
+        "x=Irrigation Method (nominal)",
+        "y=Crop (nominal)",
+        "color=Yield per liter (quantitative)"
+      ],
+      "description": "Heatmap showing water efficiency ratios. Darker cells indicate higher yields per liter consumed."
+    },
+    "usingParams": [
+      "crop_selection"
+    ],
+    "components": "Slider for selecting top-N crops by yield"
+  },
+  {
+    "id": 5,
+    "level": "insight",
+    "fields": [
+      "soil_analysis_data.Nitrogen Content (kg/ha)",
+      "soil_analysis_data.Phosphorus Content (kg/ha)",
+      "crop_production_data.Yield (quintals)"
+    ],
+    "task": [
+      3
+    ],
+    "visualization": {
+      "markType": "point",
+      "encodings": [
+        "x=Nitrogen (quantitative)",
+        "y=Phosphorus (quantitative)",
+        "size=Yield (quantitative)",
+        "color=District (nominal)"
+      ],
+      "description": "Bubble chart matrix showing relationships between soil nutrients and yields. Larger bubbles indicate higher yields."
+    },
+    "usingParams": [
+      "district_crop_filter"
+    ]
+  },
+  {
+    "id": 6,
+    "level": "insight",
+    "fields": [
+      "crop_production_data.Production (metric tons)",
+      "crop_production_data.Yield (quintals)",
+      "crop_production_data.Season"
+    ],
+    "task": [
+      5
+    ],
+    "visualization": {
+      "markType": "line",
+      "encodings": [
+        "theta=Season (nominal)",
+        "radius=Production (quantitative)",
+        "color=Yield (quantitive)"
+      ],
+      "description": "Radar chart showing seasonal production patterns and yield correlations. Cluster boundaries are highlighted with translucent overlays."
+    }
+  }
+]

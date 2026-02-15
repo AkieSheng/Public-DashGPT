@@ -1,0 +1,17 @@
+{
+  "id": "cricket_goal2_1742656894",
+  "desc": "The dataset contains four tables: batter_player_stats (batting statistics for individual players), bowler_player_stats (bowling statistics for individual players), detailed_player_data (per-match player performance data), and match_summary (match-level details including toss results, match outcome, player of the match, and venue information).",
+  "goal": "Study the impact of different venues on match outcomes, analyzing the win rates for home and away teams and their relationship with individual player performances.",
+  "initialStage": 0,
+  "maxSteps": 10,
+  "useReflect": true,
+  "useRag": false,
+  "models": {
+    "database": "deepseek-r1-api",
+    "requirements": "deepseek-r1-api",
+    "tasks": "deepseek-r1-api",
+    "plan": "deepseek-r1-api",
+    "sql": "qwen-coder",
+    "vega": "qwen-coder"
+  }
+}

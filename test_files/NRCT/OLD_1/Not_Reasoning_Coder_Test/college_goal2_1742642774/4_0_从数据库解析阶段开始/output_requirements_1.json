@@ -1,0 +1,128 @@
+{
+  "data": [
+    {
+      "id": "D1",
+      "requirement": "Retrieve the distribution of faculty across departments, focusing on both the primary and secondary appointments.",
+      "reason": "Understanding the faculty assignments (via `Member_of.FacID` and `Member_of.DNO`) is key to analyzing the overall staffing characteristics."
+    },
+    {
+      "id": "D2",
+      "requirement": "Extract the list of courses offered by each department, including their instructors and number of credits.",
+      "reason": "Courses (`Course.CID`, `Course.CName`, `Course.Credits`, `Course.DNO`) reveal academic activities and connections between faculty and department offerings."
+    },
+    {
+      "id": "D3",
+      "requirement": "Aggregate department characteristics, including the number of faculty members (primary vs secondary), the number of courses offered, and academic ranks of instructors.",
+      "reason": "This creates a macro-level view of department staffing and activities by combining data from `Member_of`, `Course`, and `Faculty` tables."
+    },
+    {
+      "id": "D4",
+      "requirement": "Fetch detailed faculty-level data, such as faculty ranks, gender distribution, and office locations.",
+      "reason": "Linking finer demographic data (`Faculty`) provides context for staffing characteristics within departments."
+    },
+    {
+      "id": "D5",
+      "requirement": "Correlate department size (number of faculty) with the number and type of courses offered, and staffing parameters like academic rank and gender composition.",
+      "reason": "Helps characterize relationships between faculty distribution and department activities by combining macro (`Department`, `Member_of`) and micro data (`Faculty`, `Course`)."
+    },
+    {
+      "id": "D6",
+      "requirement": "Analyze patterns in appointment types, such as percentages of primary versus secondary appointments across departments.",
+      "reason": "This provides insight into the structure of faculty assignments and staffing dynamics (`Member_of.Appt_Type`)."
+    },
+    {
+      "id": "D7",
+      "requirement": "Explore anomaly cases where faculty are assigned to multiple departments or departments have extreme faculty-to-course ratios.",
+      "reason": "Such anomalies might suggest unusual staffing patterns or discrepancies in department resource allocation."
+    },
+    {
+      "id": "D8",
+      "requirement": "Determine spatial characteristics like the distribution of office locations and buildings across departments.",
+      "reason": "This adds a geographic perspective (`Faculty.Room`, `Faculty.Building`, `Department.Room`, `Department.Building`) to faculty and department staffing."
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V1",
+      "requirement": "Display faculty distribution across departments using a bar chart segmented by appointment type (primary vs secondary).",
+      "reason": "Bar charts provide a clear representation for categorical comparisons (`Member_of.DNO` and `Member_of.Appt_Type`)."
+    },
+    {
+      "id": "V2",
+      "requirement": "Use a heat map to correlate department size (number of faculty) to the number of courses offered.",
+      "reason": "Heat maps can efficiently visualize correlations and density of relationships between dimensions (`Member_of.FacID` and `Course.DNO`)."
+    },
+    {
+      "id": "V3",
+      "requirement": "Create scatter plots to analyze relationships between faculty ranks (e.g., Professor vs AsstProf) and course credits.",
+      "reason": "Scatter plots highlight potential correlations between categorical (`Faculty.Rank`) and numerical values (`Course.Credits`)."
+    },
+    {
+      "id": "V4",
+      "requirement": "Visualize distributions of faculty genders within departments and across ranks using grouped bar charts.",
+      "reason": "Grouped bar charts work well for comparing categorical variables (`Faculty.Sex`, `Faculty.Rank`, `Member_of.DNO`)."
+    },
+    {
+      "id": "V5",
+      "requirement": "Show anomalies using a box plot to detect outliers in faculty-to-course ratios across departments.",
+      "reason": "Box plots are ideal for identifying department-level anomalies (`Member_of.FacID` vs `Course.DNO`)."
+    },
+    {
+      "id": "V6",
+      "requirement": "Use a pie chart to represent the proportional distribution of appointment types across all departments.",
+      "reason": "Pie charts provide intuitive insights into percentage breakdowns (`Member_of.Appt_Type`)."
+    },
+    {
+      "id": "V7",
+      "requirement": "Display spatial distribution of faculty across buildings using a bar chart to compare counts by building.",
+      "reason": "Bar charts are effective for visualizing distribution data (`Faculty.Building`)."
+    },
+    {
+      "id": "V8",
+      "requirement": "Apply a layered area chart to compare trends in department size and courses over time if historical data is available.",
+      "reason": "Layered area charts reveal trends and time-series comparisons (‘Member_of’, ‘Course’) across dimensions."
+    }
+  ],
+  "interaction": [
+    {
+      "id": "I1",
+      "requirement": "Enable filtering by department to dynamically update all visualizations based on the selected department.",
+      "reason": "Allows users to drill down into specific departments (`Member_of.DNO`, `Course.DNO`, `Department.DNO`)."
+    },
+    {
+      "id": "I2",
+      "requirement": "Add a hover interaction to retrieve detailed information about faculty, courses, and their relationships within visualizations.",
+      "reason": "Enables quick access to micro-level details without overwhelming the user (`Member_of.FacID`, `Course.Instructor`, `Faculty.FacID`)."
+    },
+    {
+      "id": "I3",
+      "requirement": "Allow multi-select interactions to compare multiple departments side-by-side in terms of faculty distribution and course offerings.",
+      "reason": "Supports comparative analysis across departments (`Member_of.DNO`, `Course.DNO`)."
+    },
+    {
+      "id": "I4",
+      "requirement": "Provide slider-based control or dropdown menus to filter courses based on number of credits or instructor ranks.",
+      "reason": "Facilitates querying subsets of data based on academic activities (`Course.Credits`)."
+    },
+    {
+      "id": "I5",
+      "requirement": "Enable drill-down interactions to connect faculty gender distributions with their course and department assignments.",
+      "reason": "Deepens analysis by linking demographic patterns (`Faculty.Sex`, `Member_of.DNO`, `Course.Instructor`)."
+    },
+    {
+      "id": "I6",
+      "requirement": "Enable zoom interactions to scale charts dynamically, particularly for visualizing distributions with large categorical dimensions.",
+      "reason": "Improves readability for large data sets or charts (`Faculty.Rank`, `Course.CName`)."
+    },
+    {
+      "id": "I7",
+      "requirement": "Allow click-to-sort interactions on bar charts and scatter plots for ascending or descending ranking of departments or faculty metrics.",
+      "reason": "Simplifies data exploration and highlights department rankings (`Member_of`, `Course`, `Faculty`)."
+    },
+    {
+      "id": "I8",
+      "requirement": "Enable tooltip-based calculations on hover interactions to show aggregated metrics like average course credits or faculty-to-course ratios.",
+      "reason": "Provides useful summaries without requiring separate views (`Course.Credits`, `Member_of.FacID`)."
+    }
+  ]
+}

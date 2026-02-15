@@ -1,0 +1,52 @@
+{
+  "database": "college",
+  "description": "The database offers a comprehensive view of an educational institution’s academic ecosystem, covering details about courses, departments, enrollment, faculty, students, and related administrative information.",
+  "goal_metrics": [
+    {
+      "format_accuracy": 0.8,
+      "sql_success_rate": 1,
+      "vl_success_rate": 0,
+      "average_steps": 10,
+      "average_tokens": {
+        "input": 188.0,
+        "output": 786.8
+      },
+      "goal_idx": 0,
+      "goal": "Examine enrollment numbers and distribution across various courses, identify popular courses versus those with low enrollment, and explore potential factors influencing these trends."
+    },
+    {
+      "format_accuracy": 1.0,
+      "sql_success_rate": 1,
+      "vl_success_rate": 1,
+      "average_steps": 10,
+      "average_tokens": {
+        "input": 193.0,
+        "output": 1045.2
+      },
+      "goal_idx": 1,
+      "goal": "Analyze the distribution of faculty across departments, understand the staffing characteristics of each department, and examine the relationship between faculty distribution, course offerings, and academic activities."
+    },
+    {
+      "format_accuracy": 0.8,
+      "sql_success_rate": 1,
+      "vl_success_rate": 0,
+      "average_steps": 10,
+      "average_tokens": {
+        "input": 196.0,
+        "output": 934.4
+      },
+      "goal_idx": 2,
+      "goal": "Conduct a comprehensive analysis of students’ major subjects, minor selections, and organizational memberships, thereby exploring overall patterns and potential correlations between academic profiles and extracurricular engagement."
+    }
+  ],
+  "average_metrics": {
+    "format_accuracy": 0.8666666666666667,
+    "sql_success_rate": 1.0,
+    "vl_success_rate": 0.3333333333333333,
+    "average_steps": 10.0,
+    "average_tokens": {
+      "input": 192.33333333333334,
+      "output": 922.1333333333333
+    }
+  }
+}

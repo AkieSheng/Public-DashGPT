@@ -1,0 +1,143 @@
+[
+  {
+    "id": 1,
+    "type": "aggregating | computing derived values | determining ranges",
+    "data": [
+      "District",
+      "Crop",
+      "Season",
+      "Area (hectares)",
+      "Yield (quintals)"
+    ],
+    "method": "Aggregate the data to calculate total yield, average yield, and yield per hectare for each crop in each district and season. Use bar charts for visualizing total yield and average yield per hectare grouped by districts and seasons (V1).",
+    "objective": "Identify variations in crop productivity across districts and seasons and determine crop performance metrics for decision-making.",
+    "corrReq": [
+      "D1",
+      "D2",
+      "D3",
+      "V1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "characterizing distributions | finding anomalies",
+    "data": [
+      "Crop",
+      "Yield per Hectare (derived)"
+    ],
+    "method": "Generate box plots for the distribution of yield per hectare across different crops within a district. Highlight data outliers for further investigation (V5).",
+    "objective": "Understand yield variability within crops and identify anomalies or unusual outliers in productivity data.",
+    "corrReq": [
+      "D3",
+      "V5",
+      "I1"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 3,
+    "type": "correlating | clustering | finding extrema",
+    "data": [
+      "Area (hectares)",
+      "Yield (quintals)"
+    ],
+    "method": "Create a scatter plot with 'Area (hectares)' on the x-axis and 'Yield (quintals)' on the y-axis, filtered by crop and district (V3). Use brushing interactions (I5) for selecting data points and filtering other visualizations.",
+    "objective": "Explore the correlation between cultivation area and yield, enabling insights into land productivity for different crops and districts.",
+    "corrReq": [
+      "D1",
+      "V3",
+      "I5"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 4,
+    "type": "retrieving values | trend analysis | predicting future values",
+    "data": [
+      "Season",
+      "Yield (quintals)",
+      "Crop"
+    ],
+    "method": "Conduct time-series analysis by linking the 'Season' variable to yield trends over time for selected crops using line charts (V2). Apply trend prediction models to forecast seasonal yield variations.",
+    "objective": "Identify historical yield trends across seasons and predict future crop production trends to support strategic planning.",
+    "corrReq": [
+      "D4",
+      "V2",
+      "I1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 5,
+    "type": "clustering | characterizing distributions",
+    "data": [
+      "District",
+      "Crop",
+      "Yield per Hectare (derived)"
+    ],
+    "method": "Create a heat map with districts on one axis and seasons on another, colored based on yield per hectare (V4). Enable filtering of crops, districts, and seasons through dropdowns (I1).",
+    "objective": "Compare crop productivity across multiple dimensions to reveal high-performing districts and crops within specific seasons.",
+    "corrReq": [
+      "D1",
+      "D3",
+      "V4",
+      "I1"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 6,
+    "type": "retrieving values | filtering | interacting",
+    "data": [
+      "District",
+      "Crop",
+      "Season"
+    ],
+    "method": "Enable drill-down interaction from macro-level visualizations (e.g., aggregated district productivity) to crop-specific views. Use bar charts or pie charts for the crop-level detail (I2, V1). Implement filtering functionality across all views.",
+    "objective": "Provide hierarchical analysis for better exploration of macro-level district trends and micro-level crop-specific insights.",
+    "corrReq": [
+      "D1",
+      "I2",
+      "V1",
+      "I1"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 7,
+    "type": "retrieving values | interacting",
+    "data": [
+      "Yield (quintals)",
+      "Area (hectares)",
+      "Crop",
+      "District"
+    ],
+    "method": "Show tooltips displaying exact data values on hover (I3). Include this behavior for scatter plots, bar charts, and box plots.",
+    "objective": "Provide detailed data insights without cluttering the visualizations, improving the user's understanding of individual data points.",
+    "corrReq": [
+      "I3",
+      "V1",
+      "V3",
+      "V5"
+    ],
+    "priority": 2
+  },
+  {
+    "id": 8,
+    "type": "retrieving values | comparing",
+    "data": [
+      "Crop",
+      "District"
+    ],
+    "method": "Allow users to select and highlight specific crops or districts for cross-comparison across all visualizations (I4). Use consistent color-coding for selected items across scatter plots, bar charts, and heat maps.",
+    "objective": "Facilitate comparison of specific districts or crops to explore targeted insights and support focused analysis.",
+    "corrReq": [
+      "I4",
+      "V1",
+      "V3",
+      "V4"
+    ],
+    "priority": 3
+  }
+]

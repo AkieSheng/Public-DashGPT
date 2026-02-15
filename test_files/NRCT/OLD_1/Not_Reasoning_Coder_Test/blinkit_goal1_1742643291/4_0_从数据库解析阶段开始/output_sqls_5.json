@@ -1,0 +1,58 @@
+[
+  {
+    "name": "dailySales",
+    "SQL": "CREATE VIEW dailySales AS SELECT T1.order_date, SUM(T1.order_total) AS total_order_amount FROM blinkit_orders AS T1 WHERE T1.order_date >= '2020-01-01' AND T1.order_date <= '2023-12-31' GROUP BY T1.order_date",
+    "corrView": "1",
+    "pk": "order_date",
+    "fk": []
+  },
+  {
+    "name": "weeklySales",
+    "SQL": "CREATE VIEW weeklySales AS SELECT DATE_TRUNC('week', T1.order_date) AS week_start_date, SUM(T1.order_total) AS total_order_amount FROM blinkit_orders AS T1 WHERE T1.order_date >= '2020-01-01' AND T1.order_date <= '2023-12-31' GROUP BY week_start_date",
+    "corrView": "1",
+    "pk": "week_start_date",
+    "fk": []
+  },
+  {
+    "name": "monthlySales",
+    "SQL": "CREATE VIEW monthlySales AS SELECT DATE_TRUNC('month', T1.order_date) AS month_start_date, SUM(T1.order_total) AS total_order_amount FROM blinkit_orders AS T1 WHERE T1.order_date >= '2020-01-01' AND T1.order_date <= '2023-12-31' GROUP BY month_start_date",
+    "corrView": "1",
+    "pk": "month_start_date",
+    "fk": []
+  },
+  {
+    "name": "detailedDailySales",
+    "SQL": "CREATE VIEW detailedDailySales AS SELECT T1.order_date, SUM(T1.order_total) AS total_order_amount FROM blinkit_orders AS T1 WHERE T1.order_date >= '2020-01-01' AND T1.order_date <= '2023-12-31' GROUP BY T1.order_date",
+    "corrView": "2",
+    "pk": "order_date",
+    "fk": []
+  },
+  {
+    "name": "holidaySales",
+    "SQL": "CREATE VIEW holidaySales AS SELECT T1.order_date, SUM(T1.order_total) AS total_order_amount, CASE WHEN T2.holiday IS NULL THEN 'Regular' ELSE 'Holiday' END AS event_period FROM blinkit_orders AS T1 LEFT JOIN external_event_calendar AS T2 ON DATE(T1.order_date) = DATE(T2.date) WHERE T1.order_date >= '2020-01-01' AND T1.order_date <= '2023-12-31' GROUP BY T1.order_date, CASE WHEN T2.holiday IS NULL THEN 'Regular' ELSE 'Holiday' END",
+    "corrView": "3",
+    "pk": "order_date",
+    "fk": []
+  },
+  {
+    "name": "categorySales",
+    "SQL": "CREATE VIEW categorySales AS SELECT T2.category, SUM(T1.order_total) AS total_order_amount FROM blinkit_orders AS T1 JOIN blinkit_order_items AS T3 ON T1.order_id = T3.order_id JOIN blinkit_products AS T2 ON T3.product_id = T2.product_id WHERE T1.order_date >= '2020-01-01' AND T1.order_date <= '2023-12-31' GROUP BY T2.category",
+    "corrView": "4",
+    "pk": "category",
+    "fk": []
+  },
+  {
+    "name": "heatmapData",
+    "SQL": "CREATE VIEW heatmapData AS SELECT TO_CHAR(T1.order_date, 'D') AS day_of_week, EXTRACT(HOUR FROM T1.order_date) AS hour_of_day, SUM(T1.order_total) AS total_order_amount FROM blinkit_orders AS T1 WHERE T1.order_date >= '2020-01-01' AND T1.order_date <= '2023-12-31' GROUP BY TO_CHAR(T1.order_date, 'D'), EXTRACT(HOUR FROM T1.order_date)",
+    "corrView": "5",
+    "pk": "day_of_week",
+    "fk": []
+  },
+  {
+    "name": "campaignSales",
+    "SQL": "CREATE VIEW campaignSales AS SELECT T2.campaign_name, SUM(T1.order_total) AS total_order_amount, T1.order_date FROM blinkit_orders AS T1 JOIN blinkit_marketing_performance AS T2 ON T1.campaign_id = T2.campaign_id WHERE T1.order_date >= '2020-01-01' AND T1.order_date <= '2023-12-31' GROUP BY T2.campaign_name, T1.order_date",
+    "corrView": "6",
+    "pk": "order_date",
+    "fk": []
+  }
+]

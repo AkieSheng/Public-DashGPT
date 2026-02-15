@@ -1,0 +1,173 @@
+{
+  "detail": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "name": "view_3"
+    },
+    "description": "Displays detailed information about specific data items such as age and payment method distribution in the US.",
+    "hconcat": [
+      {
+        "encoding": {
+          "x": {
+            "bin": {
+              "maxbins": 10
+            },
+            "field": "age",
+            "title": "Age",
+            "type": "quantitative"
+          },
+          "y": {
+            "aggregate": "sum",
+            "field": "numCustomers",
+            "title": "Number of Customers",
+            "type": "quantitative"
+          }
+        },
+        "filter": "datum.country == 'United States'",
+        "mark": "bar",
+        "title": "Age Distribution of Customers in the US"
+      },
+      {
+        "encoding": {
+          "x": {
+            "field": "payment_method",
+            "title": "Payment Method",
+            "type": "nominal"
+          },
+          "y": {
+            "aggregate": "sum",
+            "field": "numCustomers",
+            "title": "Number of Customers",
+            "type": "quantitative"
+          }
+        },
+        "mark": "bar",
+        "title": "Payment Method Distribution of Customers"
+      }
+    ],
+    "resolve": {
+      "scale": {
+        "y": "independent"
+      }
+    }
+  },
+  "exploration": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "name": "view_2"
+    },
+    "description": "Support data filtering and drill-down analysis of churn rates based on service bundle combinations.",
+    "vconcat": [
+      {
+        "encoding": {
+          "color": {
+            "field": "churn_label",
+            "title": "Churn Label",
+            "type": "nominal"
+          },
+          "x": {
+            "field": "service_bundle",
+            "title": "Service Bundle",
+            "type": "nominal"
+          },
+          "y": {
+            "aggregate": "avg",
+            "field": "churn_rate%",
+            "title": "Avg Churn Rate (%)",
+            "type": "quantitative"
+          }
+        },
+        "mark": "bar",
+        "title": "Churn Rate by Service Bundle"
+      }
+    ]
+  },
+  "insight": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "name": "view_4"
+    },
+    "description": "Displays data analysis results and findings such as churn rates by internet type and redemption counts by offer type.",
+    "vconcat": [
+      {
+        "encoding": {
+          "x": {
+            "field": "internet_type",
+            "title": "Internet Type",
+            "type": "nominal"
+          },
+          "y": {
+            "aggregate": "avg",
+            "field": "churn_rate",
+            "title": "Avg Churn Rate",
+            "type": "quantitative"
+          }
+        },
+        "mark": "bar",
+        "title": "Churn Rate by Internet Type"
+      }
+    ]
+  },
+  "overview": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "name": "view_1"
+    },
+    "description": "Overview of distribution patterns of key metrics across churn categories.",
+    "resolve": {
+      "scale": {
+        "y": "independent"
+      }
+    },
+    "vconcat": [
+      {
+        "encoding": {
+          "x": {
+            "field": "churn_category",
+            "title": "Churn Category",
+            "type": "nominal"
+          },
+          "y": {
+            "field": "churn_score",
+            "title": "Churn Score",
+            "type": "quantitative"
+          }
+        },
+        "mark": "boxplot",
+        "title": "Distribution of Churn Scores"
+      },
+      {
+        "encoding": {
+          "x": {
+            "field": "churn_category",
+            "title": "Churn Category",
+            "type": "nominal"
+          },
+          "y": {
+            "field": "cltv",
+            "title": "CLTV",
+            "type": "quantitative"
+          }
+        },
+        "mark": "boxplot",
+        "title": "Distribution of CLTV"
+      },
+      {
+        "encoding": {
+          "x": {
+            "field": "churn_category",
+            "title": "Churn Category",
+            "type": "nominal"
+          },
+          "y": {
+            "field": "satisfaction_score",
+            "title": "Satisfaction Score",
+            "type": "quantitative"
+          }
+        },
+        "mark": "boxplot",
+        "title": "Distribution of Satisfaction Scores"
+      }
+    ]
+  }
+}

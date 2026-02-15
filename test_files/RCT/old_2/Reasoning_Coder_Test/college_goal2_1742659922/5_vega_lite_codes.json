@@ -1,0 +1,290 @@
+{
+  "concat": [
+    {
+      "data": {
+        "url": "http://localhost:8888/Department_Member.csv"
+      },
+      "description": "Overview View",
+      "encoding": {
+        "color": {
+          "field": "DName",
+          "title": "Department",
+          "type": "nominal"
+        },
+        "x": {
+          "field": "DName",
+          "title": "Department",
+          "type": "nominal"
+        },
+        "y": {
+          "aggregate": "count",
+          "title": "Faculty Count",
+          "type": "quantitative"
+        }
+      },
+      "mark": "bar",
+      "params": [
+        {
+          "name": "dept_filter",
+          "select": {
+            "encodings": [
+              "x"
+            ],
+            "type": "point"
+          }
+        }
+      ]
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/Employee_Courses.csv"
+      },
+      "description": "Exploration View 1 - Course Count by Department",
+      "encoding": {
+        "color": {
+          "field": "Rank",
+          "title": "Rank",
+          "type": "nominal"
+        },
+        "x": {
+          "field": "DName",
+          "title": "Department",
+          "type": "nominal"
+        },
+        "y": {
+          "aggregate": "count",
+          "title": "Course Count",
+          "type": "quantitative"
+        }
+      },
+      "mark": "bar",
+      "params": [
+        {
+          "name": "dept_filter",
+          "select": {
+            "encodings": [
+              "x"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/Department.csv"
+            },
+            "fields": [
+              "DName"
+            ],
+            "key": "DNO"
+          },
+          "lookup": "DNO"
+        }
+      ]
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/Employee_Details.csv"
+      },
+      "description": "Exploration View 2 - Gender Distribution by Rank",
+      "encoding": {
+        "color": {
+          "field": "Sex",
+          "title": "Gender",
+          "type": "nominal"
+        },
+        "column": {
+          "field": "DName",
+          "title": "Department",
+          "type": "nominal"
+        },
+        "x": {
+          "field": "Rank",
+          "title": "Rank",
+          "type": "nominal"
+        },
+        "y": {
+          "aggregate": "count",
+          "title": "Count",
+          "type": "quantitative"
+        }
+      },
+      "mark": "bar",
+      "params": [
+        {
+          "name": "dept_filter",
+          "select": {
+            "encodings": [
+              "x"
+            ],
+            "type": "point"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/Faculty.csv"
+            },
+            "fields": [
+              "DName",
+              "Rank"
+            ],
+            "key": "FacID"
+          },
+          "lookup": "FacID"
+        }
+      ]
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/Employee_Courses.csv"
+      },
+      "description": "Exploration View 3 - Bubble Chart",
+      "encoding": {
+        "color": {
+          "field": "DName",
+          "title": "Department",
+          "type": "nominal"
+        },
+        "size": {
+          "aggregate": "count",
+          "title": "Course Count",
+          "type": "quantitative"
+        },
+        "x": {
+          "aggregate": "count",
+          "title": "Faculty Count",
+          "type": "quantitative"
+        },
+        "y": {
+          "aggregate": "count",
+          "title": "Course Count",
+          "type": "quantitative"
+        }
+      },
+      "mark": "circle",
+      "params": [
+        {
+          "name": "bubble_brush",
+          "select": {
+            "encodings": [
+              "x",
+              "y"
+            ],
+            "type": "interval"
+          }
+        }
+      ]
+    },
+    {
+      "data": {
+        "url": "http://localhost:8888/Employee_Details.csv"
+      },
+      "description": "Detail View",
+      "encoding": {},
+      "mark": "table",
+      "params": [
+        {
+          "name": "bubble_brush",
+          "select": {
+            "encodings": [
+              "x",
+              "y"
+            ],
+            "type": "interval"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/Faculty.csv"
+            },
+            "fields": [
+              "FacID",
+              "Lname",
+              "Rank",
+              "DName"
+            ],
+            "key": "FacID"
+          },
+          "lookup": "FacID"
+        },
+        {
+          "filter": {
+            "param": "bubble_brush"
+          }
+        }
+      ]
+    }
+  ],
+  "data": {
+    "url": "http://localhost:8888/Department_Member.csv"
+  },
+  "description": "Visual Analytics System for Faculty Distribution Analysis",
+  "height": 200,
+  "params": [
+    {
+      "name": "dept_filter",
+      "select": {
+        "encodings": [
+          "x"
+        ],
+        "type": "point"
+      }
+    },
+    {
+      "name": "bubble_brush",
+      "select": {
+        "encodings": [
+          "x",
+          "y"
+        ],
+        "type": "interval"
+      }
+    }
+  ],
+  "transform": [
+    {
+      "from": {
+        "data": {
+          "url": "http://localhost:8888/Department.csv"
+        },
+        "fields": [
+          "DName"
+        ],
+        "key": "DNO"
+      },
+      "lookup": "DNO"
+    },
+    {
+      "filter": {
+        "param": "dept_filter"
+      }
+    },
+    {
+      "from": {
+        "data": {
+          "url": "http://localhost:8888/Employee_Courses.csv"
+        },
+        "fields": [
+          "DName",
+          "Rank"
+        ],
+        "key": "FacID"
+      },
+      "lookup": "FacID"
+    },
+    {
+      "filter": {
+        "param": "bubble_brush"
+      }
+    }
+  ],
+  "width": 200
+}

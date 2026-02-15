@@ -1,0 +1,45 @@
+[
+  {
+    "name": "vw_enrolled",
+    "SQL": "CREATE VIEW vw_enrolled AS SELECT * FROM Enrolled_in;",
+    "corrView": "1",
+    "pk": "StuID",
+    "fk": []
+  },
+  {
+    "name": "vw_course_enrolled",
+    "SQL": "CREATE VIEW vw_course_enrolled AS SELECT * FROM Course JOIN vw_enrolled ON Course.CID = vw_enrolled.CID;",
+    "corrView": "1",
+    "pk": "CID",
+    "fk": [
+      {
+        "key": "FacID",
+        "table": "vw_faculty"
+      }
+    ]
+  },
+  {
+    "name": "vw_department_enrolled",
+    "SQL": "CREATE VIEW vw_department_enrolled AS SELECT * FROM Department JOIN vw_course_enrolled ON Department.DNO = vw_course_enrolled.DNO;",
+    "corrView": "2",
+    "pk": "DNO",
+    "fk": [
+      {
+        "key": "DNO",
+        "table": "vw_course_enrolled"
+      }
+    ]
+  },
+  {
+    "name": "vw_grade_enrolled",
+    "SQL": "CREATE VIEW vw_grade_enrolled AS SELECT vw_enrolled.StuID, vw_course_enrolled.Grade, Gradeconversion.gradepoint, vw_course_enrolled.Credits FROM vw_enrolled JOIN vw_course_enrolled ON vw_enrolled.CID = vw_course_enrolled.CID JOIN Gradeconversion ON vw_course_enrolled.Grade = Gradeconversion.lettergrade;",
+    "corrView": "3",
+    "pk": "StuID",
+    "fk": [
+      {
+        "key": "CID",
+        "table": "vw_course_enrolled"
+      }
+    ]
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "type": "aggregate and group | computing derived values | summarizing",
+    "data": [
+      "customer_status",
+      "satisfaction_score",
+      "churn_score",
+      "cltv"
+    ],
+    "method": "Compute group-wise average, median, and standard deviation for 'satisfaction_score', 'churn_score', and 'cltv', and visualize these metrics with grouped bar charts. Use color coding for each 'customer_status'.",
+    "objective": "Summarize key metrics for each 'customer_status' group to identify major behavioral differences.",
+    "corrReq": [
+      "D1",
+      "V1"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "retrieving values | segmenting | characterizing distributions",
+    "data": [
+      "customer_status",
+      "age",
+      "gender",
+      "senior_citizen",
+      "under_30",
+      "partner",
+      "dependents"
+    ],
+    "method": "Use stacked bar charts to compare demographic distributions for each 'customer_status' group. Each stack will represent a demographic attribute like 'gender' within the group.",
+    "objective": "Identify demographic characteristics associated with each customer group, particularly those with high churn rate.",
+    "corrReq": [
+      "D2",
+      "V2"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 3,
+    "type": "correlating | finding patterns",
+    "data": [
+      "churn_score",
+      "satisfaction_score",
+      "cltv",
+      "customer_status"
+    ],
+    "method": "Use a scatter plot to compare 'churn_score' vs 'satisfaction_score' and 'cltv' across all customers. Apply color coding for 'customer_status' and add hover tooltips to display detailed customer attributes.",
+    "objective": "Explore any potential correlations between satisfaction, churn likelihood, and customer value, while differentiating customer groups visually.",
+    "corrReq": [
+      "D1",
+      "D5",
+      "V3",
+      "I2"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 4,
+    "type": "geographic distribution | clustering",
+    "data": [
+      "city",
+      "zip_code",
+      "customer_status"
+    ],
+    "method": "Create heat maps based on city and zip code, showing the frequency of each 'customer_status' group. Integrate zoom and pan for deeper exploration.",
+    "objective": "Identify geographic clusters or areas with high churn or retention rates.",
+    "corrReq": [
+      "D3",
+      "V4",
+      "I3"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 5,
+    "type": "distributions | finding outliers",
+    "data": [
+      "satisfaction_score",
+      "churn_score",
+      "customer_status"
+    ],
+    "method": "Use separate box plots for 'satisfaction_score' and 'churn_score' within each 'customer_status' group. Highlight outliers directly in the visualization.",
+    "objective": "Detect outliers and unusual patterns within satisfaction or churn scores for each customer group.",
+    "corrReq": [
+      "D5",
+      "V5"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 6,
+    "type": "correlating | determining ranges | filtering",
+    "data": [
+      "internet_service",
+      "phone_service",
+      "contract",
+      "payment_method",
+      "monthly_charges",
+      "customer_status"
+    ],
+    "method": "Create a parallel coordinates plot for visualizing the relationships between service features and 'customer_status'. Use dropdown filters to select specific attributes for better focus.",
+    "objective": "Understand how service-related factors such as contract type or payment method are correlated with churn or retention.",
+    "corrReq": [
+      "D4",
+      "I1"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 7,
+    "type": "filtering | finding patterns",
+    "data": [
+      "tenure",
+      "customer_status"
+    ],
+    "method": "Incorporate a slider to filter customers by 'tenure'. Dynamically update all visualizations based on tenure selection, e.g., viewing only customers with less than 12 months of tenure.",
+    "objective": "Analyze behavioral and metric trends for short-term vs long-term customer groups.",
+    "corrReq": [
+      "D4",
+      "I4"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 8,
+    "type": "drilling down | finding anomalies",
+    "data": [
+      "customer_status",
+      "churn_score",
+      "cltv",
+      "satisfaction_score"
+    ],
+    "method": "Select customers with extreme values (e.g., very high churn score but high satisfaction) via scatter plots and provide detailed drill-down analysis with detailed tooltips.",
+    "objective": "Investigate special cases to better understand anomalies in data.",
+    "corrReq": [
+      "D5",
+      "I2"
+    ],
+    "priority": 4
+  }
+]

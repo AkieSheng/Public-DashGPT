@@ -1,0 +1,283 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "columns": 2,
+  "concat": [
+    {
+      "height": 200,
+      "width": 200,
+      "description": "View 1: Stacked bar chart showing churn distribution by gender",
+      "data": {
+        "url": "http://localhost:8888/vw_customer_summary.csv"
+      },
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "gender",
+          "type": "nominal",
+          "title": "Gender"
+        },
+        "y": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "title": "Count of Customers",
+          "axis": {
+            "titleColor": "red"
+          }
+        },
+        "color": {
+          "field": "churn_label",
+          "type": "nominal",
+          "title": "Churn Status",
+          "scale": {
+            "domain": [
+              "Yes",
+              "No"
+            ]
+          }
+        },
+        "opacity": {
+          "value": 0.3,
+          "condition": {
+            "param": "selected_gender",
+            "value": 1
+          }
+        }
+      },
+      "params": [
+        {
+          "name": "selected_gender",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "description": "View 2: Scatter plot comparing age vs CLTV index, color-coded by churn status",
+      "data": {
+        "url": "http://localhost:8888/vw_age_group_churn.csv"
+      },
+      "mark": "circle",
+      "encoding": {
+        "x": {
+          "field": "age",
+          "type": "quantitative",
+          "title": "Age",
+          "scale": {
+            "zero": false,
+            "nice": true
+          }
+        },
+        "y": {
+          "field": "cltv",
+          "type": "quantitative",
+          "title": "Customer Lifetime Value (CLTV)",
+          "scale": {
+            "zero": false,
+            "nice": true
+          }
+        },
+        "color": {
+          "field": "churn_label",
+          "type": "nominal",
+          "title": "Churn Status",
+          "scale": {
+            "domain": [
+              "Yes",
+              "No"
+            ]
+          }
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/vw_customer_summary.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "gender"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "selected_gender"
+          }
+        },
+        {
+          "sample": 150
+        }
+      ],
+      "params": [
+        {
+          "name": "selected_gender",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "description": "View 3: Heatmap showing churn probability matrix across marital status and dependents",
+      "data": {
+        "url": "http://localhost:8888/vw_marriage_dependents_churn.csv"
+      },
+      "mark": "rect",
+      "encoding": {
+        "x": {
+          "field": "married",
+          "type": "nominal",
+          "title": "Marital Status"
+        },
+        "y": {
+          "field": "dependents",
+          "type": "nominal",
+          "title": "Number of Dependents"
+        },
+        "color": {
+          "aggregate": "mean(churn_value)",
+          "type": "quantitative",
+          "title": "Mean Churn Value",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ],
+            "domainMid": 0.5
+          }
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/vw_customer_summary.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "gender"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "selected_gender"
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "selected_gender",
+          "select": {
+            "type": "point",
+            "encodings": [
+              "x"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "description": "View 4: Detailed table showing individual customer IDs with key metrics",
+      "data": {
+        "url": "http://localhost:8888/vw_customer_details.csv"
+      },
+      "mark": "text",
+      "encoding": {
+        "x": {
+          "field": "customer_id",
+          "type": "nominal",
+          "title": "Customer ID",
+          "axis": null
+        },
+        "y": {
+          "field": "age",
+          "type": "quantitative",
+          "title": "Age",
+          "axis": null
+        },
+        "color": {
+          "field": "gender",
+          "type": "nominal",
+          "title": "Gender",
+          "axis": null
+        },
+        "text": {
+          "field": "churn_category",
+          "type": "nominal",
+          "title": "Churn Reason Category",
+          "axis": null
+        },
+        "opacity": {
+          "value": 0.7,
+          "condition": {
+            "param": "age_cltv_brush",
+            "expr": "age >= min(age_cltv_brush['x0']) && age <= max(age_cltv_brush['x1']) && cltv >= min(age_cltv_brush['y0']) && cltv <= max(age_cltv_brush['y1'])"
+          }
+        }
+      },
+      "transform": [
+        {
+          "lookup": "customer_id",
+          "from": {
+            "data": {
+              "url": "http://localhost:8888/vw_age_group_churn.csv"
+            },
+            "key": "customer_id",
+            "fields": [
+              "age",
+              "cltv"
+            ]
+          }
+        },
+        {
+          "filter": {
+            "param": "age_cltv_brush"
+          }
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "row_number"
+            }
+          ]
+        },
+        {
+          "filter": {
+            "field": "row_number",
+            "lte": 10
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "age_cltv_brush",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

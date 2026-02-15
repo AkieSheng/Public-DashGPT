@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "type": "characterizing distributions",
+    "data": [
+      "blinkit_orders.order_date",
+      "blinkit_orders.order_total",
+      "blinkit_marketing_performance.campaign_name"
+    ],
+    "method": "Create a stacked area chart showing daily order totals segmented by campaign presence. Use time-based aggregation (day-level) on order_date, sum(order_total) for Y-axis, and color encoding for campaign/regular orders. Enable granular filtering via week/month selectors.",
+    "objective": "Identify daily sales patterns and campaign impact alignment through continuous temporal visualization",
+    "corrReq": [
+      "V2"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "determining ranges",
+    "data": [
+      "blinkit_orders.order_total",
+      "blinkit_delivery_performance.delivery_status"
+    ],
+    "method": "Implement small multiples boxplot matrix with one box per delivery_status category. Encode order_total distribution through quartiles/outliers. Add mean markers and KPI annotations.",
+    "objective": "Analyze value distributions across delivery performance categories to identify delay-related revenue impacts",
+    "corrReq": [
+      "V4"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 3,
+    "type": "finding extrema",
+    "data": [
+      "blinkit_orders.order_date",
+      "blinkit_marketing_performance.revenue_generated"
+    ],
+    "method": "Generate heatmap with weeks as rows and years as columns, colored by revenue percentiles. Overlay top 5 campaign markers using blinkit_marketing_performance.date for event annotations.",
+    "objective": "Detect weekly seasonal peaks and correlate with marketing campaign timing",
+    "corrReq": [],
+    "priority": 3
+  },
+  {
+    "id": 4,
+    "type": "correlating",
+    "data": [
+      "blinkit_inventoryNew.date",
+      "blinkit_inventoryNew.stock_received",
+      "blinkit_orders.order_total"
+    ],
+    "method": "Design dual-axis line chart: left=monthly stock_received (bar), right=order_total (line). Implement brush selection for date ranges linked to inventory_view via shared time parameter.",
+    "objective": "Reveal inventory replenishment patterns and their relationship to sales performance",
+    "corrReq": [
+      "I4"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 5,
+    "type": "clustering",
+    "data": [
+      "blinkit_products.category",
+      "blinkit_order_items.quantity",
+      "blinkit_orders.order_date"
+    ],
+    "method": "Create horizon graph with product categories as rows, daily quantity sold as layered bands. Apply temporal smoothing to highlight persistent vs seasonal demand clusters.",
+    "objective": "Identify product category sales clusters with similar temporal patterns",
+    "corrReq": [],
+    "priority": 2
+  },
+  {
+    "id": 6,
+    "type": "computing derived values",
+    "data": [
+      "blinkit_marketing_performance.roas",
+      "blinkit_customers.customer_segment"
+    ],
+    "method": "Calculate campaign ROAS residuals vs category average. Visualize as diverging bar chart colored by customer_segment with statistical confidence intervals.",
+    "objective": "Quantify marketing effectiveness across different customer segments",
+    "corrReq": [],
+    "priority": 3
+  }
+]

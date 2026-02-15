@@ -1,0 +1,1038 @@
+{
+  "created": 1742641208,
+  "dataset": {
+    "description": "This dataset provides comprehensive agricultural data for Rajasthan, India from 2018 to 2019. It contains four tabless: Crop_Production_Data, Water_Usage_Data, Soil_Analysis_Data, and Crop_Price_Data. This dataset will be a valuable resource for researchers and data scientists working in the agricultural sector, enabling them to analyze and model various aspects of agricultural practices and market dynamics in Rajasthan.",
+    "tables": [
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "Name of the district in Rajasthan where market data is recorded.",
+            "dtype": "TEXT",
+            "name": "District",
+            "stats": {
+              "count": 4819,
+              "freq": 542,
+              "samples": [
+                "Kota",
+                "Alwar",
+                "Ajmer",
+                "Jaipur",
+                "Nagaur"
+              ],
+              "top": "Kota",
+              "unique": 10
+            }
+          },
+          {
+            "column": "Crop",
+            "description": "Type of crop whose price is recorded in the data.",
+            "dtype": "TEXT",
+            "name": "Crop",
+            "stats": {
+              "count": 4819,
+              "freq": 246,
+              "samples": [
+                "Pomegranate",
+                "Maize",
+                "Opium",
+                "Cumin",
+                "Oilseeds"
+              ],
+              "top": "Pomegranate",
+              "unique": 23
+            }
+          },
+          {
+            "column": "Market",
+            "description": "Market location where the crop price data was captured.",
+            "dtype": "TEXT",
+            "name": "Market",
+            "stats": {
+              "count": 4819,
+              "freq": 278,
+              "samples": [
+                "Alwar APMC Mandi",
+                "Ramganj Mandi",
+                "Kota APMC Mandi",
+                "Kishangarh Mandi",
+                "Udaipur APMC Mandi"
+              ],
+              "top": "Alwar APMC Mandi",
+              "unique": 24
+            }
+          },
+          {
+            "column": "Date",
+            "description": "Date of recording the crop price data.",
+            "dtype": "TEXT",
+            "name": "Date",
+            "stats": {
+              "count": 4819,
+              "freq": 23,
+              "samples": [
+                "2019-01-28",
+                "2019-03-01",
+                "2018-06-11",
+                "2018-12-19",
+                "2019-03-29"
+              ],
+              "top": "2019-01-28",
+              "unique": 424
+            }
+          },
+          {
+            "column": "Price (INR/quintal)",
+            "description": "Price of the crop in Indian Rupees per quintal.",
+            "dtype": "REAL",
+            "name": "Price (INR/quintal)",
+            "stats": {
+              "25%": 2303.968087039464,
+              "50%": 2497.697780894649,
+              "75%": 2694.7361658186883,
+              "count": 4819.0,
+              "max": 3513.3304723868087,
+              "mean": 2498.7153596293347,
+              "min": 1323.2799245144972,
+              "samples": [
+                2161.4945987467668,
+                2490.092420884132,
+                2348.904921887321,
+                2448.2875127639013,
+                2714.41951825531
+              ],
+              "std": 295.65109413541575
+            }
+          }
+        ],
+        "table": "crop_price_data"
+      },
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "Name of the district where crop production statistics are recorded.",
+            "dtype": "TEXT",
+            "name": "District",
+            "stats": {
+              "count": 1000,
+              "freq": 114,
+              "samples": [
+                "Nagaur",
+                "Udaipur",
+                "Bhilwara",
+                "Alwar",
+                "Ajmer"
+              ],
+              "top": "Nagaur",
+              "unique": 10
+            }
+          },
+          {
+            "column": "Crop",
+            "description": "Type of crop whose production data is recorded.",
+            "dtype": "TEXT",
+            "name": "Crop",
+            "stats": {
+              "count": 1000,
+              "freq": 52,
+              "samples": [
+                "Citrus",
+                "Pulses",
+                "Mustard",
+                "Maize",
+                "Tomato"
+              ],
+              "top": "Citrus",
+              "unique": 23
+            }
+          },
+          {
+            "column": "Season",
+            "description": "Season during which the crop was grown, either Kharif or Rabi.",
+            "dtype": "TEXT",
+            "name": "Season",
+            "stats": {
+              "count": 1000,
+              "freq": 503,
+              "samples": [
+                "Kharif",
+                "Rabi"
+              ],
+              "top": "Kharif",
+              "unique": 2
+            }
+          },
+          {
+            "column": "Area (hectares)",
+            "description": "Land area, in hectares, used for cultivation of the crop.",
+            "dtype": "REAL",
+            "name": "Area (hectares)",
+            "stats": {
+              "25%": 13165.258125089153,
+              "50%": 15108.13041964114,
+              "75%": 16944.950094195556,
+              "count": 1000.0,
+              "max": 20000.0,
+              "mean": 15046.881838853737,
+              "min": 5276.197979792782,
+              "samples": [
+                20000.0,
+                14959.5083257862,
+                17467.634736309567,
+                15626.590785014268,
+                11015.441853304708
+              ],
+              "std": 2775.3598030166822
+            }
+          },
+          {
+            "column": "Yield (quintals)",
+            "description": "Crop yield in quintals per hectare.",
+            "dtype": "REAL",
+            "name": "Yield (quintals)",
+            "stats": {
+              "25%": 31.105149570151486,
+              "50%": 37.22705041986063,
+              "75%": 43.71120529710103,
+              "count": 1000.0,
+              "max": 60.42919242071256,
+              "mean": 37.618327668334935,
+              "min": 20.27293597251623,
+              "samples": [
+                42.67334364354665,
+                30.69198608958731,
+                45.81823176835924,
+                29.752628902482016,
+                42.02651077850936
+              ],
+              "std": 8.21858736773909
+            }
+          },
+          {
+            "column": "Production (metric tons)",
+            "description": "Total production of the crop in metric tons.",
+            "dtype": "REAL",
+            "name": "Production (metric tons)",
+            "stats": {
+              "25%": 4438.67158158548,
+              "50%": 5561.468280565365,
+              "75%": 6769.7716915726705,
+              "count": 1000.0,
+              "max": 10834.530833886172,
+              "mean": 5662.518484668158,
+              "min": 1728.4459558148258,
+              "samples": [
+                6192.243168853535,
+                5061.152229679753,
+                7763.013071826106,
+                4253.893981440086,
+                8295.040749150847
+              ],
+              "std": 1629.9225050593145
+            }
+          }
+        ],
+        "table": "crop_production_data"
+      },
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "Name of the district in Rajasthan where soil analysis was conducted.",
+            "dtype": "TEXT",
+            "name": "District",
+            "stats": {
+              "count": 1000,
+              "freq": 128,
+              "samples": [
+                "Jodhpur",
+                "Kota",
+                "Ajmer",
+                "Jaipur",
+                "Udaipur"
+              ],
+              "top": "Jodhpur",
+              "unique": 10
+            }
+          },
+          {
+            "column": "Soil Type",
+            "description": "Type of soil found in the district, described by its composition or characteristics.",
+            "dtype": "TEXT",
+            "name": "Soil Type",
+            "stats": {
+              "count": 1000,
+              "freq": 144,
+              "samples": [
+                "Black lava soil",
+                "Saline",
+                "Clay",
+                "Alkaline",
+                "Nitrogenous"
+              ],
+              "top": "Black lava soil",
+              "unique": 8
+            }
+          },
+          {
+            "column": "pH Level",
+            "description": "pH level of the soil, an indicator of its acidity or alkalinity.",
+            "dtype": "REAL",
+            "name": "pH Level",
+            "stats": {
+              "25%": 7.157880924513207,
+              "50%": 7.500129367123334,
+              "75%": 7.846939580508737,
+              "count": 1000.0,
+              "max": 9.038430185090252,
+              "mean": 7.495453084850306,
+              "min": 5.889491822007143,
+              "samples": [
+                8.604927832874232,
+                6.546096221061305,
+                6.832259215450055,
+                7.453181905630415,
+                8.019189425509659
+              ],
+              "std": 0.5171550691492046
+            }
+          },
+          {
+            "column": "Organic Matter (%)",
+            "description": "Percentage of organic matter present in the soil.",
+            "dtype": "REAL",
+            "name": "Organic Matter (%)",
+            "stats": {
+              "25%": 1.6389108548905387,
+              "50%": 1.981462328785918,
+              "75%": 2.3456877380031798,
+              "count": 1000.0,
+              "max": 3.764527593785242,
+              "mean": 1.9935921803358339,
+              "min": 0.1558173542857779,
+              "samples": [
+                2.1634972566350488,
+                1.5698074946102492,
+                2.2430181447088184,
+                2.662898323771095,
+                1.240326962261579
+              ],
+              "std": 0.5153401517562567
+            }
+          },
+          {
+            "column": "Nitrogen Content (kg/ha)",
+            "description": "Amount of nitrogen in the soil measured in kilograms per hectare.",
+            "dtype": "REAL",
+            "name": "Nitrogen Content (kg/ha)",
+            "stats": {
+              "25%": 26.217325301986918,
+              "50%": 29.822796920009235,
+              "75%": 33.232056328033025,
+              "count": 1000.0,
+              "max": 45.760283672560426,
+              "mean": 29.883357828791514,
+              "min": 11.994574477702413,
+              "samples": [
+                25.824377480138825,
+                27.931972332891775,
+                22.26348005530817,
+                23.56418215707875,
+                15.839222009447155
+              ],
+              "std": 5.202697054149519
+            }
+          },
+          {
+            "column": "Phosphorus Content (kg/ha)",
+            "description": "Amount of phosphorus in the soil measured in kilograms per hectare.",
+            "dtype": "REAL",
+            "name": "Phosphorus Content (kg/ha)",
+            "stats": {
+              "25%": 16.21647147627612,
+              "50%": 19.913736701664355,
+              "75%": 23.122284640501974,
+              "count": 1000.0,
+              "max": 35.58840564604024,
+              "mean": 19.729932448873114,
+              "min": 4.961838301531214,
+              "samples": [
+                28.26456525615211,
+                29.43843828670095,
+                25.413455269435367,
+                13.014409074435044,
+                17.744205707955008
+              ],
+              "std": 5.067004785298072
+            }
+          },
+          {
+            "column": "Potassium Content (kg/ha)",
+            "description": "Amount of potassium in the soil measured in kilograms per hectare.",
+            "dtype": "REAL",
+            "name": "Potassium Content (kg/ha)",
+            "stats": {
+              "25%": 36.703916917600125,
+              "50%": 39.796016092839736,
+              "75%": 43.38203941212181,
+              "count": 1000.0,
+              "max": 54.678289511638894,
+              "mean": 39.87790741158031,
+              "min": 24.11648093402,
+              "samples": [
+                50.38888792599222,
+                42.78276562266879,
+                37.64437674091061,
+                37.08200336826997,
+                42.758703999554605
+              ],
+              "std": 4.874751034236264
+            }
+          }
+        ],
+        "table": "soil_analysis_data"
+      },
+      {
+        "columns": [
+          {
+            "column": "District",
+            "description": "Name of the district where water usage data is recorded.",
+            "dtype": "TEXT",
+            "name": "District",
+            "stats": {
+              "count": 1000,
+              "freq": 116,
+              "samples": [
+                "Nagaur",
+                "Udaipur",
+                "Alwar",
+                "Bhilwara",
+                "Hanumangarh"
+              ],
+              "top": "Nagaur",
+              "unique": 10
+            }
+          },
+          {
+            "column": "Crop",
+            "description": "Type of crop for which water usage data is recorded.",
+            "dtype": "TEXT",
+            "name": "Crop",
+            "stats": {
+              "count": 1000,
+              "freq": 56,
+              "samples": [
+                "Onion",
+                "Pulses",
+                "Citrus",
+                "Cotton",
+                "Tomato"
+              ],
+              "top": "Onion",
+              "unique": 23
+            }
+          },
+          {
+            "column": "Irrigation Method",
+            "description": "Method of irrigation used for the crop.",
+            "dtype": "TEXT",
+            "name": "Irrigation Method",
+            "stats": {
+              "count": 1000,
+              "freq": 284,
+              "samples": [
+                "Sprinkler Irrigation",
+                "Tube Well",
+                "Drip Irrigation",
+                "Canal Irrigation"
+              ],
+              "top": "Sprinkler Irrigation",
+              "unique": 4
+            }
+          },
+          {
+            "column": "Water Consumption (liters/hectare)",
+            "description": "Volume of water consumed per hectare for irrigating the crop.",
+            "dtype": "REAL",
+            "name": "Water Consumption (liters/hectare)",
+            "stats": {
+              "25%": 8238.226671880226,
+              "50%": 10422.656935236373,
+              "75%": 12808.359360840997,
+              "count": 1000.0,
+              "max": 18631.09132663682,
+              "mean": 10557.110758629942,
+              "min": 4673.530139030418,
+              "samples": [
+                7011.556633995436,
+                11609.330885810616,
+                12648.406038302792,
+                10063.162447916591,
+                10110.539993326256
+              ],
+              "std": 2835.083840963408
+            }
+          },
+          {
+            "column": "Water Availability (liters/hectare)",
+            "description": "Volume of water available per hectare for irrigating the crop.",
+            "dtype": "REAL",
+            "name": "Water Availability (liters/hectare)",
+            "stats": {
+              "25%": 8142.359044089602,
+              "50%": 10524.479417099716,
+              "75%": 12879.89393404674,
+              "count": 1000.0,
+              "max": 18489.171266347672,
+              "mean": 10543.621287289907,
+              "min": 4505.257189045351,
+              "samples": [
+                6140.081508774301,
+                11335.919980150127,
+                12091.900253943171,
+                9810.943168837392,
+                10754.217313163708
+              ],
+              "std": 2905.372578181591
+            }
+          }
+        ],
+        "table": "water_usage_data"
+      }
+    ]
+  },
+  "desc": "This dataset provides comprehensive agricultural data for Rajasthan, India from 2018 to 2019. It contains four tabless: Crop_Production_Data, Water_Usage_Data, Soil_Analysis_Data, and Crop_Price_Data. This dataset will be a valuable resource for researchers and data scientists working in the agricultural sector, enabling them to analyze and model various aspects of agricultural practices and market dynamics in Rajasthan.",
+  "goal": "Analyze the relationship between soil type, nutrient content (e.g., organic matter, nitrogen, phosphorus, potassium), and crop yield in different districts, providing insights for soil improvement and precision agriculture practices.",
+  "id": "agriculture_goal3_1742641208",
+  "name": "Visual Analytics System agriculture_goal3_1742641208",
+  "plan": {
+    "graph": [
+      {
+        "from": 1,
+        "to": 2
+      },
+      {
+        "from": 2,
+        "to": 3
+      },
+      {
+        "from": 3,
+        "to": 4
+      }
+    ],
+    "path": "The user browses View 1 at the [Overview] level and learns about the relationship between soil type and crop yield across districts. Next, the user selects districts and soil types of interest by interaction through View 1, which updates View 2. In View 2, the user compares nutrient levels across districts at the [Exploration] level and selects specific districts for further analysis. This triggers View 3 at the [Detail] level, where the user analyzes nutrient ratios and their correlation with crop yield. Finally, in View 4 at the [Insight] level, the user uncovers variability and outliers in yield distributions across soil types and crops, refining insights dynamically through annotations and selections.",
+    "views": [
+      {
+        "fields": [
+          "soil_analysis_data.District",
+          "soil_analysis_data.Soil Type",
+          "soil_analysis_data.Organic Matter (%)",
+          "soil_analysis_data.Nitrogen Content (kg/ha)",
+          "soil_analysis_data.Phosphorus Content (kg/ha)",
+          "soil_analysis_data.Potassium Content (kg/ha)",
+          "crop_production_data.Yield (quintals)"
+        ],
+        "id": 1,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Allows the user to filter data by dragging to select districts or soil types of interest.",
+              "params": [
+                {
+                  "name": "district_soil_selection",
+                  "select": {
+                    "encodings": [
+                      "x",
+                      "y"
+                    ],
+                    "type": "interval"
+                  }
+                }
+              ]
+            },
+            "object": "visualization",
+            "verb": "drag"
+          }
+        ],
+        "level": "overview",
+        "task": [
+          1
+        ],
+        "usingParams": [],
+        "visualization": {
+          "description": "A heat map showing the correlation between soil types and crop yield across districts, using color intensity to represent yield values.",
+          "encodings": [
+            {
+              "x": "soil_analysis_data.District"
+            },
+            {
+              "y": "soil_analysis_data.Soil Type"
+            },
+            {
+              "color": "crop_production_data.Yield (quintals)"
+            }
+          ],
+          "markType": "rect"
+        }
+      },
+      {
+        "fields": [
+          "soil_analysis_data.District",
+          "soil_analysis_data.Organic Matter (%)",
+          "soil_analysis_data.Nitrogen Content (kg/ha)",
+          "soil_analysis_data.Phosphorus Content (kg/ha)",
+          "soil_analysis_data.Potassium Content (kg/ha)"
+        ],
+        "id": 2,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Enables filtering to focus on specific districts.",
+              "params": [
+                {
+                  "name": "district_focus",
+                  "select": {
+                    "encodings": [
+                      "x"
+                    ],
+                    "type": "point"
+                  }
+                }
+              ]
+            },
+            "object": "visualization",
+            "verb": "click"
+          }
+        ],
+        "level": "exploration",
+        "task": [
+          2
+        ],
+        "usingParams": [
+          "district_soil_selection"
+        ],
+        "visualization": {
+          "description": "Tick charts comparing nutrient data across districts to identify districts with extreme values.",
+          "encodings": [
+            {
+              "x": "soil_analysis_data.District"
+            },
+            {
+              "y": "soil_analysis_data.Organic Matter (%)"
+            },
+            {
+              "size": "soil_analysis_data.Nitrogen Content (kg/ha)"
+            }
+          ],
+          "markType": "tick"
+        }
+      },
+      {
+        "fields": [
+          "soil_analysis_data.Nitrogen Content (kg/ha)",
+          "soil_analysis_data.Potassium Content (kg/ha)",
+          "crop_production_data.Yield (quintals)"
+        ],
+        "id": 3,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Displays detailed values for points representing a specific district-nutrient-yield combination.",
+              "params": [
+                {
+                  "name": "hover_details",
+                  "select": {
+                    "encodings": [
+                      "x",
+                      "y"
+                    ],
+                    "type": "point"
+                  }
+                }
+              ]
+            },
+            "object": "visualization",
+            "verb": "hover"
+          }
+        ],
+        "level": "detail",
+        "task": [
+          3
+        ],
+        "usingParams": [
+          "district_focus"
+        ],
+        "visualization": {
+          "description": "Scatter plot analyzing nutrient ratios (e.g., nitrogen-to-potassium) and their correlation with crop yield.",
+          "encodings": [
+            {
+              "x": "soil_analysis_data.Nitrogen Content (kg/ha)"
+            },
+            {
+              "y": "soil_analysis_data.Potassium Content (kg/ha)"
+            },
+            {
+              "color": "crop_production_data.Yield (quintals)"
+            }
+          ],
+          "markType": "circle"
+        }
+      },
+      {
+        "components": "Interactive annotations for users to document insights dynamically.",
+        "fields": [
+          "soil_analysis_data.Soil Type",
+          "crop_production_data.Crop",
+          "crop_production_data.Yield (quintals)"
+        ],
+        "id": 4,
+        "interactions": [
+          {
+            "effect": {
+              "description": "Allows selection of specific soil types and crops to refine focus.",
+              "params": [
+                {
+                  "name": "soil_crop_selection",
+                  "select": {
+                    "encodings": [
+                      "x",
+                      "color"
+                    ],
+                    "type": "interval"
+                  }
+                }
+              ]
+            },
+            "object": "visualization",
+            "verb": "drag"
+          }
+        ],
+        "level": "insight",
+        "task": [
+          4
+        ],
+        "usingParams": [
+          "hover_details"
+        ],
+        "visualization": {
+          "description": "Box plots summarizing yield distributions for combinations of soil types and crops, displaying variability and outliers.",
+          "encodings": [
+            {
+              "x": "soil_analysis_data.Soil Type"
+            },
+            {
+              "y": "crop_production_data.Yield (quintals)"
+            },
+            {
+              "color": "crop_production_data.Crop"
+            }
+          ],
+          "markType": "boxplot"
+        }
+      }
+    ]
+  },
+  "requirements": {
+    "data": [
+      {
+        "id": "D1",
+        "reason": "District-based alignment links soil properties to crop yield measures, essential for understanding local agricultural performance.",
+        "requirement": "Integrate crop production data with soil analysis data by aligning on the common 'District' column to analyze the relationship between soil type and crop yield."
+      },
+      {
+        "id": "D2",
+        "reason": "Aggregated metrics allow for district-level analysis of soil quality and facilitate direct comparison with yield outcomes.",
+        "requirement": "Aggregate nutrient content data (e.g., organic matter, nitrogen, phosphorus, potassium) at the district level to characterize typical soil profiles in each district."
+      },
+      {
+        "id": "D3",
+        "reason": "Identifying high or low nutrient performance districts provides actionable insights for targeted soil improvement plans.",
+        "requirement": "Highlight top-performing districts for specific nutrients by finding extrema (max/min) values and their correlation with crop yield."
+      },
+      {
+        "id": "D4",
+        "reason": "Crop-specific evaluations are critical for linking soil suitability to the respective crops grown in each district.",
+        "requirement": "Enable filtering data by specific crops and soil types to examine nuanced relationships between soil properties and crop yield."
+      },
+      {
+        "id": "D5",
+        "reason": "Characterizing distributions allows for the identification of variability in yield performance under different soil conditions.",
+        "requirement": "Break down yield data into distribution summaries (e.g., mean, median, quartiles) for each combination of soil type and crop."
+      },
+      {
+        "id": "D6",
+        "reason": "Derived ratios can reveal balance-related patterns that affect crop yields more significantly than individual nutrients alone.",
+        "requirement": "Introduce soil nutrient ratios (e.g., nitrogen-to-potassium) as derived metrics for analysis to provide deeper insights into soil quality."
+      },
+      {
+        "id": "D7",
+        "reason": "A high-level view helps to establish overarching trends and associations before diving into detailed analyses.",
+        "requirement": "Generate a macro-level overview comparing aggregate crop yields across districts based on dominant soil types."
+      },
+      {
+        "id": "D8",
+        "reason": "Proximity-based comparisons may reveal regional patterns related to shared environmental or agricultural conditions.",
+        "requirement": "Enable comparison between neighboring districts' soil properties and yields for geographical correlation analysis."
+      }
+    ],
+    "interaction": [
+      {
+        "id": "I1",
+        "reason": "This allows users to focus on specific geographic areas, crops, or soil conditions for a more targeted analysis.",
+        "requirement": "Enable filtering by district, crop, and soil type through drop-down or checklist menus."
+      },
+      {
+        "id": "I2",
+        "reason": "Hover interactions provide contextual details while keeping the overall visualization uncluttered.",
+        "requirement": "Allow dynamic hover interactions to display detailed metadata (e.g., exact nutrient values, soil type, crop type, yield) in visualizations."
+      },
+      {
+        "id": "I3",
+        "reason": "This interaction ensures that users can see multivariate relationships and patterns across the entire analysis pipeline.",
+        "requirement": "Enable brushing and linking across multiple visualizations to highlight related data points (e.g., select a district and see its values propagate in all views)."
+      },
+      {
+        "id": "I4",
+        "reason": "Range filtering is crucial for finding trends in desired nutrient or yield thresholds, making the system more informative.",
+        "requirement": "Add sliders or range selectors to adjust thresholds for nutrient levels or yield ranges and dynamically update visualizations."
+      },
+      {
+        "id": "I5",
+        "reason": "This interaction facilitates cross-view exploration and helps users see specific soil types' influence on yield performance.",
+        "requirement": "Integrate selection of soil type in pie charts to dynamically filter other visualizations (e.g., bar charts or scatter plots)."
+      },
+      {
+        "id": "I6",
+        "reason": "This enables users to conduct regional analyses and compare performance across similar or neighboring districts.",
+        "requirement": "Allow grouping and comparison of multiple districts in scatter or heat map visualizations through multi-select capabilities."
+      },
+      {
+        "id": "I7",
+        "reason": "Drill-downs enable users to explore both broad trends and specific details in a seamless manner.",
+        "requirement": "Include drill-down functionality from macro-level overviews (e.g., yield trends across districts) to micro-level details (e.g., yield for specific crops)."
+      },
+      {
+        "id": "I8",
+        "reason": "Annotations allow users to document observations or hypotheses, enhancing collaborative or personal research efforts.",
+        "requirement": "Incorporate interactive annotations to add user insights or comments to specific data points on visualizations."
+      }
+    ],
+    "visualization": [
+      {
+        "id": "V1",
+        "reason": "Heat maps effectively visualize multivariate correlations, making them ideal for revealing relationships between nutrients and yield.",
+        "requirement": "Use a heat map to show the correlation between nutrient content and crop yields across districts for each soil type."
+      },
+      {
+        "id": "V2",
+        "reason": "Bar charts facilitate comparison both within and across districts for soil type-specific yield performance.",
+        "requirement": "Create bar charts for each district showing the average, maximum, and minimum yield for crops based on soil type and nutrient availability."
+      },
+      {
+        "id": "V3",
+        "reason": "Scatter plots help to visualize potential relationships or trade-offs between soil nutrient levels and crop yields.",
+        "requirement": "Include scatter plots for analyzing correlations between paired nutrient content values (e.g., nitrogen vs. potassium) and yield."
+      },
+      {
+        "id": "V4",
+        "reason": "Box plots are ideal for summarizing distributions, highlighting variability, and identifying outliers in crop yield data.",
+        "requirement": "Provide box plots of yield distributions for different soil types within each crop."
+      },
+      {
+        "id": "V5",
+        "reason": "Pie charts give an intuitive representation of the overall contribution of soil types to district yield performance.",
+        "requirement": "Use pie charts to show the proportion of soil types in each district and their associated yield performance."
+      },
+      {
+        "id": "V6",
+        "reason": "Line charts are helpful for time-series analysis, capturing how yields fluctuate across different soil profiles.",
+        "requirement": "Include line charts to track yield trends over time for key combinations of soil types and nutrient availability."
+      },
+      {
+        "id": "V7",
+        "reason": "Tick charts can highlight variations and benchmarks for nutrients quickly and clearly.",
+        "requirement": "Create a tick chart comparing nutrient levels across districts for a selected crop or soil type."
+      },
+      {
+        "id": "V8",
+        "reason": "Combined charts can reveal the interplay between land use and productivity in specific districts.",
+        "requirement": "Use a simple combined chart (e.g., bar and scatter on the same axes) to examine the relationship between area cultivated and yield across different districts."
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "corrReq": [
+        "D1",
+        "V1",
+        "I3",
+        "I6"
+      ],
+      "data": [
+        "District",
+        "Soil Type",
+        "Organic Matter (%)",
+        "Nitrogen Content (kg/ha)",
+        "Phosphorus Content (kg/ha)",
+        "Potassium Content (kg/ha)",
+        "Yield (quintals)"
+      ],
+      "id": 1,
+      "method": "Integrate crop production data with soil analysis data by aligning on the 'District' column. Create a heat map to visualize correlations between soil type and nutrient content against crop yield across districts.",
+      "objective": "Explore district-level relationships between soil properties and crop yield to identify patterns of soil suitability.",
+      "priority": 5,
+      "type": "retrieving values | filtering | computing derived values | correlating"
+    },
+    {
+      "corrReq": [
+        "D2",
+        "D3",
+        "V7",
+        "I6"
+      ],
+      "data": [
+        "District",
+        "Organic Matter (%)",
+        "Nitrogen Content (kg/ha)",
+        "Phosphorus Content (kg/ha)",
+        "Potassium Content (kg/ha)"
+      ],
+      "id": 2,
+      "method": "Aggregate nutrient content data at the district level. Use tick charts to compare nutrient levels across districts to find districts with extreme values for specific nutrients.",
+      "objective": "Identify top-performing districts for specific nutrients to inform soil improvement initiatives.",
+      "priority": 4,
+      "type": "aggregating | computing derived values | finding extrema | sorting"
+    },
+    {
+      "corrReq": [
+        "D6",
+        "V3",
+        "I4"
+      ],
+      "data": [
+        "Nitrogen Content (kg/ha)",
+        "Potassium Content (kg/ha)",
+        "Yield (quintals)"
+      ],
+      "id": 3,
+      "method": "Compute nutrient ratios (e.g., nitrogen-to-potassium) as derived metrics. Analyze these ratios using scatter plots and correlate ratios with crop yield across districts and soil types.",
+      "objective": "Uncover nutrient balance patterns that more strongly influence crop yield performance for precision agricultural practices.",
+      "priority": 3,
+      "type": "computing derived values | finding extrema | clustering | correlating"
+    },
+    {
+      "corrReq": [
+        "D4",
+        "D5",
+        "V4",
+        "I1"
+      ],
+      "data": [
+        "Soil Type",
+        "Crop",
+        "Yield (quintals)"
+      ],
+      "id": 4,
+      "method": "Filter data by specific crops and soil types. Use box plots to summarize yield distributions (mean, median, quartiles) for each combination of soil type and crop.",
+      "objective": "Analyze variability and outliers in yield performance under different soil conditions for crop-specific insights.",
+      "priority": 5,
+      "type": "retrieving values | characterizing distributions | filtering | correlating"
+    },
+    {
+      "corrReq": [
+        "D7",
+        "V5",
+        "I7"
+      ],
+      "data": [
+        "District",
+        "Soil Type",
+        "Yield (quintals)"
+      ],
+      "id": 5,
+      "method": "Generate a macro-level overview using pie charts to compare aggregate yields across districts based on dominant soil types. Provide drill-down capabilities to explore specific yield trends for crops.",
+      "objective": "Establish overarching trends between soil types and yields at the district level while enabling detailed analysis of specific crops.",
+      "priority": 4,
+      "type": "aggregating | computing derived values | characterizing distributions | correlating"
+    },
+    {
+      "corrReq": [
+        "D8",
+        "V1",
+        "V3",
+        "I6"
+      ],
+      "data": [
+        "District",
+        "Soil Type",
+        "Organic Matter (%)",
+        "Nitrogen Content (kg/ha)",
+        "Phosphorus Content (kg/ha)",
+        "Potassium Content (kg/ha)",
+        "Yield (quintals)"
+      ],
+      "id": 6,
+      "method": "Compare soil properties and yields between neighboring districts using multi-select filtering in scatter plots and heat maps. Highlight shared patterns in geographical proximity.",
+      "objective": "Uncover regional trends due to shared environmental or agricultural conditions for targeted improvement plans.",
+      "priority": 3,
+      "type": "retrieving values | filtering | geographical correlation analysis | clustering"
+    },
+    {
+      "corrReq": [
+        "V6",
+        "I4",
+        "I7"
+      ],
+      "data": [
+        "Date",
+        "Soil Type",
+        "Yield (quintals)",
+        "Organic Matter (%)",
+        "Nitrogen Content (kg/ha)",
+        "Phosphorus Content (kg/ha)",
+        "Potassium Content (kg/ha)"
+      ],
+      "id": 7,
+      "method": "Use line charts to track yield trends over time for combinations of soil types and nutrient availability. Enable filter adjustments to explore specific time ranges or nutrient thresholds dynamically.",
+      "objective": "Analyze temporal variations in yield influenced by soil profiles for insights into seasonality and long-term trends.",
+      "priority": 2,
+      "type": "retrieving values | computing derived values | time-series analysis | correlating"
+    },
+    {
+      "corrReq": [
+        "V8",
+        "I1"
+      ],
+      "data": [
+        "Area (hectares)",
+        "Yield (quintals)",
+        "Soil Type"
+      ],
+      "id": 8,
+      "method": "Create a combined chart with bar and scatter plots on shared axes to examine the relationship between land area cultivated and yield across districts, filtered by soil type.",
+      "objective": "Identify how land utilization impacts crop yield under different soil conditions.",
+      "priority": 2,
+      "type": "retrieving values | aggregating | filtering | correlating"
+    },
+    {
+      "corrReq": [
+        "V1",
+        "I8"
+      ],
+      "data": [
+        "District",
+        "Crop",
+        "Soil Type",
+        "Yield (quintals)",
+        "Organic Matter (%)",
+        "Nitrogen Content (kg/ha)"
+      ],
+      "id": 9,
+      "method": "Incorporate interactive annotations in scatter and heat maps to allow users to document observations or hypotheses based on nutrient correlations with crop yield.",
+      "objective": "Enhance collaboration and analysis by supporting user-added notes and insights directly within visualizations.",
+      "priority": 1,
+      "type": "retrieving values | filtering | annotating | deriving insights"
+    }
+  ]
+}

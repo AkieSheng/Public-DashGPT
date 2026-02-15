@@ -1,0 +1,1 @@
+"The updated design addresses normalization errors in task 1 and replaces incompatible visual methods (Voronoi/parallel coordinates) with Vega-Lite compatible encodings. Choropleth now uses actual customer counts, grouped bars replace heatmap for contract analysis, and linked brushing enables direct drill-down while maintaining system performance."

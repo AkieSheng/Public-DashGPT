@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "type": "aggregating values | sorting | characterizing distributions | finding extrema",
+    "data": [
+      "blinkit_products",
+      "blinkit_order_items",
+      "blinkit_orders"
+    ],
+    "method": "Aggregate total sales volumes and revenue contributions for each product and product category by summing quantity and calculating revenue (quantity x unit price) using group-by operations. Visualize this data in a bar chart for categories (V1) and a pie chart for percentage revenue contributions (V2).",
+    "objective": "Identify top-performing products and categories in terms of sales volumes and revenue to drive inventory and pricing decisions.",
+    "corrReq": [
+      "D1",
+      "D3",
+      "D4",
+      "V1",
+      "V2"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 2,
+    "type": "correlating | retrieving values | plotting relations",
+    "data": [
+      "blinkit_order_items",
+      "blinkit_products"
+    ],
+    "method": "Correlate unit prices of products with their sales volumes. Create a scatter plot with unit price on the x-axis and sales volume on the y-axis to assess price sensitivity of individual products (V3). Include a range slider for unit prices to allow interactive exploration of the relationship (I3).",
+    "objective": "Analyze price sensitivity to understand how changes in unit prices affect demand for individual products.",
+    "corrReq": [
+      "D2",
+      "V3",
+      "I3"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 3,
+    "type": "characterizing distributions | clustering | finding extrema",
+    "data": [
+      "blinkit_products",
+      "blinkit_order_items"
+    ],
+    "method": "Characterize the distribution of sales volumes and revenues across products and categories. Use box plots to highlight variability, outliers, and top-performing products/categories. Supplement with a bar chart to rank categories based on total revenue (V1).",
+    "objective": "Spot outliers and identify clusters of top-selling or underperforming products and categories.",
+    "corrReq": [
+      "D4",
+      "V1"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 4,
+    "type": "aggregating values | determining ranges | plotting temporal trends",
+    "data": [
+      "blinkit_orders",
+      "blinkit_order_items",
+      "blinkit_products"
+    ],
+    "method": "Aggregate sales volumes and revenues over time by grouping data by order_date (monthly, quarterly, yearly). Visualize using a line chart with time on the x-axis and metrics (sales volume/revenue) on the y-axis (V4). Enable temporal selectors (e.g., monthly, yearly) for insights into seasonal trends or recent performance (I5).",
+    "objective": "Understand temporal trends to identify seasonality or evaluate the effectiveness of promotional activities on sales and revenue.",
+    "corrReq": [
+      "D5",
+      "V4",
+      "I5"
+    ],
+    "priority": 4
+  },
+  {
+    "id": 5,
+    "type": "computing derived values | aggregating values | visualizing patterns",
+    "data": [
+      "blinkit_products",
+      "blinkit_orders",
+      "blinkit_order_items"
+    ],
+    "method": "Combine product category-level data with monthly aggregates of sales volume and revenue. Represent the results in a heat map with categories on the y-axis, months on the x-axis, and intensity showing sales volume/revenue (V5).",
+    "objective": "Highlight category performance trends and seasonal variability across months to pinpoint focus areas for promotions or inventory stocking.",
+    "corrReq": [
+      "D5",
+      "V5"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 6,
+    "type": "filtering | integrating data | finding anomalies",
+    "data": [
+      "blinkit_products",
+      "blinkit_orders",
+      "blinkit_order_items"
+    ],
+    "method": "Enable interactivity across all visualizations: add category or product-level filtering in bar charts, pie charts, and scatter plots (I1). Implement click interactions on pie charts to focus other visualizations on selected entities (I2). Provide hover interactions to display detailed metrics like unit price, revenue, and sales volumes in bar charts and scatter plots (I4).",
+    "objective": "Enhance user engagement and ability to investigate specific products, categories, and metrics for detailed comparative analysis.",
+    "corrReq": [
+      "I1",
+      "I2",
+      "I4"
+    ],
+    "priority": 5
+  },
+  {
+    "id": 7,
+    "type": "computing derived values | clustering",
+    "data": [
+      "blinkit_products",
+      "blinkit_order_items",
+      "blinkit_orders"
+    ],
+    "method": "Calculate product revenue drivers by combining unit price, quantity, and product category. Cluster products based on their revenue contribution, unit price, and sales volume. Use a bubble chart to represent clusters, where bubble size correlates with revenue contribution.",
+    "objective": "Cluster products to visually distinguish different revenue-driving groups and optimize inventory or promotional activities around these clusters.",
+    "corrReq": [
+      "D3",
+      "D4"
+    ],
+    "priority": 3
+  },
+  {
+    "id": 8,
+    "type": "finding anomalies",
+    "data": [
+      "blinkit_products",
+      "blinkit_order_items",
+      "blinkit_orders"
+    ],
+    "method": "Identify anomalies in sales performance by detecting drastic drops in revenue or sharp increases in sales volume relative to historical trends. Overlay anomalies on the line chart used for temporal trends (V4).",
+    "objective": "Spot unexpected changes in product/category performance to inform urgent corrective actions or capitalize on trends.",
+    "corrReq": [
+      "D5",
+      "V4"
+    ],
+    "priority": 3
+  }
+]

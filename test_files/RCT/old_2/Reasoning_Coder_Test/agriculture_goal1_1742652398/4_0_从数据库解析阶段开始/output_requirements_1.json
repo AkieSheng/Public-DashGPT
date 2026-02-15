@@ -1,0 +1,21 @@
+{
+  "data": [
+    {
+      "id": "D4",
+      "requirement": "Join soil_analysis_data via District column to enrich dataset with soil characteristics",
+      "reason": "Essential for cluster analysis as soil parameters (N/P/K) are unavailable in current joins"
+    },
+    {
+      "id": "DX",
+      "requirement": "Remove dependency on crop_price_data Date field for temporal analysis",
+      "reason": "Yield/water metrics are seasonal (Kharif/Rabi) rather than daily - transaction dates don't align with agricultural cycles"
+    }
+  ],
+  "visualization": [
+    {
+      "id": "V4",
+      "requirement": "Remove line chart temporal analysis visualization",
+      "reason": "Transaction dates from price data don't correlate with production/water metrics and would create misleading time-series interpretations"
+    }
+  ]
+}
